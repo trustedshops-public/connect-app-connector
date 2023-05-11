@@ -1,0 +1,37 @@
+import { create } from 'zustand'
+import { ITbStore } from './trustbadge/types'
+import { infoStore } from './info'
+import { authStore } from './auth'
+import { InfoStore } from './info/types'
+import { IAuthStore } from './auth/types'
+import { channelStore } from './channel'
+import { widgetsStore } from './widgets'
+import { IWidgetsStore } from './widgets/types'
+import { IChannelStore } from './channel/types'
+import { trustbadgeStore } from './trustbadge'
+import { notificationStore } from './notification'
+import { INotificationStore } from './notification/types'
+import { reviewInvitesStore } from './reviewInvites'
+import { IReviewInvitesStore, ReviewInvitesActionsStore } from './reviewInvites/types'
+import { reviewInvitesActionsStore } from './reviewInvites/reviewInvitesSendActions'
+export type AppStore = ITbStore &
+  InfoStore &
+  IAuthStore &
+  IChannelStore &
+  IWidgetsStore &
+  INotificationStore &
+  IReviewInvitesStore &
+  ReviewInvitesActionsStore
+
+const useStore = create<AppStore>((set, get) => ({
+  ...authStore(set, get),
+  ...infoStore(set, get),
+  ...channelStore(set, get),
+  ...widgetsStore(set, get),
+  ...trustbadgeStore(set, get),
+  ...notificationStore(set, get),
+  ...reviewInvitesStore(set, get),
+  ...reviewInvitesActionsStore(set, get),
+}))
+
+export default useStore

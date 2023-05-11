@@ -1,0 +1,10 @@
+phraseapp:
+  project_id: 303b1df5124fcc6ef756f2368366a0df
+  file_format: i18next
+  
+  push:
+    sources:
+      - file: ./src/locales/resources/*.json
+  pull:
+    targets:
+      - file: ./src/locales/resources/<locale_name>.json

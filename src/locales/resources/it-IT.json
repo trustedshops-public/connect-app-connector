@@ -1,0 +1,283 @@
+{
+  "application": {
+    "invites": {
+      "product": {
+        "description": {
+          "text": "Se hai già prenotato le recensioni prodotto come funzionalità aggiuntiva, puoi anche raccoglierle. Per farlo, ti basta spostare il cursore su \"attivo\". \nLe recensioni prodotto non sono ancora parte integrante del tuo contratto?  Allora prenota adesso le [%s]Recensioni di prodotto[%s].",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        },
+        "help": {
+          "text": "Le recensioni prodotto aiutano i e le clienti a farsi un’idea dei prodotti che destano il loro interesse sulla base di esperienze autentiche. In questo modo, già prima dell’acquisto è possibile fornire ai e alle clienti un prezioso aiuto per orientarsi, migliorando le performance e aumentando la fiducia. Leggi altro su [%s]Recensioni di prodotto[%s].",
+          "url_1": "https://help.etrusted.com/hc/it/sections/360008367812-Recensioni-dei-prodotti"
+        },
+        "title": "Invia degli inviti di recensione per i prodotti"
+      },
+      "send": {
+        "description": "Se un o una cliente invia un ordine al tuo shop, [%s]shopsystem[%s] Trusted Shops comunica la data di consegna prevista per tale ordine. Trusted Shops può utilizzare tali informazioni per aiutarti a inviare gli inviti di recensione nel momento ottimale ed evitare che i e le clienti ricevano gli inviti troppo presto.\nSeleziona la tua regola preferita per l’invio di inviti di recensione:",
+        "descriptionIntro": "Quando il tuo cliente effettua un ordine nel tuo negozio, [%s]shopsystem[%s] fornisce a Trusted Shops i dettagli di questo ordine. Trusted Shops può utilizzare queste informazioni per aiutarti a inviare gli inviti di recensione al momento giusto ed evitare che i clienti ricevano gli inviti di recensione troppo presto.\n\nSeleziona il tuo trigger preferito per l'invio degli inviti di recensione:",
+        "export": {
+          "button": "Export",
+          "description": "Per inviare inviti di recensione ai e alle clienti attuali, esporta un file CSV con i relativi dati. Tieni a mente che è necessaria l’approvazione dei e delle clienti per inoltrare il loro indirizzo e-mail a Trusted Shops.",
+          "help": {
+            "text": "Se non desideri raccogliere automaticamente le recensioni o se vuoi chiedere ai e alle clienti di inviare manualmente le recensioni, oltre a inviare automaticamente gli inviti, puoi usare [%s]Review Collector[%s].",
+            "url_1": "https://help.etrusted.com/hc/it/articles/360025038111-Cos-%C3%A8-la-raccolta-manuale-"
+          },
+          "step": {
+            "1": {
+              "option": "Esporta gli ordini effettuati negli ultimi giorni:",
+              "title": "1. Esporta ordini"
+            },
+            "2": {
+              "description": {
+                "text": "Accedi al tuo [%s]account eTrusted[%s] e carica il file CSV. Puoi trovare ulteriori informazioni su \"[%s]Inviare inviti manuali[%s]\".",
+                "url_1": "https://app.etrusted.[STAGE]",
+                "url_2": "https://help.etrusted.com/hc/it/articles/360025038111-Cos-%C3%A8-la-raccolta-manuale-"
+              },
+              "title": "2. Carica gli ordini per inviare gli inviti di recensione"
+            }
+          },
+          "title": "Invia gli inviti di recensione per gli ordini precedenti"
+        },
+        "help": {
+          "text": "Individuare il momento ottimale per inviare l’invito di recensione può essere decisivo per garantire un buon tasso di risposta.\nLeggi altro su [%s]Il momento migliore per un invito di recensione[%s].",
+          "url_1": "https://help.etrusted.com/hc/it/articles/360055245931--Quali-vantaggi-offre-la-data-di-attivazione-del-ritardo-di-consegna-"
+        },
+        "radioButton": {
+          "deliverydate": {
+            "note": {
+              "text": "Nota: Se hai impostato un ritardo di consegna nel tuo [%s]Centro di Controllo eTrusted[%s], questo verrà attivato una volta raggiunta la data di consegna stimata"
+            },
+            "text": "[%b]Usa la data di ritardo di consegna stimata[%b] per inviare inviti di recensione."
+          },
+          "notUse": {
+            "note": {
+              "text": "Nota: gli inviti di recensione verranno inviati come li hai impostati nel [%s]Centro di controllo eTrusted[%s]. La data di attivazione del ritardo della consegna (data stimata della consegna) non viene considerata. ",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Non utilizzare la data stimata della consegna per inviare inviti di recensione."
+          },
+          "orderstatus": {
+            "note": {
+              "check": {
+                "text": "Verifica nel Centro di Controllo eTrusted (regole per gli inviti o sezione per l'automazione) se il tipo di evento order_shipped è attivo o meno. Se l'evento non è attivo, non verranno inviati inviti di recensione."
+              },
+              "text": "Nota: Se hai impostato un ritardo di consegna nel tuo [%s]Centro di Controllo eTrusted [%s], il ritardo di consegna verrà attivato non appena lo stato dell'ordine cambia in \"Spedito\"."
+            },
+            "text": "[%b]Usa lo stato dell'ordine \"Spedito\"[%b] per inviare inviti di recensione.",
+            "warning": {
+              "text": "Prima di utilizzare questa opzione, assicurati di aver ottenuto il consenso dei clienti a ricevere inviti di recensione ai sensi di [%s]Art. 7 GDPR[%s]. Puoi trovare ulteriori informazioni nel [%s]Centro assistenza eTrusted[%s].",
+              "url_1": "https://gdprinfo.eu/it/it-article-7",
+              "url_2": "https://help.etrusted.com/hc/it/articles/360025759231-Consenso-per-l-invio-degli-inviti-di-recensione"
+            }
+          },
+          "standard": {
+            "note": {
+              "text": "Nota: Gli inviti di recensione saranno inviati come impostato nel tuo [%s]Centro di Controllo eTrusted[%s] senza prendere in considerazione ulteriori informazioni."
+            },
+            "text": "[%b]Usa le impostazioni del Centro di Controllo eTrusted[%b] per inviare inviti di recensione."
+          },
+          "use": {
+            "note": {
+              "text": "Nota: se hai impostato un ritardo di consegna nel tuo [%s]eTrusted Control Center[%s], questo scatta non appena viene raggiunta la data prevista.",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Utilizzate la data di consegna prevista per inviare gli inviti di recensione. "
+          }
+        },
+        "title": "Spedisci gli inviti di recensione al momento ottimale"
+      }
+    },
+    "routes": {
+      "authentication": "Autenticazione",
+      "channelSelector": "Canale selezionato",
+      "invites": "Inviti di recensione",
+      "settings": "Impostazioni",
+      "trustbadge": "Trustbadge",
+      "widgets": "Widgets"
+    },
+    "settings": {
+      "channel": {
+        "caution": "Tieni presente che la configurazione creata per il tuo negozio viene cancellata una volta selezionato un canale eTrusted diverso dal menù a discesa.\n",
+        "description": "Collega i tuoi negozi ai tuoi canali eTrusted.",
+        "title": "Impostazioni del canale"
+      },
+      "description": "Gestisci Easy Integration di Trusted Shops.",
+      "disconnect": {
+        "button": "Disconnessione",
+        "description": "Se disconnetti il collegamento tra Trusted Shops e il sistema del tuo negozio, le tue impostazioni di configurazione verranno eliminate.",
+        "help": {
+          "text": "Ti serve aiuto? [%s]Contattaci[%s].",
+          "url_1": "mailto:members@trustedshops.com"
+        },
+        "title": "Scollega Trusted Shops"
+      },
+      "popup": {
+        "submit": "Disconnessione",
+        "text": "Se clicchi su Disconnetti, tutte le impostazioni verranno eliminate. Non è possibile ripristinare le impostazioni.",
+        "titel": "Vuoi davvero disconnettere Trusted Shops dal tuo sistema e-commerce?"
+      },
+      "title": "Impostazioni"
+    },
+    "trustbadge": {
+      "description": "Il Trustbadge è il marchio più visibile di Trusted Shops e il modo migliore per creare fiducia. È anche essenziale per l’attivazione di recensioni e per la Protezione Acquirenti. ",
+      "expert": {
+        "help": {
+          "text": "Alla panoramica dei [%s]Parametri Trustbadge[%s].",
+          "url_1": "https://help.etrusted.com/hc/it/articles/360047497311"
+        }
+      },
+      "integrationmode": "Scegliere le impostazioni di integrazione",
+      "placement": {
+        "center": "Centro",
+        "desktop": "Posizionamento per gli e le utenti desktop:",
+        "inputDescription": "sposta verso l’alto per",
+        "left": "Sinistra",
+        "mobile": "posizionamento per gli e le utenti mobili:",
+        "pixels": "Pixel",
+        "right": "Destra"
+      },
+      "popup": {
+        "submit": "Disattivazione",
+        "text": "Se disattivi il Trustbadge, questo non verrà più mostrato. La Protezione Acquirenti e la raccolta di recensioni rimangono attive.",
+        "titel": "Vuoi davvero disattivare il Trustbadge?"
+      },
+      "radioButton": {
+        "expert": "Elabora il codice d’integrazione",
+        "standard": "Predefinito"
+      },
+      "subtitel": "Inizia con la funzionalità più importante di Trusted Shops",
+      "titel": "Trustbadge"
+    },
+    "widgets": {
+      "configuration": "Configurazione",
+      "contentType": {
+        "productReviews": "Recensioni prodotto\n",
+        "serviceReviews": "Recensioni servizio"
+      },
+      "create": "+ Crea un nuovo widget",
+      "description": "Utilizza i nostri widget per offrire ai tuoi e alle tue clienti una panoramica completa delle recensioni. Combina i widget con il nostro Trustbadge per ottenere la migliore visibilità possibile.",
+      "extension": {
+        "description": "Il link di ancoraggio del widget appare sotto il nome del prodotto e consente agli e alle utenti di scorrere in automatico il widget Lista completa delle recensioni.",
+        "title": "Ampliamento del widget di ancoraggio (opzionale):"
+      },
+      "name": {
+        "FullReviewList": "Lista completa delle recensioni",
+        "MiniStars": "Mini Stelle",
+        "ReviewCarousel": "Carosello di recensioni",
+        "TrustedStars": "Stelle Trusted"
+      },
+      "noWidgets": "Attualmente non hai nessun widget per questo canale, seleziona un altro canale o crea un nuovo widget.",
+      "popup": {
+        "submit": {
+          "text": "A eTrusted",
+          "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
+        },
+        "text": "- Clicca su \"Vai a eTrusted\" per eseguire il reindirezzamento al Centro di controllo.\n\n- Accedi e scegli un widget dalla libreria.\n\n- Clicca su \"Configura\", quindi sul pulsante \"Completa creazione widget\".\n\n- Per posizionare il widget nel tuo negozio, torna alle configurazioni del plugin.",
+        "title": "Desideri integrare un widget nel tuo negozio?"
+      },
+      "position": {
+        "custom": "Posizionamento manuale",
+        "footer": "Footer",
+        "header": "Header",
+        "homepage": "Pagina iniziale",
+        "leftRightMargin": "Margine sinistro/destro",
+        "productdescription": "Pagina prodotto (descrizione)",
+        "productlistings": "Lista dei prodotti",
+        "productname": "Pagina prodotto (titolo)",
+        "productpage": "Pagina prodotto (recensioni Trusted Shops)"
+      },
+      "productID": "ID prodotto",
+      "reload": "Ricarica la lista",
+      "status": {
+        "integrated": "Integrato",
+        "notIntegrated": "Azione necessaria"
+      },
+      "table": {
+        "header": {
+          "1": "Widget",
+          "2": "Stato",
+          "3": "Contenuto",
+          "4": "Luogo"
+        },
+        "title": "Widget attuali per {{ channel }}:"
+      },
+      "title": "Widgets: mostra le tue stelle e crea fiducia"
+    }
+  },
+  "authentication": {
+    "button": {
+      "submit": "Collega"
+    },
+    "client": "Client ID",
+    "credentials": {
+      "connect": {
+        "title": "Connetti il tuo shop"
+      },
+      "help": {
+        "button": {
+          "text": "Richiedere",
+          "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
+        },
+        "text": "Per collegare il tuo shop, hai bisogno di un Client ID e di un Client Secret. \n\nIl Client ID il Client Secret non corrispondono ai dati di accesso di eTrusted. \n\nEcco perché devi fare una richiesta per poterli ottenere.",
+        "title": "Hai appena iniziato?"
+      }
+    },
+    "error": "Errore: stai utilizzando le credenziali cliente corrette?",
+    "salesLink": {
+      "text": "[%s]Non sei ancora cliente?[%s]",
+      "url_1": "https://checkout.trustedshops.com"
+    },
+    "secret": "Client Secret",
+    "supporthelp": {
+      "text": "[%s]Hai bisogno di aiuto per creare il Client ID e il Client Secret?",
+      "url_1": "mailto:members@trustedshops.com"
+    },
+    "title": "Ti diamo il benvenuto a Easy Integration di Trusted Shops!"
+  },
+  "channelSelect": {
+    "info": "Nota: puoi modificare la tua scelta in qualsiasi momento nelle impostazioni",
+    "submit": "Salva",
+    "titel": "Inizia subito ad abbinare un canale",
+    "title": {
+      "etrusted": "Canali eTrusted",
+      "shopsystem": "[%]shopsystem[%] canali"
+    }
+  },
+  "global": {
+    "button": {
+      "cancel": "Annulla",
+      "submit": "Salva le modifiche"
+    },
+    "copyright": {
+      "text": "© [YEAR] Trusted Shops AG. Tutti i diritti riservati. [%s]Note legali e protezione dei dati[%s]",
+      "url_1": "https://www.trustedshops.it/note-legali/"
+    },
+    "help": {
+      "link": {
+        "text": "Apri le istruzioni passo-passo per l’integrazione",
+        "url_1": "https://help.etrusted.com/hc/it/articles/4905016318237"
+      },
+      "text": "Scopri come collegare il tuo negozio a Trusted Shops.",
+      "title": "Ti occorrono più informazioni?"
+    },
+    "notification": {
+      "error": {
+        "exportTimeout": "Riduci il numero di giorni esportati. Il nostro sistema è in grado di gestire solo una certa quantità di ordini.",
+        "productIdUnselected": "Seleziona un ID prodotto prima di salvare le modifiche",
+        "save": "Salvataggio dati non riuscito"
+      },
+      "success": {
+        "save": "Modifiche salvate con successo"
+      }
+    },
+    "placeholder": {
+      "channel": "Seleziona",
+      "location": "Seleziona una posizione",
+      "productid": "Seleziona l'ID del prodotto"
+    },
+    "slider": {
+      "active": "attivo",
+      "inactive": "inattivo"
+    }
+  }
+}

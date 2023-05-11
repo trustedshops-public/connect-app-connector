@@ -1,0 +1,283 @@
+{
+  "application": {
+    "invites": {
+      "product": {
+        "description": {
+          "text": "Wanneer je productbeoordelingen als extra feature hebt besteld, kun je deze ook verzamelen. Zet hiervoor de schuifregelaar op actief. \nMaken productbeoordelingen nog geen deel uit van je contract?  Dan kun [%s]je deze productbeoordelingen nu toevoegen[%s].",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        },
+        "help": {
+          "text": "Productbeoordelingen helpen klanten om, op basis van de ervaringen van anderen, hun eigen mening te vormen over de producten waarin ze geïnteresseerd zijn. Zo geef je jouw klanten waardevol advies voordat ze iets kopen. Dit heeft een positief effect op de performance van je webshop. Hier lees je meer over [%s]productbeoordelingen[%s].",
+          "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
+        },
+        "title": "Beoordelingsverzoeken voor producten versturen"
+      },
+      "send": {
+        "description": "Wanneer een klant een bestelling via je webshop plaatst, informeert [%s]shopsystem[%s] Trusted Shops over de verwachte leverdatum van deze bestelling. Trusted Shops gebruikt deze informatie om je te helpen om het beoordelingsverzoek op het optimale tijdstip te verzenden en om te voorkomen dat klanten beoordelingsverzoeken te vroeg ontvangen.\nSelecteer de gewenste trigger voor het verzenden van beoordelingsverzoeken:",
+        "descriptionIntro": "Wanneer je klant een bestelling plaatst via je webshop, verstrekt [%s]shopsystem[%s] hierover informatie aan Trusted Shops. Trusted Shops kan deze informatie gebruiken om je te helpen om op het juiste moment beoordelingsverzoeken te versturen en te voorkomen dat klanten het beoordelingsverzoek te vroeg ontvangen.\n\nWe raden je aan om een trigger te selecteren die bij jouw bedrijf én levertijden past:",
+        "export": {
+          "button": "Exporteren",
+          "description": "Om beoordelingsverzoeken naar je bestaande klanten te verzenden, dien je een CSV-bestand met hun gegevens te exporteren. Houd er rekening mee dat je de toestemming van je klanten nodig hebt om hun e-mailadressen met Trusted Shops te mogen delen.",
+          "help": {
+            "text": "Als je beoordelingen niet automatisch wil verzamelen of als je naast de automatische beoordelingsverzoeken ook handmatige beoordelingsverzoeken naar je klanten wil verzenden, kun je de [%s]Review Collector[%s] gebruiken.",
+            "url_1": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-"
+          },
+          "step": {
+            "1": {
+              "option": "Bestellingen exporteren die de afgelopen paar dagen werden geplaatst:",
+              "title": "1. Bestellingen exporteren"
+            },
+            "2": {
+              "description": {
+                "text": "Log in op je [%s]eTrusted-account[%s] en upload het CSV-bestand. Meer informatie vind je op ‘[%s]Handmatige beoordelingsverzoeken verzenden[%s]‘.",
+                "url_1": "https://app.etrusted.[STAGE]",
+                "url_2": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-"
+              },
+              "title": "2. Upload bestellingen om beoordelingsverzoeken te versturen"
+            }
+          },
+          "title": "Verstuur beoordelingsverzoeken voor eerdere bestellingen"
+        },
+        "help": {
+          "text": "Het tijdstip dat je een beoordelingsverzoek naar je klant stuurt, kan cruciaal zijn voor een goede respons.\nLees meer over [%s]het optimale tijdstip voor het verzenden van beoordelingsverzoeken[%s].\n",
+          "url_1": "https://help.etrusted.com/hc/nl/articles/360055245931-Wanneer-is-het-handig-om-een-activeringsdatum-voor-de-verzendtermijn-te-gebruiken-"
+        },
+        "radioButton": {
+          "deliverydate": {
+            "note": {
+              "text": "Let op: Heb je in het [%s]eTrusted Control Center[%s] een verzendvertraging ingesteld dan wordt de verzendvertraging geactiveerd zodra de geschatte leverdatum is bereikt"
+            },
+            "text": "[%b]Gebruik Geschatte Leverdatum[%b] om beoordelingsverzoeken te versturen."
+          },
+          "notUse": {
+            "note": {
+              "text": "Opgelet: beoordelingsverzoeken worden verzonden zoals jij ze in het <[%s]eTrusted Controlecentrum[%s] hebt ingesteld. Hierbij wordt met de activeringsdatum van de verzendvertraging (geschatte leverdatum) geen rekening gehouden. ",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Gebruik de geschatte leverdatum niet om beoordelingsverzoeken te verzenden."
+          },
+          "orderstatus": {
+            "note": {
+              "check": {
+                "text": "Zorg er daarbij voor dat het eventtype order_shipped in het eTrusted Control Center (onder Automatisering > Beoordelingsvoorwaarden) is geactiveerd. Staat het eventtype order_shipped namelijk op inactief, zullen er géén beoordelingsverzoeken worden verstuurd."
+              },
+              "text": "Let op: Heb je in het [%s]eTrusted Control Center [%s] een verzendvertraging ingesteld, dan wordt deze verzendvertraging getriggerd (en het beoordelingsverzoek verstuurd) zodra de bestelstatus verandert in 'Verzonden'."
+            },
+            "text": "[%b]Gebruik de bestelstatus 'Verzonden'[%b] om beoordelingsverzoeken te versturen.",
+            "warning": {
+              "text": "Voordat je deze optie gebruikt, moet je volgens [%s]Art. 7 AVG[%s] toestemming van je klanten hebben. Meer informatie vind je in het [%s]eTrusted Helpcenter[%s].",
+              "url_1": "https://gdprinfo.eu/nl/nl-article-7",
+              "url_2": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
+            }
+          },
+          "standard": {
+            "note": {
+              "text": "Let op: Beoordelingsverzoeken worden verstuurd zoals je in het [%s]eTrusted Control Center[%s] hebt ingesteld. Omdat dit een automatisch proces is, kan hierbij geen rekening worden gehouden met aanvullende informatie."
+            },
+            "text": "[%b]Gebruik de instellingen van het eTrusted Control Center[%b] om beoordelingsverzoeken te versturen."
+          },
+          "use": {
+            "note": {
+              "text": "Opgelet: Wanneer je in jouw [%s]eTrusted Controlecentrum[%s] een verzendvertraging hebt ingesteld, wordt deze verzendvertraging geactiveerd zodra de geschatte leverdatum is bereikt.",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Gebruik de verwachte leveringsdatum om beoordelingsverzoeken te verzenden. "
+          }
+        },
+        "title": "Verzend beoordelingsverzoeken op het optimale tijdstip"
+      }
+    },
+    "routes": {
+      "authentication": "Authenticatie",
+      "channelSelector": "Geselecteerd kanaal",
+      "invites": "Beoordelingsverzoeken",
+      "settings": "Instellingen",
+      "trustbadge": "Trustbadge",
+      "widgets": "Widgets"
+    },
+    "settings": {
+      "channel": {
+        "caution": "Houd er rekening mee dat de configuratie die voor je shop is gemaakt, wordt verwijderd zodra je een ander eTrusted-kanaal selecteert in het vervolgkeuzemenu.",
+        "description": "Koppel je webshops aan je eTrusted kanalen.",
+        "title": "Kanaalinstellingen"
+      },
+      "description": "Beheer hier je Trusted Shops Easy Integrations.",
+      "disconnect": {
+        "button": "Koppeling verbreken",
+        "description": "Als je de koppeling tussen Trusted Shops en je shopsysteem verbreekt, worden je configuratie-instellingen gewist.",
+        "help": {
+          "text": "Heb je hulp nodig? [%s]Neem dan contact met ons op[%s].",
+          "url_1": "mailto:members@trustedshops.com"
+        },
+        "title": "Trusted Shops verbreken"
+      },
+      "popup": {
+        "submit": "Koppeling verbreken",
+        "text": "Klik je op Verbinding verbreken dan wordt alles wat je hebt ingesteld, verwijderd. Het herstellen van deze instellingen is dan niet mogelijk.",
+        "titel": "Weet je zeker dat je Trusted Shops wilt loskoppelen van je shopsysteem?"
+      },
+      "title": "Instellingen"
+    },
+    "trustbadge": {
+      "description": "De Trustbadge is het meest zichtbare handelsmerk van Trusted Shops en de beste manier om vertrouwen te wekken. Het is ook essentieel voor het activeren van beoordelingen en de kopersbescherming. ",
+      "expert": {
+        "help": {
+          "text": "Ga naar het overzicht van [%s]Trustbadge parameters[%s].",
+          "url_1": "https://help.etrusted.com/hc/nl/articles/360047497311"
+        }
+      },
+      "integrationmode": "Kies uw integratie-instellingen",
+      "placement": {
+        "center": "Midden",
+        "desktop": "Plaatsing voor desktopgebruikers:",
+        "inputDescription": "Naar boven verschuiven om",
+        "left": "Links",
+        "mobile": "Plaatsing voor mobiele gebruikers:",
+        "pixels": "Pixels",
+        "right": "Rechts"
+      },
+      "popup": {
+        "submit": "Deactiveren",
+        "text": "Door de Trustbadge te deactiveren, wordt deze niet meer weergegeven. De kopersbescherming en het verzamelen van beoordelingen blijven wel actief.",
+        "titel": "Weet je zeker dat je de Trustbadge wil deactiveren?"
+      },
+      "radioButton": {
+        "expert": "Integratiecode bewerken",
+        "standard": "Standaard"
+      },
+      "subtitel": "Begin met de belangrijkste feature van Trusted Shops",
+      "titel": "Trustbadge"
+    },
+    "widgets": {
+      "configuration": "Configuratie",
+      "contentType": {
+        "productReviews": "Productbeoordelingen",
+        "serviceReviews": "Servicebeoordelingen"
+      },
+      "create": "+ Maak een nieuwe widget",
+      "description": "Gebruik onze widgets om je klanten een uitgebreid overzicht van de beoordelingen te geven. Combineer de widgets met onze Trustbadge voor de best mogelijke zichtbaarheid.",
+      "extension": {
+        "description": "De ankerlink van de widget verschijnt onder de productnaam en stelt gebruikers in staat automatisch naar de Full Review List widget te scrollen.",
+        "title": "Ankerwidget uitbreiding (optioneel):"
+      },
+      "name": {
+        "FullReviewList": "Full Review List",
+        "MiniStars": "Mini Stars",
+        "ReviewCarousel": "Review Carousel",
+        "TrustedStars": "Trusted Stars"
+      },
+      "noWidgets": "Op het moment heeft u geen widgets beschikbaar voor dit kanaal, gelieve een ander kanaal te kiezen of een nieuwe widget aan te maken.",
+      "popup": {
+        "submit": {
+          "text": "Ga naar eTrusted",
+          "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
+        },
+        "text": "- Klik op \"Ga naar eTrusted\" om vervolgens naar het Control Centre te gaan.\n\n- Log in en kies een widget uit de bibliotheek.\n\n- Klik op \"Configure\" en vervolgens op de knop 'Complete widget creation'.\n\n- Om de widget in je shop te plaatsen, keer je terug naar de plugin-configuraties.",
+        "title": "Wil je een widget in je shop integreren?"
+      },
+      "position": {
+        "custom": "Positie selecteren",
+        "footer": "Footer",
+        "header": "Header",
+        "homepage": "Startpagina",
+        "leftRightMargin": "Marge Links/Rechts",
+        "productdescription": "Productpagina (beschrijving)",
+        "productlistings": "Product lijsten",
+        "productname": "Productpagina (titel)",
+        "productpage": "Ficha de producto (Valoraciones de Trusted Shops)"
+      },
+      "productID": "Product ID",
+      "reload": "Lijst opnieuw laden",
+      "status": {
+        "integrated": "Geïntegreerd",
+        "notIntegrated": "Actie vereist"
+      },
+      "table": {
+        "header": {
+          "1": "Widget",
+          "2": "Status",
+          "3": "Content",
+          "4": "Locatie"
+        },
+        "title": "Huidige widgets voor {{ channel }}:"
+      },
+      "title": "Widgets - toon je sterren en creëer vertrouwen!"
+    }
+  },
+  "authentication": {
+    "button": {
+      "submit": "Koppelen"
+    },
+    "client": "Client ID",
+    "credentials": {
+      "connect": {
+        "title": "Verbind je shop"
+      },
+      "help": {
+        "button": {
+          "text": "Aanvragen",
+          "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
+        },
+        "text": "Om je shop te kunnen verbinden, heb je een Client ID en een Client Secret nodig.\n\nClient-ID en Client Secret zijn niet hetzelfde als je eTrusted inloggegevens.\n\nDaarom moet je een aanvraag indienen.",
+        "title": "Ben je hier nieuw?"
+      }
+    },
+    "error": "Foutmelding: zorg ervoor dat je de juiste Client Credentials gebruikt.",
+    "salesLink": {
+      "text": "[%s]Ben je nog lid?[%s]",
+      "url_1": "https://checkout.trustedshops.com"
+    },
+    "secret": "Client Secret",
+    "supporthelp": {
+      "text": "[%s]Hulp nodig bij het aanmaken van de Client ID en Client Secret?[%s]",
+      "url_1": "mailto:members@trustedshops.com"
+    },
+    "title": "Welkom bij Trusted Shops Easy Integration"
+  },
+  "channelSelect": {
+    "info": "Let op: je kunt je keuze op elk gewenst moment in de instellingen bewerken",
+    "submit": "Opslaan",
+    "titel": "Begin nu door een kanaal aan te passen",
+    "title": {
+      "etrusted": "eTrusted-kanalen",
+      "shopsystem": "[%]shopsystem[%] kanalen"
+    }
+  },
+  "global": {
+    "button": {
+      "cancel": "Annuleren",
+      "submit": "Wijzigingen opslaan"
+    },
+    "copyright": {
+      "text": "© [YEAR] Trusted Shops AG. Alle rechten voorbehouden. [%s]Colofon & gegevensbescherming[%s]",
+      "url_1": "https://www.trustedshops.nl/juridische-informatie/"
+    },
+    "help": {
+      "link": {
+        "text": "Stap-voor-stap-integratiehandleiding openen",
+        "url_1": "https://help.etrusted.com/hc/nl/articles/4905016318237"
+      },
+      "text": "Ontdek hoe je jouw webshop aan Trusted Shops koppelt.",
+      "title": "Heb je meer informatie nodig?"
+    },
+    "notification": {
+      "error": {
+        "exportTimeout": "Verminder het aantal dagen dat je voor de export wilt selecteren. Ons systeem kan slechts een bepaald aantal bestellingen verwerken.",
+        "productIdUnselected": "Selecteer een product-ID voordat je de wijzigingen opslaat",
+        "save": "Gegevens opslaan is mislukt"
+      },
+      "success": {
+        "save": "Wijzigingen opgeslagen"
+      }
+    },
+    "placeholder": {
+      "channel": "Selecteer",
+      "location": "Selecteer een positie",
+      "productid": "Selecteer product-id"
+    },
+    "slider": {
+      "active": "actief",
+      "inactive": "inactief"
+    }
+  }
+}

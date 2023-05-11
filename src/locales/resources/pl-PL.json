@@ -1,0 +1,283 @@
+{
+  "application": {
+    "invites": {
+      "product": {
+        "description": {
+          "text": "Jeśli masz już zarezerwowane opinie o produktach jako funkcję dodatkową, możesz rozpocząć ich gromadzenie. W tym celu przesuń suwak do pozycji aktywnej. \nNie zarezerwowałeś jeszcze opinii produktowych? [%s]Zamów opinie o produktach[%s]już teraz.",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        },
+        "help": {
+          "text": "Opinie o produktach pomagają Twoim klientom wyrobić sobie własne zdanie na temat interesujących ich produktów na podstawie doświadczeń innych osób. W ten sposób jeszcze przed zakupem oferujesz swoim klientom cenne i pomocne wskazówki, co pozytywnie wpływa na wyniki Twojego sklepu. Przeczytaj więcej na temat [%s]opinii o produktach[%s].",
+          "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
+        },
+        "title": "Wysyłaj zaproszenia do wystawienia opinii o produktach"
+      },
+      "send": {
+        "description": "Gdy klient składa zamówienie w Twoim sklepie, [%s]shopsystem[%s] informuje Trusted Shops o przewidywanym terminie dostawy zamówienia. Trusted Shops może wykorzystać te informacje, aby pomóc Ci wysyłać zaproszenia do wystawienia opinii w optymalnym momencie i uniknąć sytuacji, w których klienci otrzymają zaproszenia do wystawienia opinii zbyt wcześnie.\nWybierz preferowany wyzwalacz do wysyłania zaproszeń do wystawienia opinii.",
+        "descriptionIntro": "Gdy klient składa zamówienie w Twoim sklepie, system sklepu [%s]przekazuje Trusted Shops szczegółowe informacje o zamówieniu. Dzięki tym informacjom Trusted Shops pomoże Ci wysyłać zaproszenia do wystawienia opinii we właściwym czasie oraz uniknąć zbyt wczesnego otrzymywania zaproszeń do wystawienia opinii.\n\nWybierz preferowaną opcję wysyłania zaproszeń do wystawienia opinii:",
+        "export": {
+          "button": "Eksport",
+          "description": "Aby wysłać zaproszenia do wystawienia opinii do istniejących klientów, wyeksportuj plik CSV z ich danymi. Pamiętaj, że potrzebujesz zgody klientów na przekazanie ich adresu e-mail do Trusted Shops.",
+          "help": {
+            "text": "Jeśli nie chcesz zbierać opinii automatycznie, lub jeśli oprócz automatycznej wysyłki zaproszeń chcesz ręcznie poprosić klientów o podzielenie się opinią, możesz skorzystać z interfejsu [%s]Review Collector[%s].",
+            "url_1": "https://help.etrusted.com/hc/pl/articles/360025038111-Co-to-jest-Review-Collector-"
+          },
+          "step": {
+            "1": {
+              "option": "Eksportowanie zamówień złożonych w ciągu ostatnich kilku dni:",
+              "title": "1. Eksport zamówienia"
+            },
+            "2": {
+              "description": {
+                "text": "Zaloguj się [%s]na swoje konto eTrusted[%s] i załaduj plik CSV. Więcej informacji można znaleźć w sekcji „[%s]Ręczne wysyłanie zaproszeń[%s]”.",
+                "url_1": "https://app.etrusted.[STAGE]",
+                "url_2": "https://help.etrusted.com/hc/pl/articles/360025038111-Co-to-jest-Review-Collector-"
+              },
+              "title": "2. ładowanie zamówień w celu wysłania zaproszeń do wystawienia opinii"
+            }
+          },
+          "title": "Wyślij zaproszenia do wystawienia opinii dla wcześniejszych zamówień"
+        },
+        "help": {
+          "text": "Optymalny czas wysłania zaproszenia do oceny może mieć kluczowe znaczenie dla zapewnienia dobrego wskaźnika odpowiedzi.\nPrzeczytaj więcej na temat [%s]Optymalnego momentu wysyłki zaproszeń do wystawienia opinii[%s].",
+          "url_1": "https://help.etrusted.com/hc/pl/articles/360055245931-Dlaczego-korzystne-jest-wprowadzenie-daty-aktywacji-op%C3%B3%C5%BAnienia-wysy%C5%82ki-"
+        },
+        "radioButton": {
+          "deliverydate": {
+            "note": {
+              "text": "Uwaga: Jeśli w Twoim [%s] Centrum Kontrolnym eTrusted zostanie ustawione opóźnienie wysyłki[%s], opóźnienie zostanie uruchomione po osiągnięciu przewidywanej daty dostawy."
+            },
+            "text": "[%b]Użyj szacowanej daty dostawy[%b], aby wysłać zaproszenia do wystawienia opinii."
+          },
+          "notUse": {
+            "note": {
+              "text": "Uwaga: zaproszenia do wystawienia opinii są wysyłane zgodnie z ustawieniami podanymi w [%s]Centrum Kontrolnym eTrusted[%s]. Data aktywacji opóźnienia wysyłki (Estimated Delivery Date) nie jest tutaj uwzględniana. ",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Nie należy używać przewidywanej daty dostawy do wysyłki zaproszeń do wystawienia opinii."
+          },
+          "orderstatus": {
+            "note": {
+              "check": {
+                "text": "Jeśli typ zdarzenia order_shipped jest nieaktywny, sprawdź w Centrum Kontrolnym eTrusted (zaprasza reguły lub sekcję automatyzacji). Jeśli tak, zaproszenia do wystawienia opinii nie zostaną wysłane."
+              },
+              "text": "Uwaga: Jeśli w Twoim [%s] Centrum Kontrolnym eTrusted ustawiono opóźnienie wysyłki [%s], opóźnienie zostanie uruchomione, gdy status zamówienia zmieni się na „Wysłane”."
+            },
+            "text": "[%b]Użyj statusu zamówienia „Wysłane”[%b], aby wysłać zaproszenia do wystawienia opinii.",
+            "warning": {
+              "text": "Przed skorzystaniem z tej opcji należy uzyskać zgodę klientów zgodnie z [%s]art. 7 RODO[%s]. Więcej informacji można znaleźć w [%s]Centrum Pomocy eTrusted[%s].",
+              "url_1": "https://gdprinfo.eu/pl/pl-article-7",
+              "url_2": "https://help.etrusted.com/hc/pl/articles/360025759231-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii"
+            }
+          },
+          "standard": {
+            "note": {
+              "text": "Uwaga: Zaproszenia do wystawienia opinii zostaną wysłane zgodnie z konfiguracją w Twoim [%s] Centrum Kontrolnym eTrusted[%s] bez uwzględnienia dodatkowych informacji."
+            },
+            "text": "[%b]Użyj ustawień Centrum Kontrolnego eTrusted[%b], aby wysyłać zaproszenia do wystawienia opinii."
+          },
+          "use": {
+            "note": {
+              "text": "Uwaga: Jeśli ustawiłeś opóźnienie wysyłki w swoim [%s]eTrusted Control Center[%s], opóźnienie wysyłki zostanie uruchomione, gdy tylko zostanie osiągnięta oczekiwana data.",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Użyj oczekiwanej daty dostawy, aby wysłać zaproszeń do oceny. "
+          }
+        },
+        "title": "Wysyłka zaproszeń do wystawienia opinii w optymalnym momencie"
+      }
+    },
+    "routes": {
+      "authentication": "Uwierzytelnienie",
+      "channelSelector": "Wybrany kanał",
+      "invites": "Zaproszenia do wystawienia opinii",
+      "settings": "Ustawienia",
+      "trustbadge": "Trustbadge",
+      "widgets": "Widgety"
+    },
+    "settings": {
+      "channel": {
+        "caution": "Pamiętaj, że po wybraniu innego kanału eTrusted z listy rozwijanej konfiguracja Twojego sklepu zostanie usunięta.",
+        "description": "Połącz swoje sklepy z kanałami eTrusted.",
+        "title": "Ustawienia kanałów"
+      },
+      "description": "Zarządzaj łatwymi Łatwa Integracja Trusted Shops.",
+      "disconnect": {
+        "button": "Rozłącz połączenie",
+        "description": "Jeśli rozłączysz połączenie między Trusted Shops a swoim systemem sklepowym, Twoje ustawienia konfiguracyjne zostaną usunięte.",
+        "help": {
+          "text": "Potrzebujesz wsparcia? [%s]Skontaktuj się z nami[%s].",
+          "url_1": "mailto:members@trustedshops.com"
+        },
+        "title": "Rozłącz się z Trusted Shops"
+      },
+      "popup": {
+        "submit": "Rozłącz połączenie",
+        "text": "Po kliknięciu opcji Rozłącz połączenie wszystkie skonfigurowane ustawienia zostaną usunięte. Przywrócenie ustawień nie jest możliwe.",
+        "titel": "Czy na pewno chcesz odłączyć Trusted Shops od swojego systemu sklepowego?"
+      },
+      "title": "Ustawienia"
+    },
+    "trustbadge": {
+      "description": "Trustbadge jest najbardziej widocznym znakiem towarowym Trusted Shops i najlepszym sposobem budowania zaufania. Jest on również niezbędny do aktywacji opinii i Ochrony Kupującego. ",
+      "expert": {
+        "help": {
+          "text": "Przejdź do przeglądu [%s]parametrów Trustbadge[%s].",
+          "url_1": "https://help.etrusted.com/hc/pl/articles/360047497311"
+        }
+      },
+      "integrationmode": "Wybierz ustawienia integracji",
+      "placement": {
+        "center": "Na środku",
+        "desktop": "Umieszczenie dla użytkowników komputerów stacjonarnych:",
+        "inputDescription": "Przesuń w górę o",
+        "left": "Po lewej",
+        "mobile": "Umieszczenie dla użytkowników mobilnych:",
+        "pixels": "Pixel",
+        "right": "Po prawej"
+      },
+      "popup": {
+        "submit": "Dezaktywuj",
+        "text": "Po dezaktywacji Trustbadge nie będzie już wyświetlany. Ochrona Kupującego i zbieranie opinii pozostają aktywne.",
+        "titel": "Czy na pewno chcesz dezaktywować Trustbadge?"
+      },
+      "radioButton": {
+        "expert": "Edytuj kod integracji",
+        "standard": "Standardowy"
+      },
+      "subtitel": "Zacznij od najważniejszej funkcji Trusted Shops",
+      "titel": "Trustbadge"
+    },
+    "widgets": {
+      "configuration": "Konfiguracja",
+      "contentType": {
+        "productReviews": "Opinii o produktach",
+        "serviceReviews": "Opinie dotyczące obsługi"
+      },
+      "create": "+ Utwórz nowy widget",
+      "description": "Skorzystaj z naszych widgetów, aby zapewnić swoim klientom kompleksowy przegląd opinii. Połącz widgety z naszym znakiem jakości Trustbadge, aby uzyskać jak najlepszą widoczność.",
+      "extension": {
+        "description": "Link odsyłający widgetu pojawia się pod nazwą produktu i umożliwia użytkownikom automatyczne przewinięcie w dół do widgetu pełnej listy opinii.",
+        "title": "Rozszerzenie widgetu odsyłającego (opcjonalne):"
+      },
+      "name": {
+        "FullReviewList": "Pełna lista opinii",
+        "MiniStars": "Gwiazdki w wersji mini",
+        "ReviewCarousel": "Karuzela z opiniami",
+        "TrustedStars": "Gwiazdki w wersji rozszerzonej\n"
+      },
+      "noWidgets": "Obecnie nie posiadasz żadnych widżetów dla tego kanału, wybierz inny kanał lub stwórz nowy widżet.",
+      "popup": {
+        "submit": {
+          "text": "Przejdź do eTrusted",
+          "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
+        },
+        "text": "- Kliknij \"Przejdź do eTrusted\" i przejdź do Centrum Kontrolnego.\n\n- Zaloguj się i wybierz widget z biblioteki.\n\n- Kliknij \"Konfiguruj\", a następnie przycisk „Zakończ tworzenie widgetu”.\n\n- Aby umieścić widget w swoim sklepie, wróć do konfiguracji wtyczki.",
+        "title": "Czy chcesz zintegrować widget ze swoim sklepem?"
+      },
+      "position": {
+        "custom": "Manualne ulokowanie",
+        "footer": "Stopka",
+        "header": "Nagłówek",
+        "homepage": "Strona główna",
+        "leftRightMargin": "Margines lewy/prawy",
+        "productdescription": "Strona produktu (opis)",
+        "productlistings": "Listy produktów",
+        "productname": "Strona produktu (tytuł)",
+        "productpage": "Strona produktu (opinie Trusted Shops)"
+      },
+      "productID": "ID produktu",
+      "reload": "Wczytaj listę ponownie",
+      "status": {
+        "integrated": "Zignorowany",
+        "notIntegrated": "Wymagane działania"
+      },
+      "table": {
+        "header": {
+          "1": "Widget",
+          "2": "Status",
+          "3": "Treść",
+          "4": "Miejscowość"
+        },
+        "title": "Aktualne widgety dla {{ channel }}:"
+      },
+      "title": "Widgety – pokaż swoje gwiazdki, wzbudź zaufanie"
+    }
+  },
+  "authentication": {
+    "button": {
+      "submit": "Połącz"
+    },
+    "client": "Client ID",
+    "credentials": {
+      "connect": {
+        "title": "Połącz swój sklep"
+      },
+      "help": {
+        "button": {
+          "text": "Zapytanie ofertowe",
+          "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
+        },
+        "text": "Aby połączyć swój sklep, potrzebujesz ID klienta i Client Secret.\n\nIdentyfikator klienta i Client Secret nie są takie same jak Twoje dane logowania do eTrusted.\n\nDlatego musisz złożyć wniosek.",
+        "title": "Jesteś tu nowy?"
+      }
+    },
+    "error": "Błąd: upewnij się, że używasz prawidłowych danych uwierzytelniających Client Credentials.",
+    "salesLink": {
+      "text": "[%s]Nie jesteś jeszcze naszym klientem?[%s]",
+      "url_1": "https://checkout.trustedshops.com"
+    },
+    "secret": "Client Secret",
+    "supporthelp": {
+      "text": "[%s]Potrzebujesz pomocy przy tworzeniu ID klienta i Client Secret?[%s]",
+      "url_1": "mailto:members@trustedshops.com"
+    },
+    "title": "Witamy w Łatwa Integracja Trusted Shops"
+  },
+  "channelSelect": {
+    "info": "Uwaga: wybór można w każdej chwili zmienić w ustawieniach",
+    "submit": "Zapisz",
+    "titel": "Zacznij już teraz, od dopasowania kanału",
+    "title": {
+      "etrusted": "Kanały eTrusted",
+      "shopsystem": "Kanały [%]shopsystem[%]"
+    }
+  },
+  "global": {
+    "button": {
+      "cancel": "Anuluj",
+      "submit": "Zapisz zmiany"
+    },
+    "copyright": {
+      "text": "© [YEAR] Trusted Shops AG. All rights reserved. [%s]Imprint & data privacy[%s]",
+      "url_1": "https://www.trustedshops.pl/dane-firmy-ochrona-danych/"
+    },
+    "help": {
+      "link": {
+        "text": "Instrukcja krok po kroku dotycząca integracji",
+        "url_1": "https://help.etrusted.com/hc/pl/articles/4905016318237"
+      },
+      "text": "Dowiedz się, jak możesz połączyć swój sklep z Trusted Shops.",
+      "title": "Czy potrzebujesz więcej szczegółowych informacji?"
+    },
+    "notification": {
+      "error": {
+        "exportTimeout": "Zmniejsz liczbę wyeksportowanych dni. Nasz system obsługuje tylko określoną liczbę zamówień.",
+        "productIdUnselected": "Wybierz identyfikator produktu przed zapisaniem zmian",
+        "save": "Zapisywanie danych nie powiodło się"
+      },
+      "success": {
+        "save": "Zmiany zostały zapisane"
+      }
+    },
+    "placeholder": {
+      "channel": "Wybierz",
+      "location": "Wybierz położenie",
+      "productid": "Wybierz identyfikator produktu"
+    },
+    "slider": {
+      "active": "aktywny",
+      "inactive": "nieaktywny"
+    }
+  }
+}

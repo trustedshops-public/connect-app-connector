@@ -1,0 +1,283 @@
+{
+  "application": {
+    "invites": {
+      "product": {
+        "description": {
+          "text": "Si vous avez déjà souscrit aux avis produits comme fonction supplémentaire, vous pouvez également les collecter. Pour ce faire, déplacez le curseur sur la position « actif ». \nLes avis produits ne font pas encore partie de votre contrat ?  Alors [%s]souscrivez aux avis produits[%s] dès maintenant.",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        },
+        "help": {
+          "text": "Les avis produits aident votre clientèle à se faire une idée des produits qui les intéressent grâce aux expériences d’autres clientes et clients. De cette manière, vous offrez à vos clients une aide précieuse avant même l’achat, ce qui aura des conséquences positives sur les statistiques de votre boutique. Apprenez-en plus sur les [%s]avis produits[%s].",
+          "url_1": "https://help.etrusted.com/hc/fr/sections/360008367812-Critiques-de-produits"
+        },
+        "title": "Envoyez des invitations d’avis pour vos produits"
+      },
+      "send": {
+        "description": "Quand une cliente ou un client passe commande sur votre boutique, [%s]shopsystem[%s] communique à Trusted Shops la date de livraison prévue pour cette commande. Trusted Shops peut utiliser ces informations pour vous aider à envoyer des invitations d’avis au moment idéal et à éviter que les clientes et clients ne reçoivent des invitations d’avis trop tôt.\nVeuillez choisir le déclencheur souhaité pour l’envoi des invitations d’avis :",
+        "descriptionIntro": "Lorsque votre client passe une commande dans votre boutique, [%s]shopsystem[%s] fournit des détails sur cette commande à Trusted Shops. Trusted Shops peut utiliser ces informations pour vous aider à envoyer des invitations d’avis au bon moment et éviter que les clients reçoivent des invitations d’avis trop tôt.\n\nVeuillez sélectionner votre élément déclencheur préféré pour l’envoi des invitations d’avis :",
+        "export": {
+          "button": "Export",
+          "description": "Pour envoyer des invitations d’avis à votre clientèle existante, veuillez exporter un fichier CSV avec leurs données. Veuillez noter que vous avez besoin de l’accord des clientes et clients pour transmettre leur adresse e-mail à Trusted Shops.",
+          "help": {
+            "text": "Si vous ne souhaitez pas collecter les avis de manière automatique ou si vous souhaitez demander manuellement à votre clientèle de donner leur avis, en plus de l’envoi automatique des invitations, vous pouvez utiliser le [%s]collecteur d’avis[%s].",
+            "url_1": "https://help.etrusted.com/hc/fr/articles/360025038111-Qu-est-ce-que-le-Review-Collector-"
+          },
+          "step": {
+            "1": {
+              "option": "Exporter les commandes passées au cours des derniers Nombre jours :",
+              "title": "1. Exporter commandes"
+            },
+            "2": {
+              "description": {
+                "text": "Connectez-vous sur votre [%s]compte eTrusted[%s] et téléchargez le fichier CSV. Vous trouverez des informations supplémentaires dans « [%s]Envoyer des invitations manuelles[%s] ».",
+                "url_1": "https://app.etrusted.[STAGE]",
+                "url_2": "https://help.etrusted.com/hc/fr/articles/360025038111-Qu-est-ce-que-le-Review-Collector-"
+              },
+              "title": "2. Télécharger les commandes pour envoyer les invitations d’avis"
+            }
+          },
+          "title": "Envoyez les invitations d’avis pour des commandes antérieures"
+        },
+        "help": {
+          "text": "Le moment idéal pour l’envoi de votre invitation d’avis peut être décisif afin de garantir un bon taux de conversion.\nApprenez-en plus sur [%s]le moment idéal pour envoyer vos invitations d’avis[%s].",
+          "url_1": "https://help.etrusted.com/hc/fr/articles/360055245931-Comment-puis-je-b%C3%A9n%C3%A9ficier-de-la-date-d-activation-du-d%C3%A9lai-d-envoi-"
+        },
+        "radioButton": {
+          "deliverydate": {
+            "note": {
+              "text": "Attention : Si vous avez défini un délai d’envoi dans votre [%s]Centre de contrôle eTrusted[%s], le délai d’envoi sera déclenché une fois la Date de livraison estimée atteinte"
+            },
+            "text": "[%b]Utilisez la date de livraison estimée[%b] pour envoyer des invitations d’avis."
+          },
+          "notUse": {
+            "note": {
+              "text": "Remarque : les invitations d’avis sont expédiées selon les paramètres que vous avez choisis dans le [%s]Centre de Contrôle eTrusted[%s]. La date d’activation du délai d’envoi (Estimated Delivery Date) ne sera pas prise en compte. ",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Ne pas utiliser la date de livraison prévue pour l’envoi de vos invitations d’avis."
+          },
+          "orderstatus": {
+            "note": {
+              "check": {
+                "text": "Veuillez vérifier dans le Centre de Contrôle eTrusted (section règles d’invitation ou automatisation) si le type d’événement order_shipped est désactivé. Dans ce cas, aucune invitation d’avis ne sera envoyée."
+              },
+              "text": "Attention : Si vous avez défini un délai d’envoi dans votre [%s]Centre de Contrôle eTrusted [%s], le délai d’envoi sera déclenché une fois que le statut de la commande passera à « Expédié »."
+            },
+            "text": "[%b]Utilisez le statut de commande « Expédié »[%b] pour envoyer des invitations d’avis.",
+            "warning": {
+              "text": "Avant d’utiliser cette option, obtenez le consentement de vos clients conformément à [%s]l’art. 7 RGPD[%s]. Vous trouverez de plus amples informations dans le [%s]Centre d’aide eTrusted[%s].",
+              "url_1": "https://gdprinfo.eu/fr/fr-article-7",
+              "url_2": "https://help.etrusted.com/hc/fr/articles/360025759231-Consentement-%C3%A0-l-envoi-d-invitations-%C3%A0-%C3%A9mettre-un-avis"
+            }
+          },
+          "standard": {
+            "note": {
+              "text": "Attention : Les invitations d’avis seront envoyées comme configuré dans votre [%s]Centre de Contrôle eTrusted[%s] sans prendre en compte d’informations supplémentaires."
+            },
+            "text": "[%b]Utilisez les paramètres du Centre de Contrôle eTrusted[%b] pour envoyer des invitations d’avis."
+          },
+          "use": {
+            "note": {
+              "text": "Remarque : si vous avez paramétré un délai d’envoi dans votre [%s]Centre de Contrôle eTrusted[%s], le délai d’envoi est déclenché dès que la date prévue est atteinte.",
+              "url_1": "https://app.etrusted.[STAGE]"
+            },
+            "text": "Utilisez la date de livraison prévue pour envoyer les invitations d’avis. "
+          }
+        },
+        "title": "Envoyez les invitations d’avis au moment idéal"
+      }
+    },
+    "routes": {
+      "authentication": "Authentification",
+      "channelSelector": "Canal sélectionné",
+      "invites": "Invitations d’avis",
+      "settings": "Paramètres",
+      "trustbadge": "Trustbadge",
+      "widgets": "Widgets"
+    },
+    "settings": {
+      "channel": {
+        "caution": "Sachez que la configuration effectuée pour votre boutique est supprimée une fois que vous avez sélectionné un autre canal eTrusted dans le menu déroulant.",
+        "description": "Associez vos boutiques avec vos canaux eTrusted.",
+        "title": "Paramètres des canaux"
+      },
+      "description": "Gérez vos « Easy Integrations » de Trusted Shops.",
+      "disconnect": {
+        "button": "Dissocier",
+        "description": "Si vous dissociez Trusted Shops de votre système de boutiques, vos paramètres de configuration seront effacés.",
+        "help": {
+          "text": "Avez-vous besoin d’aide ? [%s]Contactez-nous.[%s]",
+          "url_1": "mailto:members@trustedshops.com"
+        },
+        "title": "Dissocier Trusted Shops"
+      },
+      "popup": {
+        "submit": "Dissocier",
+        "text": "En cliquant sur dissocier, tout ce que vous avez configuré sera supprimé. Il n’est pas possible de restaurer vos paramètres.",
+        "titel": "Voulez-vous vraiment déconnecter Trusted Shops de votre système de boutique ?"
+      },
+      "title": "Paramètres"
+    },
+    "trustbadge": {
+      "description": "Le Trustbadge est la marque la plus visible de Trusted Shops et le meilleur moyen de créer un climat de confiance. Il est également essentiel pour l’activation de vos avis et de la protection acheteur. ",
+      "expert": {
+        "help": {
+          "text": "Rendez-vous sur l’aperçu des [%s]paramètres Trustbadge[%s].",
+          "url_1": "https://help.etrusted.com/hc/fr/articles/360047497311"
+        }
+      },
+      "integrationmode": "Choisissez vos paramètres d'intégration ",
+      "placement": {
+        "center": "Centre",
+        "desktop": "Placement pour les utilisateurs d’ordinateurs fixes",
+        "inputDescription": "Déplacer vers le haut",
+        "left": "Gauche",
+        "mobile": "Placement pour les utilisateurs d’appareils mobiles",
+        "pixels": "Pixel",
+        "right": "Droite"
+      },
+      "popup": {
+        "submit": "Désactiver",
+        "text": "Si vous désactivez le Trustbadge, il ne s’affiche plus. Votre protection acheteur et la collecte d’avis restent actives.",
+        "titel": "Êtes-vous sûr(e) de vouloir désactiver le Trustbadge ?"
+      },
+      "radioButton": {
+        "expert": "Modifier le code d’intégration",
+        "standard": "Standard"
+      },
+      "subtitel": "Démarrez avec la fonction la plus importante de Trusted Shops",
+      "titel": "Trustbadge"
+    },
+    "widgets": {
+      "configuration": "Configuration",
+      "contentType": {
+        "productReviews": "Avis produit",
+        "serviceReviews": "Avis service"
+      },
+      "create": "+ Créez un nouveau widget",
+      "description": "Utilisez nos widgets pour offrir à votre clientèle un aperçu complet des avis. Combinez les widgets avec notre Trustbadge afin d’obtenir la meilleure visibilité possible.",
+      "extension": {
+        "description": "Le lien d’ancrage du widget apparaît sous le nom du produit et permet aux utilisateurs de faire défiler la page automatiquement jusqu’au widget de la liste d'avis.",
+        "title": "Extension widget ancrage (en option) :"
+      },
+      "name": {
+        "FullReviewList": "Liste d'avis",
+        "MiniStars": "Mini Stars",
+        "ReviewCarousel": "Carrousel d'avis",
+        "TrustedStars": "Trusted Stars"
+      },
+      "noWidgets": "Vous n'avez actuellement aucun widget pour ce canal, sélectionnez un autre canal ou créez un nouveau widget.",
+      "popup": {
+        "submit": {
+          "text": "Aller vers eTrusted",
+          "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
+        },
+        "text": "- Cliquez sur \"Aller à eTrusted\" vous serez ensuite redirigé vers le Centre de contrôle.\n\n- Connectez-vous et choisissez un widget dans la bibliothèque.\n\n- Cliquez sur \"Configurer\", puis sur le bouton \"Terminer la création du widget\".\n\n- Pour placer le widget dans votre boutique, revenez à vos configurations de plug-in.",
+        "title": "Souhaitez-vous intégrer un widget dans votre boutique ?"
+      },
+      "position": {
+        "custom": "Positionnement manuel ",
+        "footer": "Footer",
+        "header": "Header",
+        "homepage": "Page d'accueil",
+        "leftRightMargin": "Marge gauche/droite",
+        "productdescription": "Page produit (Description)",
+        "productlistings": "Listes produits",
+        "productname": "Page produit (titre)",
+        "productpage": "Page produit (Avis Trusted Shops)"
+      },
+      "productID": "Identifiant produit",
+      "reload": "Recharger la liste",
+      "status": {
+        "integrated": "Intégré",
+        "notIntegrated": "Action nécessaire"
+      },
+      "table": {
+        "header": {
+          "1": "Widget",
+          "2": "Statut",
+          "3": "Contenu",
+          "4": "Emplacement"
+        },
+        "title": "Widgets courants pour {{ channel }}:"
+      },
+      "title": "Widgets - montrez vos étoiles, créez un climat de confiance"
+    }
+  },
+  "authentication": {
+    "button": {
+      "submit": "Associer"
+    },
+    "client": "Client ID",
+    "credentials": {
+      "connect": {
+        "title": "Connectez votre boutique"
+      },
+      "help": {
+        "button": {
+          "text": "Demander",
+          "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
+        },
+        "text": "Pour connecter votre boutique, vous avez besoin d’un identifiant client et d’un secret client.\n\nL’ID client et le secret client ne sont pas identiques à vos données de connexion eTrusted.\n\nC’est pourquoi vous devez en faire la demande.",
+        "title": "Êtes-vous nouveau ici ?"
+      }
+    },
+    "error": "Erreur : assurez-vous d’utiliser les bonnes Client Credentials.",
+    "salesLink": {
+      "text": "[%s]Vous n’êtes pas encore cliente/client ?",
+      "url_1": "https://checkout.trustedshops.com"
+    },
+    "secret": "Client Secret",
+    "supporthelp": {
+      "text": "[%s]Besoin d’aide pour créer votre identifiant client et le secret client ?[%s]",
+      "url_1": "mailto:members@trustedshops.com"
+    },
+    "title": "Bienvenue chez Trusted Shops Easy Integration !"
+  },
+  "channelSelect": {
+    "info": "Attention : vous pouvez modifier votre choix à tout moment dans les paramètres",
+    "submit": "Enregistrer",
+    "titel": "Commencez dès maintenant par faire correspondre un canal",
+    "title": {
+      "etrusted": "Canaux eTrusted",
+      "shopsystem": "Canaux [%]shopsystem[%]"
+    }
+  },
+  "global": {
+    "button": {
+      "cancel": "Annuler",
+      "submit": "Enregistrer les modifications"
+    },
+    "copyright": {
+      "text": "© [YEAR] Trusted Shops AG. Tous droits réservés. [%s]Mentions légales & protection des données[%s]",
+      "url_1": "https://www.trustedshops.fr/mentions-legales-et-protection-des-donnees/"
+    },
+    "help": {
+      "link": {
+        "text": "Ouvrir les instructions pas à pas pour l’intégration",
+        "url_1": "https://help.etrusted.com/hc/fr/articles/4905016318237"
+      },
+      "text": "Apprenez à associer votre boutique et Trusted Shops.",
+      "title": "Avez-vous besoin de plus d’informations ?"
+    },
+    "notification": {
+      "error": {
+        "exportTimeout": "Veuillez réduire le nombre de jours exportés. Notre système ne peut traiter qu’un certain nombre de commandes.",
+        "productIdUnselected": "Veuillez sélectionner un ID de produit avant d’enregistrer vos modifications",
+        "save": "Échec de l’enregistrement des données"
+      },
+      "success": {
+        "save": "Modifications enregistrées avec succès"
+      }
+    },
+    "placeholder": {
+      "channel": "Sélectionnez",
+      "location": "Sélectionnez un emplacement",
+      "productid": "Sélectionnez l'identifiant produit"
+    },
+    "slider": {
+      "active": "actif",
+      "inactive": "inactif"
+    }
+  }
+}

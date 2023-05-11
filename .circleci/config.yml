@@ -1,0 +1,130 @@
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@3.1.4
+  browser-tools: circleci/browser-tools@1.4.0
+
+executors:
+  building:
+    docker:
+      - image: cimg/node:18.12
+    working_directory: ~/project
+
+jobs:
+  build:
+    executor: building
+    steps:
+      - checkout:
+          path: ~/project
+      - run:
+          name: set npm registries
+          command: |
+            npm config set "@trustedshops:registry" https://npm.pkg.github.com/ && \
+            npm config set "//npm.pkg.github.com/:_authToken" $GITHUB_TOKEN
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-modules-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - node-modules-v1-{{ .Branch }}-
+            - node-modules-v1-
+      - run:
+          name: yarn install
+          command: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-modules-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          name: Building App
+          command: | 
+              if [ "${CIRCLE_BRANCH}" == "main" ]; then
+                echo "Building for production environment"
+                yarn build
+              else
+                echo "Building for qa environment"
+                yarn build:qa
+              fi
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - "build"
+      - persist_to_workspace:
+          root: ~/project
+          paths: [.]
+
+  test:
+    docker:
+      - image: cimg/python:3.11.1-node
+    steps:
+      - attach_workspace:
+          at: ~/project/
+      - browser-tools/install-chrome
+      - run:
+          name: Install dependencies
+          command: npm run test-install
+      - run:
+          name: Run tests
+          command: npm run test
+      - store_artifacts:
+          path: ./src/tests/results
+          destination: test-results
+      - store_test_results:
+          path: ./src/tests/results
+
+  deploy:
+    executor: aws-cli/default
+    working_directory: ~/project
+    circleci_ip_ranges: true
+    parameters:
+      bucket_name:
+        type: string
+      cloudfront_id:
+        type: string
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - aws-cli/setup
+      - run:
+          name: Sync files to s3 bucket
+          command: aws s3 sync --delete ~/project/build/ 's3://<< parameters.bucket_name >>/connector/'
+      - run:
+          name: Invalidate cloudfront distribution cache
+          command: aws cloudfront create-invalidation --distribution-id << parameters.cloudfront_id >> --paths '/connector/*'
+
+workflows:
+  version: 2
+  build-test-deploy:
+    jobs:
+      - build:
+          context:
+            - github-package-rw
+      - test:
+          requires:
+            - build
+          context:
+            - connect-test-automation-qa
+      - deploy:
+          name: deploy_to_qa
+          context:
+            - ts-connect-qa
+          bucket_name: ts-connect-qa-trustedshops-app
+          cloudfront_id: E2HC1Y83IARISC
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - development
+
+      - deploy:
+          name: deploy_to_prod
+          context:
+            - ts-connect-prod
+          bucket_name: ts-connect-prod-trustedshops-app
+          cloudfront_id: E17P53GJGRBTBG
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - main
