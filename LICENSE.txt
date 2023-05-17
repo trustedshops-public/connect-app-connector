@@ -1,113 +1,21 @@
-END-USER SOFTWARE LICENSE AGREEMENT FOR TRUSTED SHOPS SOFTWARE
+MIT License
 
-The use of the plugin is subject to the following license agreement: https://policies.etrusted.com/IE/en/plugin-licence.html
+Copyright (c) 2023 Trusted Shops AG
 
-This license agreement ("Agreement") is an agreement between you (the person or company who is being licensed to use the software, services or documentation – "Service") and Trusted Shops GmbH, Subbelrather Str. 15c, Co-logne, Germany ("We"/"Us"/"Our"). The agreement applies to all Services made available by Trusted Shops through various channels such as, but not limited to, the marketplaces of different shop system providers, the Trusted Shops Help Centre or customer backend, and others.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-The Service is to be integrated into a given third party software (e. g. shop-software system, CRM system or else) in order to connect to Trusted Shops systems and / or display or use Trusted Shops services.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-By using or accessing any part of the Service you agree that you are at least eighteen (18) years old and you acknowledge that you have read the Agreement, and that you agree to the content of the Agreement and its terms, and agree to use the Service in compliance with the Agreement. If you do not agree to all of these terms and condi-tions, you must and may not use or access the Service.
-
-1) Term. The Agreement comes into legal force at the moment when you download or execute the Service from its dedicated source (e.g., in a matketplace), or receive it by any other means.
-
-2) Licence. The Agreement grants you the right in respect of each license you have acquired, subject to you ac-cepting the terms hereof, a non-exclusive, non-sublicensable, non-transferable and, non-assignable license to install and use, display and run the Service. The Agreement supersedes all prior license agreements between the Parties pertaining to current or prior versions of the Service and any terms or conditions in any such prior agreement, currently in force and effect, which are inconsistent with the terms or conditions of the Agreement are hereby specifically agreed to be modified and conformed to the Agreement.
-
-3) Intellectual property rights. Our Service is protected by copyright laws and international copyright treaties, as well as other intellectual property laws and treaties. Unauthorized reproduction or distribution of the Service, or any portion of it, may result in severe civil and criminal penalties, and will be prosecuted to the maximum ex-tent possible under law.
-
-The Software and associated documentation and all parts thereof and copyright and other intellectual property rights therein shall remain the property of Us and save as expressly provided herein no such rights shall pass to you.
-
-You may:
-
-integrate the Service only into the software for which it has been developed and provided.
-In such case, You must ensure that the source of the Service – i.e., the name of the Service We are provid-ing to You as well as We as provider / producer of the Service – is clearly indicated and readily available to third parties at all times.
-You shall not:
-
-copy the whole or any part of the Service;
-modify, enhance or merge the whole or any part of the Service with any other software (other than the one permitted above), source code or documentation;
-assign, transfer, distribute, sell, lease, rent, sub-license, charge or otherwise deal in or encumber the Ser-vice or make available the same to any third party or use the Software to provide service bureau or similar services to third parties;
-adapt, translate, reverse engineer, decompile or disassemble the whole or any part of the Service; or
-use the Service to develop other software
-register directly or indirectly any of Our trademarks, trade names or symbols, including the Service and its name, nor any Internet domain addresses involving any of Our trademarks, trade names or symbols includ-ing the name of the Service. Any Internet domain addresses involving the above, registered or reserved by you prior to entering hereto, shall be transferred to Us at Our request.
-Our Service partially relies on so-called open source libraries, i.e. open source software, which are listed in the Annex to this Agreement together with links to their respective licence terms. The source code of such open source libraries is generally openly available. Please refer to the Annex for further information.
-
-4) References. We reserve the right to publish a selected list of users of our Service.
-
-5) Breach of the Agreement. If you fail to use the Service in accordance with the terms and conditions of the Agreement, it constitutes a breach of the Agreement, and your license to use the Service is revoked.
-
-6) Warranties. Except as expressly stated in the Agreement, the Service is provided under this License on an "AS IS" BASIS and WITHOUT WARRANTY, either express or implied, including, without limitation, the warranties of non-infringement, merchantability or fitness for a particular purpose. No advice or information, whether oral or written, obtained by you from Us or through or from the Service shall create any warranty not expressly stated in this Agreement.
-
-7) Limitation of Liability. Under no circumstances and under no legal theory, whether in tort (including negli-gence), contract, or otherwise, shall the Licensor be liable to anyone for any indirect, special, incidental, or consequential damages of any character arising as a result of this License or the use of the Original Work in-cluding, without limitation, damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses. This limitation of liability shall not apply to the extent applicable law prohibits such limitation.
-
-8) Termination. Either party may terminate the Software license granted hereunder if:
-- the other is in material breach of any of its obligations and fails to remedy the same within thirty (30) days of written notice requiring such remedy; or
-- if the other party goes into liquidation or any proceeding shall be instituted seeking to adjudicate it as bankrupt or insolvent or has a receiver appointed of any of its assets, or, if an individual or partnership if such individual or any of the partners in the partnership, are adjudicated bankrupt or execute an assign-ment for the benefit of his/its or their creditors or otherwise compounded with his/its or their creditors, (or undergoes any similar act or process in any other jurisdiction).
-
-Besides We may terminate the Software license granted hereunder with thirty (30) days prior written notice if We decide to discontinue the provision of the respective Service or the licenced version thereof in general or decide to only offer the Service against a license fee.
-The exercise of such right of termination shall be without prejudice to either party's accrued rights or other remedies.
-Termination shall not affect the continuance in force of any provision hereof which is expressly or by implica-tion intended to come into or continue in force on or after such termination.
-
-9) Notices. All notices given or required under the Agreement must be made in writing.
-
-10) Assignment. The Agreement shall not be assignable or transferable by either party, by operation of law or otherwise, without the prior written consent of the other party.
-
-11) Contract language. The official contract language is English.
-
-12) Governing Law. The Agreement is governed by, and is to be construed in accordance with, German law. The German Courts will have exclusive jurisdiction to deal with any dispute which has arisen or may arise out of, or in connection with, the Agreement.
-
-13) Entire Agreement. The Agreement constitutes the entire agreement between the parties with respect to its subject matter and supersedes any prior negotiations, understandings and agreements on that subject.
-
-14) Amendments. The Agreement may only be added to or modified or amended in writing. However, We may amend the Agreement and/or the fees by giving notice in writing to you or at any time for new versions of the Service. Such amendments will be deemed to be approved by you unless you object to the amendments in writing and terminate the Agreement within thirty 30 days following receipt of such notice.
-
-15) No Waiver. No waiver of any provision of the Agreement, or consent to any departure from the terms of the Agreement, shall be effective unless the same shall be in writing and signed by the party waiving or consenting thereto.
-
-16) Force Majeure. No party shall be liable for failure to perform any of its obligations under this Membership Agree-ment when such failure is due to a cause (for example, natural disaster, act of war or terrorism, riot, labour condi-tion, governmental action, and Internet disturbance) beyond the party’s reasonable control.
- 
-
-ANNEX TO THE END-USER SOFTWARE LICENSE AGREEMENT
-Below you will find a list of the open source libraries we use for our Services as well links to their respective license terms which also apply to the use of these parts of our Services. In case of discrepancies or contradictions between these license terms and the terms of this Agreement, the latter shall prevail. Please note that the following list may be subject to amendments and modifications, and does not thus claim (perpetual) exhaustiveness. You can always return to the following website for up-to-date information on the open source software We use:
-https://policies.etrusted.com/IE/en/plugin-licence.html
-
-babel - MIT Licence
-snowpack - MIT Licence
-axios - MIT Licence
-follow-redirects  - MIT Licence
-history -  MIT Licence
-hookform/resolvers - MIT Licence
-inherits  - ISC Lience
-js-tokens - MIT Licence
-lodash - MIT Licence
-lodash-es - MIT Licence
-loose-envify - MIT Licence
-nanoclone - MIT Licence
-path - MIT Licence
-preact - MIT Licence
-preact-router - MIT Licence
-process - MIT Licence
-property-expr - MIT Licence
-react-hook-form - MIT Licence
-regenerator-runtime - MIT Licence
-resolve-pathname - MIT Licence
-tiny-invariant - MIT Licence
-tiny-warning - MIT Licence
-toposort - MIT Licence
-types/lodash - MIT Licence
-util - MIT Licence
-value-equal - MIT Licence
-yup - MIT Licence
-zustand - MIT Licence
-
-General MIT permission statement: 
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:   
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.   
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. 
-
- 
-
-General ISC permission statement: 
-
-Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
-
-THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
