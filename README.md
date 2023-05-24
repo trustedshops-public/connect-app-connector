@@ -1,4 +1,8 @@
-
+## Connect App Connector
+[![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/connect-app-connector/blob/main/LICENSE)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
 [![CircleCI](https://circleci.com/gh/trustedshops/connect-etrusted-app-spike.svg?style=svg&circle-token=51d72e86b87f9bbe9a8dab15a236d21d1418bf8d)](https://app.circleci.com/pipelines/github/trustedshops/connect-etrusted-app-spike)
 
  - new - 
