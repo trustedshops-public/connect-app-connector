@@ -5,7 +5,6 @@
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
 [![CircleCI](https://circleci.com/gh/trustedshops/connect-etrusted-app-spike.svg?style=svg&circle-token=51d72e86b87f9bbe9a8dab15a236d21d1418bf8d)](https://app.circleci.com/pipelines/github/trustedshops/connect-etrusted-app-spike)
 
- - new - 
 
 ## Getting Started
 
