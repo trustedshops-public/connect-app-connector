@@ -1,0 +1,266 @@
+{
+  "@babel/runtime@7.17.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/babel/babel",
+    "publisher": "The Babel Team",
+    "url": "https://babel.dev/team",
+    "name": "@babel/runtime",
+    "version": "7.17.0",
+    "description": "babel's modular runtime helpers",
+    "copyright": "Copyright (c) 2014-present Sebastian McKenzie and other contributors"
+  },
+  "@hookform/resolvers@2.8.8": {
+    "licenses": "MIT",
+    "repository": "https://github.com/react-hook-form/resolvers",
+    "publisher": "bluebill1049",
+    "email": "bluebill1049@hotmail.com",
+    "name": "@hookform/resolvers",
+    "version": "2.8.8",
+    "description": "React Hook Form validation resolvers: Yup, Joi, Superstruct, Zod, Vest, Class Validator, io-ts, Nope, computed-types and Typanion",
+    "copyright": "Copyright (c) 2019-present Beier(Bill) Luo"
+  },
+  "@types/lodash@4.14.178": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "name": "@types/lodash",
+    "version": "4.14.178",
+    "description": "TypeScript definitions for Lo-Dash",
+    "copyright": ""
+  },
+  "axios@0.24.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/axios/axios",
+    "publisher": "Matt Zabriskie",
+    "name": "axios",
+    "version": "0.24.0",
+    "description": "Promise based HTTP client for the browser and node.js",
+    "copyright": "Copyright (c) 2014-present Matt Zabriskie"
+  },
+  "etrusted-connector@0.0.1": {
+    "licenses": "MIT*",
+    "name": "etrusted-connector",
+    "version": "0.0.1",
+    "description": "First, run the development server:",
+    "copyright": ""
+  },
+  "follow-redirects@1.14.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/follow-redirects/follow-redirects",
+    "publisher": "Ruben Verborgh",
+    "email": "ruben@verborgh.org",
+    "url": "https://ruben.verborgh.org/",
+    "name": "follow-redirects",
+    "version": "1.14.7",
+    "description": "HTTP and HTTPS modules that follow redirects.",
+    "copyright": "Copyright 2014–present Olivier Lalonde <olalonde@gmail.com>, James Talmage <james@talmage.io>, Ruben Verborgh"
+  },
+  "history@4.10.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ReactTraining/history",
+    "publisher": "Michael Jackson",
+    "name": "history",
+    "version": "4.10.1",
+    "description": "Manage session history with JavaScript",
+    "copyright": "Copyright (c) React Training 2016-2018"
+  },
+  "inherits@2.0.3": {
+    "licenses": "ISC",
+    "repository": "https://github.com/isaacs/inherits",
+    "name": "inherits",
+    "version": "2.0.3",
+    "description": "Browser-friendly inheritance fully compatible with standard node.js inherits()",
+    "copyright": "Copyright (c) Isaac Z. Schlueter"
+  },
+  "js-tokens@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lydell/js-tokens",
+    "publisher": "Simon Lydell",
+    "name": "js-tokens",
+    "version": "4.0.0",
+    "description": "A regex that tokenizes JavaScript.",
+    "copyright": "Copyright (c) 2014, 2015, 2016, 2017, 2018 Simon Lydell"
+  },
+  "lodash-es@4.17.21": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "name": "lodash-es",
+    "version": "4.17.21",
+    "description": "Lodash exported as ES modules.",
+    "copyright": "Copyright OpenJS Foundation and other contributors <https://openjsf.org/>"
+  },
+  "lodash@4.17.21": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "name": "lodash",
+    "version": "4.17.21",
+    "description": "Lodash modular utilities.",
+    "copyright": "Copyright OpenJS Foundation and other contributors <https://openjsf.org/>"
+  },
+  "loose-envify@1.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/zertosh/loose-envify",
+    "publisher": "Andres Suarez",
+    "email": "zertosh@gmail.com",
+    "name": "loose-envify",
+    "version": "1.4.0",
+    "description": "Fast (and loose) selective `process.env` replacer using js-tokens instead of an AST",
+    "copyright": "Copyright (c) 2015 Andres Suarez <zertosh@gmail.com>"
+  },
+  "nanoclone@0.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/kelin2025/nanoclone",
+    "publisher": "Anton Kosykh",
+    "email": "kelin2025@yandex.ru",
+    "name": "nanoclone",
+    "version": "0.2.1",
+    "description": "300B to deep clone JavaScript objects",
+    "copyright": "Copyright (c) 2017 Anton Kosykh"
+  },
+  "path@0.12.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jinder/path",
+    "publisher": "Joyent",
+    "url": "http://www.joyent.com",
+    "name": "path",
+    "version": "0.12.7",
+    "description": "Node.JS path module",
+    "copyright": "Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the \"Software\"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:"
+  },
+  "preact-router@3.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/developit/preact-router",
+    "publisher": "Jason Miller",
+    "email": "jason@developit.ca",
+    "name": "preact-router",
+    "version": "3.2.1",
+    "description": "Connect your components up to that address bar.",
+    "copyright": "Copyright (c) 2015 Jason Miller"
+  },
+  "preact@10.6.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/preactjs/preact",
+    "name": "preact",
+    "version": "10.6.5",
+    "description": "Fast 3kb React-compatible Virtual DOM library.",
+    "copyright": "Copyright (c) 2015-present Jason Miller"
+  },
+  "process@0.11.10": {
+    "licenses": "MIT",
+    "repository": "https://github.com/shtylman/node-process",
+    "publisher": "Roman Shtylman",
+    "email": "shtylman@gmail.com",
+    "name": "process",
+    "version": "0.11.10",
+    "description": "process information for node.js and browsers",
+    "copyright": "Copyright (c) 2013 Roman Shtylman <shtylman@gmail.com>"
+  },
+  "property-expr@2.0.5": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jquense/expr",
+    "publisher": "@monasticpanic Jason Quense",
+    "name": "property-expr",
+    "version": "2.0.5",
+    "description": "tiny util for getting and setting deep object props safely",
+    "copyright": "Copyright (c) 2014 Jason Quense"
+  },
+  "react-hook-form@7.26.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/react-hook-form/react-hook-form",
+    "email": "bluebill1049@hotmail.com",
+    "name": "react-hook-form",
+    "version": "7.26.0",
+    "description": "Performant, flexible and extensible forms library for React Hooks",
+    "copyright": "Copyright (c) 2019-present Beier(Bill) Luo"
+  },
+  "regenerator-runtime@0.13.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/regenerator/tree/master/packages/runtime",
+    "publisher": "Ben Newman",
+    "email": "bn@cs.stanford.edu",
+    "name": "regenerator-runtime",
+    "version": "0.13.9",
+    "description": "Runtime for Regenerator-compiled generator and async functions.",
+    "copyright": "Copyright (c) 2014-present, Facebook, Inc."
+  },
+  "resolve-pathname@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mjackson/resolve-pathname",
+    "publisher": "Michael Jackson",
+    "name": "resolve-pathname",
+    "version": "3.0.0",
+    "description": "Resolve URL pathnames using JavaScript",
+    "copyright": "Copyright (c) Michael Jackson 2016-2018"
+  },
+  "tiny-invariant@1.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/alexreardon/tiny-invariant",
+    "publisher": "Alex Reardon",
+    "email": "alexreardon@gmail.com",
+    "name": "tiny-invariant",
+    "version": "1.2.0",
+    "description": "A tiny invariant function",
+    "copyright": "Copyright (c) 2019 Alexander Reardon"
+  },
+  "tiny-warning@1.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/alexreardon/tiny-warning",
+    "publisher": "Alex Reardon",
+    "email": "alexreardon@gmail.com",
+    "name": "tiny-warning",
+    "version": "1.0.3",
+    "description": "A tiny warning function",
+    "copyright": "Copyright (c) 2019 Alexander Reardon"
+  },
+  "toposort@2.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/marcelklehr/toposort",
+    "publisher": "Marcel Klehr",
+    "email": "mklehr@gmx.net",
+    "name": "toposort",
+    "version": "2.0.2",
+    "description": "Topological sort of directed ascyclic graphs (like dependecy lists)",
+    "copyright": ""
+  },
+  "util@0.10.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/defunctzombie/node-util",
+    "publisher": "Joyent",
+    "url": "http://www.joyent.com",
+    "name": "util",
+    "version": "0.10.4",
+    "description": "Node.JS util module",
+    "copyright": "Copyright Joyent, Inc. and other Node contributors. All rights reserved.. Permission is hereby granted, free of charge, to any person obtaining a copy. of this software and associated documentation files (the \"Software\"), to. deal in the Software without restriction, including without limitation the. rights to use, copy, modify, merge, publish, distribute, sublicense, and/or. sell copies of the Software, and to permit persons to whom the Software is. furnished to do so, subject to the following conditions:"
+  },
+  "value-equal@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mjackson/value-equal",
+    "publisher": "Michael Jackson",
+    "name": "value-equal",
+    "version": "1.0.1",
+    "description": "Are these two JavaScript values equal?",
+    "copyright": "Copyright (c) Michael Jackson 2016-2018"
+  },
+  "yup@0.32.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jquense/yup",
+    "publisher": "@monasticpanic Jason Quense",
+    "name": "yup",
+    "version": "0.32.11",
+    "description": "Dead simple Object schema validation",
+    "copyright": "Copyright (c) 2014 Jason Quense"
+  },
+  "zustand@3.6.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/pmndrs/zustand",
+    "publisher": "Paul Henschel",
+    "name": "zustand",
+    "version": "3.6.9",
+    "description": "🐻 Bear necessities for state management in React",
+    "copyright": "Copyright (c) 2019 Paul Henschel"
+  }
+}
+
