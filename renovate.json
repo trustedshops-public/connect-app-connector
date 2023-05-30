@@ -1,32 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "local>trustedshops/renovate-config"
-  ],
-  "baseBranches": [
-    "development"
-  ],
-  "packageRules": [
-    {
-      "matchDepTypes": [
-        "devDependencies"
-      ],
-      "matchUpdateTypes": [
-        "patch",
-        "minor"
-      ],
-      "groupName": "devDependencies (non-major)",
-      "groupSlug": "dev-dependencies"
-    },
-    {
-      "matchDepTypes": [
-        "dependencies"
-      ],
-      "matchUpdateTypes": [
-        "major"
-      ],
-      "groupName": "dependencies (major)",
-      "groupSlug": "dependencies"
-    }
+    "local>trustedshops-public/.github:renovate-config"
   ]
 }
