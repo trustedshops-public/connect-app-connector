@@ -32,7 +32,7 @@ The production build contains a `fonts` folder and files `connector.es.js` , `co
 
 ## Connecting
 
-Connecting the eTrasted connector is done by adding a `script` tag with a link to `connector.umd.j`s and a `link` tag with a link to `style.css` to the `index.html`.
+Connecting the eTrusted connector is done by adding a `script` tag with a link to `connector.umd.js` and a `link` tag with a link to `style.css` to the `index.html`.
 To display the connector, you need to add a `div` tag with `id="eTrusted-connector"`
 
 
