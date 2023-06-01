@@ -172,15 +172,15 @@ const DashboardPageModule: FC<{
     }
 
     if (shopChannels.length && channelsFromTSC.length) {
-      const mappedChannels = getMappedChannels(shopChannels, channelsFromTSC)
+      const mappedChannelsResult = getMappedChannels(shopChannels, channelsFromTSC)
 
-      if (mappedChannels.length === shopChannels.length) {
+      if (mappedChannelsResult.length === shopChannels.length) {
         dispatchAction({
           action: EVENTS.SAVE_MAPPED_CHANNEL,
-          payload: mappedChannels,
+          payload: mappedChannelsResult,
         })
       } else {
-        setSelectedChannels(mappedChannels)
+        setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
         setShowModal(true)
       }
