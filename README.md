@@ -13,7 +13,7 @@ This Connector is part of Trusted Shop´s SDK for building plugins based on our 
 First, run the development server:
 
 ```bash
-yarn instal
+yarn install
 #then
 yarn run dev
 
