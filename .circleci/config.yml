@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.0
+  browser-tools: circleci/browser-tools@1.4.1
   node: circleci/node@5.1.0
   cloudfront-s3-deploy: trustedshops-public/cloudfront-s3-deploy@3.0.0
   semantic-release: trustedshops-public/semantic-release@5.0.0
@@ -27,10 +27,10 @@ anchors:
 executors:
   node:
     docker:
-      - image: cimg/node:18.12-browsers
+      - image: cimg/node:18.16-browsers
   python:
     docker:
-      - image: cimg/python:3.11.1-browsers
+      - image: cimg/python:3.11.3-browsers
 
 jobs:
   build:
