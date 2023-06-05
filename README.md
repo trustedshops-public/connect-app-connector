@@ -1,4 +1,5 @@
 ## Connect App Connector
+
 [![GitHub License](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/trustedshops-public/connect-app-connector/blob/main/LICENSE)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
@@ -6,7 +7,11 @@
 [![CircleCI](https://circleci.com/gh/trustedshops/connect-etrusted-app-spike.svg?style=svg&circle-token=51d72e86b87f9bbe9a8dab15a236d21d1418bf8d)](https://app.circleci.com/pipelines/github/trustedshops/connect-etrusted-app-spike)
 
 ## Public Documentation
-This Connector is part of Trusted Shop´s SDK for building plugins based on our new plattform and architecture. You can find our detailed documentation publicly available [here](https://developers.etrusted.com/solutions/newgen-sdk/introduction.html). Please follow these instructions to build your own plugin to connect eTrusted products with a shopsoftwaresystem.
+
+This Connector is part of Trusted Shop´s SDK for building plugins based on our new plattform and architecture. You can
+find our detailed documentation publicly
+available [here](https://developers.etrusted.com/solutions/newgen-sdk/introduction.html). Please follow these
+instructions to build your own plugin to connect eTrusted products with a shopsoftwaresystem.
 
 ## Getting Started
 
@@ -18,6 +23,7 @@ yarn install
 yarn run dev
 
 ```
+
 ### `yarn run dev:test`
 
 Running the application locally with a test environment, using the mock baseLayerTest.js from the src/baseLayers folder.
@@ -32,20 +38,21 @@ The production build contains a `fonts` folder and files `connector.es.js` , `co
 
 ## Connecting
 
-Connecting the eTrusted connector is done by adding a `script` tag with a link to `connector.umd.js` and a `link` tag with a link to `style.css` to the `index.html`.
+Connecting the eTrusted connector is done by adding a `script` tag with a link to `connector.umd.js` and a `link` tag
+with a link to `style.css` to the `index.html`.
 To display the connector, you need to add a `div` tag with `id="eTrusted-connector"`
 
+```html
 
-```js 
-    <head>
-        ...
-        <link type="text/css" rel="stylesheet" href="https://static-app.connect.trustedshops.com/connector/style.css">
-    </head>
-    <body>
-        <div id="app">
-            ...
-            <div id="eTrusted-connector"></div>
-        </div>
-        <script src="https://static-app.connect.trustedshops.com/connector/connector.umd.js"></script>
-    </body>
+<head>
+  ...
+  <link type='text/css' rel='stylesheet' href='https://static-app.connect.trustedshops.com/connector/style.css'>
+</head>
+<body>
+<div id='app'>
+  ...
+  <div id='eTrusted-connector'></div>
+</div>
+<script src='https://static-app.connect.trustedshops.com/connector/connector.umd.js'></script>
+</body>
 ```

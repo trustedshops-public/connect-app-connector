@@ -3,61 +3,63 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@3.1.4
   browser-tools: circleci/browser-tools@1.4.0
+  node: circleci/node@5.1.0
+
+anchors:
+  deploy_defaults: &deploy_defaults
+    attach_workspace: true
+    additional_args: "--exclude *.zip"
+    remote: /connector/
+    pattern: '/connector/*'
+    context:
+      - connect-team
+    requires:
+      - build
+      - test
+  filter_only_main: &filter_only_main
+    filters:
+      branches:
+        only: main
 
 executors:
-  building:
+  node:
     docker:
       - image: cimg/node:18.12
-    working_directory: ~/project
+  python:
+    docker:
+      - image: cimg/python:3.11.1-node
 
 jobs:
   build:
-    executor: building
+    executor: node
     steps:
-      - checkout:
-          path: ~/project
-      - run:
-          name: set npm registries
-          command: |
-            npm config set "@trustedshops:registry" https://npm.pkg.github.com/ && \
-            npm config set "//npm.pkg.github.com/:_authToken" $GITHUB_TOKEN
-      - restore_cache:
-          keys:
-            # when lock file changes, use increasingly general patterns to restore cache
-            - node-modules-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            - node-modules-v1-{{ .Branch }}-
-            - node-modules-v1-
-      - run:
-          name: yarn install
-          command: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: node-modules-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Building App
-          command: | 
-              if [ "${CIRCLE_BRANCH}" == "main" ]; then
-                echo "Building for production environment"
-                yarn build
-              else
-                echo "Building for qa environment"
-                yarn build:qa
-              fi
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "main" ]; then
+              echo "Building for production environment"
+              yarn build
+            else
+              echo "Building for qa environment"
+              yarn build:qa
+            fi
       - persist_to_workspace:
-          root: ~/project
+          root: .
           paths:
-            - "build"
+            - build/
       - persist_to_workspace:
-          root: ~/project
-          paths: [.]
+          root: .
+          paths:
+            - .
 
   test:
-    docker:
-      - image: cimg/python:3.11.1-node
+    executor: python
     steps:
       - attach_workspace:
-          at: ~/project/
+          at: .
       - browser-tools/install-chrome
       - run:
           name: Install dependencies
@@ -71,60 +73,44 @@ jobs:
       - store_test_results:
           path: ./src/tests/results
 
-  deploy:
-    executor: aws-cli/default
-    working_directory: ~/project
-    circleci_ip_ranges: true
-    parameters:
-      bucket_name:
-        type: string
-      cloudfront_id:
-        type: string
-    steps:
-      - attach_workspace:
-          at: ~/project
-      - aws-cli/setup
-      - run:
-          name: Sync files to s3 bucket
-          command: aws s3 sync --delete ~/project/build/ 's3://<< parameters.bucket_name >>/connector/'
-      - run:
-          name: Invalidate cloudfront distribution cache
-          command: aws cloudfront create-invalidation --distribution-id << parameters.cloudfront_id >> --paths '/connector/*'
-
 workflows:
   version: 2
   build-test-deploy:
     jobs:
       - build:
-          context:
-            - github-package-rw
+          filters:
+            branches:
+              only: /.*/
+            tags:
+              only: /.*/
       - test:
           requires:
             - build
-          context:
-            - connect-test-automation-qa
-      - deploy:
+      - cloudfront-s3-deploy/sync_and_invalidate:
           name: deploy_to_qa
-          context:
-            - ts-connect-qa
+          <<: *deploy_defaults
+          <<: *filter_only_main
           bucket_name: ts-connect-qa-trustedshops-app
-          cloudfront_id: E2HC1Y83IARISC
-          requires:
-            - test
+          distribution_id: E2HC1Y83IARISC
+          aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
+      - approve_deploy_to_prod:
+          type: approval
           filters:
+            tags:
+              only: /.*/
             branches:
-              only:
-                - development
-
-      - deploy:
+              ignore: /.*/
+      - cloudfront-s3-deploy/sync_and_invalidate:
           name: deploy_to_prod
-          context:
-            - ts-connect-prod
+          <<: *deploy_defaults
           bucket_name: ts-connect-prod-trustedshops-app
-          cloudfront_id: E17P53GJGRBTBG
+          distribution_id: E17P53GJGRBTBG
+          aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_PROD
           requires:
-            - test
+            - build
+            - approve_deploy_to_prod
           filters:
+            tags:
+              only: /.*/
             branches:
-              only:
-                - main
+              ignore: /.*/
