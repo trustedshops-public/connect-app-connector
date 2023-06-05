@@ -5,6 +5,8 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.0
   node: circleci/node@5.1.0
   cloudfront-s3-deploy: trustedshops-public/cloudfront-s3-deploy@3.0.0
+  semantic-release: trustedshops-public/semantic-release@5.0.0
+  deterministic-zip: timo-reymann/deterministic-zip@1.0.0
 
 anchors:
   deploy_defaults: &deploy_defaults
@@ -38,6 +40,7 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: yarn
+      - deterministic-zip/install
       - run:
           name: Building App
           command: |
@@ -48,6 +51,9 @@ jobs:
               echo "Building for qa environment"
               yarn build:qa
             fi
+      - deterministic-zip/zip:
+          source: build/
+          target: build/connector.zip
       - persist_to_workspace:
           root: .
           paths:
@@ -56,7 +62,14 @@ jobs:
           root: .
           paths:
             - .
-
+  semantic-release:
+    executor: semantic-release/default
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - semantic-release/install
+      - semantic-release/execute
   test:
     executor: python
     steps:
@@ -90,6 +103,12 @@ workflows:
             - build
           context:
             - connect-team
+      - semantic-release:
+          <<: *filter_only_main
+          requires:
+            - test
+          context:
+            - semantic-release
       - cloudfront-s3-deploy/sync_and_invalidate:
           name: deploy_to_qa
           <<: *deploy_defaults
