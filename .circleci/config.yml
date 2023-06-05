@@ -87,6 +87,8 @@ workflows:
       - test:
           requires:
             - build
+          context:
+            - connect-team
       - cloudfront-s3-deploy/sync_and_invalidate:
           name: deploy_to_qa
           <<: *deploy_defaults
