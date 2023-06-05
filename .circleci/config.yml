@@ -12,6 +12,7 @@ anchors:
     additional_args: "--exclude *.zip"
     remote: /connector/
     pattern: '/connector/*'
+    local: build/
     context:
       - connect-team
     requires:
