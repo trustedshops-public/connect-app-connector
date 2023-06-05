@@ -25,10 +25,10 @@ anchors:
 executors:
   node:
     docker:
-      - image: cimg/node:18.12
+      - image: cimg/node:18.12-browsers
   python:
     docker:
-      - image: cimg/python:3.11.1-node
+      - image: cimg/python:3.11.1-browsers
 
 jobs:
   build:
