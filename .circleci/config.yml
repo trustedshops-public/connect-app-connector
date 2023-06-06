@@ -124,6 +124,7 @@ workflows:
           <<: *filter_only_main
           requires:
             - test
+            - build_prod
             - approve_semantic_release
           context:
             - semantic-release
