@@ -16,9 +16,6 @@ anchors:
     local: build/
     context:
       - connect-team
-    requires:
-      - build
-      - test
   filter_only_main: &filter_only_main
     filters:
       branches:
@@ -33,7 +30,22 @@ executors:
       - image: cimg/python:3.11.3-browsers
 
 jobs:
-  build:
+  build_qa:
+    executor: node
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Building App for QA env
+          command: |
+              yarn build:qa
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - build/
+  build_prod:
     executor: node
     steps:
       - checkout
@@ -41,31 +53,24 @@ jobs:
           pkg-manager: yarn
       - deterministic-zip/install
       - run:
-          name: Building App for QA env
+          name: Building App for PROD env and release
           command: |
-              yarn build:qa
+              yarn build
       - deterministic-zip/zip:
           source: build/
           target: build/connector.zip
       - persist_to_workspace:
           root: .
           paths:
+            - . 
             - build/
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
   semantic_release:
     executor: semantic-release/default
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      - run:
-          name: Build prod version of connector
-          command: |
-            yarn build
       - semantic-release/install
+      - attach_workspace:
+          at: .
       - semantic-release/execute
   test:
     executor: python
@@ -89,26 +94,29 @@ workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build:
+      - build_qa:
           filters:
             branches:
               only: /.*/
-      - test:
-          requires:
-            - build
-          context:
-            - connect-team
-      - approve_semantic_release:
-          type: approval
+      - build_prod:
           filters:
             tags:
               only: /.*/
             branches:
-              only: /.*/
+              only: main
+      - test:
+          requires:
+            - build_qa
+          context:
+            - connect-team
+      - approve_semantic_release:
+          <<: *filter_only_main
+          type: approval
       - semantic_release:
           <<: *filter_only_main
           requires:
             - test
+            - build_prod
             - approve_semantic_release
           context:
             - semantic-release
@@ -119,6 +127,9 @@ workflows:
           bucket_name: ts-connect-qa-trustedshops-app
           distribution_id: E2HC1Y83IARISC
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
+          requires:
+            - build_qa
+            - test
       - approve_deploy_to_prod:
           type: approval
           filters:
@@ -133,6 +144,7 @@ workflows:
           distribution_id: E17P53GJGRBTBG
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_PROD
           requires:
+            - build_prod
             - approve_deploy_to_prod
           filters:
             tags:
