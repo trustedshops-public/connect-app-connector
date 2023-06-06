@@ -16,10 +16,6 @@ anchors:
     local: build/
     context:
       - connect-team
-    requires:
-      - build_qa
-      - build_prod
-      - test
   filter_only_main: &filter_only_main
     filters:
       branches:
@@ -135,6 +131,9 @@ workflows:
           bucket_name: ts-connect-qa-trustedshops-app
           distribution_id: E2HC1Y83IARISC
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
+          requires:
+            - build_qa
+            - test
       - approve_deploy_to_prod:
           type: approval
           filters:
