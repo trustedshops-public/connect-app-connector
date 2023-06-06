@@ -41,15 +41,9 @@ jobs:
           pkg-manager: yarn
       - deterministic-zip/install
       - run:
-          name: Building App
+          name: Building App for QA env
           command: |
-            if [ "${CIRCLE_BRANCH}" == "main" ]; then
-              echo "Building for production environment"
-              yarn build
-            else
-              echo "Building for qa environment"
               yarn build:qa
-            fi
       - deterministic-zip/zip:
           source: build/
           target: build/connector.zip
@@ -65,8 +59,12 @@ jobs:
     executor: semantic-release/default
     steps:
       - checkout
-      - attach_workspace:
-          at: .
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Build prod version of connector
+          command: |
+            yarn build
       - semantic-release/install
       - semantic-release/execute
   test:
@@ -94,8 +92,6 @@ workflows:
       - build:
           filters:
             branches:
-              only: /.*/
-            tags:
               only: /.*/
       - test:
           requires:
@@ -129,7 +125,6 @@ workflows:
           distribution_id: E17P53GJGRBTBG
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_PROD
           requires:
-            - build
             - approve_deploy_to_prod
           filters:
             tags:
