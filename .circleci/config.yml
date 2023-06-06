@@ -33,7 +33,22 @@ executors:
       - image: cimg/python:3.11.3-browsers
 
 jobs:
-  build:
+  build_qa:
+    executor: node
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Building App for QA env
+          command: |
+              yarn build:qa
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            - build/
+  build_prod:
     executor: node
     steps:
       - checkout
@@ -50,12 +65,9 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
+            - . 
             - build/
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-  semantic_release:
+ semantic_release:
     executor: semantic-release/default
     steps:
       - checkout
@@ -89,13 +101,19 @@ workflows:
   version: 2
   build-test-deploy:
     jobs:
-      - build:
+      - build_qa:
           filters:
             branches:
               only: /.*/
+      - build_prod:
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
       - test:
           requires:
-            - build
+            - build_qa
           context:
             - connect-team
       - approve_semantic_release:
@@ -133,6 +151,7 @@ workflows:
           distribution_id: E17P53GJGRBTBG
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_PROD
           requires:
+            - build_prod
             - approve_deploy_to_prod
           filters:
             tags:
