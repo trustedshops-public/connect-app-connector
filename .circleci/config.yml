@@ -55,7 +55,7 @@ jobs:
           root: .
           paths:
             - .
-  semantic-release:
+  semantic_release:
     executor: semantic-release/default
     steps:
       - checkout
