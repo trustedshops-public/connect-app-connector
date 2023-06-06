@@ -111,7 +111,7 @@ workflows:
             tags:
               only: /.*/
             branches:
-              ignore: /.*/
+              only: main
       - test:
           requires:
             - build_qa
