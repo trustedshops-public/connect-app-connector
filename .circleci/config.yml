@@ -98,10 +98,18 @@ workflows:
             - build
           context:
             - connect-team
-      - semantic-release:
+      - approve_semantic_release:
+          type: approval
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - semantic_release:
           <<: *filter_only_main
           requires:
             - test
+            - approve_semantic_release
           context:
             - semantic-release
       - cloudfront-s3-deploy/sync_and_invalidate:
