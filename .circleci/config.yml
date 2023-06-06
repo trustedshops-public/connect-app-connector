@@ -104,7 +104,7 @@ workflows:
             tags:
               only: /.*/
             branches:
-              ignore: /.*/
+              only: /.*/
       - semantic_release:
           <<: *filter_only_main
           requires:
