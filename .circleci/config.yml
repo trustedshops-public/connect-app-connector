@@ -68,13 +68,9 @@ jobs:
     executor: semantic-release/default
     steps:
       - checkout
-      - node/install-packages:
-          pkg-manager: yarn
-      - run:
-          name: Build prod version of connector
-          command: |
-            yarn build
       - semantic-release/install
+      - attach_workspace:
+          at: .
       - semantic-release/execute
   test:
     executor: python
