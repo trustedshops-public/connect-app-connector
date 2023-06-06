@@ -17,7 +17,8 @@ anchors:
     context:
       - connect-team
     requires:
-      - build
+      - build_qa
+      - build_prod
       - test
   filter_only_main: &filter_only_main
     filters:
