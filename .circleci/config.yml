@@ -77,7 +77,7 @@ jobs:
       - build_prod
       - semantic-release/install
       - semantic-release/execute
-  test:
+  test_e2e:
     executor: python
     steps:
       - attach_workspace:
@@ -109,14 +109,16 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
-      - test:
+      - test_e2e:
           requires:
-            - build_qa
+            - deploy_to_qa
           context:
             - connect-team
       - approve_semantic_release:
           <<: *filter_only_main
           type: approval
+          requires:
+            - test_e2e
       - semantic_release:
           <<: *filter_only_main
           requires:
