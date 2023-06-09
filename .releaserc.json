@@ -37,7 +37,7 @@
         "name": "trustedshops-public/connect-app-connector",
         "assets": [
           {
-            "path": "dist/connector.zip"
+            "path": "build/connector.zip"
           }
         ]
       }
