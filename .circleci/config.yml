@@ -134,7 +134,6 @@ workflows:
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
           requires:
             - build_qa
-            - test
       - approve_deploy_to_prod:
           type: approval
           filters:
