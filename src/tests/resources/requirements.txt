@@ -1,6 +1,6 @@
-robotframework
-robotframework-seleniumlibrary
-robotframework-pageobjectlibrary
-robotframework-requests
-robotframework-pabot
-webdrivermanager
+robotframework==6.0.2
+robotframework-seleniumlibrary==6.1.0
+robotframework-pageobjectlibrary==1.1
+robotframework-requests==0.9.5
+robotframework-pabot==2.15.0
+webdrivermanager==0.10.0
