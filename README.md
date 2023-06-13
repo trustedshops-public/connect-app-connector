@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=trustedshops-public_connect-app-connector&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=trustedshops-public_connect-app-connector)
-[![CircleCI](https://circleci.com/gh/trustedshops/connect-etrusted-app-spike.svg?style=svg&circle-token=51d72e86b87f9bbe9a8dab15a236d21d1418bf8d)](https://app.circleci.com/pipelines/github/trustedshops/connect-etrusted-app-spike)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/trustedshops-public/connect-app-connector/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/trustedshops-public/connect-app-connector/tree/main)
 
 ## Public Documentation
 
