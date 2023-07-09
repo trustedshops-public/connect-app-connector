@@ -67,6 +67,10 @@ export const getTrustbadgeDefault = (id: string): ITrustbadge => {
             value: 'right',
             attributeName: 'data-mobile-position',
           },
+          'data-color-scheme': {
+            value: `os-default`,
+            attributeName: 'data-color-scheme',
+          },
           charset: {
             value: 'UTF-8',
             attributeName: 'charset',
