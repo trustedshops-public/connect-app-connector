@@ -65,6 +65,10 @@ export const getTrustbadge = (id: string, defaultEnv?: string | number): ITrustb
                 value: 'right',
                 attributeName: 'data-mobile-position',
               },
+              'data-color-scheme': {
+                value: `os-default`,
+                attributeName: 'data-color-scheme',
+              },
               charset: {
                 value: 'UTF-8',
                 attributeName: 'charset',
@@ -138,6 +142,10 @@ export const getTrustbadge = (id: string, defaultEnv?: string | number): ITrustb
               'data-mobile-position': {
                 value: 'right',
                 attributeName: 'data-mobile-position',
+              },
+              'data-color-scheme': {
+                value: `os-default`,
+                attributeName: 'data-color-scheme',
               },
               charset: {
                 value: 'UTF-8',
