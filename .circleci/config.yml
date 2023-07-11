@@ -4,7 +4,7 @@ orbs:
   browser-tools: circleci/browser-tools@1.4.1
   node: circleci/node@5.1.0
   cloudfront-s3-deploy: trustedshops-public/cloudfront-s3-deploy@3.0.0
-  semantic-release: trustedshops-public/semantic-release@5.1.0
+  semantic-release: trustedshops-public/semantic-release@5.1.1
   deterministic-zip: timo-reymann/deterministic-zip@1.0.0
 
 anchors:
@@ -44,7 +44,7 @@ executors:
       - image: cimg/node:18.16-browsers
   python:
     docker:
-      - image: cimg/python:3.11.3-browsers
+      - image: cimg/python:3.11.4-browsers
 
 jobs:
   build_qa:
