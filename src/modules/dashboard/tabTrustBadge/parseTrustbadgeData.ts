@@ -64,12 +64,6 @@ export const getParsedTrustbadgeDataStrToObj = (str: string): ITrustbadgeChildre
         parsedValue = !Object.keys(PlacementMobile).includes(value) ? '' : value
       } else if (attributeName === 'data-desktop-position') {
         parsedValue = !Object.keys(PlacementDesktop).includes(value) ? '' : value
-      } else if (attributeName === 'data-color-scheme') {
-        if (value === 'dark' || value === 'light') {
-          parsedValue = value
-        } else {
-          parsedValue = 'os-default'
-        }
       } else {
         parsedValue = value
       }
@@ -85,8 +79,6 @@ export const getParsedTrustbadgeDataStrToObj = (str: string): ITrustbadgeChildre
   }
   return { tag, attributes }
 }
-
-
 
 function validateValue(value: number, min: number, max: number): number {
   if (min !== undefined && max !== undefined) {
