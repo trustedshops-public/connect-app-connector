@@ -45,7 +45,7 @@ const LoginPageModule: FC<{
 
   useEffect(() => {
     setNameOfSystem(
-      infoOfSystem.nameOfSystem ? infoOfSystem.nameOfSystem.replace(/[^a-zA-Z0-9._/-]/g, '') : ''
+      infoOfSystem.nameOfSystem ? infoOfSystem.nameOfSystem.replace(/[^a-zA-Z1-9._/-]/g, '') : ''
     )
   }, [infoOfSystem])
 
