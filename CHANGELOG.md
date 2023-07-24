@@ -1,3 +1,15 @@
+## [1.1.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.0.0...1.1.0) (2023-07-24)
+
+
+### Features
+
+* add color mode to Trustbadge ([52f9d2d](https://github.com/trustedshops-public/connect-app-connector/commit/52f9d2d7949975d37429355fc38c0c75c71f9b73))
+
+
+### Bug Fixes
+
+* nameOfSystem regex ([9b33f9e](https://github.com/trustedshops-public/connect-app-connector/commit/9b33f9eb380b5ae4bf3eaf19cbfd69ffe02fd576))
+
 ## 1.0.0 (2023-06-09)
 
 
