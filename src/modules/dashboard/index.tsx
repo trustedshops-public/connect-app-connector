@@ -1,5 +1,6 @@
 import { Fragment, h } from 'preact'
 import { FC, Suspense, lazy, useEffect, useState } from 'preact/compat'
+import { FC, Suspense, lazy, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 import Logo from '@/components/controls/logo'
 import { DASHBOADR_KEYS } from '@/locales/types'
@@ -279,6 +280,53 @@ const DashboardPageModule: FC<{
   return (
     tabConfig && (
       <>
+        <Suspense fallback={<Spinner />}>
+          <div
+            id={'dashboard_wrapper'}
+            className="ts-flex ts-flex-col ts-font-sans ts-items-center ts-justify-center"
+          >
+            <BackgroundCard customClass="ts-p-8">
+              {isChannelsLoading ? (
+                <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-96">
+                  <Spinner />
+                </div>
+              ) : (
+                <>
+                  <div className="ts-relative ts-flex ts-items-center ts-justify-center ts-mb-8">
+                    {openTab !== 3 && (
+                      <div className="ts-absolute ts-left-0 ts-w-chanelSelected">
+                        <label
+                          className={`${
+                            !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-durkLabel'
+                          }  ts-font-normal ts-text-sm`}
+                        >
+                          {phrasesByKey.application_routes_channelSelector}
+                        </label>
+                        <Select
+                          id={'channelSelection'}
+                          placeholder="Choose an option"
+                          defaultValue={
+                            selectedShopChannels && selectedShopChannels?.salesChannelName
+                          }
+                          disabled={!mappedChannels.length}
+                        >
+                          {mappedChannels.map(item => (
+                            <Option
+                              id={`channel_${item.eTrustedChannelRef}`}
+                              key={item.salesChannelRef}
+                              value={item.salesChannelRef}
+                              changeSelectedOption={setSelectedShopChennel}
+                            >
+                              <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
+                                {item.salesChannelName}
+                              </p>
+                            </Option>
+                          ))}
+                        </Select>
+                      </div>
+                    )}
+                    <Logo />
+                  </div>
         <Suspense fallback={<Spinner />}>
           <div
             id={'dashboard_wrapper'}
