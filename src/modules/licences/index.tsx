@@ -26,10 +26,10 @@ const LicencesPageModule: FC = () => {
     phrases && (
       <div className="flex flex-col items-center justify-center">
         <BackgroundCard customClass="ts-mb-4">
-          <div className=" bg-yellow-500 w-full px-10 py-5 rounded-t">
+          <div className="w-full px-10 py-5 bg-yellow-500 rounded-t">
             <Logo />
           </div>
-          <div className=" p-10">
+          <div className="p-10">
             <p className="text-[32px] leading-[1.2] font-bold mb-2">
               END-USER SOFTWARE LICENSE AGREEMENT FOR TRUSTED SHOPS SOFTWARE
             </p>
@@ -55,12 +55,12 @@ const LicencesPageModule: FC = () => {
               condi-tions, you must and may not use or access the Service.
             </p>
             <p className="mb-4">
-              1) <span className=" font-bold">Term.</span> The Agreement comes into legal force at
+              1) <span className="font-bold ">Term.</span> The Agreement comes into legal force at
               the moment when you download or execute the Service from its dedicated source (e.g.,
               in a matketplace), or receive it by any other means.
             </p>
             <p className="mb-4">
-              2) <span className=" font-bold">Licence.</span> The Agreement grants you the right in
+              2) <span className="font-bold ">Licence.</span> The Agreement grants you the right in
               respect of each license you have acquired, subject to you ac-cepting the terms hereof,
               a non-exclusive, non-sublicensable, non-transferable and, non-assignable license to
               install and use, display and run the Service. The Agreement supersedes all prior
@@ -82,13 +82,13 @@ const LicencesPageModule: FC = () => {
               expressly provided herein no such rights shall pass to you.
             </p>
             <p className="mb-4 font-bold">You may:</p>
-            <ul className="list-disc ml-10">
+            <ul className="ml-10 list-disc">
               <li className="">
                 <p className="mb-4">copy the whole or any part of the Service;</p>
               </li>
             </ul>
             <p className="mb-4 font-bold">You shall not:</p>
-            <ul className="list-disc ml-10">
+            <ul className="ml-10 list-disc">
               <li className="">
                 <p className="mb-4">
                   integrate the Service only into the software for which it has been developed and
@@ -256,7 +256,7 @@ const LicencesPageModule: FC = () => {
               </a>
             </p>
 
-            <ul className="list-disc ml-10">
+            <ul className="ml-10 list-disc">
               {Object.keys(licences).map(item => (
                 <li key={item}>
                   <p className="">
@@ -270,17 +270,17 @@ const LicencesPageModule: FC = () => {
             </ul>
           </div>
 
-          <footer className="bg-yellow-500 w-full rounded-b pt-8 relative before:-skew-y-1 before:absolute before:left-0 before:-top-8 before:w-full before:h-16 before:bg-yellow-500">
+          <footer className="relative w-full pt-8 bg-yellow-500 rounded-b before:-skew-y-1 before:absolute before:left-0 before:-top-8 before:w-full before:h-16 before:bg-yellow-500">
             <div className="relative translate-x-[-30px] w-0 h-0 border-solid border-r-[60px] border-b-[60px] border-t-[transparent] border-b-[transparent] border-l-[transparent] border-r-white left-1/2 mt-[-4.3rem]" />
-            <div className="w-full px-10 py-5 flex flex-col justify-items-center items-center ">
+            <div className="flex flex-col items-center w-full px-10 py-5 justify-items-center ">
               <Logo />
-              {/* <p className="text-xs flex items-center mt-5">
+              {/* <p className="flex items-center mt-5 text-xs">
               Copyright © {new Date().getFullYear()} Trusted Shops GmbH.
             </p>
             <p className="text-xs">All rights reserved.</p> */}
               {phrasesGlobal && (
                 <div className="flex mt-5">
-                  <p className="text-xs flex items-center mr-1">Copyright</p>
+                  <p className="flex items-center mr-1 text-xs">Copyright</p>
                   <TextWithLink
                     id={'copyright'}
                     text={phrasesGlobal?.copyright.text}
