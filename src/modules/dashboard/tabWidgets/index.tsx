@@ -11,7 +11,7 @@ import { WidgetChildren } from '@/store/widgets/types'
 import tabIcon from '@/assets/widgets-tab-icon.svg'
 import { IWidgets } from '@/baseLayers/types'
 import { DASHBOADR_KEYS } from '@/locales/types'
-import _ from 'lodash'
+import { isEqual } from '@/utils'
 import useStore from '@/store/useStore'
 import { selectorChannels } from '@/store/selector'
 import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
@@ -52,7 +52,7 @@ const WidgetsTab: FC<Props> = ({ phrasesByKey }) => {
       setIsButtonDisabled(!widgetsChildrenFiltred.length)
       return
     }
-    const isEqualRB = _.isEqual(widgetsChildrenFiltred, widgetsFromBL.children[0].children)
+    const isEqualRB = isEqual(widgetsChildrenFiltred, widgetsFromBL.children[0].children)
     setIsButtonDisabled(isEqualRB)
   }, [widgetsChildren, widgetsFromBL])
 

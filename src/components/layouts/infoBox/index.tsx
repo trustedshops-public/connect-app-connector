@@ -8,7 +8,7 @@ const InfoBox: FC<{
 }> = ({ phrasesByKey }) => {
   return (
     <div className="ts-flex ts-h-infobox ts-w-infobox ts-p-2 ts-bg-backgroundCard ts-m-8 ts-border ts-border-gray-100 ts-border-dashed ts-rounded">
-      <img src={TrustmarkImg} className="ts-h-full" />
+      <img src={TrustmarkImg} className="ts-h-full" alt="TrustmarkImg" />
       <div className="ts-p-2 ts-flex ts-flex-col ts-justify-between">
         <div>
           <p className="ts-text-default ts-font-bold ts-text-sm">

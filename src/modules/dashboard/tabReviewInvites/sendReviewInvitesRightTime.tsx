@@ -10,8 +10,9 @@ import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Radio } from '@/components/controls/radio'
 import useStore from '@/store/useStore'
 import { selectorInfoOfSystem } from '@/store/selector'
-import _ from 'lodash'
 import warnIcon from '@/assets/warning-sign.svg'
+import { isEqual } from '@/utils'
+
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
   saveChanges: () => void
@@ -44,7 +45,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
   useEffect(() => {
-    setIsButtonDisabled(_.isEqual(typesReviewInvites, initialDateToSendReviewInvites))
+    setIsButtonDisabled(isEqual(typesReviewInvites, initialDateToSendReviewInvites))
   }, [typesReviewInvites, initialDateToSendReviewInvites])
 
   return (
