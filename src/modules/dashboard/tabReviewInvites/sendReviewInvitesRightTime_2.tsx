@@ -1,14 +1,14 @@
 import { h } from 'preact'
 import { FC, useEffect, useState } from 'preact/compat'
 
-import TextWithLink, { TextWithBold } from '@/components/layouts/textWithLink'
+import TextWithLink from '@/components/layouts/textWithLink'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
 import { DASHBOADR_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem } from '@/store/selector'
+import { selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import infoIcon from '@/assets/info_icon.svg'
 import _ from 'lodash'
 
@@ -32,42 +32,28 @@ interface Props {
   showProductReviews: boolean
 }
 
-const defaultStatus = {
-  name: 'Checkout',
-  ID: 'Checkout', // You might want to use a unique ID here, like a string
-  event_type: 'Checkout',
-}
-
-const DEVStatuses = [
-  defaultStatus,
-  { name: 'Awaiting Payment', ID: 1, event_type: 'Awaiting Payment' },
-  { name: 'Payment accepted', ID: 2, event_type: 'Payment accepted' },
-  { name: 'Processing in progress', ID: 3, event_type: 'Processing in progress' },
-  { name: 'Shipped', ID: 4, event_type: 'Shipped' },
-  { name: 'Delivered', ID: 5, event_type: 'Delivered' },
-  { name: 'Canceled', ID: 6, event_type: 'Canceled' },
-  { name: 'Refunded', ID: 7, event_type: 'Refunded' },
-]
 const SendReviewInvitesRightTime: FC<Props> = ({
   phrasesByKey,
   saveChanges,
-  changeUseTimeOfSendReviewInvites,
-  selectedShopChannels,
+  // changeUseTimeOfSendReviewInvites,
+  // selectedShopChannels,
   initialDateToSendReviewInvites,
   typesReviewInvites,
-  isMappedTypesErorr,
+  // isMappedTypesErorr,
 }) => {
+  const { availableOrderStatusesAction } = useStore(selectorReviewInvites)
+
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
-  const [serviceReviews, setServiceReviews] = useState(DEVStatuses[0].event_type)
-  const [productReviews, setProductReviews] = useState(DEVStatuses[0].event_type)
-  const store = useStore()
+  const [serviceReviews, setServiceReviews] = useState(availableOrderStatusesAction[0].ID)
+  const [productReviews, setProductReviews] = useState(availableOrderStatusesAction[0].ID)
+
   useEffect(() => {
     setIsButtonDisabled(_.isEqual(typesReviewInvites, initialDateToSendReviewInvites))
   }, [typesReviewInvites, initialDateToSendReviewInvites])
 
-  const onChangeServicereviews = (eventType: string) => {
-    setServiceReviews(eventType)
+  const onChangeServicereviews = (ID: string) => {
+    setServiceReviews(ID)
   }
 
   const onChangeProductreviews = (eventType: string) => {
@@ -101,62 +87,65 @@ const SendReviewInvitesRightTime: FC<Props> = ({
                 <Select
                   id={'channelSelection'}
                   placeholder="Choose an option"
-                  defaultValue={serviceReviews}
+                  defaultValue={
+                    availableOrderStatusesAction.find(i => i.ID === serviceReviews)?.name || ''
+                  }
                   className="ts-w-[171px]"
                   // disabled={!mappedChannels.length}
                 >
-                  {DEVStatuses.map(({ ID, event_type }) => (
+                  {availableOrderStatusesAction.map(({ ID, name }) => (
                     <Option
                       id={`channel`}
-                      key={'ID'}
+                      key={ID}
                       value={'ID'}
-                      changeSelectedOption={() => onChangeServicereviews(event_type)}
+                      changeSelectedOption={() => onChangeServicereviews(ID)}
                     >
-                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
-                        {event_type}
-                      </p>
+                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">{name}</p>
                     </Option>
                   ))}
                 </Select>
               </div>
             </div>
-            <div className="ts-flex ts-items-center ts-justify-center ts-mb-8">
-              <div className="ts-flex ts-items-center ts-w-statusSelected">
-                <label
-                  className={`${'ts-text-durkLabel'} ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm`}
-                >
-                  Product reviews:
-                </label>
-                <Select
-                  id={'channelSelection'}
-                  placeholder="Choose an option"
-                  defaultValue={productReviews}
-                  className="ts-w-[171px]"
-                  // disabled={!mappedChannels.length}
-                >
-                  {DEVStatuses.map(({ event_type }) => (
-                    <Option
-                      id={`channel`}
-                      key={'event_type'}
-                      value={'event_type'}
-                      changeSelectedOption={() => onChangeProductreviews(event_type)}
-                    >
-                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
-                        {event_type}
-                      </p>
-                    </Option>
-                  ))}
-                </Select>
+            {infoOfSystem.allowsSendReviewInvitesForProduct && (
+              <div className="ts-flex ts-items-center ts-justify-center ts-mb-8">
+                <div className="ts-flex ts-items-center ts-w-statusSelected">
+                  <label
+                    className={`${'ts-text-durkLabel'} ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm`}
+                  >
+                    Product reviews:
+                  </label>
+                  <Select
+                    id={'channelSelection'}
+                    placeholder="Choose an option"
+                    defaultValue={
+                      availableOrderStatusesAction.find(i => i.ID === productReviews)?.name || ''
+                    }
+                    className="ts-w-[171px]"
+
+                    // disabled={!mappedChannels.length}
+                  >
+                    {availableOrderStatusesAction.map(({ ID, name }) => (
+                      <Option
+                        id={`channel`}
+                        key={ID}
+                        value={'ID'}
+                        changeSelectedOption={() => onChangeProductreviews(ID)}
+                      >
+                        <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">{name}</p>
+                      </Option>
+                    ))}
+                  </Select>
+                </div>
+                <div className="ts-w-[calc(100%-112px)] ts-ml-6">
+                  <TextWithLink
+                    id={'Upgrade now'}
+                    url={phrasesByKey.application_invites_send_export_help_url_1}
+                    text={phrasesByKey.application_invites_send_export_title}
+                    textStyle="ts-text-default ts-text-xs"
+                  />
+                </div>
               </div>
-              <div className="ts-w-[calc(100%-112px)] ts-ml-6">
-                <TextWithLink
-                  id={'Upgrade now'}
-                  url={phrasesByKey.application_invites_send_export_help_url_1}
-                  text={phrasesByKey.application_invites_send_export_title}
-                  textStyle="ts-text-default ts-text-xs"
-                />
-              </div>
-            </div>
+            )}
             <div className="">
               <p className="ts-text-default ts-text-sm ts-mb-8">
                 {phrasesByKey.application_invites_send_export_description}
@@ -178,7 +167,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           label={phrasesByKey.global_button_submit}
           theme={ButtonThemes.Primary}
           onClick={saveChanges}
-          // disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled}
+          disabled={isButtonDisabled}
         />
       </div>
     </div>
