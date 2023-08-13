@@ -10,15 +10,24 @@ interface Props {
   disabled?: boolean
   isError?: boolean
   id?: string
+  className?: string
 }
 
-const Select: FC<Props> = ({ children, defaultValue, placeholder, disabled, isError, id }) => {
+const Select: FC<Props> = ({
+  children,
+  defaultValue,
+  placeholder,
+  disabled,
+  isError,
+  id,
+  className,
+}) => {
   const [isOpen, setIsOpen] = useState(false)
   const selectPlaceholder = placeholder || 'Select ...'
   const btnRef = useRef<HTMLButtonElement>(null)
 
   return (
-    <div className="ts-relative">
+    <div className={`ts-relative ${className}`}>
       <button
         ref={btnRef}
         id={`select_${id}`}

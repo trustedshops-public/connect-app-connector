@@ -5,8 +5,8 @@ import { ScrinSpinner } from '@/components/layouts/spinner'
 import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import { DASHBOADR_KEYS } from '@/locales/types'
 import SendReviewInvitesForProducts from './sendReviewInvitesForProducts'
-import SendReviewInvitesRightTime from './sendReviewInvitesRightTime'
-import SendReviewInvitesForPreviousOrders from './sendReviewInvitesForPreviousOrders'
+import SendReviewInvitesRightTime from './sendReviewInvitesRightTime_2'
+import SendReviewInvitesForPreviousOrders from './sendReviewInvitesForPreviousOrders_2'
 import useStore from '@/store/useStore'
 
 interface Props {
@@ -90,6 +90,7 @@ const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
           typesReviewInvites={typesReviewInvites}
           initialDateToSendReviewInvites={initialDateToSendReviewInvites}
           isMappedTypesErorr={isMappedTypesErorr}
+          showProductReviews={!!infoOfSystem.allowsSendReviewInvitesForProduct}
         />
       )}
       {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (
@@ -99,6 +100,8 @@ const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
           numberOfDays={numberOfDays}
           changeNumberOfDays={changeNumberOfDays}
           onExport={onExport}
+          isToggle={isToggle}
+          handleToggle={handleToggle}
         />
       )}
     </div>
