@@ -1,6 +1,10 @@
 {
   "application": {
     "invites": {
+      "reviews": {
+        "title": "Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+        "url_1":"https://app.etrusted"
+      },
       "product": {
         "description": {
           "text": "Si vous avez déjà souscrit aux avis produits comme fonction supplémentaire, vous pouvez également les collecter. Pour ce faire, déplacez le curseur sur la position « actif ». \nLes avis produits ne font pas encore partie de votre contrat ?  Alors [%s]souscrivez aux avis produits[%s] dès maintenant.",

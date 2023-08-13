@@ -1,3 +1,4 @@
+import { getOrderStatus } from './testData/getOrderStatus';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { dispatchAction, EVENTS, registerEvents } from '@/eventsLib'
@@ -55,7 +56,12 @@ export const baseLayerDev = (): void => {
         payload: getLocale(DEFAULT_ENV),
       })
     },
-
+    [EVENTS.GET_ORDER_STATUS] : (event: { payload: { id: any } }) => {
+      console.log('event getorderstatus', event)
+      setTimeout(() => {
+        dispatchAction({ action: EVENTS.GET_ORDER_STATUS, payload: getOrderStatus(DEFAULT_ENV)})
+      }, 400)
+    },
     [EVENTS.SAVE_CREDENTIALS]: (event: { payload: { clientId: string; clientSecret: string } }) => {
       try {
         console.log('SAVE_CREDENTIALS_BaseLayer')
@@ -378,5 +384,6 @@ export const baseLayerDev = (): void => {
       }, 400)
     },
     [EVENTS.ERROR]: (error: any) => console.log('eventError', error),
+    
   })
 }

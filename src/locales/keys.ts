@@ -115,6 +115,11 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
 }
 
 export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
+  application_invites_send_export_reviews_title:"application.invites.send.export.reviews.title",
+  application_invites_send_export_reviews_url_1:"application.invites.send.export.reviews.url_1",
+  application_invites_send_export_reviews_description:"application.invites.send.export.reviews.description",
+  application_invites_send_export_reviews_footerDescription:"application.invites.send.export.reviews.footerDescription",
+  application_invites_send_export_reviews_footerText: "application.invites.send.export.reviews.footerText",
   application_invites_product_title: 'application.invites.product.title',
   application_invites_product_description_url_1: 'application.invites.product.description.url_1',
   application_invites_product_description_text: 'application.invites.product.description.text',

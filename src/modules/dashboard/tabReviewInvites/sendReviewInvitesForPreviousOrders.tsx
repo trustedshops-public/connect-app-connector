@@ -8,13 +8,16 @@ import { DASHBOADR_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import NumberInput from '@/components/controls/numberInput'
+import Switch from '@/components/controls/switch'
 
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
   numberOfDays: number
   changeNumberOfDays: (v: number) => void
-  onExport: (v: string, salesChannelRef: string) => void
+  onExport: (v: string, salesChannelRef: string, includeProductData: boolean) => void
   selectedShopChannels: IMappedChannel
+  isToggle: boolean
+  handleToggle: () => void
 }
 
 const SendReviewInvitesForPreviousOrders: FC<Props> = ({
@@ -23,6 +26,8 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   numberOfDays,
   changeNumberOfDays,
   onExport,
+  isToggle,
+  handleToggle,
 }) => {
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
@@ -69,11 +74,25 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
               onClick={() =>
                 onExport(
                   selectedShopChannels?.eTrustedChannelRef,
-                  selectedShopChannels.salesChannelRef
+                  selectedShopChannels.salesChannelRef,
+                  isToggle
                 )
               }
               disabled={!selectedShopChannels.eTrustedChannelRef}
             />
+          </div>
+
+          <div className="ts-flex ts-items-center ts-mb-5">
+            <Switch
+              id={'reviewInvites'}
+              disabled={!selectedShopChannels.eTrustedChannelRef}
+              isToggle={isToggle}
+              setIsToggle={handleToggle}
+              switchWidth="ts-w-10"
+              // labelOn={phrasesByKey.global_slider_active}
+              // labelOff={phrasesByKey.global_slider_inactive}
+            />
+            <p className="ts-text-default ts-text-sm ts-ml-2 ">{'Include product data'}</p>
           </div>
 
           <div className="ts-flex ts-flex-col ts-mb-5">

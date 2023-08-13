@@ -1,6 +1,10 @@
 {
   "application": {
     "invites": {
+      "reviews": {
+        "title": "Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+        "url_1":"https://app.etrusted"
+      },
       "product": {
         "description": {
           "text": "Jeśli masz już zarezerwowane opinie o produktach jako funkcję dodatkową, możesz rozpocząć ich gromadzenie. W tym celu przesuń suwak do pozycji aktywnej. \nNie zarezerwowałeś jeszcze opinii produktowych? [%s]Zamów opinie o produktach[%s]już teraz.",

@@ -26,9 +26,11 @@ export const reviewInvitesActionsStore = (
         orderStatusShippedAreLoadedFromBl: false,
       },
     }))
+    console.log('store.reviewInvitesState',get().reviewInvitesState)
     try {
       const token = get().auth.user?.access_token
       const selectedShopChannel = get().channelState.selectedShopChannels
+      console.log('selectedShopChannel',selectedShopChannel)
       const infoOfSystem = get().infoState.infoOfSystem
 
       const inviteSettingsByChannel = await getEtrustedInviteSettings(
@@ -41,6 +43,10 @@ export const reviewInvitesActionsStore = (
         infoOfSystem,
         token as string
       )
+
+      console.log('eventTypes',eventTypes)
+      console.log('inviteSettingsByChannel',inviteSettingsByChannel)
+
 
       set(store => ({
         reviewInvitesState: {
@@ -59,6 +65,9 @@ export const reviewInvitesActionsStore = (
         get().checkReviewEventTypes()
       }
     } catch (error) {}
+  },
+  getOrderStatus: () => {
+     console.log('action')
   },
 
   changeUseTimeOfSendReviewInvites: (value: {
@@ -134,6 +143,7 @@ export const reviewInvitesActionsStore = (
     const inveteSettingByOrderShipped = inviteSettingsByChannel.find(
       item => item.eventTypeId === orderShippedEventTypeId
     )
+    console.log('inveteSettingByOrderShipped', inveteSettingByOrderShipped)
     const isEnableInveteSettingByOrderShipped = inveteSettingByOrderShipped?.enabled
     const isServiceInviteConfiguration =
       inveteSettingByOrderShipped?.serviceInviteConfiguration?.enabled
@@ -159,6 +169,7 @@ export const reviewInvitesActionsStore = (
   },
 
   saveChangeUseTimeOfSendReviewInvites: async () => {
+    
     set(store => ({ reviewInvitesState: { ...store.reviewInvitesState, isLoading: true } }))
     const typesReviewInvites = get().reviewInvitesState.typesReviewInvites
     const token = get().auth.user?.access_token

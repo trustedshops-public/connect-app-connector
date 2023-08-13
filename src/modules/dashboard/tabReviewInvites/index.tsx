@@ -4,10 +4,10 @@ import { dispatchAction, EVENTS } from '@/eventsLib'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import { DASHBOADR_KEYS } from '@/locales/types'
-import SendReviewInvitesForProducts from './sendReviewInvitesForProducts'
 import SendReviewInvitesRightTime from './sendReviewInvitesRightTime'
 import SendReviewInvitesForPreviousOrders from './sendReviewInvitesForPreviousOrders'
 import useStore from '@/store/useStore'
+import { inflate } from 'zlib'
 
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
@@ -72,15 +72,6 @@ const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
     <div className="ts-w-full ts-flex ts-flex-col ts-gap-8">
       {isLoading && <ScrinSpinner />}
 
-      {infoOfSystem.allowsSendReviewInvitesForProduct && (
-        <SendReviewInvitesForProducts
-          phrasesByKey={phrasesByKey}
-          isToggle={isToggle}
-          handleToggle={handleToggle}
-          selectedShopChannels={selectedShopChannels}
-        />
-      )}
-
       {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
         <SendReviewInvitesRightTime
           phrasesByKey={phrasesByKey}
@@ -90,6 +81,7 @@ const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
           typesReviewInvites={typesReviewInvites}
           initialDateToSendReviewInvites={initialDateToSendReviewInvites}
           isMappedTypesErorr={isMappedTypesErorr}
+          showProductReviews={!!infoOfSystem.allowsSendReviewInvitesForProduct}
         />
       )}
       {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (
@@ -99,6 +91,8 @@ const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
           numberOfDays={numberOfDays}
           changeNumberOfDays={changeNumberOfDays}
           onExport={onExport}
+          isToggle={isToggle}
+          handleToggle={handleToggle}
         />
       )}
     </div>

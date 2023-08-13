@@ -30,12 +30,13 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     addInToastList,
     setUseEstimatedDeliveryDate,
     setUseEventsByOrderStatusShipped,
+    getOrderStatus,
   } = useStore()
 
   useEffect(() => {
     const unsubscribingFromEvents = registerEvents({
       [EVENTS.SET_LOCALE]: (event: { payload: string }) => setLanguage(event.payload),
-
+      // [EVENTS.GET_ORDER_STATUS]: () => getOrderStatus(),
       [EVENTS.SET_SALES_CHANNELS_PROVIDED]: (event: { payload: IChannelTS[] }) => {
         getShopChannels(event.payload)
       },

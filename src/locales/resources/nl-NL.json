@@ -1,6 +1,10 @@
 {
   "application": {
     "invites": {
+      "reviews": {
+        "title": "Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+        "url_1":"https://app.etrusted"
+      },
       "product": {
         "description": {
           "text": "Wanneer je productbeoordelingen als extra feature hebt besteld, kun je deze ook verzamelen. Zet hiervoor de schuifregelaar op actief. \nMaken productbeoordelingen nog geen deel uit van je contract?  Dan kun [%s]je deze productbeoordelingen nu toevoegen[%s].",

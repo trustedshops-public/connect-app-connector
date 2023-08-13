@@ -1,6 +1,10 @@
 {
   "application": {
     "invites": {
+      "reviews": {
+        "title": "Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+        "url_1":"https://app.etrusted"
+      },
       "product": {
         "description": {
           "text": "Se já tiver registado avaliações de produtos como funcionalidade adicional, também as pode juntar. Para o efeito, deslize o regulador para a posição ativa. \nAs avaliações de produtos ainda não fazem parte do seu contrato?  Então [%s]registe agora as avaliações de[%s] produtos.",

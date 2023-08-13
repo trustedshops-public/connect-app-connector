@@ -336,6 +336,11 @@ export type IWIDGETS_KEYS = {
 }
 
 export type INVITES_KEYS = {
+  application_invites_send_export_reviews_title:string
+  application_invites_send_export_reviews_url_1:string,
+  application_invites_send_export_reviews_description: string,
+  application_invites_send_export_reviews_footerDescription:string,
+  application_invites_send_export_reviews_footerText: string,
   application_invites_product_title: string
   application_invites_product_description_url_1: string
   application_invites_product_description_text: string

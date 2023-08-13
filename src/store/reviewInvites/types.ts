@@ -80,11 +80,12 @@ export interface IReviewInvitesStore {
   setInvitesForProducts: (value: Nullable<IMappedChannel>) => void
   changeNumberOfDays: (value: number) => void
   clearReviewInvitesState: () => void
-  onExport: (id: string, salesChannelRef: string) => void
+  onExport: (id: string, salesChannelRef: string, includeProductData: boolean) => void
 }
 export interface ReviewInvitesActionsStore {
   getEventTypesFromApi: () => void
-  changeUseTimeOfSendReviewInvites: (value: {
+  getOrderStatus: () => void
+  changeUseTimeOfSendReviewInvites: (value: { 
     isEstimatedDeliveryDate: boolean
     isEventsByOrderStatusShipped: boolean
   }) => void

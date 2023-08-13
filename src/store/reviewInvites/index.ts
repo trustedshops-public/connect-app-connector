@@ -58,11 +58,11 @@ export const reviewInvitesStore = (
       },
     }))
   },
-  onExport: (id: string, salesChannelRef: string) => {
+  onExport: (id: string, salesChannelRef: string, includeProductData: boolean) => {
     const numberOfDays = get().reviewInvitesState.numberOfDays
     dispatchAction({
       action: EVENTS.EXPORT_PREVIOUS_ORDER,
-      payload: { id, numberOfDays, salesChannelRef },
+      payload: { id, numberOfDays, salesChannelRef,includeProductData },
     })
     set(store => ({
       reviewInvitesState: {

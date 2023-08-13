@@ -1,6 +1,7 @@
 import { DEV, TEST } from '../baseLayerDev'
 
 export const getProductIdentifiers = (defaultEnv?: string): { [key: string]: string }[] => {
+  console.log('defaultEnv', defaultEnv)
   switch (process.env.productIdentifiers || defaultEnv) {
     case DEV: // value for 'development'
       return [

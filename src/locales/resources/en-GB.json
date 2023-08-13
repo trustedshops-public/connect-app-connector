@@ -22,6 +22,14 @@
             "text": "If you do not want to collect reviews automated or if you want to manually invite customers to submit reviews in addition to the automated dispatch of invites, you can use the [%s]Review Collector[%s].",
             "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
           },
+          "reviews": {
+            "title": "Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+            "url_1":"https://app.etrusted",
+            "description":"Choose the right touchpoint to send out your review invites.",
+            "footerDescription":"Legal consent text.",
+            "footerText": "Congratulations! You have successfully optimised your review invite sending time! You are now sending out review invites based on your individual \ninvite trigger, combined with a sending delay that works best for most Trusted Shops customers.\nIf you want to make further settings, please go to the [%s]Control Centre[%s]."
+    
+          },
           "step": {
             "1": {
               "option": "Export orders made in the past number of days:",

@@ -1,6 +1,8 @@
 import { DEV, TEST } from '../baseLayerDev'
 
 export const getLocale = (defaultEnv?: string): string => {
+  console.log('defaultEnv', defaultEnv)
+
   switch (process.env.locale || defaultEnv) {
     case DEV: // value for 'development'
       return 'en-GB'
