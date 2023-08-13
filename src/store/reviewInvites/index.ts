@@ -24,6 +24,7 @@ const initialState: IReviewInvitesState = {
   estimatedDeliveryAreLoadedFromBL: false,
   orderStatusShippedAreLoadedFromBL: false,
   isMappedTypesErorr: false,
+  availableOrderStatusesAction: [],
 }
 
 export const reviewInvitesStore = (

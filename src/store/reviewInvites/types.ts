@@ -48,6 +48,9 @@ export interface InviteSettingsByChannelType {
   productInviteConfiguration?: InviteConfiguration
   serviceInviteConfiguration?: InviteConfiguration
 }
+
+export type AvilableOrderStatusesType = { ID: string; name: string; event_type?: string }
+
 export interface IReviewInvitesState {
   isLoading: boolean
   eventTypes: EventType[]
@@ -67,6 +70,7 @@ export interface IReviewInvitesState {
   orderStatusShippedAreLoadedFromBL: boolean
   eventTypesAreLoadedFromAPI: boolean
   isMappedTypesErorr: boolean
+  availableOrderStatusesAction: AvilableOrderStatusesType[]
 }
 
 export type PayloadSendReview = {
@@ -93,4 +97,8 @@ export interface ReviewInvitesActionsStore {
   setUseEstimatedDeliveryDate: (estimatedDelivery: Nullable<PayloadSendReview>) => void
   setUseEventsByOrderStatusShipped: (orderStatusShipped: Nullable<PayloadSendReview>) => void
   saveChangeUseTimeOfSendReviewInvites: () => void
+}
+
+export interface ReviewInvitesActionsStore_2 {
+  setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => void
 }
