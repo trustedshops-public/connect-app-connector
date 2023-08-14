@@ -4,6 +4,7 @@ import { dispatchAction, EVENTS, registerEvents } from '@/eventsLib'
 import { getInformationOfSystem } from './testData/getInformationOfSystem'
 import { getLocale } from './testData/getLocale'
 import { getMappedChannels } from './testData/getMappedChannels'
+import { getOrderStaruses } from './testData/getOrderStatuses'
 import { getProductIdentifiers } from './testData/getProductIdentifiers'
 import { getSalesChannels } from './testData/getSalesChannels'
 import { getTrustbadge } from './testData/getTrustbadgeMock'
@@ -347,6 +348,14 @@ export const baseLayerDev = (): void => {
           )
         }, 400)
       }
+    },
+
+    [EVENTS.GET_AVAILABLE_ORDER_STATUSES]: () => {
+      console.log('GET_AVAILABLE_ORDER_STATUSES')
+      dispatchAction({
+        action: EVENTS.SET_AVAILABLE_ORDER_STATUSES,
+        payload: getOrderStaruses(DEFAULT_ENV),
+      })
     },
 
     [EVENTS.EXPORT_PREVIOUS_ORDER]: (event: { payload: any }) => {

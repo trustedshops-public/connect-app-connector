@@ -12,8 +12,13 @@ import { trustbadgeStore } from './trustbadge'
 import { notificationStore } from './notification'
 import { INotificationStore } from './notification/types'
 import { reviewInvitesStore } from './reviewInvites'
-import { IReviewInvitesStore, ReviewInvitesActionsStore } from './reviewInvites/types'
+import {
+  IReviewInvitesStore,
+  ReviewInvitesActionsStore,
+  ReviewInvitesActionsStore_2,
+} from './reviewInvites/types'
 import { reviewInvitesActionsStore } from './reviewInvites/reviewInvitesSendActions'
+import { reviewInvitesActionsStore_2 } from './reviewInvites/reviewInvitesSendActions_2'
 export type AppStore = ITbStore &
   InfoStore &
   IAuthStore &
@@ -21,7 +26,8 @@ export type AppStore = ITbStore &
   IWidgetsStore &
   INotificationStore &
   IReviewInvitesStore &
-  ReviewInvitesActionsStore
+  ReviewInvitesActionsStore &
+  ReviewInvitesActionsStore_2
 
 const useStore = create<AppStore>((set, get) => ({
   ...authStore(set, get),
@@ -32,6 +38,7 @@ const useStore = create<AppStore>((set, get) => ({
   ...notificationStore(set, get),
   ...reviewInvitesStore(set, get),
   ...reviewInvitesActionsStore(set, get),
+  ...reviewInvitesActionsStore_2(set, get),
 }))
 
 export default useStore

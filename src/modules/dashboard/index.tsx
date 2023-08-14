@@ -25,6 +25,9 @@ import {
   selectorNotificationStore,
   selectorTrustbadgeState,
 } from '@/store/selector'
+import ReviewInvitesTab_2 from './tabReviewInvites/ReviewInvitesTab_2'
+
+const VERSION_2 = '2.0'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOADR_KEYS) => void
@@ -36,6 +39,8 @@ const DashboardPageModule: FC<{
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const isVersionTwo = infoOfSystem.useVersionNumberOfConnector === VERSION_2
   const {
     isChannelsLoading,
     mappedChannels,
@@ -107,13 +112,25 @@ const DashboardPageModule: FC<{
         },
       })
       dispatchAction({
-        action: EVENTS.GET_AVAILABLE_PRODUCT_IDENTIFIERS,
+        action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
         payload: {
           id: selectedShopChannels.eTrustedChannelRef,
           eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
           salesChannelRef: selectedShopChannels.salesChannelRef,
         },
       })
+    }
+
+    {
+      isVersionTwo &&
+        dispatchAction({
+          action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
+          payload: {
+            id: selectedShopChannels.eTrustedChannelRef,
+            eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+            salesChannelRef: selectedShopChannels.salesChannelRef,
+          },
+        })
     }
 
     if (
@@ -218,7 +235,12 @@ const DashboardPageModule: FC<{
       {
         id: 2,
         name: phrasesByKey.application_routes_invites,
-        component: <ReviewInvitesTab phrasesByKey={phrasesByKey} />,
+        component:
+          infoOfSystem.useVersionNumberOfConnector === VERSION_2 ? (
+            <ReviewInvitesTab_2 phrasesByKey={phrasesByKey} />
+          ) : (
+            <ReviewInvitesTab phrasesByKey={phrasesByKey} />
+          ),
         isAvailable: displayReviewTab,
       },
       {

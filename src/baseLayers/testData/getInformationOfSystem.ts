@@ -15,6 +15,7 @@ export const getInformationOfSystem = (
         allowsSendReviewInvitesForProduct: true,
         allowsEditIntegrationCode: true,
         allowsSupportWidgets: true,
+        useVersionNumberOfConnector: '1.0',
       }
     case TEST: //value for 'test'
       return {

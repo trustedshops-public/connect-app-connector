@@ -8,6 +8,7 @@ export interface IUserInfo {
   allowsSendReviewInvitesForProduct?: boolean
   allowsEditIntegrationCode?: boolean
   allowsSupportWidgets?: boolean
+  useVersionNumberOfConnector?: string
 }
 
 export interface InfoState {
