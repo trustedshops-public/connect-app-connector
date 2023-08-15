@@ -1,10 +1,9 @@
 import { h } from 'preact'
-import { FC, useEffect, useState } from 'preact/compat'
+import { FC } from 'preact/compat'
 
 import TextWithLink from '@/components/layouts/textWithLink'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
 import { DASHBOADR_KEYS } from '@/locales/types'
-import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
@@ -15,21 +14,21 @@ import _ from 'lodash'
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
   saveChanges: () => void
-  changeUseTimeOfSendReviewInvites: (v: {
-    isEstimatedDeliveryDate: boolean
-    isEventsByOrderStatusShipped: boolean
-  }) => void
-  selectedShopChannels: IMappedChannel
-  typesReviewInvites: {
-    isEstimatedDeliveryDate: boolean
-    isEventsByOrderStatusShipped: boolean
-  }
-  initialDateToSendReviewInvites: {
-    isEstimatedDeliveryDate: boolean
-    isEventsByOrderStatusShipped: boolean
-  }
-  isMappedTypesErorr: boolean
-  showProductReviews: boolean
+  // changeUseTimeOfSendReviewInvites: (v: {
+  //   isEstimatedDeliveryDate: boolean
+  //   isEventsByOrderStatusShipped: boolean
+  // }) => void
+  // selectedShopChannels: IMappedChannel
+  // typesReviewInvites: {
+  //   isEstimatedDeliveryDate: boolean
+  //   isEventsByOrderStatusShipped: boolean
+  // }
+  // initialDateToSendReviewInvites: {
+  //   isEstimatedDeliveryDate: boolean
+  //   isEventsByOrderStatusShipped: boolean
+  // }
+  // isMappedTypesErorr: boolean
+  // showProductReviews: boolean
 }
 
 const SendReviewInvitesRightTime: FC<Props> = ({
@@ -37,28 +36,20 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   saveChanges,
   // changeUseTimeOfSendReviewInvites,
   // selectedShopChannels,
-  initialDateToSendReviewInvites,
-  typesReviewInvites,
+  // initialDateToSendReviewInvites,
+  // typesReviewInvites,
   // isMappedTypesErorr,
 }) => {
-  const { availableOrderStatusesAction } = useStore(selectorReviewInvites)
+  const { availableOrderStatusesAction, selectedReviews } = useStore(selectorReviewInvites)
+  const { setSelectedReviews } = useStore()
 
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+  // const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
-  const [serviceReviews, setServiceReviews] = useState(availableOrderStatusesAction[0].ID)
-  const [productReviews, setProductReviews] = useState(availableOrderStatusesAction[0].ID)
 
-  useEffect(() => {
-    setIsButtonDisabled(_.isEqual(typesReviewInvites, initialDateToSendReviewInvites))
-  }, [typesReviewInvites, initialDateToSendReviewInvites])
+  // useEffect(() => {
+  //   setIsButtonDisabled(_.isEqual(typesReviewInvites, initialDateToSendReviewInvites))
+  // }, [typesReviewInvites, initialDateToSendReviewInvites])
 
-  const onChangeServicereviews = (ID: string) => {
-    setServiceReviews(ID)
-  }
-
-  const onChangeProductreviews = (eventType: string) => {
-    setProductReviews(eventType)
-  }
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -88,19 +79,22 @@ const SendReviewInvitesRightTime: FC<Props> = ({
                   id={'channelSelection'}
                   placeholder="Choose an option"
                   defaultValue={
-                    availableOrderStatusesAction.find(i => i.ID === serviceReviews)?.name || ''
+                    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)
+                      ?.name || ''
                   }
                   className="ts-w-[171px]"
                   // disabled={!mappedChannels.length}
                 >
-                  {availableOrderStatusesAction.map(({ ID, name }) => (
+                  {availableOrderStatusesAction.map(item => (
                     <Option
                       id={`channel`}
-                      key={ID}
+                      key={item.ID}
                       value={'ID'}
-                      changeSelectedOption={() => onChangeServicereviews(ID)}
+                      changeSelectedOption={() => setSelectedReviews({ service: item })}
                     >
-                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">{name}</p>
+                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
+                        {item.name}
+                      </p>
                     </Option>
                   ))}
                 </Select>
@@ -118,20 +112,23 @@ const SendReviewInvitesRightTime: FC<Props> = ({
                     id={'channelSelection'}
                     placeholder="Choose an option"
                     defaultValue={
-                      availableOrderStatusesAction.find(i => i.ID === productReviews)?.name || ''
+                      availableOrderStatusesAction.find(i => i.ID === selectedReviews.product?.ID)
+                        ?.name || ''
                     }
                     className="ts-w-[171px]"
 
                     // disabled={!mappedChannels.length}
                   >
-                    {availableOrderStatusesAction.map(({ ID, name }) => (
+                    {availableOrderStatusesAction.map(item => (
                       <Option
                         id={`channel`}
-                        key={ID}
+                        key={item.ID}
                         value={'ID'}
-                        changeSelectedOption={() => onChangeProductreviews(ID)}
+                        changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
-                        <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">{name}</p>
+                        <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
+                          {item.name}
+                        </p>
                       </Option>
                     ))}
                   </Select>
@@ -167,7 +164,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           label={phrasesByKey.global_button_submit}
           theme={ButtonThemes.Primary}
           onClick={saveChanges}
-          disabled={isButtonDisabled}
+          // disabled={isButtonDisabled}
         />
       </div>
     </div>

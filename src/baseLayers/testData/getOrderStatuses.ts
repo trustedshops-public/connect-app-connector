@@ -6,11 +6,11 @@ export const getOrderStaruses = (defaultEnv?: string): { [key: string]: string |
       return [
         { name: 'Awaiting Payment', ID: '1' },
         { name: 'Payment accepted', ID: '2' },
-        { name: 'Processing in progress', ID: '3', event_type: 'Processing in progress' },
-        { name: 'Shipped', ID: '4', event_type: 'Shipped' },
-        { name: 'Delivered', ID: '5', event_type: 'Delivered' },
-        { name: 'Canceled', ID: '6', event_type: 'Canceled' },
-        { name: 'Refunded', ID: '7', event_type: 'Refunded' },
+        { name: 'Processing in progress', ID: '3' },
+        { name: 'Shipped', ID: '4' },
+        { name: 'Delivered', ID: '5' },
+        { name: 'Canceled', ID: '6' },
+        { name: 'Refunded', ID: '7' },
       ]
     default:
       return []

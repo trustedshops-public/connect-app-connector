@@ -71,6 +71,8 @@ export interface IReviewInvitesState {
   eventTypesAreLoadedFromAPI: boolean
   isMappedTypesErorr: boolean
   availableOrderStatusesAction: AvilableOrderStatusesType[]
+
+  selectedReviews: { service: AvilableOrderStatusesType; product?: AvilableOrderStatusesType }
 }
 
 export type PayloadSendReview = {
@@ -101,4 +103,7 @@ export interface ReviewInvitesActionsStore {
 
 export interface ReviewInvitesActionsStore_2 {
   setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => void
+  getEventTypesFromApi_v2: () => void
+  saveChangeUseTimeOfSendReviewInvites_v2: () => void
+  setSelectedReviews: (val: { [key: string]: AvilableOrderStatusesType }) => void
 }

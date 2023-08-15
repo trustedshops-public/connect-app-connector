@@ -21,15 +21,15 @@ const ReviewInvitesTab_2: FC<Props> = ({ phrasesByKey }) => {
     changeUseTimeOfSendReviewInvites,
     changeNumberOfDays,
     onExport,
-    saveChangeUseTimeOfSendReviewInvites,
+    saveChangeUseTimeOfSendReviewInvites_v2,
   } = useStore()
   const {
     invitesForProducts,
-    initialDateToSendReviewInvites,
+    // initialDateToSendReviewInvites,
     numberOfDays,
     isLoading,
-    typesReviewInvites,
-    isMappedTypesErorr,
+    // typesReviewInvites,
+    // isMappedTypesErorr,
   } = useStore(selectorReviewInvites)
 
   useEffect(() => {
@@ -64,7 +64,7 @@ const ReviewInvitesTab_2: FC<Props> = ({ phrasesByKey }) => {
   }
 
   const saveChanges = async () => {
-    await saveChangeUseTimeOfSendReviewInvites()
+    await saveChangeUseTimeOfSendReviewInvites_v2()
   }
 
   return (
@@ -75,12 +75,12 @@ const ReviewInvitesTab_2: FC<Props> = ({ phrasesByKey }) => {
         <SendReviewInvitesRightTime_2
           phrasesByKey={phrasesByKey}
           saveChanges={saveChanges}
-          changeUseTimeOfSendReviewInvites={changeUseTimeOfSendReviewInvites}
-          selectedShopChannels={selectedShopChannels}
-          typesReviewInvites={typesReviewInvites}
-          initialDateToSendReviewInvites={initialDateToSendReviewInvites}
-          isMappedTypesErorr={isMappedTypesErorr}
-          showProductReviews={!!infoOfSystem.allowsSendReviewInvitesForProduct}
+          // changeUseTimeOfSendReviewInvites={changeUseTimeOfSendReviewInvites}
+          // selectedShopChannels={selectedShopChannels}
+          // typesReviewInvites={typesReviewInvites}
+          // initialDateToSendReviewInvites={initialDateToSendReviewInvites}
+          // isMappedTypesErorr={isMappedTypesErorr}
+          // showProductReviews={!!infoOfSystem.allowsSendReviewInvitesForProduct}
         />
       )}
 
