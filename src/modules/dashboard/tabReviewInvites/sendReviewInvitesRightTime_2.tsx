@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { FC } from 'preact/compat'
+import { FC, useEffect, useState } from 'preact/compat'
 
 import TextWithLink from '@/components/layouts/textWithLink'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
@@ -14,41 +14,19 @@ import _ from 'lodash'
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
   saveChanges: () => void
-  // changeUseTimeOfSendReviewInvites: (v: {
-  //   isEstimatedDeliveryDate: boolean
-  //   isEventsByOrderStatusShipped: boolean
-  // }) => void
-  // selectedShopChannels: IMappedChannel
-  // typesReviewInvites: {
-  //   isEstimatedDeliveryDate: boolean
-  //   isEventsByOrderStatusShipped: boolean
-  // }
-  // initialDateToSendReviewInvites: {
-  //   isEstimatedDeliveryDate: boolean
-  //   isEventsByOrderStatusShipped: boolean
-  // }
-  // isMappedTypesErorr: boolean
-  // showProductReviews: boolean
 }
 
-const SendReviewInvitesRightTime: FC<Props> = ({
-  phrasesByKey,
-  saveChanges,
-  // changeUseTimeOfSendReviewInvites,
-  // selectedShopChannels,
-  // initialDateToSendReviewInvites,
-  // typesReviewInvites,
-  // isMappedTypesErorr,
-}) => {
-  const { availableOrderStatusesAction, selectedReviews } = useStore(selectorReviewInvites)
+const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) => {
+  const { availableOrderStatusesAction, selectedReviews, initialSelectedReviews } =
+    useStore(selectorReviewInvites)
   const { setSelectedReviews } = useStore()
 
-  // const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
-  // useEffect(() => {
-  //   setIsButtonDisabled(_.isEqual(typesReviewInvites, initialDateToSendReviewInvites))
-  // }, [typesReviewInvites, initialDateToSendReviewInvites])
+  useEffect(() => {
+    setIsButtonDisabled(_.isEqual(selectedReviews, initialSelectedReviews))
+  }, [selectedReviews, initialSelectedReviews])
 
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
@@ -164,7 +142,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           label={phrasesByKey.global_button_submit}
           theme={ButtonThemes.Primary}
           onClick={saveChanges}
-          // disabled={isButtonDisabled}
+          disabled={isButtonDisabled}
         />
       </div>
     </div>

@@ -18,19 +18,11 @@ const ReviewInvitesTab_2: FC<Props> = ({ phrasesByKey }) => {
   const { selectedShopChannels } = useStore(selectorChannels)
   const {
     setIsLoadingInvitesForProducts,
-    changeUseTimeOfSendReviewInvites,
     changeNumberOfDays,
     onExport,
     saveChangeUseTimeOfSendReviewInvites_v2,
   } = useStore()
-  const {
-    invitesForProducts,
-    // initialDateToSendReviewInvites,
-    numberOfDays,
-    isLoading,
-    // typesReviewInvites,
-    // isMappedTypesErorr,
-  } = useStore(selectorReviewInvites)
+  const { invitesForProducts, numberOfDays, isLoading } = useStore(selectorReviewInvites)
 
   useEffect(() => {
     if (!invitesForProducts) return setIsToggle(false)
@@ -72,16 +64,7 @@ const ReviewInvitesTab_2: FC<Props> = ({ phrasesByKey }) => {
       {isLoading && <ScrinSpinner />}
 
       {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
-        <SendReviewInvitesRightTime_2
-          phrasesByKey={phrasesByKey}
-          saveChanges={saveChanges}
-          // changeUseTimeOfSendReviewInvites={changeUseTimeOfSendReviewInvites}
-          // selectedShopChannels={selectedShopChannels}
-          // typesReviewInvites={typesReviewInvites}
-          // initialDateToSendReviewInvites={initialDateToSendReviewInvites}
-          // isMappedTypesErorr={isMappedTypesErorr}
-          // showProductReviews={!!infoOfSystem.allowsSendReviewInvitesForProduct}
-        />
+        <SendReviewInvitesRightTime_2 phrasesByKey={phrasesByKey} saveChanges={saveChanges} />
       )}
 
       {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (

@@ -25,6 +25,14 @@ const initialState: IReviewInvitesState = {
   orderStatusShippedAreLoadedFromBL: false,
   isMappedTypesErorr: false,
   availableOrderStatusesAction: [],
+  selectedReviews: {
+    product: undefined,
+    service: undefined,
+  },
+  initialSelectedReviews: {
+    product: undefined,
+    service: undefined,
+  },
 }
 
 export const reviewInvitesStore = (

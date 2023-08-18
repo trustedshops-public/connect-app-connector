@@ -51,6 +51,15 @@ export interface InviteSettingsByChannelType {
 
 export type AvilableOrderStatusesType = { ID: string; name: string; event_type?: string }
 
+export type PayloadUsedOrders = {
+  eTrustedChannelRef: string
+  salesChannelRef: string
+  activeStatus: {
+    product?: AvilableOrderStatusesType
+    service?: AvilableOrderStatusesType
+  }
+}
+
 export interface IReviewInvitesState {
   isLoading: boolean
   eventTypes: EventType[]
@@ -72,7 +81,11 @@ export interface IReviewInvitesState {
   isMappedTypesErorr: boolean
   availableOrderStatusesAction: AvilableOrderStatusesType[]
 
-  selectedReviews: { service: AvilableOrderStatusesType; product?: AvilableOrderStatusesType }
+  selectedReviews: { service?: AvilableOrderStatusesType; product?: AvilableOrderStatusesType }
+  initialSelectedReviews?: {
+    service?: AvilableOrderStatusesType
+    product?: AvilableOrderStatusesType
+  }
 }
 
 export type PayloadSendReview = {
@@ -106,4 +119,5 @@ export interface ReviewInvitesActionsStore_2 {
   getEventTypesFromApi_v2: () => void
   saveChangeUseTimeOfSendReviewInvites_v2: () => void
   setSelectedReviews: (val: { [key: string]: AvilableOrderStatusesType }) => void
+  setUsedOrderStatuses: (val: PayloadUsedOrders) => void
 }

@@ -12,6 +12,7 @@ import { getValueReviewChannel } from './testData/getValueReviewChannel'
 import { getWidgetLocation } from './testData/getWidgetLocation'
 import { getWidgets } from './testData/getWidgets'
 import { IMappedChannel, IWidgets } from './types'
+import { getUsedOrderStaruses } from './testData/getUsedOrderStatuses'
 
 export const DEV = 'development'
 export const TEST = 'test'
@@ -350,11 +351,46 @@ export const baseLayerDev = (): void => {
       }
     },
 
+    [EVENTS.SAVE_USED_ORDER_STATUSES]: (event: { payload: any }) => {
+      try {
+        console.log('SAVE_USED_ORDER_STATUSES', event.payload)
+        setTimeout(() => {
+          dispatchAction({
+            action: EVENTS.SET_USED_ORDER_STATUSES,
+            payload: event.payload,
+          })
+          sendingNotification(
+            EVENTS.SAVE_USED_ORDER_STATUSES,
+            'USED ORDER STATUSES SAVED',
+            'success',
+            'save'
+          )
+        }, 400)
+      } catch (error) {
+        setTimeout(() => {
+          sendingNotification(
+            EVENTS.SAVE_USED_ORDER_STATUSES,
+            'USED ORDER STATUSES NOT SAVED',
+            'error',
+            'save'
+          )
+        }, 400)
+      }
+    },
+
     [EVENTS.GET_AVAILABLE_ORDER_STATUSES]: () => {
       console.log('GET_AVAILABLE_ORDER_STATUSES')
       dispatchAction({
         action: EVENTS.SET_AVAILABLE_ORDER_STATUSES,
         payload: getOrderStaruses(DEFAULT_ENV),
+      })
+    },
+
+    [EVENTS.GET_USED_ORDER_STATUSES]: (event: { payload: any }) => {
+      console.log('GET_USED_ORDER_STATUSES', event.payload)
+      dispatchAction({
+        action: EVENTS.SET_USED_ORDER_STATUSES,
+        payload: { ...getUsedOrderStaruses(DEFAULT_ENV), ...event.payload },
       })
     },
 

@@ -1,62 +1,105 @@
 import { h } from 'preact'
 import { FC } from 'preact/compat'
-import Switch from '@/components/controls/switch'
+
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink from '@/components/layouts/textWithLink'
-import productsIcon from '@/assets/invites-tab-products-icon.svg'
+import exportIcon from '@/assets/invites-tab-export-icon.svg'
 import { DASHBOADR_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
+import Button, { ButtonThemes } from '@/components/controls/buttun'
+import NumberInput from '@/components/controls/numberInput'
 
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
-  isToggle: boolean
-  handleToggle: () => void
+  numberOfDays: number
+  changeNumberOfDays: (v: number) => void
+  onExport: (v: string, salesChannelRef: string) => void
   selectedShopChannels: IMappedChannel
 }
 
-const SendReviewInvitesForProducts: FC<Props> = ({
+const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   phrasesByKey,
-  isToggle,
-  handleToggle,
   selectedShopChannels,
+  numberOfDays,
+  changeNumberOfDays,
+  onExport,
 }) => {
   return (
-    <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded-b">
+    <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
         <div className="ts-min-w-20 ts-h-20">
-          <img className="ts-w-20 ts-h-20" src={productsIcon} alt="tab-icon" />
+          <img className="ts-w-20 ts-h-20" src={exportIcon} alt="tab-icon" />
         </div>
 
         <div className="ts-w-[calc(100%-112px)]">
-          <div className="ts-flex ts-items-start ts-justify-between">
-            <p className="ts-text-default ts-text-md ts-font-bold ts-mb-4">
-              {phrasesByKey.application_invites_product_title}
-            </p>
+          <p className="ts-text-default ts-text-md ts-font-bold ts-mb-4">
+            {phrasesByKey.application_invites_send_export_title}
+          </p>
 
-            <Switch
-              id={'reviewInvites'}
+          <p className="ts-text-default ts-text-sm ts-mb-4 ts-whitespace-pre-wrap">
+            {phrasesByKey.application_invites_send_export_description}
+          </p>
+
+          <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-4">
+            {phrasesByKey.application_invites_send_export_step_1_title}
+          </p>
+
+          <div className="ts-flex ts-justify-between ts-mb-5">
+            <div className="ts-flex ts-items-center">
+              <p className="ts-text-default ts-text-sm ts-mr-2">
+                {phrasesByKey.application_invites_send_export_step_1_option}
+              </p>
+
+              <div className="ts-w-14">
+                <NumberInput
+                  id={'numberOfDays'}
+                  disabled={!selectedShopChannels.eTrustedChannelRef}
+                  min={0}
+                  max={90}
+                  value={numberOfDays}
+                  onChange={value => changeNumberOfDays(+value)}
+                />
+              </div>
+            </div>
+
+            <Button
+              id={'exportCSV'}
+              label={phrasesByKey.application_invites_send_export_button}
+              theme={ButtonThemes.Primary}
+              onClick={() =>
+                onExport(
+                  selectedShopChannels?.eTrustedChannelRef,
+                  selectedShopChannels.salesChannelRef
+                )
+              }
               disabled={!selectedShopChannels.eTrustedChannelRef}
-              isToggle={isToggle}
-              setIsToggle={handleToggle}
-              labelOn={phrasesByKey.global_slider_active}
-              labelOff={phrasesByKey.global_slider_inactive}
             />
           </div>
 
-          <TextWithLink
-            id={'product_description'}
-            url={phrasesByKey.application_invites_product_description_url_1}
-            text={phrasesByKey.application_invites_product_description_text}
-            textStyle="ts-text-default ts-text-sm ts-mb-4"
-          />
+          <div className="ts-flex ts-flex-col ts-mb-5">
+            <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-4">
+              {phrasesByKey.application_invites_send_export_step_2_title}
+            </p>
+
+            <TextWithLink
+              id={'send_export_description'}
+              url={[
+                phrasesByKey.application_invites_send_export_step_2_description_url_1,
+                phrasesByKey.application_invites_send_export_step_2_description_url_2,
+              ]}
+              text={phrasesByKey.application_invites_send_export_step_2_description_text}
+              textStyle="ts-text-default ts-text-sm"
+            />
+          </div>
         </div>
       </div>
+
       <div className="ts-w-[calc(100%-112px)]">
         <TabInfoBox>
           <TextWithLink
-            id={'product_help'}
-            url={phrasesByKey.application_invites_product_help_url_1}
-            text={phrasesByKey.application_invites_product_help_text}
+            id={'send_export_help'}
+            url={phrasesByKey.application_invites_send_export_help_url_1}
+            text={phrasesByKey.application_invites_send_export_help_text}
             textStyle="ts-text-default ts-text-sm"
           />
         </TabInfoBox>
@@ -65,4 +108,4 @@ const SendReviewInvitesForProducts: FC<Props> = ({
   )
 }
 
-export default SendReviewInvitesForProducts
+export default SendReviewInvitesForPreviousOrders

@@ -177,6 +177,13 @@ const DashboardPageModule: FC<{
           },
         })
       }
+      dispatchAction({
+        action: EVENTS.GET_USED_ORDER_STATUSES,
+        payload: {
+          eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+          salesChannelRef: selectedShopChannels.salesChannelRef,
+        },
+      })
       if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
         getEventTypesFromApi_v2()
       }
