@@ -242,40 +242,57 @@ export const reviewInvitesActionsStore = (
             productInviteConfiguration: { sendingDelayInDays: 3, enabled: false },
             enabled: false,
           }
-          await patchInviteSettings(
-            selectedShopChannel,
-            info,
-            token as string,
-            eventType.id,
-            body
-          ).then(async () => {
-            await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
-              async responce => {
-                promiseAllRequest(
-                  responce &&
-                    responce.length &&
-                    responce.map(async invite => {
-                      const isEventsByOrderStatusShipped = invite.eventTypeId === eventType.id
-                      await patchInviteSettingsById(
-                        selectedShopChannel,
-                        info,
-                        token as string,
-                        invite.id as string,
-                        {
-                          enabled: true,
-                          serviceInviteConfiguration: {
-                            enabled: isEventsByOrderStatusShipped,
-                          },
-                          productInviteConfiguration: {
-                            enabled: isEventsByOrderStatusShipped,
-                          },
-                        }
-                      )
-                    })
-                )
-              }
+
+          let delay = 1000
+
+          const handlePatchInviteSetting = async () => {
+            await patchInviteSettings(
+              selectedShopChannel,
+              info,
+              token as string,
+              eventType.id,
+              body
             )
-          })
+              .then(async () => {
+                await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
+                  async responce => {
+                    promiseAllRequest(
+                      responce &&
+                        responce.length &&
+                        responce.map(async invite => {
+                          const isEventsByOrderStatusShipped = invite.eventTypeId === eventType.id
+                          await patchInviteSettingsById(
+                            selectedShopChannel,
+                            info,
+                            token as string,
+                            invite.id as string,
+                            {
+                              enabled: true,
+                              serviceInviteConfiguration: {
+                                enabled: isEventsByOrderStatusShipped,
+                              },
+                              productInviteConfiguration: {
+                                enabled: isEventsByOrderStatusShipped,
+                              },
+                            }
+                          )
+                        })
+                    )
+                  }
+                )
+              })
+              .catch(err => {
+                // eslint-disable-next-line no-console
+                if (delay >= 8000) return console.error(err)
+
+                setTimeout(() => {
+                  handlePatchInviteSetting()
+                }, delay)
+                delay = 2 * delay
+              })
+          }
+
+          handlePatchInviteSetting()
         })
       }
     }
