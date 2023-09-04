@@ -171,6 +171,29 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
     'application.invites.send.export.step.2.description.url_2',
   application_invites_send_export_help_url_1: 'application.invites.send.export.help.url_1',
   application_invites_send_export_help_text: 'application.invites.send.export.help.text',
+  application_invites_sendbyos_title: 'application.invites.sendbyos.title',
+  application_invites_sendbyos_description: 'application.invites.sendbyos.description',
+  application_invites_sendbyos_information: 'application.invites.sendbyos.information',
+  application_invites_sendbyos_type_serviceReviews:
+    'application.invites.sendbyos.type.serviceReviews',
+  application_invites_sendbyos_type_productReviews:
+    'application.invites.sendbyos.type.productReviews',
+  application_invites_sendbyos_upgradedescription_text:
+    'application.invites.sendbyos.upgradedescription.text',
+  application_invites_sendbyos_upgradedescription_url_1:
+    'application.invites.sendbyos.upgradedescription.url_1',
+  application_invites_sendbyos_orderstatus_warning_text:
+    'application.invites.sendbyos.orderstatus.warning.text',
+  application_invites_sendbyos_orderstatus_warning_url_1:
+    'application.invites.sendbyos.orderstatus.warning.url_1',
+  application_invites_sendbyos_orderstatus_warning_url_2:
+    'application.invites.sendbyos.orderstatus.warning.url_2',
+  application_invites_sendbyos_success_delay_text:
+    'application.invites.sendbyos.success.delay.text',
+  application_invites_sendbyos_success_delay_url_1:
+    'application.invites.sendbyos.success.delay.url_1',
+  application_invites_sendbyos_export_productdata:
+    'application.invites.sendbyos.export.productdata',
 }
 
 export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {

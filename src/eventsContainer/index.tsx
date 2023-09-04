@@ -9,6 +9,7 @@ import { IUserInfo } from '@/store/info/types'
 import { ITrustbadge, IWidgets } from '@/baseLayers/types'
 import useStore from '@/store/useStore'
 import { route } from 'preact-router'
+import { AvilableOrderStatusesType, PayloadUsedOrders } from '@/store/reviewInvites/types'
 
 const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
   const {
@@ -30,6 +31,8 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     addInToastList,
     setUseEstimatedDeliveryDate,
     setUseEventsByOrderStatusShipped,
+    setAvailableOrderStatuses,
+    setUsedOrderStatuses,
   } = useStore()
 
   useEffect(() => {
@@ -76,6 +79,12 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
       [EVENTS.SET_USE_EVENTS_BY_ORDER_STATUS_FOR_CHANNEL]: (event: {
         payload: Nullable<{ id: string; active: boolean }>
       }) => setUseEventsByOrderStatusShipped(event.payload),
+
+      [EVENTS.SET_AVAILABLE_ORDER_STATUSES]: (event: { payload: AvilableOrderStatusesType[] }) =>
+        setAvailableOrderStatuses(event.payload),
+
+      [EVENTS.SET_USED_ORDER_STATUSES]: (event: { payload: PayloadUsedOrders }) =>
+        setUsedOrderStatuses(event.payload),
 
       [EVENTS.SET_EXPORT_PREVIOUS_ORDER]: () => setIsLoadingInvitesForProducts(false),
 

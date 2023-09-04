@@ -24,6 +24,16 @@ const initialState: IReviewInvitesState = {
   estimatedDeliveryAreLoadedFromBL: false,
   orderStatusShippedAreLoadedFromBL: false,
   isMappedTypesErorr: false,
+  availableOrderStatusesAction: [],
+  selectedReviews: {
+    product: undefined,
+    service: undefined,
+  },
+  initialSelectedReviews: {
+    product: undefined,
+    service: undefined,
+  },
+  usedOrderStatusAreLoadedFromBL: false,
 }
 
 export const reviewInvitesStore = (
@@ -42,6 +52,7 @@ export const reviewInvitesStore = (
     set(store => ({ reviewInvitesState: { ...store.reviewInvitesState, isLoading: value } }))
   },
   setInvitesForProducts: (value: Nullable<IMappedChannel>) => {
+    console.log('🚀 ~ file: index.ts:55 ~ setInvitesForProducts:')
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
@@ -63,6 +74,19 @@ export const reviewInvitesStore = (
     dispatchAction({
       action: EVENTS.EXPORT_PREVIOUS_ORDER,
       payload: { id, numberOfDays, salesChannelRef },
+    })
+    set(store => ({
+      reviewInvitesState: {
+        ...store.reviewInvitesState,
+        isLoading: true,
+      },
+    }))
+  },
+  onExport_v2: (payload: { id: string; salesChannelRef: string }) => {
+    const numberOfDays = get().reviewInvitesState.numberOfDays
+    dispatchAction({
+      action: EVENTS.EXPORT_PREVIOUS_ORDER,
+      payload: { ...payload, numberOfDays },
     })
     set(store => ({
       reviewInvitesState: {

@@ -4,17 +4,28 @@ import { h } from 'preact'
 interface Props {
   isToggle: boolean
   setIsToggle: (isToggled: boolean) => void
-  labelOn: string | undefined
-  labelOff: string | undefined
+  labelOn?: string | undefined
+  labelOff?: string | undefined
   disabled?: boolean
   id?: string
+  switchWidth?: string
 }
 
-const Switch: FC<Props> = ({ labelOn, labelOff, isToggle, disabled, setIsToggle, id }) => {
+const Switch: FC<Props> = ({
+  labelOn,
+  labelOff,
+  isToggle,
+  disabled,
+  setIsToggle,
+  id,
+  switchWidth,
+}) => {
   return (
     <div
       id={`switch_${id}`}
-      className={`ts-flex ts-gap-2 ts-items-center ts-w-28 ${disabled && 'ts-opacity-25'}`}
+      className={`ts-flex ts-gap-2 ts-items-center ${switchWidth || 'ts-w-28'} ${
+        disabled && 'ts-opacity-25'
+      }`}
     >
       <div
         id={`switch_button_${id}`}
