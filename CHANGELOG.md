@@ -1,3 +1,11 @@
+## [1.2.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.1.0...1.2.0) (2023-09-07)
+
+
+### Features
+
+* add delay function ([5fd4a73](https://github.com/trustedshops-public/connect-app-connector/commit/5fd4a73e703bb9fb5bbfeb71f2e0c0d796df7d44))
+* add delay function ([af374e4](https://github.com/trustedshops-public/connect-app-connector/commit/af374e4c5e295d6c5acfecd836ea228ba9e10e1a))
+
 ## [1.1.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.0.0...1.1.0) (2023-07-24)
 
 
