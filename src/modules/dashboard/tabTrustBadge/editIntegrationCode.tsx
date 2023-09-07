@@ -1,7 +1,7 @@
 import { FC } from 'preact/compat'
 import { h, Fragment } from 'preact'
 import { getParsedTrustbadgeDataStrToObj } from './parseTrustbadgeData'
-import _ from 'lodash'
+import { isEqual } from '@/utils'
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink from '@/components/layouts/textWithLink'
 import { DASHBOADR_KEYS } from '@/locales/types'
@@ -39,7 +39,7 @@ const EditIntegrationCodeProps: FC<Props> = ({
           onChange={e => {
             setTextStr((e.target as HTMLInputElement).value)
             setIsButtonDisabled(
-              _.isEqual(
+              isEqual(
                 getParsedTrustbadgeDataStrToObj((e.target as HTMLInputElement).value),
                 initialTrustbadgeDataChild
               )

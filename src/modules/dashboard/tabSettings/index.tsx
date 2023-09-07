@@ -1,6 +1,6 @@
 import { h, Fragment } from 'preact'
 import { FC, useEffect, useState } from 'preact/compat'
-import _ from 'lodash'
+import { isEqual } from '@/utils'
 import ChannelSelectionForm from '@/modules/dashboard/channelSelectionForm'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { dispatchAction, EVENTS } from '@/eventsLib'
@@ -40,7 +40,7 @@ const SettingsTab: FC<Props> = ({ phrasesByKey }) => {
   const [showModal, setShowModal] = useState<boolean>(false)
 
   useEffect(() => {
-    setIsButtonDisabled(_.isEqual(initialSelectedChannels, selectedChannels))
+    setIsButtonDisabled(isEqual(initialSelectedChannels, selectedChannels))
   }, [initialSelectedChannels, selectedChannels])
 
   const saveChannelsInBL = () => {
