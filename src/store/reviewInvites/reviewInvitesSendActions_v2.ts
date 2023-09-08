@@ -76,8 +76,9 @@ export const reviewInvitesActionsStore_v2 = (
         },
       }))
     } catch (error) {
-      // Handle errors here
+      console.log(error)
     }
+    return undefined
   },
 
   setSelectedReviews: value => {
@@ -158,6 +159,7 @@ export const reviewInvitesActionsStore_v2 = (
       })
 
       await Promise.all(promises)
+      return Promise.resolve()
     }
 
     let delay = 1000
