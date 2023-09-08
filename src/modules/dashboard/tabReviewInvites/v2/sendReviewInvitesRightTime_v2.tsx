@@ -9,8 +9,7 @@ import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
 import { selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import infoIcon from '@/assets/settings-tab-warn-icon.svg'
-import _ from 'lodash'
-
+import { isEqual } from '@/utils'
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
   saveChanges: () => void
@@ -25,7 +24,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
   useEffect(() => {
-    setIsButtonDisabled(_.isEqual(selectedReviews, initialSelectedReviews))
+    setIsButtonDisabled(isEqual(selectedReviews, initialSelectedReviews))
   }, [selectedReviews, initialSelectedReviews])
 
   return (
