@@ -48,6 +48,18 @@ export interface InviteSettingsByChannelType {
   productInviteConfiguration?: InviteConfiguration
   serviceInviteConfiguration?: InviteConfiguration
 }
+
+export type AvilableOrderStatusesType = { ID: string; name: string; event_type?: string }
+
+export type PayloadUsedOrders = {
+  eTrustedChannelRef: string
+  salesChannelRef: string
+  activeStatus: {
+    product?: AvilableOrderStatusesType
+    service?: AvilableOrderStatusesType
+  }
+}
+
 export interface IReviewInvitesState {
   isLoading: boolean
   eventTypes: EventType[]
@@ -65,8 +77,16 @@ export interface IReviewInvitesState {
   }
   estimatedDeliveryAreLoadedFromBL: boolean
   orderStatusShippedAreLoadedFromBL: boolean
+  usedOrderStatusAreLoadedFromBL: boolean
   eventTypesAreLoadedFromAPI: boolean
   isMappedTypesErorr: boolean
+  availableOrderStatusesAction: AvilableOrderStatusesType[]
+
+  selectedReviews: { service?: AvilableOrderStatusesType; product?: AvilableOrderStatusesType }
+  initialSelectedReviews?: {
+    service?: AvilableOrderStatusesType
+    product?: AvilableOrderStatusesType
+  }
 }
 
 export type PayloadSendReview = {
@@ -81,6 +101,11 @@ export interface IReviewInvitesStore {
   changeNumberOfDays: (value: number) => void
   clearReviewInvitesState: () => void
   onExport: (id: string, salesChannelRef: string) => void
+  onExport_v2: (payload: {
+    id: string
+    salesChannelRef: string
+    includeProductData: boolean
+  }) => void
 }
 export interface ReviewInvitesActionsStore {
   getEventTypesFromApi: () => void
@@ -93,4 +118,12 @@ export interface ReviewInvitesActionsStore {
   setUseEstimatedDeliveryDate: (estimatedDelivery: Nullable<PayloadSendReview>) => void
   setUseEventsByOrderStatusShipped: (orderStatusShipped: Nullable<PayloadSendReview>) => void
   saveChangeUseTimeOfSendReviewInvites: () => void
+}
+
+export interface ReviewInvitesActionsStore_2 {
+  setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => void
+  getEventTypesFromApi_v2: () => void
+  saveChangeUseTimeOfSendReviewInvites_v2: () => void
+  setSelectedReviews: (val: { [key: string]: AvilableOrderStatusesType }) => void
+  setUsedOrderStatuses: (val: PayloadUsedOrders) => void
 }

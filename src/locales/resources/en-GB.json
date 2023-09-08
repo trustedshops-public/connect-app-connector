@@ -12,6 +12,35 @@
         },
         "title": "Send review invites for products"
       },
+      "sendbyos" : {
+        "title" : "Send review invites at the right time to collect more and better reviews!",
+        "description": "Choose the right touchpoint to send out your review invites.",
+        "information":"",
+        "type": {
+          "serviceReviews": "Service reviews",
+          "productReviews": "Product reviews"
+        },
+        "upgradedescription": {
+          "text":"Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        },
+        "orderstatus": {
+          "warning": {
+            "text":"Legal consent text.",
+            "url_1":"",
+            "url_2":""
+          }
+        },
+        "success": {
+          "delay": {
+            "text" : "Congratulations! You have successfully optimised your review invite sending time! You are now sending out review invites based on your individual \ninvite trigger, combined with a sending delay that works best for most Trusted Shops customers. \nIf you want to make further settings, please go to the [%s]Control Centre[%s] .",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "export": {
+          "productdata": "Include product data"
+        }
+      },
       "send": {
         "description": "When your customer places an order in your shop, [%s]shopsystem[%s] provides Trusted Shops with the Estimated Delivery date for this order. Trusted Shops can use this information to help you send review invites at the right time and avoid customers receiving review invites too early.\n\nPlease select your preferred trigger for sending review invites:\n",
         "descriptionIntro": "When your customer places an order in your shop, [%s]shopsystem[%s] provides Trusted Shops with details about this order. Trusted Shops can use this information to help you send Review Invites at the right time and avoid customers receiving Review Invites too early.\n\nPlease select your preferred trigger for sending Review Invites:",
@@ -19,13 +48,13 @@
           "button": "Export",
           "description": "In order to send out review invites to existing customers, please export a CSV file with their data. Be aware that you need the consent of the customer to share their email address with Trusted Shops.",
           "help": {
-            "text": "If you do not want to collect reviews automated or if you want to manually invite customers to submit reviews in addition to the automated dispatch of invites, you can use the [%s]Review Collector[%s].",
+            "text": "The right timing for your Review Invites can be critical to ensure a good feedback rate. \nRead more about [%s]sending Review Invites at the right time[%s].",
             "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
           },
           "step": {
             "1": {
               "option": "Export orders made in the past number of days:",
-              "title": "1. Export orders"
+              "title": "1/ Export orders"
             },
             "2": {
               "description": {
@@ -33,7 +62,7 @@
                 "url_1": "https://app.etrusted.[STAGE]",
                 "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
               },
-              "title": "2. Upload orders to send them review invites"
+              "title": "2/ Upload orders to send them review invites"
             }
           },
           "title": "Send review invites for previous orders"
