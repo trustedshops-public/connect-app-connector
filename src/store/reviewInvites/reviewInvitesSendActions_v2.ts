@@ -155,7 +155,7 @@ export const reviewInvitesActionsStore_v2 = (
             },
           }
         )
-      }) as Promise<void>[]
+      })
 
       await Promise.all(promises)
     }
