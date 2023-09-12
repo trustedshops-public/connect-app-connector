@@ -155,7 +155,7 @@ export const reviewInvitesActionsStore_v2 = (
             },
           }
         )
-      })
+      }) as Promise<void>[]
 
       await Promise.all(promises)
     }
@@ -197,7 +197,7 @@ export const reviewInvitesActionsStore_v2 = (
           await handlePatchInviteSetting(eventType)
         })
       } else {
-        callPromise(inviteSettingsByChannel, eventType.id)
+        await callPromise(inviteSettingsByChannel, eventType.id)
       }
     }
 
