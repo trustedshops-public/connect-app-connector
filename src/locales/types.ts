@@ -42,6 +42,35 @@ export interface IInvites {
       url_1: string
     }
   }
+  sendbyos: {
+    title: string
+    description: string
+    information: string
+    type: {
+      serviceReviews: string
+      productReviews: string
+    }
+    upgradedescription: {
+      text: string
+      url_1: string
+    }
+    orderstatus: {
+      warning: {
+        text: string
+        url_1: string
+        url_2: string
+      }
+    }
+    success: {
+      delay: {
+        text: string
+        url_1: string
+      }
+    }
+    export: {
+      productdata: string
+    }
+  }
   send: {
     title: string
     description: string
@@ -373,6 +402,19 @@ export type INVITES_KEYS = {
   application_invites_send_export_step_2_description_url_2: string
   application_invites_send_export_help_url_1: string
   application_invites_send_export_help_text: string
+  application_invites_sendbyos_title: string
+  application_invites_sendbyos_description: string
+  application_invites_sendbyos_information: string
+  application_invites_sendbyos_type_serviceReviews: string
+  application_invites_sendbyos_type_productReviews: string
+  application_invites_sendbyos_upgradedescription_text: string
+  application_invites_sendbyos_upgradedescription_url_1: string
+  application_invites_sendbyos_orderstatus_warning_text: string
+  application_invites_sendbyos_orderstatus_warning_url_1: string
+  application_invites_sendbyos_orderstatus_warning_url_2: string
+  application_invites_sendbyos_success_delay_text: string
+  application_invites_sendbyos_success_delay_url_1: string
+  application_invites_sendbyos_export_productdata: string
 }
 
 export type SETTINGS_KEYS = {
