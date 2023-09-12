@@ -264,33 +264,36 @@ export const reviewInvitesActionsStore_v2 = (
       let eventTypeService = eventTypes.find(item => item.name === parsedServiceName)
 
       const handlePatchInviteSettings = async () => {
-        await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
-          async inviteSettings =>
-            await promiseAllRequest(
-              inviteSettings &&
-                inviteSettings.length &&
-                inviteSettings.map(async invite => {
-                  const isEnableProduct = invite.eventTypeId === eventTypeProduct?.id
-                  const isEnableService = invite.eventTypeId === eventTypeService?.id
-
-                  await patchInviteSettingsById(
-                    selectedShopChannel,
-                    info,
-                    token as string,
-                    invite.id as string,
-                    {
-                      enabled: isEnableProduct || isEnableService,
-                      serviceInviteConfiguration: {
-                        enabled: isEnableService,
-                      },
-                      productInviteConfiguration: {
-                        enabled: isEnableProduct,
-                      },
-                    }
-                  )
-                })
-            )
+        const inviteSettings = await getEtrustedInviteSettings(
+          selectedShopChannel,
+          info,
+          token as string
         )
+
+        if (inviteSettings && inviteSettings.length) {
+          const promises = inviteSettings.map(async invite => {
+            const isEnableProduct = invite.eventTypeId === eventTypeProduct?.id
+            const isEnableService = invite.eventTypeId === eventTypeService?.id
+
+            await patchInviteSettingsById(
+              selectedShopChannel,
+              info,
+              token as string,
+              invite.id as string,
+              {
+                enabled: isEnableProduct || isEnableService,
+                serviceInviteConfiguration: {
+                  enabled: isEnableService,
+                },
+                productInviteConfiguration: {
+                  enabled: isEnableProduct,
+                },
+              }
+            )
+          })
+
+          await Promise.all(promises)
+        }
       }
 
       if (info.allowsSendReviewInvitesForProduct && !eventTypeProduct) {
