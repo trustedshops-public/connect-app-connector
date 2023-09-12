@@ -80,99 +80,37 @@ const DashboardPageModule: FC<{
   }, [])
 
   useEffect(() => {
-    if (!selectedeTrustedChannelRef) {
-      clearTrustbadgeData()
+    const fetchData = async () => {
+      if (!selectedeTrustedChannelRef) {
+        clearTrustbadgeData()
+        clearWidgetData()
+        return
+      }
+      getTrustbadge(selectedShopChannels)
       clearWidgetData()
-      return
-    }
-    getTrustbadge(selectedShopChannels)
-    clearWidgetData()
 
-    setIsLoading(true)
-    setETrustedChannelRef({
-      channelRef: selectedShopChannels.eTrustedChannelRef,
-      accountRef: selectedShopChannels.eTrustedAccountRef,
-    })
-    getWidgetsFromAPI()
-    setIsLoadingInvitesForProducts(true)
-    if (
-      Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportWidgets') &&
-      infoOfSystem.allowsSupportWidgets
-    ) {
-      dispatchAction({
-        action: EVENTS.GET_WIDGET_PROVIDED,
-        payload: {
-          id: selectedShopChannels.eTrustedChannelRef,
-          eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-          salesChannelRef: selectedShopChannels.salesChannelRef,
-        },
+      setIsLoading(true)
+      setETrustedChannelRef({
+        channelRef: selectedShopChannels.eTrustedChannelRef,
+        accountRef: selectedShopChannels.eTrustedAccountRef,
       })
-      dispatchAction({
-        action: EVENTS.GET_LOCATION_FOR_WIDGET,
-        payload: {
-          id: selectedShopChannels.eTrustedChannelRef,
-          eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-          salesChannelRef: selectedShopChannels.salesChannelRef,
-        },
-      })
-    }
+      getWidgetsFromAPI()
+      setIsLoadingInvitesForProducts(true)
 
-    if (!isVersionTwo) {
-      //call EventTypes for v1
       if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
-        infoOfSystem.allowsSendReviewInvitesForProduct
+        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportWidgets') &&
+        infoOfSystem.allowsSupportWidgets
       ) {
         dispatchAction({
-          action: EVENTS.GET_PRODUCT_REVIEW_FOR_CHANNEL,
+          action: EVENTS.GET_WIDGET_PROVIDED,
           payload: {
-            id: selectedeTrustedChannelRef,
+            id: selectedShopChannels.eTrustedChannelRef,
             eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
             salesChannelRef: selectedShopChannels.salesChannelRef,
           },
         })
-      }
-      if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate') &&
-        infoOfSystem.allowsEstimatedDeliveryDate
-      ) {
         dispatchAction({
-          action: EVENTS.GET_USE_ESTIMATED_DELIVERY_DATE_FOR_CHANNEL,
-          payload: {
-            id: selectedeTrustedChannelRef,
-            eTrustedChannelRef: selectedShopChannels?.eTrustedChannelRef,
-            salesChannelRef: selectedShopChannels.salesChannelRef,
-          },
-        })
-      }
-
-      if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus') &&
-        infoOfSystem.allowsEventsByOrderStatus
-      ) {
-        dispatchAction({
-          action: EVENTS.GET_USE_EVENTS_BY_ORDER_STATUS_FOR_CHANNEL,
-          payload: {
-            id: selectedeTrustedChannelRef,
-            eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-            salesChannelRef: selectedShopChannels.salesChannelRef,
-          },
-        })
-      }
-
-      if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
-        getEventTypesFromApi()
-      }
-    }
-
-    if (isVersionTwo) {
-      //call EventTypes for v2
-      if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate') &&
-        infoOfSystem.allowsEstimatedDeliveryDate
-      ) {
-        dispatchAction({
-          action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
+          action: EVENTS.GET_LOCATION_FOR_WIDGET,
           payload: {
             id: selectedShopChannels.eTrustedChannelRef,
             eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
@@ -180,17 +118,83 @@ const DashboardPageModule: FC<{
           },
         })
       }
-      dispatchAction({
-        action: EVENTS.GET_USED_ORDER_STATUSES,
-        payload: {
-          eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-          salesChannelRef: selectedShopChannels.salesChannelRef,
-        },
-      })
-      if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
-        getEventTypesFromApi_v2()
+
+      if (!isVersionTwo) {
+        // call EventTypes for v1
+        if (
+          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
+          infoOfSystem.allowsSendReviewInvitesForProduct
+        ) {
+          dispatchAction({
+            action: EVENTS.GET_PRODUCT_REVIEW_FOR_CHANNEL,
+            payload: {
+              id: selectedeTrustedChannelRef,
+              eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+              salesChannelRef: selectedShopChannels.salesChannelRef,
+            },
+          })
+        }
+        if (
+          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate') &&
+          infoOfSystem.allowsEstimatedDeliveryDate
+        ) {
+          dispatchAction({
+            action: EVENTS.GET_USE_ESTIMATED_DELIVERY_DATE_FOR_CHANNEL,
+            payload: {
+              id: selectedeTrustedChannelRef,
+              eTrustedChannelRef: selectedShopChannels?.eTrustedChannelRef,
+              salesChannelRef: selectedShopChannels.salesChannelRef,
+            },
+          })
+        }
+
+        if (
+          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus') &&
+          infoOfSystem.allowsEventsByOrderStatus
+        ) {
+          dispatchAction({
+            action: EVENTS.GET_USE_EVENTS_BY_ORDER_STATUS_FOR_CHANNEL,
+            payload: {
+              id: selectedeTrustedChannelRef,
+              eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+              salesChannelRef: selectedShopChannels.salesChannelRef,
+            },
+          })
+        }
+
+        if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
+          await getEventTypesFromApi()
+        }
+      }
+
+      if (isVersionTwo) {
+        // call EventTypes for v2
+        if (
+          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate') &&
+          infoOfSystem.allowsEstimatedDeliveryDate
+        ) {
+          dispatchAction({
+            action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
+            payload: {
+              id: selectedShopChannels.eTrustedChannelRef,
+              eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+              salesChannelRef: selectedShopChannels.salesChannelRef,
+            },
+          })
+        }
+        dispatchAction({
+          action: EVENTS.GET_USED_ORDER_STATUSES,
+          payload: {
+            eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+            salesChannelRef: selectedShopChannels.salesChannelRef,
+          },
+        })
+        if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
+          await getEventTypesFromApi_v2()
+        }
       }
     }
+    fetchData()
   }, [selectedShopChannels])
 
   useEffect(() => {
