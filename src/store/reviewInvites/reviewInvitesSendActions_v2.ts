@@ -270,10 +270,10 @@ export const reviewInvitesActionsStore_v2 = (
           token as string
         )
 
-        if (inviteSettings && inviteSettings.length) {
-          const promises = inviteSettings.map(async invite => {
-            const isEnableProduct = invite.eventTypeId === eventTypeProduct?.id
-            const isEnableService = invite.eventTypeId === eventTypeService?.id
+        if (inviteSettings && inviteSettings?.length) {
+          const promises = inviteSettings?.map(async invite => {
+            const isEnableProduct = invite?.eventTypeId === eventTypeProduct?.id
+            const isEnableService = invite?.eventTypeId === eventTypeService?.id
 
             await patchInviteSettingsById(
               selectedShopChannel,

@@ -1,4 +1,4 @@
-import { DEV } from '../baseLayerDev'
+import { DEV, TEST } from '../baseLayerDev'
 
 type StatusInviteAction = {
   activeStatus: {
@@ -10,6 +10,13 @@ type StatusInviteAction = {
 export const getUsedOrderStaruses = (defaultEnv?: string): Nullable<StatusInviteAction> => {
   switch (process.env.productIdentifiers || defaultEnv) {
     case DEV: // value for 'development'
+      return {
+        activeStatus: {
+          product: { name: 'Awaiting Payment', ID: '1' },
+          service: { name: 'Processing in progress', ID: '3' },
+        },
+      }
+    case TEST:
       return {
         activeStatus: {
           product: { name: 'Awaiting Payment', ID: '1' },
