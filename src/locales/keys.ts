@@ -22,6 +22,7 @@ export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
   global_help_link_shopware6: 'global.help.link.shopware6',
   global_button_submit: 'global.button.submit',
   global_button_cancel: 'global.button.cancel',
+  global_button_save: 'global.button.save',
   global_slider_active: 'global.slider.active',
   global_slider_inactive: 'global.slider.inactive',
   global_notification_error_save: 'global.notification.error.save',

@@ -14,26 +14,26 @@
       },
       "sendbyos" : {
         "title" : "Send review invites at the right time to collect more and better reviews!",
-        "description": "Choose the right touchpoint to send out your review invites.",
+        "description": "Choose a touchpoint for your review send out: ",
         "information":"",
         "type": {
           "serviceReviews": "Service reviews",
           "productReviews": "Product reviews"
         },
         "upgradedescription": {
-          "text":"Product reviews require to be booked separately. [%s]Upgrade now[%s]",
+          "text":"If you haven't booked product reviews yet, [%s]contact our sales team[%s] to upgrade.",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         },
         "orderstatus": {
           "warning": {
-            "text":"Legal consent text.",
-            "url_1":"",
-            "url_2":""
+            "text":"For touchpoints other than “Checkout”, obtain consent from your customers according to [%s]Art. 7 GDPR.[%s] More information can be found in the \n[%s]eTrusted Help Centre.[%s]",
+            "url_1": "https://gdprinfo.eu/en-article-7",
+              "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites"
           }
         },
         "success": {
           "delay": {
-            "text" : "Congratulations! You have successfully optimised your review invite sending time! You are now sending out review invites based on your individual \ninvite trigger, combined with a sending delay that works best for most Trusted Shops customers. \nIf you want to make further settings, please go to the [%s]Control Centre[%s] .",
+            "text" : "By default, your Review Invites will be sent out with an optimised delay based on Trusted Shops’ data. You can change this in the [%s]Control Centre[%s].",
             "url_1": "https://app.etrusted.[STAGE]"
           }
         },
@@ -276,6 +276,7 @@
   "global": {
     "button": {
       "cancel": "Cancel",
+      "save":"Save",
       "submit": "Save changes"
     },
     "copyright": {

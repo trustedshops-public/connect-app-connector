@@ -28,10 +28,20 @@ export const reviewInvitesActionsStore_v2 = (
   get: GetState<AppStore>
 ): ReviewInvitesActionsStore_2 => ({
   setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => {
+    const infoOfSystem = get().infoState.infoOfSystem
+
+    const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
-        availableOrderStatusesAction: [defaultStatus, ...value],
+        availableOrderStatusesAction: [
+          defaultStatus,
+          ...value.map(item => ({
+            ...item,
+            event_type: item.event_type || order_status_event_type,
+          })),
+        ],
       },
     }))
   },
@@ -116,11 +126,7 @@ export const reviewInvitesActionsStore_v2 = (
       Promise.all(f).then(() => get().getEventTypesFromApi_v2())
     }
 
-    const parseExpression = (name: string) =>
-      `${name
-        .replace(/[^a-zA-Z0-9\s]/g, '')
-        .replace(/\s+/g, '_')
-        .toLowerCase()}_from_${info.nameOfSystem}`
+    const parseExpression = `order_status_from_${info.nameOfSystem}`
 
     const callPromise = async (
       inviteSettings: InviteSettingsByChannelType[],
@@ -186,8 +192,8 @@ export const reviewInvitesActionsStore_v2 = (
     }
 
     const handeleRequestsForSelectedReview = async (name: string) => {
-      const parsedName = defaultStatus.name === name ? name : parseExpression(name)
-      const eventType = eventTypes.find(item => item.name === parsedName)
+      const parsedName = defaultStatus.name === name ? name : parseExpression
+      const eventType = eventTypes.find(item => item.name === parseExpression)
 
       if (!eventType) {
         await postEtrustedIEventType(selectedShopChannel, info, token as string, {
@@ -257,8 +263,8 @@ export const reviewInvitesActionsStore_v2 = (
       selectedReviews.service?.ID !== defaultStatus.ID &&
       selectedReviews.product?.ID !== defaultStatus.ID
     ) {
-      const parsedProductName = parseExpression(selectedReviews.product?.name || '')
-      const parsedServiceName = parseExpression(selectedReviews.service?.name || '')
+      const parsedProductName = parseExpression
+      const parsedServiceName = parseExpression
 
       let eventTypeProduct = eventTypes.find(item => item.name === parsedProductName)
       let eventTypeService = eventTypes.find(item => item.name === parsedServiceName)
