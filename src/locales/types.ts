@@ -123,6 +123,7 @@ export interface IPhraseGlobal {
   button: {
     cancel: string
     submit: string
+    save: string
   }
   copyright: {
     text: string
@@ -275,6 +276,7 @@ export type GLOBAL_KEYS = {
   global_help_link_shopware6: string
   global_button_submit: string
   global_button_cancel: string
+  global_button_save: string
   global_slider_active: string
   global_slider_inactive: string
   global_placeholder_channel: string

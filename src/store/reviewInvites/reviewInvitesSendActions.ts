@@ -10,7 +10,7 @@ import { SetState, GetState } from 'zustand'
 import { AppStore } from '../useStore'
 import { PayloadSendReview, ReviewInvitesActionsStore } from './types'
 
-export const CHECKOUT_TYPE = 'checkout'
+export const CHECKOUT_TYPE = 'Checkout'
 const ORDER_SHIPPED_TYPE = 'order_shipped'
 
 export const reviewInvitesActionsStore = (

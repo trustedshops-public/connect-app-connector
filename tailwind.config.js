@@ -121,6 +121,7 @@ module.exports = {
         backgroundCard: '1185px',
         formLogin: '264px',
         chanelSelected: '245px',
+        statusSelected: '287px',
         placementSelect: '185px',
         tooltip: '281px',
         infobox: '510px',
