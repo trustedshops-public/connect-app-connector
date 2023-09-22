@@ -35,6 +35,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
     (selectedReviews && selectedReviews?.product?.name !== CHECKOUT_TYPE) ||
     selectedReviews?.service?.name !== CHECKOUT_TYPE
 
+  const defaulServicetValue =
+    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || ''
+  const defaulProductValue =
+    availableOrderStatusesAction.find(i => i.ID === selectedReviews.product?.ID)?.name || ''
+
+  defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -64,11 +70,9 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                   id={'channelSelection'}
                   placeholder="Choose an option"
                   defaultValue={
-                    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)
-                      ?.name || ''
+                    defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
                   }
-                  className="ts-w-[171px]"
-                  // disabled={!mappedChannels.length}
+                  className="ts-w-[171px] ts-capitalize"
                 >
                   {availableOrderStatusesAction.map(item => (
                     <Option
@@ -77,7 +81,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                       value={'ID'}
                       changeSelectedOption={() => setSelectedReviews({ service: item })}
                     >
-                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
+                      <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
                         {item.name}
                       </p>
                     </Option>
@@ -97,12 +101,9 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                     id={'channelSelection'}
                     placeholder="Choose an option"
                     defaultValue={
-                      availableOrderStatusesAction.find(i => i.ID === selectedReviews.product?.ID)
-                        ?.name || ''
+                      defaulProductValue.charAt(0).toUpperCase() + defaulProductValue.slice(1)
                     }
-                    className="ts-w-[171px]"
-
-                    // disabled={!mappedChannels.length}
+                    className="ts-w-[171px] ts-capitalize"
                   >
                     {availableOrderStatusesAction.map(item => (
                       <Option
@@ -111,7 +112,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                         value={'ID'}
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
-                        <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm">
+                        <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
                           {item.name}
                         </p>
                       </Option>

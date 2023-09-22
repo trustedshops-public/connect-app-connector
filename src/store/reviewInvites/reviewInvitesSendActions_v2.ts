@@ -46,11 +46,33 @@ export const reviewInvitesActionsStore_v2 = (
     }))
   },
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
+    const infoOfSystem = get().infoState.infoOfSystem
+
+    const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
-        selectedReviews: value.activeStatus,
-        initialSelectedReviews: value.activeStatus,
+        selectedReviews: {
+          product: {
+            ...value.activeStatus.product,
+            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+          } as AvilableOrderStatusesType,
+          service: {
+            ...value.activeStatus.service,
+            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+          } as AvilableOrderStatusesType,
+        },
+        initialSelectedReviews: {
+          product: {
+            ...value.activeStatus.product,
+            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+          } as AvilableOrderStatusesType,
+          service: {
+            ...value.activeStatus.service,
+            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+          } as AvilableOrderStatusesType,
+        },
       },
     }))
   },
@@ -86,6 +108,7 @@ export const reviewInvitesActionsStore_v2 = (
         },
       }))
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error)
     }
   },
@@ -126,44 +149,37 @@ export const reviewInvitesActionsStore_v2 = (
       Promise.all(f).then(() => get().getEventTypesFromApi_v2())
     }
 
-    const parseExpression = `order_status_from_${info.nameOfSystem}`
-
     const callPromise = async (
       inviteSettings: InviteSettingsByChannelType[],
-      eventTypeId: string
+      newEventType?: EventType
     ): Promise<void> => {
-      const promises = inviteSettings.map(async invite => {
-        const checkoutEventType = eventTypes.find(item => item.name === CHECKOUT_TYPE)
-        const isEventsByOrderStatusNotCheckout = invite.eventTypeId === eventTypeId
-        const isCheckoutType = invite.eventTypeId === checkoutEventType?.id
+      promiseAllRequest(
+        inviteSettings.map(async invite => {
+          const eventType = (newEventType?.id ? [...eventTypes, newEventType] : eventTypes).find(
+            event => event.id === invite.eventTypeId
+          )
+          const isEnableProduct =
+            eventType?.name === selectedReviewsProductType && info.allowsSendReviewInvitesForProduct
 
-        const isEnableProduct =
-          (selectedReviews.product?.ID === defaultStatus.ID
-            ? isCheckoutType
-            : isEventsByOrderStatusNotCheckout) && info.allowsSendReviewInvitesForProduct
-        const isEnableService =
-          selectedReviews.service?.ID === defaultStatus.ID
-            ? isCheckoutType
-            : isEventsByOrderStatusNotCheckout
+          const isEnableService = eventType?.name === selectedReviewsServiceType
 
-        await patchInviteSettingsById(
-          selectedShopChannel,
-          info,
-          token as string,
-          invite.id as string,
-          {
-            enabled: isEnableProduct || isEnableService,
-            serviceInviteConfiguration: {
-              enabled: isEnableService,
-            },
-            productInviteConfiguration: {
-              enabled: isEnableProduct,
-            },
-          }
-        )
-      })
-
-      await Promise.all(promises)
+          await patchInviteSettingsById(
+            selectedShopChannel,
+            info,
+            token as string,
+            invite.id as string,
+            {
+              enabled: isEnableService || isEnableProduct,
+              serviceInviteConfiguration: {
+                enabled: isEnableService,
+              },
+              productInviteConfiguration: {
+                enabled: isEnableProduct,
+              },
+            }
+          )
+        })
+      )
     }
 
     let delay = 1000
@@ -177,7 +193,7 @@ export const reviewInvitesActionsStore_v2 = (
       await patchInviteSettings(selectedShopChannel, info, token as string, eventType.id, body)
         .then(async () => {
           await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
-            async responce => await callPromise(responce, eventType.id)
+            async responce => await callPromise(responce, eventType)
           )
         })
         .catch(err => {
@@ -191,204 +207,21 @@ export const reviewInvitesActionsStore_v2 = (
         })
     }
 
-    const handeleRequestsForSelectedReview = async (name: string) => {
-      const parsedName = defaultStatus.name === name ? name : parseExpression
-      const eventType = eventTypes.find(item => item.name === parseExpression)
+    const selectedReviewsServiceType = selectedReviews.service?.event_type as string
+    const selectedReviewsProductType = selectedReviews.product?.event_type as string
+    const eventTypeServiceType = eventTypes.find(item => item.name === selectedReviewsServiceType)
+    const eventTypeProductType = eventTypes.find(item => item.name === selectedReviewsProductType)
+    const order_status_event_type = `order_status_from_${info.nameOfSystem}`
 
-      if (!eventType) {
-        await postEtrustedIEventType(selectedShopChannel, info, token as string, {
-          active: true,
-          name: parsedName,
-        }).then(async eventType => {
-          await handlePatchInviteSetting(eventType)
-        })
-      } else {
-        await callPromise(inviteSettingsByChannel, eventType.id)
-      }
-    }
-
-    //case1: Service Reviews=Checkout AND Product Reviews=Checkout
-    if (
-      info.allowsSendReviewInvitesForProduct &&
-      selectedReviews.service?.ID === defaultStatus.ID &&
-      selectedReviews.product?.ID === defaultStatus.ID
-    ) {
-      const checkoutEventType = eventTypes.find(item => item.name === CHECKOUT_TYPE)
-
-      promiseAllRequest(
-        inviteSettingsByChannel.map(async invite => {
-          const isCheckoutType = invite.eventTypeId === checkoutEventType?.id
-          if (!info.allowsEventsByOrderStatus && !isCheckoutType) return
-
-          await patchInviteSettingsById(
-            selectedShopChannel,
-            info,
-            token as string,
-            invite.id as string,
-            {
-              enabled: isCheckoutType,
-              serviceInviteConfiguration: {
-                enabled: isCheckoutType,
-              },
-              productInviteConfiguration: {
-                enabled: isCheckoutType,
-              },
-            }
-          )
-        })
-      )
-    }
-
-    //case2: Service Reviews=ELSE AND Product Reviews=Checkout
-    if (
-      info.allowsSendReviewInvitesForProduct &&
-      selectedReviews.service?.ID !== defaultStatus.ID &&
-      selectedReviews.product?.ID === defaultStatus.ID
-    ) {
-      handeleRequestsForSelectedReview(selectedReviews.service?.name || '')
-    }
-
-    //case3: Service Reviews=Checkout AND Product Reviews=ELSE
-    if (
-      info.allowsSendReviewInvitesForProduct &&
-      selectedReviews.service?.ID === defaultStatus.ID &&
-      selectedReviews.product?.ID !== defaultStatus.ID
-    ) {
-      handeleRequestsForSelectedReview(selectedReviews.product?.name || '')
-    }
-
-    //case4: Service Reviews=ELSE AND Product Reviews=ELSE
-    if (
-      info.allowsSendReviewInvitesForProduct &&
-      selectedReviews.service?.ID !== defaultStatus.ID &&
-      selectedReviews.product?.ID !== defaultStatus.ID
-    ) {
-      const parsedProductName = parseExpression
-      const parsedServiceName = parseExpression
-
-      let eventTypeProduct = eventTypes.find(item => item.name === parsedProductName)
-      let eventTypeService = eventTypes.find(item => item.name === parsedServiceName)
-
-      const handlePatchInviteSettings = async () => {
-        const inviteSettings = await getEtrustedInviteSettings(
-          selectedShopChannel,
-          info,
-          token as string
-        )
-
-        if (inviteSettings && inviteSettings?.length) {
-          const promises = inviteSettings?.map(async invite => {
-            const isEnableProduct = invite?.eventTypeId === eventTypeProduct?.id
-            const isEnableService = invite?.eventTypeId === eventTypeService?.id
-
-            await patchInviteSettingsById(
-              selectedShopChannel,
-              info,
-              token as string,
-              invite.id as string,
-              {
-                enabled: isEnableProduct || isEnableService,
-                serviceInviteConfiguration: {
-                  enabled: isEnableService,
-                },
-                productInviteConfiguration: {
-                  enabled: isEnableProduct,
-                },
-              }
-            )
-          })
-
-          await Promise.all(promises)
-        }
-      }
-
-      if (info.allowsSendReviewInvitesForProduct && !eventTypeProduct) {
-        await postEtrustedIEventType(selectedShopChannel, info, token as string, {
-          active: true,
-          name: parsedProductName,
-        }).then(async eventType => {
-          let delay = 1000
-
-          const handlePatchInviteSetting = async () => {
-            const body = {
-              serviceInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
-              productInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
-              enabled: false,
-            }
-            await patchInviteSettings(
-              selectedShopChannel,
-              info,
-              token as string,
-              eventType.id,
-              body
-            )
-              .then(async () => {
-                eventTypeProduct = eventType
-                if (!!eventTypeProduct && !!eventTypeService) {
-                  handlePatchInviteSettings()
-                }
-              })
-              .catch(err => {
-                // eslint-disable-next-line no-console
-                if (delay >= 8000) return console.error(err)
-
-                setTimeout(() => {
-                  handlePatchInviteSetting()
-                }, delay)
-                delay = 2 * delay
-              })
-          }
-          handlePatchInviteSetting()
-        })
-      }
-
-      if (!eventTypeService) {
-        await postEtrustedIEventType(selectedShopChannel, info, token as string, {
-          active: true,
-          name: parsedServiceName,
-        }).then(async eventType => {
-          let delay = 1000
-
-          const handlePatchInviteSetting = async () => {
-            const body = {
-              serviceInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
-              productInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
-              enabled: false,
-            }
-            await patchInviteSettings(
-              selectedShopChannel,
-              info,
-              token as string,
-              eventType.id,
-              body
-            )
-              .then(async () => {
-                eventTypeService = eventType
-                if (!!eventTypeProduct && !!eventTypeService) {
-                  handlePatchInviteSettings()
-                }
-              })
-              .catch(err => {
-                // eslint-disable-next-line no-console
-                if (delay >= 8000) return console.error(err)
-
-                setTimeout(() => {
-                  handlePatchInviteSetting()
-                }, delay)
-                delay = 2 * delay
-              })
-          }
-          handlePatchInviteSetting()
-        })
-      }
-
-      if (!!eventTypeProduct && !!eventTypeService) {
-        handlePatchInviteSettings()
-      }
-    }
-
-    if (!info.allowsSendReviewInvitesForProduct) {
-      handeleRequestsForSelectedReview(selectedReviews.service?.name || '')
+    if (!eventTypeServiceType || !eventTypeProductType) {
+      await postEtrustedIEventType(selectedShopChannel, info, token as string, {
+        active: true,
+        name: order_status_event_type,
+      }).then(async eventType => {
+        await handlePatchInviteSetting(eventType)
+      })
+    } else {
+      await callPromise(inviteSettingsByChannel)
     }
 
     dispatchAction({

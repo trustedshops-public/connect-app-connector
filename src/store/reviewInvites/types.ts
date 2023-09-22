@@ -49,7 +49,7 @@ export interface InviteSettingsByChannelType {
   serviceInviteConfiguration?: InviteConfiguration
 }
 
-export type AvilableOrderStatusesType = { ID: string; name: string; event_type?: string }
+export type AvilableOrderStatusesType = { ID: string; name: string; event_type: string }
 
 export type PayloadUsedOrders = {
   eTrustedChannelRef: string
