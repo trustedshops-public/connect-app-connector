@@ -35,12 +35,17 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
     (selectedReviews && selectedReviews?.product?.name !== CHECKOUT_TYPE) ||
     selectedReviews?.service?.name !== CHECKOUT_TYPE
 
-  const defaulServicetValue =
+  function capitalizeFirstLetter(str: string) {
+    return str.charAt(0).toUpperCase() + str.slice(1)
+  }
+
+  const defaulServicetValue = capitalizeFirstLetter(
     availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || ''
+  )
+
   const defaulProductValue =
     availableOrderStatusesAction.find(i => i.ID === selectedReviews.product?.ID)?.name || ''
 
-  defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
