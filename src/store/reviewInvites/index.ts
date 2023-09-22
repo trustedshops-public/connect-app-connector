@@ -52,7 +52,6 @@ export const reviewInvitesStore = (
     set(store => ({ reviewInvitesState: { ...store.reviewInvitesState, isLoading: value } }))
   },
   setInvitesForProducts: (value: Nullable<IMappedChannel>) => {
-    console.log('🚀 ~ file: index.ts:55 ~ setInvitesForProducts:')
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
