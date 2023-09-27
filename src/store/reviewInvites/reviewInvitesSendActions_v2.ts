@@ -31,6 +31,8 @@ export const reviewInvitesActionsStore_v2 = (
     const infoOfSystem = get().infoState.infoOfSystem
 
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+      .replace(/[^a-zA-Z0-9]/g, '_')
+      .toLowerCase()
 
     set(store => ({
       reviewInvitesState: {
@@ -212,6 +214,8 @@ export const reviewInvitesActionsStore_v2 = (
     const eventTypeServiceType = eventTypes.find(item => item.name === selectedReviewsServiceType)
     const eventTypeProductType = eventTypes.find(item => item.name === selectedReviewsProductType)
     const order_status_event_type = `order_status_from_${info.nameOfSystem}`
+      .replace(/[^a-zA-Z0-9]/g, '_')
+      .toLowerCase()
 
     if (!eventTypeServiceType || !eventTypeProductType) {
       await postEtrustedIEventType(selectedShopChannel, info, token as string, {
