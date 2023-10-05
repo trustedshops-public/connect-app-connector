@@ -21,10 +21,11 @@ import {
 } from '@/store/selector'
 import ReviewInvitesTab_v2 from './tabReviewInvites/v2/ReviewInvitesTab_v2'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-import TrustBadgeTab from './tabTrustBadge'
+
 import BackgroundCard from '@/components/layouts/backgroundCard'
 import InfoBox from '@/components/layouts/infoBox'
 import ChannelSelectModal from './channelSelectModal'
+import TrustBadgeTab from './tabTrustBadge'
 import WidgetsTab from './tabWidgets'
 import SettingsTab from './tabSettings'
 
