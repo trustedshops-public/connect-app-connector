@@ -1,5 +1,5 @@
 import { Fragment, h } from 'preact'
-import { FC, useEffect, useState } from 'preact/compat'
+import { FC, lazy, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 import Logo from '@/components/controls/logo'
 import { DASHBOARD_KEYS } from '@/locales/types'
