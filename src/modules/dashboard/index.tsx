@@ -22,12 +22,12 @@ import {
 import ReviewInvitesTab_v2 from './tabReviewInvites/v2/ReviewInvitesTab_v2'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
 
-const BackgroundCard = lazy(() => import('@/components/layouts/backgroundCard'))
-const InfoBox = lazy(() => import('@/components/layouts/infoBox'))
-const ChannelSelectModal = lazy(() => import('./channelSelectModal'))
-const TrustBadgeTab = lazy(() => import('./tabTrustBadge'))
-const WidgetsTab = lazy(() => import('./tabWidgets'))
-const SettingsTab = lazy(() => import('./tabSettings'))
+import BackgroundCard from '@/components/layouts/backgroundCard'
+import InfoBox from '@/components/layouts/infoBox'
+import ChannelSelectModal from './channelSelectModal'
+import TrustBadgeTab from './tabTrustBadge'
+import WidgetsTab from './tabWidgets'
+import SettingsTab from './tabSettings'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOADR_KEYS) => void
