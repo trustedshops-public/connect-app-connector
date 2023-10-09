@@ -1,5 +1,5 @@
 import { Fragment, h } from 'preact'
-import { FC, Suspense, lazy, useEffect, useState } from 'preact/compat'
+import { FC, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 import Logo from '@/components/controls/logo'
 import { DASHBOADR_KEYS } from '@/locales/types'
@@ -22,12 +22,11 @@ import {
 import ReviewInvitesTab_v2 from './tabReviewInvites/v2/ReviewInvitesTab_v2'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
 import TrustBadgeTab from './tabTrustBadge'
-
-const BackgroundCard = lazy(() => import('@/components/layouts/backgroundCard'))
-const InfoBox = lazy(() => import('@/components/layouts/infoBox'))
-const ChannelSelectModal = lazy(() => import('./channelSelectModal'))
-const WidgetsTab = lazy(() => import('./tabWidgets'))
-const SettingsTab = lazy(() => import('./tabSettings'))
+import BackgroundCard from '@/components/layouts/backgroundCard'
+import InfoBox from '@/components/layouts/infoBox'
+import ChannelSelectModal from './channelSelectModal'
+import WidgetsTab from './tabWidgets'
+import SettingsTab from './tabSettings'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOADR_KEYS) => void
@@ -282,7 +281,7 @@ const DashboardPageModule: FC<{
 
   return (
     tabConfig && (
-      <Suspense fallback={<Spinner />}>
+      <>
         <div
           id={'dashboard_wrapper'}
           className="ts-flex ts-flex-col ts-font-sans ts-items-center ts-justify-center"
@@ -355,7 +354,7 @@ const DashboardPageModule: FC<{
           showModal={showModal}
           setShowModal={setShowModal}
         />
-      </Suspense>
+      </>
     )
   )
 }
