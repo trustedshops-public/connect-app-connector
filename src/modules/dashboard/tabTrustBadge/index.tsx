@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { FC, useState, useEffect, lazy, Suspense } from 'preact/compat'
+import { FC, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
 import { Radio, RadioGroup } from '@/components/controls/radio'
 import ApproveDisableModal from './approveDisableModal'
@@ -9,16 +9,15 @@ import {
   getParsedTrustbadgeDataStrToObj,
   getParsedTrustbadgeDataToString,
 } from '@/modules/dashboard/tabTrustBadge/parseTrustbadgeData'
-import Spinner, { ScrinSpinner } from '@/components/layouts/spinner'
+import { ScrinSpinner } from '@/components/layouts/spinner'
 
 import { selectorChannels, selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import { DASHBOADR_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
-
-const EditIntegrationCodeProps = lazy(() => import('./editIntegrationCode'))
-const StandartEditor = lazy(() => import('./standartEditor'))
-const TrustBadgeSwitcher = lazy(() => import('./trustBadgeSwitcher'))
+import EditIntegrationCodeProps from './editIntegrationCode'
+import StandartEditor from './standartEditor'
+import TrustBadgeSwitcher from './trustBadgeSwitcher'
 
 interface Props {
   phrasesByKey: DASHBOADR_KEYS
@@ -148,86 +147,82 @@ const TrustBadgeTab: FC<Props> = ({ phrasesByKey }) => {
 
   return (
     phrasesByKey && (
-      <Suspense fallback={<Spinner />}>
-        <div className="ts-w-full ts-bg-white ts-p-8 ts-shadow-md ts-rounded-b">
-          {(isLoadingAPI || isLoadingBL || isLoadingSave) && <ScrinSpinner />}
+      <div className="ts-w-full ts-bg-white ts-p-8 ts-shadow-md ts-rounded-b">
+        {(isLoadingAPI || isLoadingBL || isLoadingSave) && <ScrinSpinner />}
 
-          <TrustBadgeSwitcher handleSwitch={handleSwitch} phrasesByKey={phrasesByKey} />
-          <div className="ts-ml-28 ts-mb-6">
-            <p
-              className={`ts-text-default ts-text-sm ts-font-bold  ${
-                isDisabled && 'ts-opacity-25'
-              }`}
+        <TrustBadgeSwitcher handleSwitch={handleSwitch} phrasesByKey={phrasesByKey} />
+        <div className="ts-ml-28 ts-mb-6">
+          <p
+            className={`ts-text-default ts-text-sm ts-font-bold  ${isDisabled && 'ts-opacity-25'}`}
+          >
+            {phrasesByKey.application_trustbadge_integrationmode}
+          </p>
+        </div>
+        {infoOfSystem.allowsEditIntegrationCode && (
+          <div className="ts-ml-28">
+            <RadioGroup
+              onChange={setSelectedOption}
+              disabled={isDisabled}
+              formClassNames={'ts-flex ts-gap-4 ts-w-max'}
             >
-              {phrasesByKey.application_trustbadge_integrationmode}
-            </p>
-          </div>
-          {infoOfSystem.allowsEditIntegrationCode && (
-            <div className="ts-ml-28">
-              <RadioGroup
-                onChange={setSelectedOption}
-                disabled={isDisabled}
-                formClassNames={'ts-flex ts-gap-4 ts-w-max'}
-              >
-                {dataRadioButton.map(({ value, id }) => (
-                  <Radio
-                    id={id}
-                    key={id}
-                    value={selectedOption}
-                    disabled={isDisabled}
-                    customClass="first:ts-pb-4"
+              {dataRadioButton.map(({ value, id }) => (
+                <Radio
+                  id={id}
+                  key={id}
+                  value={selectedOption}
+                  disabled={isDisabled}
+                  customClass="first:ts-pb-4"
+                >
+                  <p
+                    id={id.toString()}
+                    className="ts-text-sm ts-font-medium ts-text-default ts-block ts-cursor-pointer"
                   >
-                    <p
-                      id={id.toString()}
-                      className="ts-text-sm ts-font-medium ts-text-default ts-block ts-cursor-pointer"
-                    >
-                      {value}
-                    </p>
-                  </Radio>
-                ))}
-              </RadioGroup>
-            </div>
-          )}
+                    {value}
+                  </p>
+                </Radio>
+              ))}
+            </RadioGroup>
+          </div>
+        )}
 
-          <div className="ts-ml-28 ts-my-6">
-            {selectedOption === 'standard' ? (
-              <StandartEditor
-                phrasesByKey={phrasesByKey}
-                isDisabled={isDisabled}
-                trustbadgeDataChild={trustbadgeDataChild}
-                placementPhrase={placementPhrase}
-                updateTrustbadgeData={updateTrustbadgeData}
-              />
-            ) : (
-              <EditIntegrationCodeProps
-                phrasesByKey={phrasesByKey}
-                isDisabled={isDisabled}
-                textStr={textStr}
-                onChangeScript={onChangeScript}
-                setTextStr={setTextStr}
-                setIsButtonDisabled={setIsButtonDisabled}
-                initialTrustbadgeDataChild={initialTrustbadgeDataChild}
-              />
-            )}
-          </div>
-          <div className="ts-flex ts-items-center ts-justify-end">
-            <Button
-              id={'saveChangesTrustbadge'}
-              label={phrasesByKey.global_button_submit}
-              theme={ButtonThemes.Primary}
-              disabled={isDisabled || isButtonDisabled}
-              onClick={saveDataTrustbadge}
+        <div className="ts-ml-28 ts-my-6">
+          {selectedOption === 'standard' ? (
+            <StandartEditor
+              phrasesByKey={phrasesByKey}
+              isDisabled={isDisabled}
+              trustbadgeDataChild={trustbadgeDataChild}
+              placementPhrase={placementPhrase}
+              updateTrustbadgeData={updateTrustbadgeData}
             />
-          </div>
-          <ApproveDisableModal
-            phrasesByKey={phrasesByKey}
-            showModal={showModal}
-            data={trustbadgeDataCache}
-            handleCancel={handleCancel}
-            diactivateTB={diactivateTB}
+          ) : (
+            <EditIntegrationCodeProps
+              phrasesByKey={phrasesByKey}
+              isDisabled={isDisabled}
+              textStr={textStr}
+              onChangeScript={onChangeScript}
+              setTextStr={setTextStr}
+              setIsButtonDisabled={setIsButtonDisabled}
+              initialTrustbadgeDataChild={initialTrustbadgeDataChild}
+            />
+          )}
+        </div>
+        <div className="ts-flex ts-items-center ts-justify-end">
+          <Button
+            id={'saveChangesTrustbadge'}
+            label={phrasesByKey.global_button_submit}
+            theme={ButtonThemes.Primary}
+            disabled={isDisabled || isButtonDisabled}
+            onClick={saveDataTrustbadge}
           />
         </div>
-      </Suspense>
+        <ApproveDisableModal
+          phrasesByKey={phrasesByKey}
+          showModal={showModal}
+          data={trustbadgeDataCache}
+          handleCancel={handleCancel}
+          diactivateTB={diactivateTB}
+        />
+      </div>
     )
   )
 }
