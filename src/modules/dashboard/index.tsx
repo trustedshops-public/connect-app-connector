@@ -355,8 +355,17 @@ const DashboardPageModule: FC<{
                   <Tabs tabs={tabConfig} openTab={openTab} setOpenTab={setOpenTab} />
                   {!!toastList.length && <ToastList phrasesByKey={phrasesByKey} />}
                 </div>
-
                 <div className="ts-flex ts-items-center ts-justify-center ts-mt-8">
+                  {phrasesByKey && (
+                    <TextWithLink
+                      id={'copyright'}
+                      text={phrasesByKey.global_jointcontrollership_text}
+                      url={phrasesByKey.global_copyright_url_1}
+                      textStyle="ts-text-secondary ts-font-normal ts-text-xxs ts-text-center"
+                    />
+                  )}
+                </div>
+                <div className="ts-flex ts-items-center ts-justify-center ts-mt-3">
                   {phrasesByKey && (
                     <TextWithLink
                       id={'copyright'}
