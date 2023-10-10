@@ -1,3 +1,25 @@
+## [1.4.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.3.0...1.4.0) (2023-10-10)
+
+
+### Features
+
+* remove lazy imports ([b50e5f2](https://github.com/trustedshops-public/connect-app-connector/commit/b50e5f2b91eaf577660500dfe8394af826b74f1f))
+* remove lazy imports ([611ddbd](https://github.com/trustedshops-public/connect-app-connector/commit/611ddbdbe925b0d1deda1185b8a24ecfbe11ebb8))
+* remove lazy imports ([1d5ddf3](https://github.com/trustedshops-public/connect-app-connector/commit/1d5ddf3e3ddaedf4f21122f468d5c327e1cb5115))
+
+
+### Bug Fixes
+
+* remove fragment ([b1e8657](https://github.com/trustedshops-public/connect-app-connector/commit/b1e865781be5575418d0af89a56329ce9238e676))
+* remove fragment ([21b27a7](https://github.com/trustedshops-public/connect-app-connector/commit/21b27a78892027cba8285715556d1ae7b875da29))
+* remove lazy from  trustBadgeTab ([5883b75](https://github.com/trustedshops-public/connect-app-connector/commit/5883b7575cba0788d49aaa7ed6b3e7fa181f3760))
+* remove lazy from  trustBadgeTab ([9ad5359](https://github.com/trustedshops-public/connect-app-connector/commit/9ad53595a808db614d2371e27957f38e0be38a24))
+* remove lazy() from dashboard ([33b0f2a](https://github.com/trustedshops-public/connect-app-connector/commit/33b0f2ada9a6c0318323d91f9c268d87abfed9ff))
+* remove lazy() from dashboard ([2585d35](https://github.com/trustedshops-public/connect-app-connector/commit/2585d35a65ec6ee45fe1c27033b8bea0a0f96938))
+* remove unused imports ([7b0ea23](https://github.com/trustedshops-public/connect-app-connector/commit/7b0ea23a5ac9cb69007acfa0080af4c55466b4b2))
+* remove unused lazy ([763d505](https://github.com/trustedshops-public/connect-app-connector/commit/763d5050f4730ef6afe707293a6d16422d418dec))
+* remove unused lazy ([ccb45f5](https://github.com/trustedshops-public/connect-app-connector/commit/ccb45f5d73755ecbc269add351c65b7c2b54cfb2))
+
 ## [1.3.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.2.0...1.3.0) (2023-09-27)
 
 
