@@ -8,19 +8,15 @@ import TextWithLink from '@/components/layouts/textWithLink'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import tabIcon from '@/assets/settings-tab-icon.svg'
 import warnIcon from '@/assets/settings-tab-warn-icon.svg'
-import { DASHBOADR_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectorChannels } from '@/store/selector'
 import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
-
-interface Props {
-  phrasesByKey: DASHBOADR_KEYS
-}
+import { TabProps } from '@/modules/type'
 
 const Divider = <div className="ts-h-[1px] ts-w-full ts-mb-6 ts-bg-gray-100" />
 
-const SettingsTab: FC<Props> = ({ phrasesByKey }) => {
+const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
   const {
     isDisconnectLoading,
     selectedChannels,

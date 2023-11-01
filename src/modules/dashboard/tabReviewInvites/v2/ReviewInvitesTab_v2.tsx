@@ -2,16 +2,12 @@ import { h } from 'preact'
 import { FC, useState } from 'preact/compat'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
-import { DASHBOADR_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import SendReviewInvitesRightTime_2 from './sendReviewInvitesRightTime_v2'
 import SendReviewInvitesForPreviousOrders_2 from './sendReviewInvitesForPreviousOrders_v2'
+import { TabProps } from '@/modules/type'
 
-interface Props {
-  phrasesByKey: DASHBOADR_KEYS
-}
-
-const ReviewInvitesTab_v2: FC<Props> = ({ phrasesByKey }) => {
+const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { selectedShopChannels } = useStore(selectorChannels)

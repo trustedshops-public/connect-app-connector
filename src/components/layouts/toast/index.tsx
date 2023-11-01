@@ -1,7 +1,7 @@
 import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { CheckIcon, CloseIcon, ExlamationIcon } from '../icons'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { IToastList } from '@/store/notification/types'
 import useStore from '@/store/useStore'
 import { selectorNotificationStore } from '@/store/selector'
@@ -16,7 +16,7 @@ interface IProps<T> {
   list: Array<T>
   item: T
   deleteToast: (id: number) => void
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
 }
 
 const Toast: FC<IProps<IToastList>> = ({ item, deleteToast, phrasesByKey }) => {
@@ -56,7 +56,7 @@ const Toast: FC<IProps<IToastList>> = ({ item, deleteToast, phrasesByKey }) => {
 }
 
 const ToastList: FC<{
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
 }> = ({ phrasesByKey }) => {
   const { deleteToastItem } = useStore()
   const { toastList } = useStore(selectorNotificationStore)

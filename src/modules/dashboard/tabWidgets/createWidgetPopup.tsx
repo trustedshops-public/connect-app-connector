@@ -3,10 +3,10 @@ import { h } from 'preact'
 import Modal from '@/components/layouts/modal'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import popupIcon from '@/assets/widgets-popup-icon.svg'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   channelRef: string
   modalIsOpen: boolean
   setOpenModal: (value: boolean) => void

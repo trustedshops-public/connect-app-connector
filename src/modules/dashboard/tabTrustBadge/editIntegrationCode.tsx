@@ -4,11 +4,11 @@ import { getParsedTrustbadgeDataStrToObj } from './parseTrustbadgeData'
 import { isEqual } from '@/utils'
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink from '@/components/layouts/textWithLink'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   isDisabled: boolean
   textStr: string
   initialTrustbadgeDataChild: ITrustbadgeChildren

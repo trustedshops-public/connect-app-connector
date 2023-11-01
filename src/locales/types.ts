@@ -451,7 +451,7 @@ export type ROUTES_KEYS = {
   application_routes_channelSelector: string
 }
 
-export type DASHBOADR_KEYS = ROUTES_KEYS &
+export type DASHBOARD_KEYS = ROUTES_KEYS &
   CHANNEL_KEYS &
   SETTINGS_KEYS &
   INVITES_KEYS &

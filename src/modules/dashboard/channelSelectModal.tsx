@@ -6,12 +6,12 @@ import { dispatchAction, EVENTS } from '@/eventsLib'
 import settingsImg from '@/assets/Feature_related_Settings.svg'
 
 import ChannelSelectionForm from './channelSelectionForm'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectorChannels } from '@/store/selector'
 
 interface Props {
-  phrasesByKey: Nullable<DASHBOADR_KEYS>
+  phrasesByKey: Nullable<DASHBOARD_KEYS>
   showModal: boolean
   setShowModal: (value: boolean) => void
 }

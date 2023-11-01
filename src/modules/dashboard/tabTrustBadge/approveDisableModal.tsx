@@ -4,10 +4,10 @@ import Button, { ButtonThemes } from '@/components/controls/buttun'
 import Modal from '@/components/layouts/modal'
 import { ExclamationCircleIcon } from '@/components/layouts/icons'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 
 interface Props {
-  phrasesByKey: Nullable<DASHBOADR_KEYS>
+  phrasesByKey: Nullable<DASHBOARD_KEYS>
   showModal: boolean
   handleCancel: (value: boolean) => void
   diactivateTB: (data: Nullable<ITrustbadgeChildren>) => void
