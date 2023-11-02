@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'preact/compat'
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink, { TextWithBold } from '@/components/layouts/textWithLink'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Radio } from '@/components/controls/radio'
@@ -14,7 +14,7 @@ import warnIcon from '@/assets/warning-sign.svg'
 import { isEqual } from '@/utils'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   saveChanges: () => void
   changeUseTimeOfSendReviewInvites: (v: {
     isEstimatedDeliveryDate: boolean

@@ -13,7 +13,7 @@ import {
   PreviewTrustedStars,
 } from './previewWidgets'
 import { IWidgetsChildren } from '@/baseLayers/types'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { IWidgetApi, IWidgetLocation } from '@/store/widgets/types'
 import useStore from '@/store/useStore'
 import { PreviewCustomerVoice } from './previewWidgets/previewCustomerVoice'
@@ -55,7 +55,7 @@ const PREVIEW_BY_APPLICATION_TYPE = {
 
 interface Props {
   widget: IWidgetsChildren & { isDeleted?: boolean }
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   availableProducts: { id: string; name: string }[]
   widgetsFromAPI: IWidgetApi[]
   widgetsWithoutProductId: IWidgetsChildren[]

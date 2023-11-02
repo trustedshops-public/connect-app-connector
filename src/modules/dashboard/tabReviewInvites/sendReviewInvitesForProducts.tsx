@@ -4,11 +4,11 @@ import Switch from '@/components/controls/switch'
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink from '@/components/layouts/textWithLink'
 import productsIcon from '@/assets/invites-tab-products-icon.svg'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   isToggle: boolean
   handleToggle: () => void
   selectedShopChannels: IMappedChannel

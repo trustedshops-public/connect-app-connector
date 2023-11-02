@@ -10,20 +10,15 @@ import {
   getParsedTrustbadgeDataToString,
 } from '@/modules/dashboard/tabTrustBadge/parseTrustbadgeData'
 import { ScrinSpinner } from '@/components/layouts/spinner'
-
 import { selectorChannels, selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
-import { DASHBOADR_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import EditIntegrationCodeProps from './editIntegrationCode'
 import StandartEditor from './standartEditor'
 import TrustBadgeSwitcher from './trustBadgeSwitcher'
+import { TabProps } from '@/modules/type'
 
-interface Props {
-  phrasesByKey: DASHBOADR_KEYS
-}
-
-const TrustBadgeTab: FC<Props> = ({ phrasesByKey }) => {
+const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const dataRadioButton = [
     { value: phrasesByKey?.application_trustbadge_radioButton_standard, id: 'standard' },
     { value: phrasesByKey?.application_trustbadge_radioButton_expert, id: 'expert' },

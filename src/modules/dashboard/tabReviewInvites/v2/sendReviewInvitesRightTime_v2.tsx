@@ -7,7 +7,7 @@ import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
 import { selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import { CHECKOUT_TYPE } from '@/store/reviewInvites/reviewInvitesSendActions'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
 
 import infoIcon from '@/assets/settings-tab-warn-icon.svg'
@@ -15,7 +15,7 @@ import warnIcon from '@/assets/warning-sign.svg'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   saveChanges: () => void
 }
 

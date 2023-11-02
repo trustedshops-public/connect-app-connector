@@ -4,14 +4,14 @@ import { FC } from 'preact/compat'
 import { TabInfoBox } from '@/components/layouts/infoBox'
 import TextWithLink from '@/components/layouts/textWithLink'
 import exportIcon from '@/assets/invites-tab-export-icon.svg'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import NumberInput from '@/components/controls/numberInput'
 import Switch from '@/components/controls/switch'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   numberOfDays: number
   changeNumberOfDays: (v: number) => void
   onExport: (payload: { id: string; salesChannelRef: string; includeProductData: boolean }) => void
