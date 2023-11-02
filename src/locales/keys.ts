@@ -1,7 +1,7 @@
 import {
   AUTH_KEYS,
   CHANNEL_KEYS,
-  DASHBOADR_KEYS,
+  DASHBOARD_KEYS,
   GLOBAL_KEYS,
   INVITES_KEYS,
   ITRUSTBADGE_KEYS,
@@ -229,7 +229,7 @@ const PHRASES_ROUTES_KEYS: ROUTES_KEYS = {
   application_routes_channelSelector: 'application.routes.channelSelector',
 }
 
-export const PHRASES_DASHBOARD_KEYS: DASHBOADR_KEYS = {
+export const PHRASES_DASHBOARD_KEYS: DASHBOARD_KEYS = {
   ...PHRASES_TRUSTBADGE_KEYS,
   ...PHRASES_WIDGETS_KEYS,
   ...PHRASES_INVITES_KEYS,

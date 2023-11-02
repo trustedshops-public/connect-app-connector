@@ -1,4 +1,5 @@
 import { ComponentType } from 'preact'
+import { DASHBOARD_KEYS } from '@/locales/types'
 export interface IModule<T> {
   routeProps: {
     path: string
@@ -8,4 +9,8 @@ export interface IModule<T> {
     }>
   }
   name: string
+}
+
+export interface TabProps {
+  phrasesByKey: DASHBOARD_KEYS
 }

@@ -4,10 +4,10 @@ import { IChannelTS } from '@/store/channel/types'
 import { Option, Select } from '@/components/controls/dropdown'
 import { getSelectedAndMappedChannels } from '@/store/channel/mapperForChannels'
 import { selectorChannels, selectorInfoOfSystem } from '@/store/selector'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 
-const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOADR_KEYS> }> = ({ phrasesByKey }) => {
+const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ phrasesByKey }) => {
   const { setSelectedChannels } = useStore()
   const { selectedChannels, shopChannels, channelsFromTSC } = useStore(selectorChannels)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)

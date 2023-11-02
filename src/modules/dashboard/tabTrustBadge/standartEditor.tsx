@@ -1,13 +1,13 @@
 import { FC } from 'preact/compat'
 import { h } from 'preact'
 import { Option, Select } from '@/components/controls/dropdown'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import NumberInput from '@/components/controls/numberInput'
 import { PlacementDesktop, PlacementMobile } from './parseTrustbadgeData'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   isDisabled: boolean
   trustbadgeDataChild: ITrustbadgeChildren
   placementPhrase: { [key: string]: string }

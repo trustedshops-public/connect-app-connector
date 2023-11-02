@@ -5,11 +5,11 @@ import Switch from '@/components/controls/switch'
 import marketingImg from '@/assets/marketing-trustbadge-en.svg'
 import TrustbadgeImg from '@/assets/Illustration-Trustbadge.svg'
 import { selectorTrustbadgeState } from '@/store/selector'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 
 interface Props {
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
   handleSwitch: any
 }
 

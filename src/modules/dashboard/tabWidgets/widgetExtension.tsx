@@ -3,12 +3,12 @@ import { FC } from 'preact/compat'
 import Switch from '@/components/controls/switch'
 import { StarIconSolid } from '@/components/layouts/icons'
 import { IWidgetsChildren } from '@/baseLayers/types'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 
 interface Props {
   widget: IWidgetsChildren
-  phrasesByKey: DASHBOADR_KEYS
+  phrasesByKey: DASHBOARD_KEYS
 }
 
 const WidgetExtension: FC<Props> = ({ widget, phrasesByKey }) => {

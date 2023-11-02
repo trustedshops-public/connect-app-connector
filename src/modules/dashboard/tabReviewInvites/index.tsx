@@ -3,17 +3,13 @@ import { FC, useState, useEffect } from 'preact/compat'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
-import { DASHBOADR_KEYS } from '@/locales/types'
 import SendReviewInvitesForProducts from './sendReviewInvitesForProducts'
 import SendReviewInvitesRightTime from './sendReviewInvitesRightTime'
 import SendReviewInvitesForPreviousOrders from './sendReviewInvitesForPreviousOrders'
 import useStore from '@/store/useStore'
+import { TabProps } from '@/modules/type'
 
-interface Props {
-  phrasesByKey: DASHBOADR_KEYS
-}
-
-const ReviewInvitesTab: FC<Props> = ({ phrasesByKey }) => {
+const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(false)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { selectedShopChannels } = useStore(selectorChannels)

@@ -2,13 +2,12 @@ import { Fragment, h } from 'preact'
 import { FC, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 import Logo from '@/components/controls/logo'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 import { Option, Select } from '@/components/controls/dropdown'
 import TextWithLink from '@/components/layouts/textWithLink'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 import Spinner from '@/components/layouts/spinner'
 import { getMappedChannels } from '@/store/channel/mapperForChannels'
-import ReviewInvitesTab from './tabReviewInvites'
 import ToastList from '@/components/layouts/toast'
 import withLocalisation from '@/locales/withLocalisation'
 import { PHRASES_DASHBOARD_KEYS } from '@/locales/keys'
@@ -19,18 +18,15 @@ import {
   selectorNotificationStore,
   selectorTrustbadgeState,
 } from '@/store/selector'
-import ReviewInvitesTab_v2 from './tabReviewInvites/v2/ReviewInvitesTab_v2'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-import TrustBadgeTab from './tabTrustBadge'
 import BackgroundCard from '@/components/layouts/backgroundCard'
-import InfoBox from '@/components/layouts/infoBox'
 import ChannelSelectModal from './channelSelectModal'
-import WidgetsTab from './tabWidgets'
-import SettingsTab from './tabSettings'
+import { LazyLoading } from '@/utils/lazyLoading'
+import { TabProps } from '@/modules/type'
 
 const DashboardPageModule: FC<{
-  setPhrasesByKey: (keys: DASHBOADR_KEYS) => void
-  phrasesByKey: DASHBOADR_KEYS
+  setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
+  phrasesByKey: DASHBOARD_KEYS
 }> = ({ setPhrasesByKey, phrasesByKey }) => {
   const [openTab, setOpenTab] = useState<number>(0)
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -42,6 +38,32 @@ const DashboardPageModule: FC<{
   const isVersionTwo =
     infoOfSystem.useVersionNumberOfConnector &&
     AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
+  const TrustBadgeTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabTrustBadge/index')} />
+  )
+
+  const WidgetTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabWidgets/index')} />
+  )
+
+  const ReviewInvitesTab_v2 = (props: TabProps) => (
+    <LazyLoading
+      props={props}
+      importComponent={() => import('./tabReviewInvites/v2/ReviewInvitesTab_v2')}
+    />
+  )
+
+  const ReviewInvitesTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabReviewInvites/index')} />
+  )
+
+  const SettingsTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabSettings/index')} />
+  )
+
+  const InfoBox = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('@/components/layouts/infoBox')} />
+  )
 
   const {
     isChannelsLoading,
@@ -245,7 +267,7 @@ const DashboardPageModule: FC<{
       {
         id: 1,
         name: phrasesByKey.application_routes_widgets,
-        component: <WidgetsTab phrasesByKey={phrasesByKey} />,
+        component: <WidgetTab phrasesByKey={phrasesByKey} />,
         isAvailable: allowsSupportWidgets,
       },
       {

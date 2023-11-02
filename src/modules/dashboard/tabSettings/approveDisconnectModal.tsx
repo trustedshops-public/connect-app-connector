@@ -3,10 +3,10 @@ import { FC } from 'preact/compat'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import Modal from '@/components/layouts/modal'
 import { ExclamationCircleIcon } from '@/components/layouts/icons'
-import { DASHBOADR_KEYS } from '@/locales/types'
+import { DASHBOARD_KEYS } from '@/locales/types'
 
 interface Props {
-  phrasesByKey: Nullable<DASHBOADR_KEYS>
+  phrasesByKey: Nullable<DASHBOARD_KEYS>
   showModal: boolean
   handleCancel: (value: boolean) => void
   onDisconnect: () => void

@@ -10,22 +10,19 @@ import Spinner, { ScrinSpinner } from '@/components/layouts/spinner'
 import { WidgetChildren } from '@/store/widgets/types'
 import tabIcon from '@/assets/widgets-tab-icon.svg'
 import { IWidgets } from '@/baseLayers/types'
-import { DASHBOADR_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
 import useStore from '@/store/useStore'
 import { selectorChannels } from '@/store/selector'
 import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
+import { TabProps } from '@/modules/type'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
   { id: 'data-gtin', name: 'GTIN' },
   { id: 'data-mpn', name: 'MPN' },
 ]
-interface Props {
-  phrasesByKey: DASHBOADR_KEYS
-}
 
-const WidgetsTab: FC<Props> = ({ phrasesByKey }) => {
+const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [modalIsOpen, setOpenModal] = useState(false)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const [widgetsWithoutProductId, setWidgetsWithoutProductId] = useState<WidgetChildren[]>([])
