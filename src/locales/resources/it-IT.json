@@ -85,6 +85,34 @@
           }
         },
         "title": "Spedisci gli inviti di recensione al momento ottimale"
+      },
+      "sendbyos": {
+        "description": "Scegliete il punto di contatto corretto per mandare gli inviti alle recensioni",
+        "export": {
+          "productdata": "Includi dati di prodotto"
+        },
+        "orderstatus": {
+          "warning": {
+            "text": "Per i punti di contatto diversi dal \"Checkout\", è necessario ottenere il consenso dei clienti ai sensi dell'[%s]art. 7 RGPD[%s]. Ulteriori informazioni sono disponibili presso il [%s]Centro Assistenza eTrusted[%s]",
+            "url_1": "https://gdprinfo.eu/it/it-article-7",
+            "url_2": "https://help.etrusted.com/hc/it/articles/360025759231-Consenso-per-l-invio-degli-inviti-di-recensione"
+          }
+        },
+        "success": {
+          "delay": {
+            "text": "Per impostazione predefinita, gli inviti a recensire vengono inviati con un intervallo di tempo ottimizzato in base ai dati di Trusted Shops. È possibile modificare questa impostazione nel [%s]Centro di controllo[%s].",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "title": "Mandare gli inviti a recensire al momento giusto per raccogliere recensioni migliori e più numerose",
+        "type": {
+          "productReviews": "Recensioni prodotto:",
+          "serviceReviews": "Recensioni servizio:"
+        },
+        "upgradedescription": {
+          "text": "Se non avete ancora prenotato il servizio recensioni dei prodotti, [%s]contattate il nostro team di vendita[%s] per effettuare l'upgrade",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        }
       }
     },
     "routes": {
@@ -161,6 +189,7 @@
         "title": "Ampliamento del widget di ancoraggio (opzionale):"
       },
       "name": {
+        "customervoice": "Customer Voice",
         "FullReviewList": "Lista completa delle recensioni",
         "MiniStars": "Mini Stelle",
         "ReviewCarousel": "Carosello di recensioni",
@@ -246,6 +275,7 @@
   "global": {
     "button": {
       "cancel": "Annulla",
+      "save": "Salva",
       "submit": "Salva le modifiche"
     },
     "copyright": {
@@ -259,6 +289,9 @@
       },
       "text": "Scopri come collegare il tuo negozio a Trusted Shops.",
       "title": "Ti occorrono più informazioni?"
+    },
+    "jointcontrollership": {
+      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "error": {

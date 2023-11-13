@@ -12,35 +12,6 @@
         },
         "title": "Send review invites for products"
       },
-      "sendbyos" : {
-        "title" : "Send review invites at the right time to collect more and better reviews!",
-        "description": "Choose a touchpoint for your review send out: ",
-        "information":"",
-        "type": {
-          "serviceReviews": "Service reviews",
-          "productReviews": "Product reviews"
-        },
-        "upgradedescription": {
-          "text":"If you haven't booked product reviews yet, [%s]contact our sales team[%s] to upgrade.",
-          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
-        },
-        "orderstatus": {
-          "warning": {
-            "text":"For touchpoints other than “Checkout”, obtain consent from your customers according to [%s]Art. 7 GDPR.[%s] More information can be found in the \n[%s]eTrusted Help Centre.[%s]",
-            "url_1": "https://gdprinfo.eu/en-article-7",
-              "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites"
-          }
-        },
-        "success": {
-          "delay": {
-            "text" : "By default, your Review Invites will be sent out with an optimised delay based on Trusted Shops’ data. You can change this in the [%s]Control Centre[%s].",
-            "url_1": "https://app.etrusted.[STAGE]"
-          }
-        },
-        "export": {
-          "productdata": "Include product data"
-        }
-      },
       "send": {
         "description": "When your customer places an order in your shop, [%s]shopsystem[%s] provides Trusted Shops with the Estimated Delivery date for this order. Trusted Shops can use this information to help you send review invites at the right time and avoid customers receiving review invites too early.\n\nPlease select your preferred trigger for sending review invites:\n",
         "descriptionIntro": "When your customer places an order in your shop, [%s]shopsystem[%s] provides Trusted Shops with details about this order. Trusted Shops can use this information to help you send Review Invites at the right time and avoid customers receiving Review Invites too early.\n\nPlease select your preferred trigger for sending Review Invites:",
@@ -48,13 +19,13 @@
           "button": "Export",
           "description": "In order to send out review invites to existing customers, please export a CSV file with their data. Be aware that you need the consent of the customer to share their email address with Trusted Shops.",
           "help": {
-            "text": "The right timing for your Review Invites can be critical to ensure a good feedback rate. \nRead more about [%s]sending Review Invites at the right time[%s].",
+            "text": "If you do not want to collect reviews automated or if you want to manually invite customers to submit reviews in addition to the automated dispatch of invites, you can use the [%s]Review Collector[%s].",
             "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
           },
           "step": {
             "1": {
               "option": "Export orders made in the past number of days:",
-              "title": "1/ Export orders"
+              "title": "1. Export orders"
             },
             "2": {
               "description": {
@@ -62,7 +33,7 @@
                 "url_1": "https://app.etrusted.[STAGE]",
                 "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
               },
-              "title": "2/ Upload orders to send them review invites"
+              "title": "2. Upload orders to send them review invites"
             }
           },
           "title": "Send review invites for previous orders"
@@ -114,6 +85,34 @@
           }
         },
         "title": "Send Review Invites at the right time"
+      },
+      "sendbyos": {
+        "description": "Choose the right touchpoint to send out your review invites",
+        "export": {
+          "productdata": "Include product data"
+        },
+        "orderstatus": {
+          "warning": {
+            "text": "For touchpoints other than \"Checkout\", obtain consent from your customers according to [%s]Art. 7 GDPR[%s]. More information can be found in the [%s]eTrusted Help Centre[%s].",
+            "url_1": "https://gdprinfo.eu/en-article-7",
+            "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites"
+          }
+        },
+        "success": {
+          "delay": {
+            "text": "By default, your Review Invites will be sent out with an optimised delay based on Trusted Shops’ data. You can change this in the [%s]Control Centre[%s].",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "title": "Send review invites at the right time to collect more and better reviews",
+        "type": {
+          "productReviews": "Product reviews:",
+          "serviceReviews": "Service reviews:"
+        },
+        "upgradedescription": {
+          "text": "If you haven't booked product reviews yet, [%s]contact our sales team[%s] to upgrade.",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        }
       }
     },
     "routes": {
@@ -276,7 +275,7 @@
   "global": {
     "button": {
       "cancel": "Cancel",
-      "save":"Save",
+      "save": "Save",
       "submit": "Save changes"
     },
     "copyright": {
@@ -290,6 +289,10 @@
       },
       "text": "Learn how to connect your shop to Trusted Shops.",
       "title": "Do you need more information? "
+    },
+    "jointcontrollership": {
+      "text": "[%s]Data subject rights under the joint controllership agreement[%s]",
+      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "cacheclear": {
