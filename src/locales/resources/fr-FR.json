@@ -85,6 +85,34 @@
           }
         },
         "title": "Envoyez les invitations d’avis au moment idéal"
+      },
+      "sendbyos": {
+        "description": "Choisissez le bon point de contact pour envoyer vos demandes d'avis.",
+        "export": {
+          "productdata": "Inclure les données du produit"
+        },
+        "orderstatus": {
+          "warning": {
+            "text": "Pour les points de contact autres que le \"Paiement\", veuillez s.v.p. recueillir le consentement de vos clients conformément à l'[%s]art. 7 RGPD[%s]. Plus d'informations sont disponibles dans le [%s]centre d'aide eTrusted[%s].",
+            "url_1": "https://gdprinfo.eu/fr/fr-article-7",
+            "url_2": "https://help.etrusted.com/hc/fr/articles/360025759231-Consentement-%C3%A0-l-envoi-d-invitations-%C3%A0-%C3%A9mettre-un-avis"
+          }
+        },
+        "success": {
+          "delay": {
+            "text": "Par défaut, vos demandes  d'avis seront envoyées avec un délai optimisé selon les données de Trusted Shops. Vous pouvez modifier cela dans le [%s]centre de contrôle[%s].",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "title": "Envoyez des demandes d'évaluation au bon moment pour recueillir des avis plus nombreux et de meilleure qualité",
+        "type": {
+          "productReviews": "Avis produit:",
+          "serviceReviews": "Avis service:"
+        },
+        "upgradedescription": {
+          "text": "Si vous n'avez pas encore réservé d'avis produits, [%s]contactez notre équipe de vente[%s] pour vous mettre à jour.",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        }
       }
     },
     "routes": {
@@ -161,6 +189,7 @@
         "title": "Extension widget ancrage (en option) :"
       },
       "name": {
+        "customervoice": "Widget Voix du Client",
         "FullReviewList": "Liste d'avis",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Carrousel d'avis",
@@ -246,6 +275,7 @@
   "global": {
     "button": {
       "cancel": "Annuler",
+      "save": "Enregistrer",
       "submit": "Enregistrer les modifications"
     },
     "copyright": {
@@ -259,6 +289,9 @@
       },
       "text": "Apprenez à associer votre boutique et Trusted Shops.",
       "title": "Avez-vous besoin de plus d’informations ?"
+    },
+    "jointcontrollership": {
+      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "error": {

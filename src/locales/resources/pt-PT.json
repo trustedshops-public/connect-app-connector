@@ -85,6 +85,34 @@
           }
         },
         "title": "Envie os convites de avaliação no momento ideal"
+      },
+      "sendbyos": {
+        "description": "Escolha o ponto de contacto certo para enviar os seus convites para avaliação",
+        "export": {
+          "productdata": "Incluir dados do produto"
+        },
+        "orderstatus": {
+          "warning": {
+            "text": "Para outros pontos de contacto que não o \"Checkout\", obtenha o consentimento dos seus clientes de acordo com o [%s]Art. 7 DO RGPD[%s]. Mais informações podem ser encontradas no [%s]Centro de Ajuda eTrusted[%s].",
+            "url_1": "https://gdprinfo.eu/pt-pt/pt-pt-article-7",
+            "url_2": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online"
+          }
+        },
+        "success": {
+          "delay": {
+            "text": "Por predefinição, os seus convites para revisão serão enviados com um atraso optimizado com base nos dados das Lojas de confiança. Pode alterar esta opção no [%s]Centro de Controlo[%s].",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "title": "Envie convites para avaliações na altura certa para obter mais e melhores avaliações",
+        "type": {
+          "productReviews": "Comentários de produtos:",
+          "serviceReviews": "Comentários sobre o serviço:"
+        },
+        "upgradedescription": {
+          "text": "Se ainda não reservou revisões de produtos, [%s]contacte a nossa equipa de vendas[%s] para atualizar.",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        }
       }
     },
     "routes": {
@@ -161,6 +189,7 @@
         "title": "Extensão do widget âncora (opcional):"
       },
       "name": {
+        "customervoice": "Customer Voice",
         "FullReviewList": "Lista completa de avaliações",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Carrossel de avaliações",
@@ -246,6 +275,7 @@
   "global": {
     "button": {
       "cancel": "Cancelar",
+      "save": "Guardar",
       "submit": "Guardar alterações"
     },
     "copyright": {
@@ -260,7 +290,13 @@
       "text": "Descubra como pode interligar a sua loja com a Trusted Shops.",
       "title": "Precisa de mais informações?"
     },
+    "jointcontrollership": {
+      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
+    },
     "notification": {
+      "cacheclear": {
+        "save": "Alterações guardadas com sucesso! Limpe a cache da sua loja para ver as últimas actualizações na montra."
+      },
       "error": {
         "exportTimeout": "Reduza o número de dias exportados. O nosso sistema apenas consegue processar uma determinada quantidade de pedidos.",
         "productIdUnselected": "Selecione uma ID de produto antes de guardar as suas alterações",

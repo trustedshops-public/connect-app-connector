@@ -85,6 +85,34 @@
           }
         },
         "title": "Verzend beoordelingsverzoeken op het optimale tijdstip"
+      },
+      "sendbyos": {
+        "description": "Kies het juiste contactmoment om uw je uitnodigingen voor beoordelingen reviews te versturen",
+        "export": {
+          "productdata": "Productgegevens opnemen"
+        },
+        "orderstatus": {
+          "warning": {
+            "text": "Voor contactpunten anders dan \"Afrekenen\" dient u je toestemming te verkrijgen van uw je klanten in overeenstemming met [%s]art. 7 AVG[%s]. Meer informatie is te vinden vind je in het [%s]eTrusted Helpcentrum[%s]",
+            "url_1": "https://gdprinfo.eu/nl/nl-article-7",
+            "url_2": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
+          }
+        },
+        "success": {
+          "delay": {
+            "text": "Standaard worden uw je uitnodigingen voor beoordelingen reviews verzonden met een geoptimaliseerde vertraging op basis van de gegevens van Trusted Shops. U Je kunt dit wijzigen in het [%s]Control Center[%s].",
+            "url_1": "https://app.etrusted.[STAGE]"
+          }
+        },
+        "title": "Stuur uitnodigingen voor beoordelingen op het juiste moment om meer en betere beoordelingen te verzamelen",
+        "type": {
+          "productReviews": "Productbeoordelingen:",
+          "serviceReviews": "Servicebeoordelingen:"
+        },
+        "upgradedescription": {
+          "text": "Als je nog geen productreviews hebt geboekt, [%s]neem dan contact op met ons verkoopteam[%s] om te upgraden",
+          "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+        }
       }
     },
     "routes": {
@@ -161,6 +189,7 @@
         "title": "Ankerwidget uitbreiding (optioneel):"
       },
       "name": {
+        "customervoice": "Customer Voice",
         "FullReviewList": "Full Review List",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Review Carousel",
@@ -246,6 +275,7 @@
   "global": {
     "button": {
       "cancel": "Annuleren",
+      "save": "Opslaan",
       "submit": "Wijzigingen opslaan"
     },
     "copyright": {
@@ -259,6 +289,9 @@
       },
       "text": "Ontdek hoe je jouw webshop aan Trusted Shops koppelt.",
       "title": "Heb je meer informatie nodig?"
+    },
+    "jointcontrollership": {
+      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "error": {
