@@ -292,7 +292,7 @@
     },
     "jointcontrollership": {
       "text": "[%s]Data subject rights under the joint controllership agreement[%s]",
-      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
+      "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "cacheclear": {
@@ -315,10 +315,6 @@
     "slider": {
       "active": "active",
       "inactive": "inactive"
-    },
-    "jointcontrollership": {
-      "text": "[%s]Data subject rights under the joint controllership agreement[%s]",
-        "url_1": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
     }
   }
 }

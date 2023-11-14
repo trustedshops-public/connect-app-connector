@@ -288,7 +288,7 @@ export type GLOBAL_KEYS = {
   global_notification_success_save: string
   global_notification_cacheclear_save: string
   global_jointcontrollership_text: string
-  global_jointcontrollership_url1: string
+  global_jointcontrollership_url_1: string
 }
 
 export type AUTH_KEYS = {
