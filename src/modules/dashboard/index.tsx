@@ -1,5 +1,5 @@
 import { Fragment, h } from 'preact'
-import { FC, Suspense, lazy, useEffect, useState } from 'preact/compat'
+import { FC, Suspense, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 import Logo from '@/components/controls/logo'
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -132,6 +132,14 @@ const DashboardPageModule: FC<{
         })
         dispatchAction({
           action: EVENTS.GET_LOCATION_FOR_WIDGET,
+          payload: {
+            id: selectedShopChannels.eTrustedChannelRef,
+            eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+            salesChannelRef: selectedShopChannels.salesChannelRef,
+          },
+        })
+        dispatchAction({
+          action: EVENTS.GET_AVAILABLE_PRODUCT_IDENTIFIERS,
           payload: {
             id: selectedShopChannels.eTrustedChannelRef,
             eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
