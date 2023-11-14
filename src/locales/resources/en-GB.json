@@ -315,6 +315,10 @@
     "slider": {
       "active": "active",
       "inactive": "inactive"
+    },
+    "jointcontrollership": {
+      "text": "[%s]Data subject rights under the joint controllership agreement[%s]",
+        "url_1": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
     }
   }
 }
