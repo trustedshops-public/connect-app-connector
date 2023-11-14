@@ -34,7 +34,7 @@ export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
   global_placeholder_location: 'global.placeholder.location',
   global_placeholder_productid: 'global.placeholder.productid',
   global_jointcontrollership_text: 'global.jointcontrollership.text',
-  global_jointcontrollership_url1: 'global.jointcontrollership.url1',
+  global_jointcontrollership_url_1: 'global.jointcontrollership.url_1',
 }
 
 export const PHRASES_AUTH_KEYS: AUTH_KEYS = {
