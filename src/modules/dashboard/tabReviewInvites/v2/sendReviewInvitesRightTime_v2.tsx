@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { FC, useEffect, useState } from 'preact/compat'
+import { FC, useEffect, useState, useRef } from 'preact/compat'
 
 import TextWithLink from '@/components/layouts/textWithLink'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
@@ -23,7 +23,8 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
   const { availableOrderStatusesAction, selectedReviews, initialSelectedReviews } =
     useStore(selectorReviewInvites)
   const { setSelectedReviews } = useStore()
-
+  const servicelabelRef = useRef<HTMLLabelElement>(null)
+  const productlabelRef = useRef<HTMLLabelElement>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
@@ -46,6 +47,21 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
   const defaulProductValue =
     availableOrderStatusesAction.find(i => i.ID === selectedReviews.product?.ID)?.name || ''
 
+  useEffect(() => {
+    const adjustLabelWidth = () => {
+      if (servicelabelRef.current && productlabelRef.current) {
+        const label1Width = servicelabelRef.current.offsetWidth
+        const label2Width = productlabelRef.current.offsetWidth
+
+        const biggerWidth = Math.max(label1Width, label2Width)
+
+        servicelabelRef.current.style.width = `${biggerWidth}px`
+        productlabelRef.current.style.width = `${biggerWidth}px`
+      }
+    }
+    adjustLabelWidth()
+  }, [])
+
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -65,9 +81,10 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
           </div>
           <div className="ts-flex ts-flex-col ts-gap-2 ts-mt-6">
             <div className="ts-relative ts-flex ts-items-center ts-mb-3">
-              <div className="ts-left-0 ts-flex ts-items-center ts-w-statusSelected">
+              <div className="ts-left-0 ts-flex ts-items-center">
                 <label
-                  className={`${'ts-text-durkLabel'} ts-w-24 ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm`}
+                  ref={servicelabelRef}
+                  className={`${'ts-text-darkLabel'} ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm`}
                 >
                   {phrasesByKey.application_invites_sendbyos_type_serviceReviews}
                 </label>
@@ -96,9 +113,10 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
             </div>
             {infoOfSystem.allowsSendReviewInvitesForProduct && (
               <div className="ts-flex ts-items-center ts-justify-center">
-                <div className="ts-flex ts-items-center ts-w-statusSelected">
+                <div className="ts-flex ts-items-center">
                   <label
-                    className={`${'ts-text-durkLabel'} ts-w-24 ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm`}
+                    ref={productlabelRef}
+                    className="ts-text-darkLabel ts-whitespace-nowrap ts-mr-4 ts-font-normal ts-text-sm"
                   >
                     {phrasesByKey.application_invites_sendbyos_type_productReviews}
                   </label>
