@@ -368,6 +368,16 @@ const DashboardPageModule: FC<{
                   <div className="ts-flex ts-items-center ts-justify-center ts-mt-8">
                     {phrasesByKey && (
                       <TextWithLink
+                        id={'jointcontrollership'}
+                        text={phrasesByKey.global_jointcontrollership_text}
+                        url={phrasesByKey.global_jointcontrollership_url_1}
+                        textStyle="ts-text-secondary ts-font-normal ts-text-xxs ts-text-center"
+                      />
+                    )}
+                  </div>
+                  <div className="ts-flex ts-items-center ts-justify-center ts-mt-4">
+                    {phrasesByKey && (
+                      <TextWithLink
                         id={'copyright'}
                         text={phrasesByKey.global_copyright_text}
                         url={phrasesByKey.global_copyright_url_1}
