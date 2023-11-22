@@ -292,7 +292,7 @@
     },
     "jointcontrollership": {
       "text": "[%s]Betroffenenrechte unter der Vereinbarung zur gemeinsamen Verantwortlichkeit[%s]",
-      "url": "https://help.etrusted.com/hc/de/articles/13208959054877-Betroffenenrechte-unter-der-Vereinbarung-zur-gemeinsamen-Verantwortlichkeit"
+      "url_1": "https://help.etrusted.com/hc/de/articles/13208959054877-Betroffenenrechte-unter-der-Vereinbarung-zur-gemeinsamen-Verantwortlichkeit"
     },
     "notification": {
       "cacheclear": {
