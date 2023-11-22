@@ -93,7 +93,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                     >
                       <p
                         id={`channel_name_${item.id}`}
-                        className="ts-m-2 ts-text-durkLabel ts-font-normal ts-text-sm ts-text-ellipsis ts-overflow-hidden"
+                        className="ts-m-2 ts-text-darkLabel ts-font-normal ts-text-sm ts-text-ellipsis ts-overflow-hidden"
                       >
                         {item.name}
                       </p>

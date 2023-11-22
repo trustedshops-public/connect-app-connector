@@ -329,7 +329,7 @@ const DashboardPageModule: FC<{
                       <div className="ts-absolute ts-left-0 ts-w-chanelSelected">
                         <label
                           className={`${
-                            !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-durkLabel'
+                            !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-darkLabel'
                           }  ts-font-normal ts-text-sm`}
                         >
                           {phrasesByKey.application_routes_channelSelector}

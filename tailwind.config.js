@@ -62,7 +62,7 @@ module.exports = {
         error: '#d63339',
         default: '#000a12',
         light: '#ffffff',
-        durkLabel: '#1a1a1a',
+        darkLabel: '#1a1a1a',
         code: '#000611',
       },
       colors: {

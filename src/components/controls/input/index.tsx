@@ -28,7 +28,7 @@ const Input: FC<Props> = ({
   onBlur,
 }) => {
   return (
-    <label className="ts-flex ts-flex-col ts-text-durkLabel ts-font-normal ts-text-sm">
+    <label className="ts-flex ts-flex-col ts-text-darkLabel ts-font-normal ts-text-sm">
       {label}
       <input
         id={`input_${id}`}
@@ -90,7 +90,7 @@ export const InputH: FC<InputProps> = ({
   <label
     id={`input_Wrapper_${id}`}
     data-testid={`input_Wrapper_${id}`}
-    className="ts-flex ts-flex-col ts-text-durkLabel ts-font-normal ts-text-sm"
+    className="ts-flex ts-flex-col ts-text-darkLabel ts-font-normal ts-text-sm"
   >
     <div
       id={`input_label_${id}`}
