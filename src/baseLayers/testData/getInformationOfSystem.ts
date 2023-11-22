@@ -9,7 +9,7 @@ export const getInformationOfSystem = (
         nameOfSystem: 'shopware5',
         versionNumberOfSystem: 'mockBLDev-0.0.1',
         versionNumberOfPlugin: 'mockBLPlugin-0.0.1',
-        allowsEstimatedDeliveryDate: true,
+        allowsEstimatedDeliveryDate: false,
         allowsEventsByOrderStatus: true,
         allowsSendReviewInvitesForPreviousOrders: true,
         allowsSendReviewInvitesForProduct: true,
