@@ -1,3 +1,21 @@
+## [1.5.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.4.0...1.5.0) (2023-11-23)
+
+
+### Features
+
+* Joint Controllership Agreement ([#59](https://github.com/trustedshops-public/connect-app-connector/issues/59)) ([f2b061d](https://github.com/trustedshops-public/connect-app-connector/commit/f2b061d297e1f98040d051de7ada2a0a976ddd67))
+* lazy loading ([b7b03d9](https://github.com/trustedshops-public/connect-app-connector/commit/b7b03d9d6de4a5d6979c3c7b6c52ffa6e1c836d4))
+
+
+### Bug Fixes
+
+* add actionfor product id ([#73](https://github.com/trustedshops-public/connect-app-connector/issues/73)) ([54a9176](https://github.com/trustedshops-public/connect-app-connector/commit/54a9176995ee0827249970273e33237be234ead8))
+* allowsEstimatedDeliveryDate inpact on v2 ([#80](https://github.com/trustedshops-public/connect-app-connector/issues/80)) ([816b0cf](https://github.com/trustedshops-public/connect-app-connector/commit/816b0cf1352c6b3a23c8d74c8de19152a775b2e9))
+* Deactivate Invite-Settings with the wrong payload ([#83](https://github.com/trustedshops-public/connect-app-connector/issues/83)) ([7f9e246](https://github.com/trustedshops-public/connect-app-connector/commit/7f9e2467258ed31aaf2501ca275ce0c11defc411))
+* resolve sonar cloud issues ([c8470d6](https://github.com/trustedshops-public/connect-app-connector/commit/c8470d634de983ba62f47acc44f23bceed8d12cf))
+* reviews label width issue ([#78](https://github.com/trustedshops-public/connect-app-connector/issues/78)) ([f1962c5](https://github.com/trustedshops-public/connect-app-connector/commit/f1962c58c4078ec771198806253139327d52bdbb))
+* Updated translations from Phrase ([#72](https://github.com/trustedshops-public/connect-app-connector/issues/72)) ([7018bbe](https://github.com/trustedshops-public/connect-app-connector/commit/7018bbe74e0c5358c80497e2ae458419c19b037c))
+
 ## [1.4.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.3.0...1.4.0) (2023-10-10)
 
 
