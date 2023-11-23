@@ -172,7 +172,7 @@ export const reviewInvitesActionsStore_v2 = (
               token as string,
               invite.id as string,
               {
-                enabled: isEnableService || isEnableProduct,
+                enabled: true,
                 serviceInviteConfiguration: {
                   enabled: isEnableService,
                 },
@@ -191,7 +191,7 @@ export const reviewInvitesActionsStore_v2 = (
         const body = {
           serviceInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
           productInviteConfiguration: { sendingDelayInDays: 5, enabled: false },
-          enabled: false,
+          enabled: true,
         }
         await patchInviteSettings(selectedShopChannel, info, token as string, eventType.id, body)
           .then(async () => {
