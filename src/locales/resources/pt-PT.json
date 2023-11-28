@@ -290,7 +290,8 @@
       "text": "Descubra como pode interligar a sua loja com a Trusted Shops.",
       "title": "Precisa de mais informações?"
     },
-     "jointcontrollership": {
+    "jointcontrollership": {
+      "text": "[%s]Direitos do titular dos dados ao abrigo do acordo de corresponsabilidade pelo tratamento[%s]",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {

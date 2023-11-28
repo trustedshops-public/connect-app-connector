@@ -290,7 +290,8 @@
       "text": "Scopri come collegare il tuo negozio a Trusted Shops.",
       "title": "Ti occorrono più informazioni?"
     },
-     "jointcontrollership": {
+    "jointcontrollership": {
+      "text": "[%s]Diritti dell'interessato ai sensi dell’accordo di contitolarità[%s]",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {

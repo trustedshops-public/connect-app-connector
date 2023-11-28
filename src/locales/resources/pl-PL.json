@@ -291,6 +291,7 @@
       "title": "Czy potrzebujesz więcej szczegółowych informacji?"
     },
     "jointcontrollership": {
+      "text": "[%s]Prawa osób, których dane dotyczą, zgodnie z umową o wspólnym nadzorze[%s]",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
