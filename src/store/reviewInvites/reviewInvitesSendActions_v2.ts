@@ -37,7 +37,7 @@ const handleDefaultOrderStatusUpdate = async (
     token as string
   )
 
-  inviteSettingsByChannel.map(async invite => {
+  inviteSettingsByChannel.forEach(async invite => {
     const eventType = eventTypes.find(event => event.id === invite.eventTypeId)
     const isEnableProduct =
       eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct
@@ -92,12 +92,12 @@ export const reviewInvitesActionsStore_v2 = (
       },
     }))
   },
-  setInitialOrderStatusByMapping: (selectedChannels: IMappedChannel[]) => {
-    const token = get().auth.user?.access_token
-    const infoOfSystem = get().infoState.infoOfSystem
-    const initialSelectedChannels = get().channelState.initialSelectedChannels
+  setInitialOrderStatusByMapping: async (selectedChannels: IMappedChannel[]) => {
+    const token = get().auth.user?.access_token;
+    const infoOfSystem = get().infoState.infoOfSystem;
+    const initialSelectedChannels = get().channelState.initialSelectedChannels;
 
-    selectedChannels.forEach(async element => {
+    const promises = selectedChannels.map(async element => {
       if (
         initialSelectedChannels.some(
           item =>
@@ -105,11 +105,13 @@ export const reviewInvitesActionsStore_v2 = (
             item.salesChannelRef === element.salesChannelRef
         )
       ) {
-        return
+        return Promise.resolve();
       }
 
-      await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string)
-    })
+      return handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string);
+    });
+
+    await Promise.all(promises);
   },
 
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
