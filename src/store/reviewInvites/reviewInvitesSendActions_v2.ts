@@ -92,26 +92,25 @@ export const reviewInvitesActionsStore_v2 = (
       },
     }))
   },
-  setInitialOrderStatusByMapping: async (selectedChannels: IMappedChannel[]) => {
+  setInitialOrderStatusByMapping: (selectedChannels: IMappedChannel[]) => {
     const token = get().auth.user?.access_token;
     const infoOfSystem = get().infoState.infoOfSystem;
     const initialSelectedChannels = get().channelState.initialSelectedChannels;
 
-    const promises = selectedChannels.map(async element => {
+    selectedChannels.forEach((element) => {
       if (
-        initialSelectedChannels.some(
-          item =>
-            item.eTrustedChannelRef === element.eTrustedChannelRef &&
-            item.salesChannelRef === element.salesChannelRef
+        initialSelectedChannels.some((item) =>
+          item.eTrustedChannelRef === element.eTrustedChannelRef &&
+          item.salesChannelRef === element.salesChannelRef
         )
       ) {
-        return Promise.resolve();
+        return;
       }
 
-      return handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string);
+      (async () => {
+        await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string);
+      })();
     });
-
-    await Promise.all(promises);
   },
 
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
