@@ -37,23 +37,31 @@ const handleDefaultOrderStatusUpdate = async (
     token as string
   )
 
-  inviteSettingsByChannel.forEach(async invite => {
-    const eventType = eventTypes.find(event => event.id === invite.eventTypeId)
+  inviteSettingsByChannel.forEach((invite) => {
+    const eventType = eventTypes.find((event) => event.id === invite.eventTypeId);
     const isEnableProduct =
-      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct
+      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct;
 
-    const isEnableService = eventType?.name === defaultStatus.name
+    const isEnableService = eventType?.name === defaultStatus.name;
 
-    await patchInviteSettingsById(element, infoOfSystem, token as string, invite.id as string, {
-      enabled: true,
-      serviceInviteConfiguration: {
-        enabled: isEnableService,
-      },
-      productInviteConfiguration: {
-        enabled: isEnableProduct,
-      },
-    })
-  })
+    (async () => {
+      await patchInviteSettingsById(
+        element,
+        infoOfSystem,
+        token as string,
+        invite.id as string,
+        {
+          enabled: true,
+          serviceInviteConfiguration: {
+            enabled: isEnableService,
+          },
+          productInviteConfiguration: {
+            enabled: isEnableProduct,
+          },
+        }
+      );
+    })();
+  });
 
   dispatchAction({
     action: EVENTS.SAVE_USED_ORDER_STATUSES,
