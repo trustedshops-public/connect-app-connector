@@ -30,6 +30,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
     setShowChannelModal,
     setIsDisconnectLoading,
     saveTrustbadgesAfterRemappingChannels,
+    setInitialOrderStatusByMapping,
   } = useStore()
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
@@ -45,7 +46,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       action: EVENTS.SAVE_MAPPED_CHANNEL,
       payload: selectedChannels,
     })
-
+    setInitialOrderStatusByMapping(selectedChannels)
     setShowChannelModal(false)
     selectedChannels.forEach(channel => {
       if (

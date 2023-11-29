@@ -90,6 +90,7 @@ const DashboardPageModule: FC<{
     setIsLoadingInvitesForProducts,
     getEventTypesFromApi,
     getEventTypesFromApi_v2,
+    setInitialOrderStatusByMapping,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -239,6 +240,7 @@ const DashboardPageModule: FC<{
           action: EVENTS.SAVE_MAPPED_CHANNEL,
           payload: mappedChannelsResult,
         })
+        setInitialOrderStatusByMapping(mappedChannelsResult)
       } else {
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)

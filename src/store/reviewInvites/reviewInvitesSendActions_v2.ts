@@ -16,11 +16,64 @@ import {
   ReviewInvitesActionsStore_2,
 } from './types'
 import { EVENTS, dispatchAction } from '@/eventsLib'
+import { IMappedChannel } from '../channel/types'
+import { IUserInfo } from '../info/types'
 
 const defaultStatus = {
   name: CHECKOUT_TYPE,
   ID: CHECKOUT_TYPE, // You might want to use a unique ID here, like a string
   event_type: CHECKOUT_TYPE,
+}
+
+const handleDefaultOrderStatusUpdate = async (
+  element: IMappedChannel,
+  infoOfSystem: IUserInfo,
+  token: string
+) => {
+  const eventTypes = await getEtrustedIEventType(element, infoOfSystem, token as string)
+  const inviteSettingsByChannel = await getEtrustedInviteSettings(
+    element,
+    infoOfSystem,
+    token as string
+  )
+
+  inviteSettingsByChannel.forEach((invite) => {
+    const eventType = eventTypes.find((event) => event.id === invite.eventTypeId);
+    const isEnableProduct =
+      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct;
+
+    const isEnableService = eventType?.name === defaultStatus.name;
+
+    (async () => {
+      await patchInviteSettingsById(
+        element,
+        infoOfSystem,
+        token as string,
+        invite.id as string,
+        {
+          enabled: true,
+          serviceInviteConfiguration: {
+            enabled: isEnableService,
+          },
+          productInviteConfiguration: {
+            enabled: isEnableProduct,
+          },
+        }
+      );
+    })();
+  });
+
+  dispatchAction({
+    action: EVENTS.SAVE_USED_ORDER_STATUSES,
+    payload: {
+      eleTrustedChannelRef: element.eTrustedChannelRef,
+      salesChannelRef: element.salesChannelRef,
+      activeStatus: {
+        product: defaultStatus,
+        service: defaultStatus,
+      },
+    },
+  })
 }
 
 export const reviewInvitesActionsStore_v2 = (
@@ -47,36 +100,77 @@ export const reviewInvitesActionsStore_v2 = (
       },
     }))
   },
+  setInitialOrderStatusByMapping: (selectedChannels: IMappedChannel[]) => {
+    const token = get().auth.user?.access_token;
+    const infoOfSystem = get().infoState.infoOfSystem;
+    const initialSelectedChannels = get().channelState.initialSelectedChannels;
+
+    selectedChannels.forEach((element) => {
+      if (
+        initialSelectedChannels.some((item) =>
+          item.eTrustedChannelRef === element.eTrustedChannelRef &&
+          item.salesChannelRef === element.salesChannelRef
+        )
+      ) {
+        return;
+      }
+
+      (async () => {
+        await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string);
+      })();
+    });
+  },
+
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
     const infoOfSystem = get().infoState.infoOfSystem
-
+    const selectedShopChannel = get().channelState.selectedShopChannels
+    const token = get().auth.user?.access_token
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+
+    if (
+      value.eTrustedChannelRef !== selectedShopChannel.eTrustedChannelRef ||
+      value.salesChannelRef !== selectedShopChannel.salesChannelRef
+    ) {
+      return
+    }
 
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
         selectedReviews: {
           product: {
-            ...value.activeStatus.product,
-            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.product || defaultStatus),
+            event_type: value?.activeStatus?.product
+              ? order_status_event_type
+              : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
-            ...value.activeStatus.service,
-            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.service || defaultStatus),
+            event_type: value?.activeStatus?.service
+              ? order_status_event_type
+              : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
         initialSelectedReviews: {
           product: {
-            ...value.activeStatus.product,
-            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.product || defaultStatus),
+            event_type: value?.activeStatus?.product
+              ? order_status_event_type
+              : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
-            ...value.activeStatus.service,
-            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.service || defaultStatus),
+            event_type: value?.activeStatus?.service
+              ? order_status_event_type
+              : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
       },
     }))
+
+    if (!value || !value.activeStatus) {
+      handleDefaultOrderStatusUpdate(selectedShopChannel, infoOfSystem, token as string)
+    }
   },
   getEventTypesFromApi_v2: async (): Promise<void> => {
     set(store => ({
@@ -162,7 +256,8 @@ export const reviewInvitesActionsStore_v2 = (
               event => event.id === invite.eventTypeId
             )
             const isEnableProduct =
-              eventType?.name === selectedReviewsProductType && info.allowsSendReviewInvitesForProduct
+              eventType?.name === selectedReviewsProductType &&
+              info.allowsSendReviewInvitesForProduct
 
             const isEnableService = eventType?.name === selectedReviewsServiceType
 

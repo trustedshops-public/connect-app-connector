@@ -54,7 +54,7 @@ export type AvilableOrderStatusesType = { ID: string; name: string; event_type: 
 export type PayloadUsedOrders = {
   eTrustedChannelRef: string
   salesChannelRef: string
-  activeStatus: {
+  activeStatus?: {
     product?: AvilableOrderStatusesType
     service?: AvilableOrderStatusesType
   }
@@ -126,4 +126,5 @@ export interface ReviewInvitesActionsStore_2 {
   saveChangeUseTimeOfSendReviewInvites_v2: () => void
   setSelectedReviews: (val: { [key: string]: AvilableOrderStatusesType }) => void
   setUsedOrderStatuses: (val: PayloadUsedOrders) => void
+  setInitialOrderStatusByMapping: (val: IMappedChannel[]) => void
 }

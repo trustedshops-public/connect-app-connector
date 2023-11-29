@@ -17,7 +17,7 @@ interface Props {
 }
 
 const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }) => {
-  const { setIsLoadingSave } = useStore()
+  const { setIsLoadingSave, setInitialOrderStatusByMapping } = useStore()
   const { selectedChannels } = useStore(selectorChannels)
 
   const saveChannelsInBL = () => {
@@ -26,6 +26,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
       action: EVENTS.SAVE_MAPPED_CHANNEL,
       payload: selectedChannels,
     })
+    setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
   }
 
