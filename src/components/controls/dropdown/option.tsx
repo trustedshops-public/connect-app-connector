@@ -6,19 +6,28 @@ interface Props {
   value: string | number
   selected?: boolean
   changeSelectedOption: (value: string | number) => void
+  disabled?: boolean
   id?: string
 }
 
-const Option: FC<Props> = ({ children, value, changeSelectedOption, selected, id }) => {
+const Option: FC<Props> = ({ children, value, changeSelectedOption, selected, disabled, id }) => {
+  const listItemClassName = `ts-flex hover:ts-bg-gray-100 ts-cursor-pointer ${
+    selected && 'ts-bg-gray-light-200'
+  } ${disabled ? 'ts-disabled' : ''}`
+
+  const disabledStyles = {
+    opacity: 0.5,
+    pointerEvents: 'none',
+  }
+
   return (
     <li
       id={`select_${id}`}
       data-testid={`select_${id}`}
       key={value}
-      className={`ts-flex hover:ts-bg-gray-100 ts-cursor-pointer ${
-        selected && 'ts-bg-gray-light-200'
-      }`}
-      onClick={() => changeSelectedOption(value)}
+      className={listItemClassName}
+      style={{ ...(disabled ? disabledStyles : {}) }}
+      onClick={() => !disabled && changeSelectedOption(value)}
     >
       {children}
     </li>

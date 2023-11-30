@@ -101,7 +101,14 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                       id={`channel`}
                       key={item.ID}
                       value={'ID'}
-                      changeSelectedOption={() => setSelectedReviews({ service: item })}
+                      disabled={
+                        item.event_type.includes('order_status') ===
+                          selectedReviews?.product?.event_type.includes('order_status') &&
+                        item.name !== selectedReviews?.product?.name
+                      }
+                      changeSelectedOption={() => {
+                        setSelectedReviews({ service: item })
+                      }}
                     >
                       <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
                         {item.name}
@@ -133,6 +140,11 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                         id={`channel`}
                         key={item.ID}
                         value={'ID'}
+                        disabled={
+                          item.event_type.includes('order_status') ===
+                            selectedReviews?.service?.event_type.includes('order_status') &&
+                          item.name !== selectedReviews?.service?.name
+                        }
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
                         <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
