@@ -101,10 +101,11 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                       id={`channel`}
                       key={item.ID}
                       value={'ID'}
+                      selected={item.ID === selectedReviews?.service?.ID}
                       disabled={
-                        item.event_type.includes('order_status') ===
-                          selectedReviews?.product?.event_type.includes('order_status') &&
-                        item.name !== selectedReviews?.product?.name
+                        item.ID !== selectedReviews?.product?.ID &&
+                        item.ID !== CHECKOUT_TYPE &&
+                        selectedReviews?.product?.ID !== CHECKOUT_TYPE
                       }
                       changeSelectedOption={() => {
                         setSelectedReviews({ service: item })
@@ -139,11 +140,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                       <Option
                         id={`channel`}
                         key={item.ID}
+                        selected={item.ID === selectedReviews?.product?.ID}
                         value={'ID'}
                         disabled={
-                          item.event_type.includes('order_status') ===
-                            selectedReviews?.service?.event_type.includes('order_status') &&
-                          item.name !== selectedReviews?.service?.name
+                          item.ID !== selectedReviews?.service?.ID &&
+                          item.ID !== CHECKOUT_TYPE &&
+                          selectedReviews?.service?.ID !== CHECKOUT_TYPE
                         }
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >

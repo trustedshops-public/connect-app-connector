@@ -140,13 +140,13 @@ export const reviewInvitesActionsStore_v2 = (
         selectedReviews: {
           product: {
             ...(value?.activeStatus?.product || defaultStatus),
-            event_type: value?.activeStatus?.product?.event_type
+            event_type: value?.activeStatus?.product
               ? order_status_event_type
               : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
             ...(value?.activeStatus?.service || defaultStatus),
-            event_type: value?.activeStatus?.service?.event_type
+            event_type: value?.activeStatus?.service
               ? order_status_event_type
               : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
@@ -154,13 +154,13 @@ export const reviewInvitesActionsStore_v2 = (
         initialSelectedReviews: {
           product: {
             ...(value?.activeStatus?.product || defaultStatus),
-            event_type: value?.activeStatus?.product?.event_type
+            event_type: value?.activeStatus?.product
               ? order_status_event_type
               : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
             ...(value?.activeStatus?.service || defaultStatus),
-            event_type: value?.activeStatus?.service?.event_type
+            event_type: value?.activeStatus?.service
               ? order_status_event_type
               : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
