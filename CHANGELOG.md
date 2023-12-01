@@ -1,3 +1,18 @@
+## [1.6.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.5.0...1.6.0) (2023-12-01)
+
+
+### Features
+
+* order dropdown adaptions ([e36708d](https://github.com/trustedshops-public/connect-app-connector/commit/e36708d7793a85cd0d3233640d922481b4d70f81))
+* order dropdown fix ([f012540](https://github.com/trustedshops-public/connect-app-connector/commit/f01254045ebbf14fb35e305cc42e30ba9cc0931d))
+* order dropdown improvements ([578a511](https://github.com/trustedshops-public/connect-app-connector/commit/578a5110162143805cca80e112f430c306e72fd6))
+
+
+### Bug Fixes
+
+* initial order status ([#85](https://github.com/trustedshops-public/connect-app-connector/issues/85)) ([f850c61](https://github.com/trustedshops-public/connect-app-connector/commit/f850c616e7248db8e4874ecbc1c560e2db382eb2))
+* Updated translations from Phrase ([#86](https://github.com/trustedshops-public/connect-app-connector/issues/86)) ([45b85e7](https://github.com/trustedshops-public/connect-app-connector/commit/45b85e7d99424d5c1ef8e60dd498100ec2c89006))
+
 ## [1.5.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.4.0...1.5.0) (2023-11-23)
 
 
