@@ -23,7 +23,11 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
       {isLoading && <ScrinSpinner />}
 
       {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
-        <SendReviewInvitesRightTime_2 phrasesByKey={phrasesByKey} saveChanges={saveChanges} />
+        <SendReviewInvitesRightTime_2
+          phrasesByKey={phrasesByKey}
+          saveChanges={saveChanges}
+          selectedShopChannels={selectedShopChannels}
+        />
       )}
 
       {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (
