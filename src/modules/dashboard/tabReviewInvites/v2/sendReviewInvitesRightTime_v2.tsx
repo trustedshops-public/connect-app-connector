@@ -13,13 +13,15 @@ import { isEqual } from '@/utils'
 import infoIcon from '@/assets/settings-tab-warn-icon.svg'
 import warnIcon from '@/assets/warning-sign.svg'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
+import { IMappedChannel } from '@/baseLayers/types'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
   saveChanges: () => void
+  selectedShopChannels: IMappedChannel
 }
 
-const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) => {
+const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, selectedShopChannels }) => {
   const { availableOrderStatusesAction, selectedReviews, initialSelectedReviews } =
     useStore(selectorReviewInvites)
   const { setSelectedReviews } = useStore()
@@ -95,6 +97,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                     defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
                   }
                   className="ts-w-[171px] ts-capitalize"
+                  disabled={!selectedShopChannels.eTrustedChannelRef}
                 >
                   {availableOrderStatusesAction.map(item => (
                     <Option
@@ -135,6 +138,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                       defaulProductValue.charAt(0).toUpperCase() + defaulProductValue.slice(1)
                     }
                     className="ts-w-[171px] ts-capitalize"
+                    disabled={!selectedShopChannels.eTrustedChannelRef}
                   >
                     {availableOrderStatusesAction.map(item => (
                       <Option

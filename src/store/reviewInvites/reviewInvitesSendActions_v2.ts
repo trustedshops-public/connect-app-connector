@@ -37,31 +37,25 @@ const handleDefaultOrderStatusUpdate = async (
     token as string
   )
 
-  inviteSettingsByChannel.forEach((invite) => {
-    const eventType = eventTypes.find((event) => event.id === invite.eventTypeId);
+  inviteSettingsByChannel.forEach(invite => {
+    const eventType = eventTypes.find(event => event.id === invite.eventTypeId)
     const isEnableProduct =
-      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct;
+      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct
 
-    const isEnableService = eventType?.name === defaultStatus.name;
+    const isEnableService = eventType?.name === defaultStatus.name
 
-    (async () => {
-      await patchInviteSettingsById(
-        element,
-        infoOfSystem,
-        token as string,
-        invite.id as string,
-        {
-          enabled: true,
-          serviceInviteConfiguration: {
-            enabled: isEnableService,
-          },
-          productInviteConfiguration: {
-            enabled: isEnableProduct,
-          },
-        }
-      );
-    })();
-  });
+    ;(async () => {
+      await patchInviteSettingsById(element, infoOfSystem, token as string, invite.id as string, {
+        enabled: true,
+        serviceInviteConfiguration: {
+          enabled: isEnableService,
+        },
+        productInviteConfiguration: {
+          enabled: isEnableProduct,
+        },
+      })
+    })()
+  })
 
   dispatchAction({
     action: EVENTS.SAVE_USED_ORDER_STATUSES,
@@ -101,24 +95,25 @@ export const reviewInvitesActionsStore_v2 = (
     }))
   },
   setInitialOrderStatusByMapping: (selectedChannels: IMappedChannel[]) => {
-    const token = get().auth.user?.access_token;
-    const infoOfSystem = get().infoState.infoOfSystem;
-    const initialSelectedChannels = get().channelState.initialSelectedChannels;
+    const token = get().auth.user?.access_token
+    const infoOfSystem = get().infoState.infoOfSystem
+    const initialSelectedChannels = get().channelState.initialSelectedChannels
 
-    selectedChannels.forEach((element) => {
+    selectedChannels.forEach(element => {
       if (
-        initialSelectedChannels.some((item) =>
-          item.eTrustedChannelRef === element.eTrustedChannelRef &&
-          item.salesChannelRef === element.salesChannelRef
+        initialSelectedChannels.some(
+          item =>
+            item.eTrustedChannelRef === element.eTrustedChannelRef &&
+            item.salesChannelRef === element.salesChannelRef
         )
       ) {
-        return;
+        return
       }
 
       (async () => {
-        await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string);
-      })();
-    });
+        await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string)
+      })()
+    })
   },
 
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
@@ -126,6 +121,8 @@ export const reviewInvitesActionsStore_v2 = (
     const selectedShopChannel = get().channelState.selectedShopChannels
     const token = get().auth.user?.access_token
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+      .replace(/[^a-zA-Z0-9]/g, '_')
+      .toLowerCase()
 
     if (
       value.eTrustedChannelRef !== selectedShopChannel.eTrustedChannelRef ||
@@ -140,29 +137,33 @@ export const reviewInvitesActionsStore_v2 = (
         selectedReviews: {
           product: {
             ...(value?.activeStatus?.product || defaultStatus),
-            event_type: value?.activeStatus?.product
-              ? order_status_event_type
-              : defaultStatus.event_type,
+            event_type:
+              value?.activeStatus?.product?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
             ...(value?.activeStatus?.service || defaultStatus),
-            event_type: value?.activeStatus?.service
-              ? order_status_event_type
-              : defaultStatus.event_type,
+            event_type:
+              value?.activeStatus?.service?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
         initialSelectedReviews: {
           product: {
             ...(value?.activeStatus?.product || defaultStatus),
-            event_type: value?.activeStatus?.product
-              ? order_status_event_type
-              : defaultStatus.event_type,
+            event_type:
+              value?.activeStatus?.product?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
             ...(value?.activeStatus?.service || defaultStatus),
-            event_type: value?.activeStatus?.service
-              ? order_status_event_type
-              : defaultStatus.event_type,
+            event_type:
+              value?.activeStatus?.service?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
       },
