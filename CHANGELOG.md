@@ -1,3 +1,10 @@
+## [1.7.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.6.0...1.7.0) (2023-12-02)
+
+
+### Features
+
+* event duplication fix ([ed5bc83](https://github.com/trustedshops-public/connect-app-connector/commit/ed5bc838681bb6a8fbdd2e51dcb6249f4929d08a))
+
 ## [1.6.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.5.0...1.6.0) (2023-12-01)
 
 
