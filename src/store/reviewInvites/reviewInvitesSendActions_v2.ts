@@ -60,7 +60,7 @@ const handleDefaultOrderStatusUpdate = async (
   dispatchAction({
     action: EVENTS.SAVE_USED_ORDER_STATUSES,
     payload: {
-      eleTrustedChannelRef: element.eTrustedChannelRef,
+      eTrustedChannelRef: element.eTrustedChannelRef,
       salesChannelRef: element.salesChannelRef,
       activeStatus: {
         product: defaultStatus,
@@ -200,6 +200,7 @@ export const reviewInvitesActionsStore_v2 = (
           ...store.reviewInvitesState,
           eventTypes,
           inviteSettingsByChannel,
+          isLoading: false,
         },
       }))
     } catch (error) {
@@ -220,6 +221,7 @@ export const reviewInvitesActionsStore_v2 = (
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
+        isLoading: true,
         // eventTypesAreLoadedFromAPI: true,
       },
     }))
