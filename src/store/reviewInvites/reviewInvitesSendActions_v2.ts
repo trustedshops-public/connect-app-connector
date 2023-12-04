@@ -239,7 +239,6 @@ export const reviewInvitesActionsStore_v2 = (
           reviewInvitesState: {
             ...store.reviewInvitesState,
             // eventTypesAreLoadedFromAPI: true,
-            isLoading: true,
           },
         }))
         Promise.all(f).then(() => get().getEventTypesFromApi_v2())
