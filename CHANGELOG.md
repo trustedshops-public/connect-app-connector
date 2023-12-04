@@ -1,3 +1,11 @@
+## [1.8.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.7.0...1.8.0) (2023-12-04)
+
+
+### Features
+
+* loading twice issue ([1e1421b](https://github.com/trustedshops-public/connect-app-connector/commit/1e1421b8d965a1c5bbfdfa9be3ddde5f07673a56))
+* loading twice issue fix ([81ba3c6](https://github.com/trustedshops-public/connect-app-connector/commit/81ba3c640c80f8cbd8f9ee6163a345edf62db980))
+
 ## [1.7.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.6.0...1.7.0) (2023-12-02)
 
 
