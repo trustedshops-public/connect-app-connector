@@ -222,7 +222,6 @@ export const reviewInvitesActionsStore_v2 = (
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
-        isLoading: true,
         // eventTypesAreLoadedFromAPI: true,
       },
     }))
