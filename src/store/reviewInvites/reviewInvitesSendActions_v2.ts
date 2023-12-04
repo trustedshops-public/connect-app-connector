@@ -200,7 +200,6 @@ export const reviewInvitesActionsStore_v2 = (
           ...store.reviewInvitesState,
           eventTypes,
           inviteSettingsByChannel,
-          isLoading: false,
         },
       }))
     } catch (error) {
