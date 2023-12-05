@@ -1,3 +1,12 @@
+## [1.9.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.8.0...1.9.0) (2023-12-05)
+
+
+### Features
+
+* loader fix ([8aad884](https://github.com/trustedshops-public/connect-app-connector/commit/8aad884d968df1f1527f19569d05a9082189865e))
+* loading issue fix ([3dbcc80](https://github.com/trustedshops-public/connect-app-connector/commit/3dbcc808a9eb9281bbedd19339f16b0fcd57554d))
+* loading issue fix ([db3b078](https://github.com/trustedshops-public/connect-app-connector/commit/db3b078a1c446704b1664a8858838ff9badd3277))
+
 ## [1.8.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.7.0...1.8.0) (2023-12-04)
 
 
