@@ -117,6 +117,7 @@ export const reviewInvitesActionsStore_v2 = (
   },
 
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
+    console.log(value)
     const infoOfSystem = get().infoState.infoOfSystem
     const selectedShopChannel = get().channelState.selectedShopChannels
     const token = get().auth.user?.access_token
