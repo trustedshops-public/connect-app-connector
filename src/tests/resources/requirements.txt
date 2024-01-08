@@ -4,4 +4,4 @@ selenium==4.16.0
 robotframework-pageobjectlibrary==1.1
 robotframework-requests==0.9.6
 robotframework-pabot==2.16.0
-webdrivermanager==0.10.0
+webdrivermanager==0.11.1
