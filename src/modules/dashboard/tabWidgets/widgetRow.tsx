@@ -164,7 +164,7 @@ const WidgetRow: FC<Props> = ({
           </div>
         </div>
 
-        <div id={`widget_status_${widget.widgetId}`} className="ts-text-left ts-w-th2">
+        <div id={`widget_status_${widget.widgetId}`} className="ts-text-left ts-w-th2 ts-pr-2">
           {statusIntegrated ? (
             <Tag label={phrasesByKey.application_widgets_status_integrated} />
           ) : (
@@ -174,7 +174,8 @@ const WidgetRow: FC<Props> = ({
 
         <div
           id={`widget_content_${widget.widgetId}`}
-          className="ts-text-left ts-text-sm ts-text-default ts-w-th3"
+          className="ts-text-left ts-text-xxs ts-text-default ts-w-th3 ts-truncate"
+          title={phrasesByKey[ContentTranslate[widget.applicationType]]}
         >
           {phrasesByKey[ContentTranslate[widget.applicationType]]}
         </div>
