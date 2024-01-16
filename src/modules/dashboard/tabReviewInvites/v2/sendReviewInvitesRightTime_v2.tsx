@@ -63,8 +63,6 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
     }
     adjustLabelWidth()
   }, [])
-console.log(availableOrderStatusesAction)
-  console.log(selectedReviews)
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
