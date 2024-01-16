@@ -28,7 +28,7 @@ const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab }) => {
               return (
                 isAvailable && (
                   <li
-                    id={id.toString()}
+                    id={`tab_${id}`}
                     key={id}
                     onClick={e => {
                       e.preventDefault()
