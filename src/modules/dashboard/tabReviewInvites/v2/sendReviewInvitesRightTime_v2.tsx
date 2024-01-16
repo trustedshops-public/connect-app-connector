@@ -103,11 +103,11 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                       id={`channel`}
                       key={item.ID}
                       value={'ID'}
-                      selected={item.ID === selectedReviews?.service?.ID}
+                      selected={item.ID.toString() === selectedReviews?.service?.ID.toString()}
                       disabled={
-                        item.ID !== selectedReviews?.product?.ID &&
-                        item.ID !== CHECKOUT_TYPE &&
-                        selectedReviews?.product?.ID !== CHECKOUT_TYPE
+                        item.ID.toString() !== selectedReviews?.product?.ID.toString() &&
+                        item.ID.toString() !== CHECKOUT_TYPE &&
+                        selectedReviews?.product?.ID.toString() !== CHECKOUT_TYPE
                       }
                       changeSelectedOption={() => {
                         setSelectedReviews({ service: item })
@@ -143,12 +143,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                       <Option
                         id={`channel`}
                         key={item.ID}
-                        selected={item.ID === selectedReviews?.product?.ID}
+                        selected={item.ID.toString() === selectedReviews?.product?.ID.toString()}
                         value={'ID'}
                         disabled={
-                          item.ID !== selectedReviews?.service?.ID &&
-                          item.ID !== CHECKOUT_TYPE &&
-                          selectedReviews?.service?.ID !== CHECKOUT_TYPE
+                          item.ID.toString() !== selectedReviews?.service?.ID.toString() &&
+                          item.ID.toString() !== CHECKOUT_TYPE &&
+                          selectedReviews?.service?.ID.toString() !== CHECKOUT_TYPE
                         }
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
