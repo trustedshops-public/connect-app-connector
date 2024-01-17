@@ -6,9 +6,9 @@ Resource    SettingsTab.robot
 *** Variables ***
 ${selected_channel}     app=#selectValue_channelSelection
 
-${invites_menu_item}    app=#tab_Review_invites
-${settings_menu_item}   app=#tab_Settings
-${widgets_menu_item}    app=#tab_Widgets
+${invites_menu_item}    app=#tab_2
+${settings_menu_item}   app=#tab_3
+${widgets_menu_item}    app=#tab_1
 
 ${status_message}       app=#status_popup
         # 'shadow': 'app=.ts-opacity-50',
