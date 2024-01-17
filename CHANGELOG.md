@@ -1,3 +1,24 @@
+## [1.10.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.9.0...1.10.0) (2024-01-17)
+
+
+### Features
+
+* removed logging for prod ([f50694a](https://github.com/trustedshops-public/connect-app-connector/commit/f50694ad0efa7d03beb11f0076d6db83d67ca4ce))
+
+
+### Bug Fixes
+
+* debugging prestashop ([89b80c3](https://github.com/trustedshops-public/connect-app-connector/commit/89b80c3363382220898da5ebf927353737f338da))
+* debugging prestashop issue ([ce13397](https://github.com/trustedshops-public/connect-app-connector/commit/ce133972325586bc9510fa31fc83a9ab01ab2822))
+* **deps:** update dependency axios to v1.6.0 [security] ([75cfe28](https://github.com/trustedshops-public/connect-app-connector/commit/75cfe287058f2ae77cab44b490a7b96f6c7dfc44))
+* downgrade python ([414ac9d](https://github.com/trustedshops-public/connect-app-connector/commit/414ac9dbd3e2fc62a18a7c53718efc1c83bef9d0))
+* order status ids to string ([784afd4](https://github.com/trustedshops-public/connect-app-connector/commit/784afd4398be336a652dd8bd17f0c9299d9bd423))
+* revert changes of test ([34d6bcf](https://github.com/trustedshops-public/connect-app-connector/commit/34d6bcf57938e448c828e7112b2d3f2c1dcc3dbc))
+* tab ids to numbers ([cad9c93](https://github.com/trustedshops-public/connect-app-connector/commit/cad9c9385a9adbf3fdcc03532a514ab1e7385306))
+* test failing ([2a00b18](https://github.com/trustedshops-public/connect-app-connector/commit/2a00b18b8b0b02af7aae7fec71bfebf0df675d01))
+* test failing improvement ([ff1b9eb](https://github.com/trustedshops-public/connect-app-connector/commit/ff1b9ebdb92674c91d9eb98264776b98ed585e37))
+* ui fixes lightspeed framework too narrow ([7c734e9](https://github.com/trustedshops-public/connect-app-connector/commit/7c734e9fd3322b2e8562410365a3a00a768e93b3))
+
 ## [1.9.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.8.0...1.9.0) (2023-12-05)
 
 
