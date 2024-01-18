@@ -1,3 +1,11 @@
+## [1.10.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.0...1.10.1) (2024-01-18)
+
+
+### Bug Fixes
+
+* converting IDs to string of available order statuses ([8ce6675](https://github.com/trustedshops-public/connect-app-connector/commit/8ce667543d56e11548e2270ad86e0f9e8dbda4e9))
+* tab ids correction ([ddec20d](https://github.com/trustedshops-public/connect-app-connector/commit/ddec20d845d8deee8f7e633cdc9f765200630f40))
+
 ## [1.10.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.9.0...1.10.0) (2024-01-17)
 
 
