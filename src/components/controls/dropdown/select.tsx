@@ -51,7 +51,7 @@ const Select: FC<Props> = ({
          }`}
       >
         <p
-          id={`selectValue_${index}`}
+          id={`selectValue_${id}`}
           data-testid={`selectValue_${index}`}
           className="ts-text-default ts-font-normal ts-text-sm ts-truncate"
         >
