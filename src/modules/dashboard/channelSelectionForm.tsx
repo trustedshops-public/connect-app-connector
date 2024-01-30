@@ -75,6 +75,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                 >
                   <Option
                     id={`widgetLocation_deselect`}
+                    index={'widgetLocation_deselect'}
                     value={'deselect'}
                     changeSelectedOption={() => onChangeChannel(elem, null)}
                   >
@@ -82,8 +83,9 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                       {phrasesByKey?.global_placeholder_channel}
                     </p>
                   </Option>
-                  {channelsFromTSC.map(item => (
+                  {channelsFromTSC.map((item, i) => (
                     <Option
+                      index={`channel_${i}`}
                       id={`channel_${item.id}`}
                       key={item.id}
                       value={item.id}
