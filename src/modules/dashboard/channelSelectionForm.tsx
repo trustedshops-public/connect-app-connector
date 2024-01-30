@@ -43,7 +43,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
           </tr>
         </thead>
         <tbody>
-          {shopChannels.map(elem => (
+          {shopChannels.map((elem, index) => (
             <tr
               id={`mapping_row_${elem.id}`}
               key={elem.id}
@@ -63,6 +63,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
               </td>
               <td className="ts-px-6 ts-py-2 ts-w-[220px]">
                 <Select
+                  index={index}
                   id={`channelSelectionForm_${elem.id}`}
                   placeholder={phrasesByKey?.global_placeholder_channel}
                   defaultValue={
