@@ -34,7 +34,6 @@ const StandartEditor: FC<Props> = ({
         </p>
         <div className="ts-w-placementSelect ts-ml-7 ts-mr-5">
           <Select
-            testId={'desktopPositionl'}
             id={'desktopPositionl'}
             placeholder={phrasesByKey.global_placeholder_channel}
             defaultValue={
@@ -50,7 +49,6 @@ const StandartEditor: FC<Props> = ({
           >
             {Object.keys(PlacementDesktop).map(item => (
               <Option
-                testId={`desktopPositionl_${PlacementDesktop[item]}`}
                 id={`desktopPositionl_${PlacementDesktop[item]}`}
                 key={PlacementDesktop[item]}
                 value={PlacementDesktop[item]}
@@ -112,7 +110,6 @@ const StandartEditor: FC<Props> = ({
         </p>
         <div className="ts-w-placementSelect ts-ml-7 ts-mr-5">
           <Select
-            testId={'mobilePositionl'}
             id={'mobilePositionl'}
             placeholder={phrasesByKey.global_placeholder_channel}
             defaultValue={
@@ -128,7 +125,6 @@ const StandartEditor: FC<Props> = ({
           >
             {Object.keys(PlacementMobile).map(item => (
               <Option
-                testId={`mobilePositionl_${PlacementDesktop[item]}`}
                 id={`mobilePositionl_${PlacementDesktop[item]}`}
                 key={PlacementMobile[item]}
                 value={PlacementMobile[item]}

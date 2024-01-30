@@ -31,7 +31,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
               >
                 {phrasesByKey?.channelSelect_title_shopsystem.replace(
                   '[%]shopsystem[%]',
-                  infoOfSystem.nameOfSystem
+                  infoOfSystem.nameOfSystem,
                 )}
               </p>
             </th>
@@ -43,7 +43,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
           </tr>
         </thead>
         <tbody>
-          {shopChannels.map((elem, index) => (
+          {shopChannels.map(elem => (
             <tr
               id={`mapping_row_${elem.id}`}
               key={elem.id}
@@ -63,7 +63,6 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
               </td>
               <td className="ts-px-6 ts-py-2 ts-w-[220px]">
                 <Select
-                  testId={index}
                   id={`channelSelectionForm_${elem.id}`}
                   placeholder={phrasesByKey?.global_placeholder_channel}
                   defaultValue={
@@ -75,7 +74,6 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                 >
                   <Option
                     id={`widgetLocation_deselect`}
-                    testId={'widgetLocation_deselect'}
                     value={'deselect'}
                     changeSelectedOption={() => onChangeChannel(elem, null)}
                   >
@@ -83,14 +81,14 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                       {phrasesByKey?.global_placeholder_channel}
                     </p>
                   </Option>
-                  {channelsFromTSC.map((item, i) => (
+                  {channelsFromTSC.map(item => (
                     <Option
-                      testId={`channel_${i}`}
                       id={`channel_${item.id}`}
                       key={item.id}
                       value={item.id}
                       selected={selectedChannels.some(
-                        chn => chn.eTrustedChannelRef === item.id && chn.salesChannelRef === elem.id
+                        chn =>
+                          chn.eTrustedChannelRef === item.id && chn.salesChannelRef === elem.id,
                       )}
                       changeSelectedOption={() => onChangeChannel(elem, item)}
                     >
