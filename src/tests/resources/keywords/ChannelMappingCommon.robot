@@ -1,5 +1,5 @@
 ***Variables***
-${eTrusted_channel_selector_button}        app=button#select_select_channelSelectionForm_  #append shop channel id
+${eTrusted_channel_selector_button}        app=button#select_channelSelectionForm_  #append shop channel id
 ${eTrusted_channel_selector_list_item}     app=li#select_channel_                   #append etrusted channel id
 ${eTrusted_channel_deselect_list_item}     app=li#select_widgetLocation_deselect
 ${mapped_channel}                          app=#selectValue_channelSelectionForm_   #append shop channel id
