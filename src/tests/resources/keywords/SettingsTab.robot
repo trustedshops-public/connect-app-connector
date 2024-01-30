@@ -2,7 +2,7 @@
 Resource    Header.robot
 
 ***Variables***
-${mapped_channel}                   app=#selectValue_channelSelectionForm_  #append shop channel id
+${mapped_channel}                   app=#selectValue_  #append shop channel id
 ${save_mapping_settings_button}     app=#button_settingsSaveChannels
 ${disconnect_button}                app=#button_settingsDisconnectOpenModal
 ${disconnect_confirm_button}        app=#button_settingsDisconnect
