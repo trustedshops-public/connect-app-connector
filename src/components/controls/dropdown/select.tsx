@@ -11,7 +11,6 @@ interface Props {
   isError?: boolean
   id?: string
   className?: string
-  testId?: number | string
 }
 
 const Select: FC<Props> = ({
@@ -21,7 +20,6 @@ const Select: FC<Props> = ({
   disabled,
   isError,
   id,
-  testId,
   className,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,7 +31,7 @@ const Select: FC<Props> = ({
       <button
         ref={btnRef}
         id={`select_${id}`}
-        data-testid={`select_${testId}`}
+        data-testid={`select_${id}`}
         onClick={() => {
           setIsOpen(!isOpen)
           !isOpen && btnRef && btnRef.current && btnRef.current.focus()
@@ -52,7 +50,7 @@ const Select: FC<Props> = ({
       >
         <p
           id={`selectValue_${id}`}
-          data-testid={`selectValue_${testId}`}
+          data-testid={`selectValue_${id}`}
           className="ts-text-default ts-font-normal ts-text-sm ts-truncate"
         >
           {defaultValue || selectPlaceholder}
@@ -65,7 +63,7 @@ const Select: FC<Props> = ({
       </button>
       {isOpen && (
         <div className="ts-absolute ts-w-full ts-bg-white ts-border ts-rounded ts-max-h-80 ts-overflow-auto ts-shadow-md ts-z-10">
-          <ul id={`listContainer_${id}`} data-testid={`listContainer_${testId}`}>
+          <ul id={`listContainer_${id}`} data-testid={`listContainer_${id}`}>
             {children}
           </ul>
         </div>
