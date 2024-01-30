@@ -182,6 +182,7 @@ const WidgetRow: FC<Props> = ({
 
         <div className="ts-text-left ts-w-th4 ">
           <Select
+            testId={`widgetLocation_${widget.widgetId}`}
             id={`widgetLocation_${widget.widgetId}`}
             isError={
               !widget.widgetLocation ||
@@ -197,6 +198,7 @@ const WidgetRow: FC<Props> = ({
           >
             <Option
               id={`widgetLocation_deselect`}
+              testId={`widgetLocation_deselect`}
               value={'deselect'}
               changeSelectedOption={() => {
                 isProductReviewsWidget && setIsOpen(true)
@@ -209,6 +211,7 @@ const WidgetRow: FC<Props> = ({
             </Option>
             {locationForThisWidget.map(option => (
               <Option
+                testId={`widgetLocation_${option.id}`}
                 id={`widgetLocation_${option.id}`}
                 key={option.id}
                 value={option.id}
@@ -252,6 +255,7 @@ const WidgetRow: FC<Props> = ({
             <label className="ts-text-sm">{phrasesByKey.application_widgets_productID}</label>
 
             <Select
+              testId={`productID_${widget.widgetId}`}
               id={`productID_${widget.widgetId}`}
               placeholder={phrasesByKey.global_placeholder_productid}
               defaultValue={defaultAttributeName}
@@ -260,6 +264,7 @@ const WidgetRow: FC<Props> = ({
             >
               {availableProducts.map(option => (
                 <Option
+                  testId={`productID_${option.id}`}
                   id={`productID_${option.id}`}
                   key={option.id}
                   value={option.id}

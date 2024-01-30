@@ -8,7 +8,7 @@ interface Props {
   changeSelectedOption: (value: string | number) => void
   disabled?: boolean
   id?: string
-  index?: number | string
+  testId?: number | string
 }
 
 const Option: FC<Props> = ({
@@ -18,7 +18,7 @@ const Option: FC<Props> = ({
   selected,
   disabled,
   id,
-  index,
+  testId,
 }) => {
   const listItemClassName = `ts-flex hover:ts-bg-gray-100 ts-cursor-pointer ${
     selected && 'ts-bg-gray-light-200'
@@ -32,7 +32,7 @@ const Option: FC<Props> = ({
   return (
     <li
       id={`select_${id}`}
-      data-testid={`select_${index}`}
+      data-testid={`select_${testId}`}
       key={value}
       className={listItemClassName}
       style={{ ...(disabled ? disabledStyles : {}) }}
