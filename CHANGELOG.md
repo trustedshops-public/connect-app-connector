@@ -1,3 +1,18 @@
+## [1.10.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.1...1.10.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* logs for magento ([60e63fe](https://github.com/trustedshops-public/connect-app-connector/commit/60e63fe39c193330c1bead51d5ef77fed56c0744))
+* magento fix for available order statuses ([c863b80](https://github.com/trustedshops-public/connect-app-connector/commit/c863b8088894fc18446e2cd97db659d733c42af8))
+* revert test id selector of channels ([06f3598](https://github.com/trustedshops-public/connect-app-connector/commit/06f3598b4b78e6a2621949f4316d5356b8aded30))
+* revert test id selector of channels ([ea94db4](https://github.com/trustedshops-public/connect-app-connector/commit/ea94db4c393739e7c1bdc56071af10b8b95f694d))
+* test id selector of channels ([6a6937f](https://github.com/trustedshops-public/connect-app-connector/commit/6a6937f999f311dad0e653d98ab416f37980bbdc))
+* test id selector of channels ([d221744](https://github.com/trustedshops-public/connect-app-connector/commit/d2217441ddbc5b409b91f643050b2ec3ee4286a1))
+* test id selector of channels ([fe6d3c3](https://github.com/trustedshops-public/connect-app-connector/commit/fe6d3c3f463baefaf3045a8b714ebd9b5954392a))
+* test id selector of channels ([2c4c077](https://github.com/trustedshops-public/connect-app-connector/commit/2c4c0772338e676aceaa4aebe2614a8f4362c57d))
+* test id selector of channels ([3c9471b](https://github.com/trustedshops-public/connect-app-connector/commit/3c9471bd4ebd510695f43089cfe25dfc50d9a0ec))
+
 ## [1.10.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.0...1.10.1) (2024-01-18)
 
 
