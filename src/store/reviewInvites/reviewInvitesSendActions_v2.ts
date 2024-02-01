@@ -75,7 +75,6 @@ export const reviewInvitesActionsStore_v2 = (
   get: GetState<AppStore>
 ): ReviewInvitesActionsStore_2 => ({
   setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => {
-    console.log('setAvailableOrderStatuses', value)
     const infoOfSystem = get().infoState.infoOfSystem
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
       .replace(/[^a-zA-Z0-9]/g, '_')

@@ -199,8 +199,7 @@ const DashboardPageModule: FC<{
 
       if (isVersionTwo) {
         // call EventTypes for v2
-        if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate')) {
-          console.log('GET_AVAILABLE_ORDER_STATUSES', infoOfSystem)
+        if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus')) {
           dispatchAction({
             action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
             payload: {
