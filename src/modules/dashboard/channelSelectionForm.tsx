@@ -43,7 +43,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
           </tr>
         </thead>
         <tbody>
-          {shopChannels.map(elem => (
+          {shopChannels.map((elem, index) => (
             <tr
               id={`mapping_row_${elem.id}`}
               key={elem.id}
@@ -63,6 +63,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
               </td>
               <td className="ts-px-6 ts-py-2 ts-w-[220px]">
                 <Select
+                  testId={`channelSelectionForm_${index}`}
                   id={`channelSelectionForm_${elem.id}`}
                   placeholder={phrasesByKey?.global_placeholder_channel}
                   defaultValue={
@@ -73,6 +74,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                   }
                 >
                   <Option
+                    testId={`widgetLocation_deselect`}
                     id={`widgetLocation_deselect`}
                     value={'deselect'}
                     changeSelectedOption={() => onChangeChannel(elem, null)}
@@ -81,8 +83,9 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
                       {phrasesByKey?.global_placeholder_channel}
                     </p>
                   </Option>
-                  {channelsFromTSC.map(item => (
+                  {channelsFromTSC.map((item, optionIndex) => (
                     <Option
+                      testId={`channel_${optionIndex}`}
                       id={`channel_${item.id}`}
                       key={item.id}
                       value={item.id}

@@ -21,7 +21,11 @@ interface Props {
   selectedShopChannels: IMappedChannel
 }
 
-const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, selectedShopChannels }) => {
+const SendReviewInvitesRightTime: FC<Props> = ({
+  phrasesByKey,
+  saveChanges,
+  selectedShopChannels,
+}) => {
   const { availableOrderStatusesAction, selectedReviews, initialSelectedReviews } =
     useStore(selectorReviewInvites)
   const { setSelectedReviews } = useStore()
@@ -43,7 +47,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
   }
 
   const defaulServicetValue = capitalizeFirstLetter(
-    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || ''
+    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || '',
   )
 
   const defaulProductValue =
@@ -90,6 +94,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                   {phrasesByKey.application_invites_sendbyos_type_serviceReviews}
                 </label>
                 <Select
+                  testId={'channelSelection'}
                   id={'channelSelection'}
                   placeholder="Choose an option"
                   defaultValue={
@@ -100,6 +105,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                 >
                   {availableOrderStatusesAction.map(item => (
                     <Option
+                      testId={`channel`}
                       id={`channel`}
                       key={item.ID}
                       value={'ID'}
@@ -131,6 +137,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                     {phrasesByKey.application_invites_sendbyos_type_productReviews}
                   </label>
                   <Select
+                    testId={'channelSelection'}
                     id={'channelSelection'}
                     placeholder="Choose an option"
                     defaultValue={
@@ -141,6 +148,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges, sele
                   >
                     {availableOrderStatusesAction.map(item => (
                       <Option
+                        testId={`channel`}
                         id={`channel`}
                         key={item.ID}
                         selected={item.ID.toString() === selectedReviews?.product?.ID.toString()}

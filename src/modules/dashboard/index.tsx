@@ -334,6 +334,7 @@ const DashboardPageModule: FC<{
                           {phrasesByKey.application_routes_channelSelector}
                         </label>
                         <Select
+                          testId={'channelSelection'}
                           id={'channelSelection'}
                           placeholder="Choose an option"
                           defaultValue={
@@ -343,6 +344,7 @@ const DashboardPageModule: FC<{
                         >
                           {mappedChannels.map(item => (
                             <Option
+                              testId={`channel_${item.eTrustedChannelRef}`}
                               id={`channel_${item.eTrustedChannelRef}`}
                               key={item.salesChannelRef}
                               value={item.salesChannelRef}
