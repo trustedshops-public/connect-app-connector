@@ -1,3 +1,10 @@
+## [1.10.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.2...1.10.3) (2024-02-06)
+
+
+### Bug Fixes
+
+* test ids improvement ([ccd0614](https://github.com/trustedshops-public/connect-app-connector/commit/ccd0614a70cadc5b68795885516449986013d5b7))
+
 ## [1.10.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.1...1.10.2) (2024-02-01)
 
 
