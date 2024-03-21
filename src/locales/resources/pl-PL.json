@@ -226,7 +226,7 @@
           "1": "Widget",
           "2": "Status",
           "3": "Treść",
-          "4": "Miejscowość"
+          "4": "Położenie"
         },
         "title": "Aktualne widgety dla {{ channel }}:"
       },
