@@ -76,7 +76,9 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                 setIsToggle={handleToggle}
                 switchWidth="ts-w-10"
               />
-              <p className="ts-text-default ts-text-sm ts-ml-2 ">{'Include product data'}</p>
+              <p className="ts-text-default ts-text-sm ts-ml-2 ">
+                {phrasesByKey.application_invites_sendbyos_export_productdata}
+              </p>
             </div>
 
             <Button
