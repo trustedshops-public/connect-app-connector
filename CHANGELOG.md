@@ -1,3 +1,10 @@
+## [1.10.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.3...1.10.4) (2024-04-04)
+
+
+### Bug Fixes
+
+* Static text replaced with the right translation key ([a8ee5e0](https://github.com/trustedshops-public/connect-app-connector/commit/a8ee5e0dc2570af0d2ebae43744c789a0bfce68e))
+
 ## [1.10.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.2...1.10.3) (2024-02-06)
 
 
