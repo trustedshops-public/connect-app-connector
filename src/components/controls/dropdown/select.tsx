@@ -27,7 +27,7 @@ const Select: FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false)
   const selectPlaceholder = placeholder || 'Select ...'
   const btnRef = useRef<HTMLButtonElement>(null)
-
+  id = id?.replace(/\\/g, '').replace(/:/g, '')
   return (
     <div className={`ts-relative ${className}`}>
       <button
