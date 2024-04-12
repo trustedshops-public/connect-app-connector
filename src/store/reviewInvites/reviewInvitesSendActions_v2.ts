@@ -87,8 +87,8 @@ export const reviewInvitesActionsStore_v2 = (
           defaultStatus,
           ...value.map(item => ({
             ...item,
-            ID: item.ID.toString(),
-            event_type: item.event_type || order_status_event_type,
+            ID: item?.ID?.toString(),
+            event_type: item?.event_type || order_status_event_type,
           })),
         ],
       },
