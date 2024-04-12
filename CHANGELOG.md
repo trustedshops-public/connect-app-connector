@@ -1,3 +1,12 @@
+## [1.10.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.4...1.10.5) (2024-04-12)
+
+
+### Bug Fixes
+
+* id null toString fix ([2f3d5c3](https://github.com/trustedshops-public/connect-app-connector/commit/2f3d5c3766e93609a100f29e291c515e15643f8d))
+* Replace backslashes and colons from channel selectors for automated tests ([d567fc6](https://github.com/trustedshops-public/connect-app-connector/commit/d567fc69dc692336994428dfb526ac44a620c7b0))
+* Replace backslashes and colons from channel selectors for automated tests ([3fba218](https://github.com/trustedshops-public/connect-app-connector/commit/3fba218c2adc4a68127d22c1a94a6b506522ca12))
+
 ## [1.10.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.3...1.10.4) (2024-04-04)
 
 
