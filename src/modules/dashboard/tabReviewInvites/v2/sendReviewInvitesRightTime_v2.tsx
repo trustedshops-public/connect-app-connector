@@ -107,13 +107,13 @@ const SendReviewInvitesRightTime: FC<Props> = ({
                     <Option
                       testId={`channel`}
                       id={`channel`}
-                      key={item.ID}
+                      key={item?.ID}
                       value={'ID'}
-                      selected={item.ID.toString() === selectedReviews?.service?.ID.toString()}
+                      selected={item?.ID?.toString() === selectedReviews?.service?.ID?.toString()}
                       disabled={
-                        item.ID.toString() !== selectedReviews?.product?.ID.toString() &&
-                        item.ID.toString() !== CHECKOUT_TYPE &&
-                        selectedReviews?.product?.ID.toString() !== CHECKOUT_TYPE
+                        item?.ID?.toString() !== selectedReviews?.product?.ID?.toString() &&
+                        item?.ID?.toString() !== CHECKOUT_TYPE &&
+                        selectedReviews?.product?.ID?.toString() !== CHECKOUT_TYPE
                       }
                       changeSelectedOption={() => {
                         setSelectedReviews({ service: item })
@@ -151,12 +151,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({
                         testId={`channel`}
                         id={`channel`}
                         key={item.ID}
-                        selected={item.ID.toString() === selectedReviews?.product?.ID.toString()}
+                        selected={item?.ID?.toString() === selectedReviews?.product?.ID?.toString()}
                         value={'ID'}
                         disabled={
-                          item.ID.toString() !== selectedReviews?.service?.ID.toString() &&
-                          item.ID.toString() !== CHECKOUT_TYPE &&
-                          selectedReviews?.service?.ID.toString() !== CHECKOUT_TYPE
+                          item?.ID?.toString() !== selectedReviews?.service?.ID?.toString() &&
+                          item?.ID?.toString() !== CHECKOUT_TYPE &&
+                          selectedReviews?.service?.ID?.toString() !== CHECKOUT_TYPE
                         }
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
