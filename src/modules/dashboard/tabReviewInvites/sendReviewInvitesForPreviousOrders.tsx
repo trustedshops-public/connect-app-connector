@@ -8,6 +8,9 @@ import { DASHBOARD_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import NumberInput from '@/components/controls/numberInput'
+import { InteractionType, postEtrustedInteractions } from '@/api/api'
+import useStore from '@/store/useStore'
+import { selectAllState, selectorAuth } from '@/store/selector'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -24,6 +27,8 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   changeNumberOfDays,
   onExport,
 }) => {
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -66,12 +71,16 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
               id={'exportCSV'}
               label={phrasesByKey.application_invites_send_export_button}
               theme={ButtonThemes.Primary}
-              onClick={() =>
+              onClick={() => {
                 onExport(
                   selectedShopChannels?.eTrustedChannelRef,
-                  selectedShopChannels.salesChannelRef
+                  selectedShopChannels.salesChannelRef,
                 )
-              }
+                postEtrustedInteractions(user?.access_token as string, {
+                  interaction: InteractionType.EXPORT,
+                  allState,
+                })
+              }}
               disabled={!selectedShopChannels.eTrustedChannelRef}
             />
           </div>

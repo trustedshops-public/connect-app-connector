@@ -4,6 +4,7 @@ import { IChannelState } from './channel/types'
 import { ITrustbadgeState } from './trustbadge/types'
 import { INotificationState } from './notification/types'
 import { IReviewInvitesState } from './reviewInvites/types'
+import { AppStore } from '@/store/useStore'
 
 export const selectState = <T>(store: { state: T }): T => store.state
 export const selectorTrustbadgeState = (store: {
@@ -23,3 +24,13 @@ export const selectorReviewInvites = (store: {
 export const selectorNotificationStore = (store: {
   notificationState: INotificationState
 }): INotificationState => store.notificationState
+
+export const selectAllState = (store: AppStore) => ({
+  infoState: store.infoState,
+  channelState: store.channelState,
+  trustbadgeState: store.trustbadgeState,
+  notificationState: store.notificationState,
+  reviewInvitesState: store.reviewInvitesState,
+  widgetState: store.widgetState,
+  initialState: false,
+})

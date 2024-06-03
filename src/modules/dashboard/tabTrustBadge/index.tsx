@@ -10,13 +10,20 @@ import {
   getParsedTrustbadgeDataToString,
 } from '@/modules/dashboard/tabTrustBadge/parseTrustbadgeData'
 import { ScrinSpinner } from '@/components/layouts/spinner'
-import { selectorChannels, selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
+import {
+  selectAllState,
+  selectorAuth,
+  selectorChannels,
+  selectorInfoOfSystem,
+  selectorTrustbadgeState,
+} from '@/store/selector'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import useStore from '@/store/useStore'
 import EditIntegrationCodeProps from './editIntegrationCode'
 import StandartEditor from './standartEditor'
 import TrustBadgeSwitcher from './trustBadgeSwitcher'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
 
 const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const dataRadioButton = [
@@ -44,15 +51,16 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     isLoadingAPI,
     isLoadingBL,
   } = useStore(selectorTrustbadgeState)
+  const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { isLoadingSave, selectedShopChannels } = useStore(selectorChannels)
-
+  const allState = useStore(selectAllState)
   useEffect(() => {
     if (!trustbadgeDataChild || !trustbadgeDataChild.attributes) return
     setIsDisabled(
       trustbadgeDataChild.attributes && trustbadgeDataChild.attributes['data-disable-trustbadge']
         ? (trustbadgeDataChild.attributes['data-disable-trustbadge'].value as boolean)
-        : true
+        : true,
     )
     const dataStr = getParsedTrustbadgeDataToString(trustbadgeDataChild)
     setTextStr(dataStr)
@@ -129,14 +137,19 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
   const saveDataTrustbadge = () => {
     setIsLoadingBL(true)
+    const payload = {
+      id: trustbadgeId,
+      eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+      children: [trustbadgeDataChild],
+      salesChannelRef: selectedShopChannels.salesChannelRef,
+    }
     dispatchAction({
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
-      payload: {
-        id: trustbadgeId,
-        eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-        children: [trustbadgeDataChild],
-        salesChannelRef: selectedShopChannels.salesChannelRef,
-      },
+      payload,
+    })
+
+    putEtrustedConfiguration(user?.access_token as string, {
+      allState,
     })
   }
 

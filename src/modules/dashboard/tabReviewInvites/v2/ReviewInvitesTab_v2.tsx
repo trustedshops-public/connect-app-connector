@@ -1,11 +1,18 @@
 import { h } from 'preact'
 import { FC, useState } from 'preact/compat'
 import { ScrinSpinner } from '@/components/layouts/spinner'
-import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
+import {
+  selectAllState,
+  selectorAuth,
+  selectorChannels,
+  selectorInfoOfSystem,
+  selectorReviewInvites
+} from '@/store/selector'
 import useStore from '@/store/useStore'
 import SendReviewInvitesRightTime_2 from './sendReviewInvitesRightTime_v2'
 import SendReviewInvitesForPreviousOrders_2 from './sendReviewInvitesForPreviousOrders_v2'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
 
 const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(true)
@@ -13,9 +20,13 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const { selectedShopChannels } = useStore(selectorChannels)
   const { changeNumberOfDays, onExport_v2, saveChangeUseTimeOfSendReviewInvites_v2 } = useStore()
   const { numberOfDays, isLoading } = useStore(selectorReviewInvites)
-
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
   const saveChanges = async () => {
     await saveChangeUseTimeOfSendReviewInvites_v2()
+    putEtrustedConfiguration(user?.access_token as string, {
+      allState,
+    })
   }
 
   return (

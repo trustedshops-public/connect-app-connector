@@ -9,10 +9,11 @@ import { ScrinSpinner } from '@/components/layouts/spinner'
 import tabIcon from '@/assets/settings-tab-icon.svg'
 import warnIcon from '@/assets/settings-tab-warn-icon.svg'
 import useStore from '@/store/useStore'
-import { selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
 import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
 import { TabProps } from '@/modules/type'
+import { InteractionType, postEtrustedInteractions, putEtrustedConfiguration } from '@/api/api'
 
 const Divider = <div className="ts-h-[1px] ts-w-full ts-mb-6 ts-bg-gray-100" />
 
@@ -32,6 +33,9 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
     saveTrustbadgesAfterRemappingChannels,
     setInitialOrderStatusByMapping,
   } = useStore()
+
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
 
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const [showModal, setShowModal] = useState<boolean>(false)
@@ -60,11 +64,18 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       }
       saveTrustbadgesAfterRemappingChannels(channel)
     })
+    putEtrustedConfiguration(user?.access_token as string, {
+      allState,
+    })
   }
 
   const onDisconnect = () => {
     setIsDisconnectLoading(true)
     dispatchAction({ action: EVENTS.DISCONNECTED, payload: null })
+    postEtrustedInteractions(user?.access_token as string, {
+      interaction: InteractionType.DISCONNECT,
+      allState,
+    })
   }
 
   return (
