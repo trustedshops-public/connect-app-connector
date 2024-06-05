@@ -16,7 +16,7 @@ const getOptions = ({
   selectedShopChannel,
 }: {
   token: string
-  infoOfSystem?: IUserInfo
+  infoOfSystem: IUserInfo
   selectedShopChannel?: IMappedChannel
 }) => ({
   headers: {
