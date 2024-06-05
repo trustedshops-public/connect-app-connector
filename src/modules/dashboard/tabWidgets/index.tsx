@@ -109,9 +109,14 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
       },
     })
 
-    putEtrustedConfiguration(user?.access_token as string, {
-      allState,
-    })
+    try {
+      putEtrustedConfiguration(user?.access_token as string, {
+        allState,
+      })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during putEtrustedConfiguration:', error)
+    }
   }
 
   return (

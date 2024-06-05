@@ -96,10 +96,15 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                   salesChannelRef: selectedShopChannels.salesChannelRef,
                   includeProductData: isToggle,
                 })
-                postEtrustedInteractions(user?.access_token as string, {
-                  interaction: InteractionType.EXPORT,
-                  allState,
-                })
+                try {
+                  postEtrustedInteractions(user?.access_token as string, {
+                    interaction: InteractionType.DATA_EXPORTED,
+                    allState,
+                  })
+                } catch (error) {
+                  // eslint-disable-next-line no-console
+                  console.error('Error during postEtrustedInteractions:', error)
+                }
               }}
               disabled={!selectedShopChannels.eTrustedChannelRef}
             />

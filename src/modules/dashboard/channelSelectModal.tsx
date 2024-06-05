@@ -34,7 +34,14 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
       ...allState,
       initialState: true,
     }
-    putEtrustedConfiguration(user?.access_token as string, configuration)
+    try {
+      putEtrustedConfiguration(user?.access_token as string, {
+        configuration,
+      })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during putEtrustedConfiguration:', error)
+    }
   }
 
   return (

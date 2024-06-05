@@ -260,7 +260,7 @@ export const putEtrustedConfiguration = async (token: string, body: object): Pro
 }
 
 export const postEtrustedInteractions = async (token: string, body: object): Promise<object> => {
-  return await put<object, object>(
+  return await post<object, object>(
     CONFIGURATION_API_URL,
     `/interactions`,
     {
@@ -274,6 +274,6 @@ export const postEtrustedInteractions = async (token: string, body: object): Pro
 }
 
 export enum InteractionType {
-  EXPORT = 'EXPORT',
-  DISCONNECT = 'DISCONNECT',
+  DATA_EXPORTED = 'DATA_EXPORTED',
+  DISCONNECTED = 'DISCONNECTED',
 }

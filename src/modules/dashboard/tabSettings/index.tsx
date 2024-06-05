@@ -64,18 +64,28 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       }
       saveTrustbadgesAfterRemappingChannels(channel)
     })
-    putEtrustedConfiguration(user?.access_token as string, {
-      allState,
-    })
+    try {
+      putEtrustedConfiguration(user?.access_token as string, {
+        allState,
+      })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during putEtrustedConfiguration:', error)
+    }
   }
 
   const onDisconnect = () => {
     setIsDisconnectLoading(true)
     dispatchAction({ action: EVENTS.DISCONNECTED, payload: null })
-    postEtrustedInteractions(user?.access_token as string, {
-      interaction: InteractionType.DISCONNECT,
-      allState,
-    })
+    try {
+      postEtrustedInteractions(user?.access_token as string, {
+        interaction: InteractionType.DISCONNECTED,
+        allState,
+      })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during postEtrustedInteractions:', error)
+    }
   }
 
   return (
