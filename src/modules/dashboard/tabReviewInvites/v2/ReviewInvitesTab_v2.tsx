@@ -24,9 +24,14 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const { user } = useStore(selectorAuth)
   const saveChanges = async () => {
     await saveChangeUseTimeOfSendReviewInvites_v2()
-    putEtrustedConfiguration(user?.access_token as string, {
-      allState,
-    })
+    try {
+      putEtrustedConfiguration(user?.access_token as string, {
+        allState,
+      })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during putEtrustedConfiguration:', error)
+    }
   }
 
   return (

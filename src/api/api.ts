@@ -248,7 +248,7 @@ export const patchInviteSettingsById = async (
 export const putEtrustedConfiguration = async (token: string, body: object): Promise<object> => {
   return await put<object, object>(
     CONFIGURATION_API_URL,
-    `/configuration`,
+    '/configuration',
     {
       headers: {
         'Content-Type': 'application/json',
@@ -262,7 +262,7 @@ export const putEtrustedConfiguration = async (token: string, body: object): Pro
 export const postEtrustedInteractions = async (token: string, body: object): Promise<object> => {
   return await post<object, object>(
     CONFIGURATION_API_URL,
-    `/interactions`,
+    '/interactions',
     {
       headers: {
         'Content-Type': 'application/json',
@@ -273,7 +273,7 @@ export const postEtrustedInteractions = async (token: string, body: object): Pro
   )
 }
 
-export enum InteractionType {
+export enum ActionTypes {
   DATA_EXPORTED = 'DATA_EXPORTED',
   DISCONNECTED = 'DISCONNECTED',
 }

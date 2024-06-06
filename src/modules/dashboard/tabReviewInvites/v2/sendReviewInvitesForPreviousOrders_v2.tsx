@@ -11,7 +11,7 @@ import NumberInput from '@/components/controls/numberInput'
 import Switch from '@/components/controls/switch'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth } from '@/store/selector'
-import { InteractionType, postEtrustedInteractions } from '@/api/api'
+import { ActionTypes, postEtrustedInteractions } from '@/api/api'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -98,7 +98,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                 })
                 try {
                   postEtrustedInteractions(user?.access_token as string, {
-                    interaction: InteractionType.DATA_EXPORTED,
+                    action: ActionTypes.DATA_EXPORTED,
                     allState,
                   })
                 } catch (error) {

@@ -13,7 +13,7 @@ import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector
 import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
 import { TabProps } from '@/modules/type'
-import { InteractionType, postEtrustedInteractions, putEtrustedConfiguration } from '@/api/api'
+import { ActionTypes, postEtrustedInteractions, putEtrustedConfiguration } from '@/api/api'
 
 const Divider = <div className="ts-h-[1px] ts-w-full ts-mb-6 ts-bg-gray-100" />
 
@@ -79,7 +79,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
     dispatchAction({ action: EVENTS.DISCONNECTED, payload: null })
     try {
       postEtrustedInteractions(user?.access_token as string, {
-        interaction: InteractionType.DISCONNECTED,
+        action: ActionTypes.DISCONNECTED,
         allState,
       })
     } catch (error) {
