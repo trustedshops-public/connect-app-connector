@@ -6,7 +6,7 @@ import {
   selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
-  selectorReviewInvites
+  selectorReviewInvites,
 } from '@/store/selector'
 import useStore from '@/store/useStore'
 import SendReviewInvitesRightTime_2 from './sendReviewInvitesRightTime_v2'
@@ -25,9 +25,11 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const saveChanges = async () => {
     await saveChangeUseTimeOfSendReviewInvites_v2()
     try {
-      putEtrustedConfiguration(user?.access_token as string, {
-        allState,
-      })
+      user &&
+        user.access_token &&
+        putEtrustedConfiguration(user.access_token as string, {
+          allState,
+        })
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Error during putEtrustedConfiguration:', error)

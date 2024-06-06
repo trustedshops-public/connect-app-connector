@@ -147,10 +147,16 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload,
     })
-
-    putEtrustedConfiguration(user?.access_token as string, {
-      allState,
-    })
+    try {
+      user &&
+        user.access_token &&
+        putEtrustedConfiguration(user.access_token as string, {
+          allState,
+        })
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error('Error during putEtrustedConfiguration:', error)
+    }
   }
 
   return (

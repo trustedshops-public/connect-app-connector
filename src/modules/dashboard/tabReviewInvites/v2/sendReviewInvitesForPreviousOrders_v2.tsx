@@ -97,10 +97,12 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                   includeProductData: isToggle,
                 })
                 try {
-                  postEtrustedInteractions(user?.access_token as string, {
-                    action: ActionTypes.DATA_EXPORTED,
-                    allState,
-                  })
+                  user &&
+                    user.access_token &&
+                    postEtrustedInteractions(user.access_token as string, {
+                      action: ActionTypes.DATA_EXPORTED,
+                      allState,
+                    })
                 } catch (error) {
                   // eslint-disable-next-line no-console
                   console.error('Error during postEtrustedInteractions:', error)

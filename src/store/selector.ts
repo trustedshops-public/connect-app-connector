@@ -25,12 +25,17 @@ export const selectorNotificationStore = (store: {
   notificationState: INotificationState
 }): INotificationState => store.notificationState
 
-export const selectAllState = (store: AppStore) => ({
-  infoState: store.infoState,
-  channelState: store.channelState,
-  trustbadgeState: store.trustbadgeState,
-  notificationState: store.notificationState,
-  reviewInvitesState: store.reviewInvitesState,
-  widgetState: store.widgetState,
-  initialState: false,
-})
+export const selectAllState = (store: AppStore) => {
+  /* eslint-disable*/
+  const { auth, ...restTrustbadgeState } = store.trustbadgeState as any
+
+  return {
+    infoState: store.infoState,
+    channelState: store.channelState,
+    trustbadgeState: restTrustbadgeState,
+    notificationState: store.notificationState,
+    reviewInvitesState: store.reviewInvitesState,
+    widgetState: store.widgetState,
+    initialState: false,
+  }
+}
