@@ -5,7 +5,12 @@ import TextWithLink from '@/components/layouts/textWithLink'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
-import { selectAllState, selectorAuth, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
+import {
+  selectAllState,
+  selectorAuth,
+  selectorInfoOfSystem,
+  selectorReviewInvites,
+} from '@/store/selector'
 import { CHECKOUT_TYPE } from '@/store/reviewInvites/reviewInvitesSendActions'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
@@ -214,11 +219,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           theme={ButtonThemes.Primary}
           onClick={() => {
             saveChanges
-            handleEtrustedConfiguration(
-              user?.access_token,
-              allState,
-              putEtrustedConfiguration
-            );
+            handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
           }}
           disabled={isButtonDisabled}
         />

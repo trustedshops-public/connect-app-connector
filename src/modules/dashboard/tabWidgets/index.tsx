@@ -110,11 +110,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
       },
     })
 
-    handleEtrustedConfiguration(
-      user?.access_token,
-      allState,
-      putEtrustedConfiguration
-    );
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   return (

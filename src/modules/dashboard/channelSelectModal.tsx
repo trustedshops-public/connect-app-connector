@@ -35,11 +35,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
       ...allState,
       initialState: true,
     }
-    handleEtrustedConfiguration(
-      user?.access_token,
-      configuration,
-      putEtrustedConfiguration
-    );
+    handleEtrustedConfiguration(user?.access_token, configuration, putEtrustedConfiguration)
   }
 
   return (

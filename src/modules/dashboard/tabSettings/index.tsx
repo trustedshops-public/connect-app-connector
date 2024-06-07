@@ -14,7 +14,10 @@ import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
 import { TabProps } from '@/modules/type'
 import { ActionTypes, postEtrustedInteractions, putEtrustedConfiguration } from '@/api/api'
-import { handleEtrustedConfiguration, handleEtrustedInteraction } from '@/utils/configurationDataHandler'
+import {
+  handleEtrustedConfiguration,
+  handleEtrustedInteraction,
+} from '@/utils/configurationDataHandler'
 
 const Divider = <div className="ts-h-[1px] ts-w-full ts-mb-6 ts-bg-gray-100" />
 
@@ -65,11 +68,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       }
       saveTrustbadgesAfterRemappingChannels(channel)
     })
-    handleEtrustedConfiguration(
-      user?.access_token,
-      allState,
-      putEtrustedConfiguration
-    );
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   const onDisconnect = () => {
@@ -79,8 +78,8 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       user?.access_token,
       allState,
       ActionTypes.DISCONNECTED,
-      postEtrustedInteractions
-    );
+      postEtrustedInteractions,
+    )
   }
 
   return (

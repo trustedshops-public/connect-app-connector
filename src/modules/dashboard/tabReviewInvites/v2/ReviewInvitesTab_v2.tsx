@@ -24,12 +24,8 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
   const saveChanges = async () => {
-    await saveChangeUseTimeOfSendReviewInvites_v2();
-    handleEtrustedConfiguration(
-      user?.access_token,
-      allState,
-      putEtrustedConfiguration
-    );
+    await saveChangeUseTimeOfSendReviewInvites_v2()
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const handleEtrustedInteraction = (
   token: string | undefined,
   allState: any,
@@ -5,18 +6,18 @@ export const handleEtrustedInteraction = (
   callback: (token: string, payload: any) => Promise<void>
 ): void => {
   if (!token) {
-    console.error('Token is not available');
-    return;
+    console.error('Token is not available')
+    return
   }
 
   try {
-    callback(token, { action: interactionType, allState }).catch((error) => {
-      console.error(`Error during ${callback.name}:`, error);
-    });
+    callback(token, { action: interactionType, allState }).catch(error => {
+      console.error(`Error during ${callback.name}:`, error)
+    })
   } catch (error) {
-    console.error(`Error during ${callback.name} invocation:`, error);
+    console.error(`Error during ${callback.name} invocation:`, error)
   }
-};
+}
 
 export const handleEtrustedConfiguration = (
   token: string | undefined,
@@ -24,15 +25,15 @@ export const handleEtrustedConfiguration = (
   callback: (token: string, payload: any) => Promise<void>
 ): void => {
   if (!token) {
-    console.error('Token is not available');
-    return;
+    console.error('Token is not available')
+    return
   }
 
   try {
-    callback(token, allState).catch((error) => {
-      console.error(`Error during ${callback.name}:`, error);
-    });
+    callback(token, allState).catch(error => {
+      console.error(`Error during ${callback.name}:`, error)
+    })
   } catch (error) {
-    console.error(`Error during ${callback.name} invocation:`, error);
+    console.error(`Error during ${callback.name} invocation:`, error)
   }
-};
+}

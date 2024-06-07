@@ -148,11 +148,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload,
     })
-    handleEtrustedConfiguration(
-      user?.access_token,
-      allState,
-      putEtrustedConfiguration
-    );
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   return (
