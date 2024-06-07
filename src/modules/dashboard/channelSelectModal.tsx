@@ -10,6 +10,7 @@ import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
 import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 interface Props {
   phrasesByKey: Nullable<DASHBOARD_KEYS>
@@ -34,16 +35,11 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
       ...allState,
       initialState: true,
     }
-    try {
-      user &&
-        user.access_token &&
-        putEtrustedConfiguration(user.access_token as string, {
-          configuration,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during putEtrustedConfiguration:', error)
-    }
+    handleEtrustedConfiguration(
+      user?.access_token,
+      configuration,
+      putEtrustedConfiguration
+    );
   }
 
   return (

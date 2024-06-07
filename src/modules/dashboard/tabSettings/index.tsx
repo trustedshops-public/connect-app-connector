@@ -14,6 +14,7 @@ import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
 import { TabProps } from '@/modules/type'
 import { ActionTypes, postEtrustedInteractions, putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration, handleEtrustedInteraction } from '@/utils/configurationDataHandler'
 
 const Divider = <div className="ts-h-[1px] ts-w-full ts-mb-6 ts-bg-gray-100" />
 
@@ -64,32 +65,22 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       }
       saveTrustbadgesAfterRemappingChannels(channel)
     })
-    try {
-      user &&
-        user.access_token &&
-        putEtrustedConfiguration(user.access_token as string, {
-          allState,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during putEtrustedConfiguration:', error)
-    }
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      putEtrustedConfiguration
+    );
   }
 
   const onDisconnect = () => {
     setIsDisconnectLoading(true)
     dispatchAction({ action: EVENTS.DISCONNECTED, payload: null })
-    try {
-      user &&
-        user.access_token &&
-        postEtrustedInteractions(user.access_token as string, {
-          action: ActionTypes.DISCONNECTED,
-          allState,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during postEtrustedInteractions:', error)
-    }
+    handleEtrustedInteraction(
+      user?.access_token,
+      allState,
+      ActionTypes.DISCONNECTED,
+      postEtrustedInteractions
+    );
   }
 
   return (

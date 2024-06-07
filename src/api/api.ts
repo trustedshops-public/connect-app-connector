@@ -245,8 +245,8 @@ export const patchInviteSettingsById = async (
   )
 }
 
-export const putEtrustedConfiguration = async (token: string, body: object): Promise<object> => {
-  return await put<object, object>(
+export const putEtrustedConfiguration = async (token: string, body: object): Promise<void> => {
+   await put<object, object>(
     CONFIGURATION_API_URL,
     '/configuration',
     {
@@ -259,8 +259,8 @@ export const putEtrustedConfiguration = async (token: string, body: object): Pro
   )
 }
 
-export const postEtrustedInteractions = async (token: string, body: object): Promise<object> => {
-  return await post<object, object>(
+export const postEtrustedInteractions = async (token: string, body: object): Promise<void> => {
+await post<object, object>(
     CONFIGURATION_API_URL,
     '/interactions',
     {

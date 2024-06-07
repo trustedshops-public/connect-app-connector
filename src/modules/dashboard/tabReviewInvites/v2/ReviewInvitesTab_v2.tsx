@@ -13,6 +13,7 @@ import SendReviewInvitesRightTime_2 from './sendReviewInvitesRightTime_v2'
 import SendReviewInvitesForPreviousOrders_2 from './sendReviewInvitesForPreviousOrders_v2'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(true)
@@ -23,17 +24,12 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
   const saveChanges = async () => {
-    await saveChangeUseTimeOfSendReviewInvites_v2()
-    try {
-      user &&
-        user.access_token &&
-        putEtrustedConfiguration(user.access_token as string, {
-          allState,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during putEtrustedConfiguration:', error)
-    }
+    await saveChangeUseTimeOfSendReviewInvites_v2();
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      putEtrustedConfiguration
+    );
   }
 
   return (

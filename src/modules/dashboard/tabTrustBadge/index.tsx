@@ -24,6 +24,7 @@ import StandartEditor from './standartEditor'
 import TrustBadgeSwitcher from './trustBadgeSwitcher'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const dataRadioButton = [
@@ -147,16 +148,11 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload,
     })
-    try {
-      user &&
-        user.access_token &&
-        putEtrustedConfiguration(user.access_token as string, {
-          allState,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during putEtrustedConfiguration:', error)
-    }
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      putEtrustedConfiguration
+    );
   }
 
   return (

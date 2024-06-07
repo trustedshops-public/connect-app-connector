@@ -16,6 +16,7 @@ import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector
 import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
@@ -109,16 +110,11 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
       },
     })
 
-    try {
-      user &&
-        user.access_token &&
-        putEtrustedConfiguration(user.access_token as string, {
-          allState,
-        })
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error('Error during putEtrustedConfiguration:', error)
-    }
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      putEtrustedConfiguration
+    );
   }
 
   return (

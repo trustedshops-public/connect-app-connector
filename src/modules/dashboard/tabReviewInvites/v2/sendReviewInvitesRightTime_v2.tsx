@@ -5,7 +5,7 @@ import TextWithLink from '@/components/layouts/textWithLink'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
 import { CHECKOUT_TYPE } from '@/store/reviewInvites/reviewInvitesSendActions'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
@@ -14,6 +14,8 @@ import infoIcon from '@/assets/settings-tab-warn-icon.svg'
 import warnIcon from '@/assets/warning-sign.svg'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
 import { IMappedChannel } from '@/baseLayers/types'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { putEtrustedConfiguration } from '@/api/api'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -33,6 +35,8 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   const productlabelRef = useRef<HTMLLabelElement>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
 
   useEffect(() => {
     setIsButtonDisabled(isEqual(selectedReviews, initialSelectedReviews))
@@ -208,7 +212,14 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           id={'saveReviewInvites'}
           label={phrasesByKey.global_button_save}
           theme={ButtonThemes.Primary}
-          onClick={saveChanges}
+          onClick={() => {
+            saveChanges
+            handleEtrustedConfiguration(
+              user?.access_token,
+              allState,
+              putEtrustedConfiguration
+            );
+          }}
           disabled={isButtonDisabled}
         />
       </div>

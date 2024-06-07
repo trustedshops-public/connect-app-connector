@@ -11,6 +11,7 @@ import NumberInput from '@/components/controls/numberInput'
 import { ActionTypes, postEtrustedInteractions } from '@/api/api'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth } from '@/store/selector'
+import { handleEtrustedInteraction } from '@/utils/configurationDataHandler'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -76,17 +77,12 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                   selectedShopChannels?.eTrustedChannelRef,
                   selectedShopChannels.salesChannelRef,
                 )
-                try {
-                  user &&
-                    user.access_token &&
-                    postEtrustedInteractions(user.access_token as string, {
-                      action: ActionTypes.DATA_EXPORTED,
-                      allState,
-                    })
-                } catch (error) {
-                  // eslint-disable-next-line no-console
-                  console.error('Error during postEtrustedInteractions:', error)
-                }
+                handleEtrustedInteraction(
+                  user?.access_token,
+                  allState,
+                  ActionTypes.DATA_EXPORTED,
+                  postEtrustedInteractions
+                );
               }}
               disabled={!selectedShopChannels.eTrustedChannelRef}
             />
