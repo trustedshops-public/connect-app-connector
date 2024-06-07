@@ -12,9 +12,11 @@ import tabIcon from '@/assets/widgets-tab-icon.svg'
 import { IWidgets } from '@/baseLayers/types'
 import { isEqual } from '@/utils'
 import useStore from '@/store/useStore'
-import { selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
 import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
@@ -40,10 +42,11 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
     isWidgetLoading,
     availableProductIds,
   } = useStore(state => state.widgetState)
-
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
   useEffect(() => {
     const widgetsChildrenFiltred = widgetsChildren.filter(
-      (widget: WidgetChildren) => widget.widgetLocation?.id
+      (widget: WidgetChildren) => widget.widgetLocation?.id,
     )
     if (!widgetsFromBL || !widgetsFromBL.children || !widgetsFromBL.children.length) {
       setIsButtonDisabled(!widgetsChildrenFiltred.length)
@@ -86,7 +89,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
           return widget
         }
         return
-      }
+      },
     )
     if (widgetsWithoutPId.length) {
       setWidgetsWithoutProductId(widgetsWithoutPId)
@@ -106,6 +109,8 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
         salesChannelRef: selectedShopChannels.salesChannelRef,
       },
     })
+
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   return (

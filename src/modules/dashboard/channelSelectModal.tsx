@@ -8,7 +8,9 @@ import settingsImg from '@/assets/Feature_related_Settings.svg'
 import ChannelSelectionForm from './channelSelectionForm'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
-import { selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 interface Props {
   phrasesByKey: Nullable<DASHBOARD_KEYS>
@@ -19,7 +21,8 @@ interface Props {
 const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }) => {
   const { setIsLoadingSave, setInitialOrderStatusByMapping } = useStore()
   const { selectedChannels } = useStore(selectorChannels)
-
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
   const saveChannelsInBL = () => {
     setIsLoadingSave(true)
     dispatchAction({
@@ -28,6 +31,11 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
     })
     setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
+    const configuration = {
+      ...allState,
+      initialState: true,
+    }
+    handleEtrustedConfiguration(user?.access_token, configuration, putEtrustedConfiguration)
   }
 
   return (

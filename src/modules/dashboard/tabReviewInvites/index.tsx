@@ -2,12 +2,20 @@ import { h } from 'preact'
 import { FC, useState, useEffect } from 'preact/compat'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 import { ScrinSpinner } from '@/components/layouts/spinner'
-import { selectorChannels, selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
+import {
+  selectAllState,
+  selectorAuth,
+  selectorChannels,
+  selectorInfoOfSystem,
+  selectorReviewInvites,
+} from '@/store/selector'
 import SendReviewInvitesForProducts from './sendReviewInvitesForProducts'
 import SendReviewInvitesRightTime from './sendReviewInvitesRightTime'
 import SendReviewInvitesForPreviousOrders from './sendReviewInvitesForPreviousOrders'
 import useStore from '@/store/useStore'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(false)
@@ -28,6 +36,9 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
     typesReviewInvites,
     isMappedTypesErorr,
   } = useStore(selectorReviewInvites)
+
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
 
   useEffect(() => {
     if (!invitesForProducts) return setIsToggle(false)
@@ -56,12 +67,13 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
               eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
               salesChannelRef: selectedShopChannels.salesChannelRef,
             },
-          }
+          },
     )
   }
 
   const saveChanges = async () => {
     await saveChangeUseTimeOfSendReviewInvites()
+    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
   }
 
   return (
