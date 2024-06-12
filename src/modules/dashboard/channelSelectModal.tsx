@@ -32,13 +32,9 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
     })
     setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
-    const configuration = {
-      ...allState,
-      initialState: true,
-    }
     handleEtrustedConfiguration(
       user?.access_token,
-      configuration,
+      allState,
       'channelSelector',
       putEtrustedConfiguration,
     )
