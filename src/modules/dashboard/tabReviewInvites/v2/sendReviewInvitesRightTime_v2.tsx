@@ -218,8 +218,13 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           label={phrasesByKey.global_button_save}
           theme={ButtonThemes.Primary}
           onClick={() => {
-            saveChanges
-            handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
+            saveChanges()
+            handleEtrustedConfiguration(
+              user?.access_token,
+              allState,
+              'invites',
+              putEtrustedConfiguration,
+            )
           }}
           disabled={isButtonDisabled}
         />
