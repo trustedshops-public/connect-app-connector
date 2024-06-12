@@ -73,7 +73,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
 
   const saveChanges = async () => {
     await saveChangeUseTimeOfSendReviewInvites()
-    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
+    handleEtrustedConfiguration(user?.access_token, allState, 'invites', putEtrustedConfiguration)
   }
 
   return (

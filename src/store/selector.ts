@@ -36,6 +36,5 @@ export const selectAllState = (store: AppStore) => {
     notificationState: store.notificationState,
     reviewInvitesState: store.reviewInvitesState,
     widgetState: store.widgetState,
-    initialState: false,
   }
 }

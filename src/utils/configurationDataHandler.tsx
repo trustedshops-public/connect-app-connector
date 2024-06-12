@@ -1,9 +1,12 @@
 /* eslint-disable */
+import { SelectedTab } from '@/locales/types'
+
 export const handleEtrustedInteraction = async (
   token: string | undefined,
   allState: any,
   interactionType: string,
-  callback: (token: string, payload: unknown) => Promise<void>
+  selectedTab: SelectedTab,
+  callback: (token: string, payload: object) => Promise<void>
 ): Promise<void> => {
   if (!token) {
     console.error('Token is not available')
@@ -11,7 +14,7 @@ export const handleEtrustedInteraction = async (
   }
 
   try {
-    await callback(token, { action: interactionType, allState })
+    await callback(token, { action: interactionType, allState, selectedTab })
   } catch (error) {
     console.error(`Error during ${callback.name}:`, error)
   }
@@ -20,7 +23,8 @@ export const handleEtrustedInteraction = async (
 export const handleEtrustedConfiguration = async (
   token: string | undefined,
   allState: any,
-  callback: (token: string, payload: unknown) => Promise<void>
+  selectedTab: SelectedTab,
+  callback: (token: string, payload: object) => Promise<void>
 ): Promise<void> => {
   if (!token) {
     console.error('Token is not available')
@@ -28,7 +32,7 @@ export const handleEtrustedConfiguration = async (
   }
 
   try {
-    await callback(token, allState)
+    await callback(token, {allState, selectedTab})
   } catch (error) {
     console.error(`Error during ${callback.name}:`, error)
   }

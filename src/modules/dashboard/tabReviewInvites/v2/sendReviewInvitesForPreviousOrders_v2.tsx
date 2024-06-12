@@ -101,6 +101,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                   user?.access_token,
                   allState,
                   ActionTypes.DATA_EXPORTED,
+                  'invites',
                   postEtrustedInteractions,
                 )
               }}

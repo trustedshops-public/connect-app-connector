@@ -68,7 +68,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       }
       saveTrustbadgesAfterRemappingChannels(channel)
     })
-    handleEtrustedConfiguration(user?.access_token, allState, putEtrustedConfiguration)
+    handleEtrustedConfiguration(user?.access_token, allState, 'settings', putEtrustedConfiguration)
   }
 
   const onDisconnect = () => {
@@ -78,6 +78,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       user?.access_token,
       allState,
       ActionTypes.DISCONNECTED,
+      'settings',
       postEtrustedInteractions,
     )
   }
