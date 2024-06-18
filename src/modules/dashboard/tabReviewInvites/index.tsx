@@ -69,6 +69,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
             },
           },
     )
+    handleEtrustedConfiguration(user?.access_token, allState, 'invites', putEtrustedConfiguration)
   }
 
   const saveChanges = async () => {
