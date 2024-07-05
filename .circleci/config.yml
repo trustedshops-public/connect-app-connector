@@ -41,10 +41,10 @@ commands:
 executors:
   node:
     docker:
-      - image: cimg/node:21.5-browsers
+      - image: cimg/node:21.7-browsers
   python:
     docker:
-      - image: cimg/python:3.11.3-browsers
+      - image: cimg/python:3.12.4-browsers
 
 jobs:
   build_qa:
