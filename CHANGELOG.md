@@ -1,3 +1,11 @@
+## [1.11.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.5...1.11.0) (2024-07-22)
+
+
+### Features
+
+* Configuration Data ([685c1ba](https://github.com/trustedshops-public/connect-app-connector/commit/685c1ba2d2d9e88328292e8ba9eaf0a1aa56fa51))
+* Qa env fix ([10fc028](https://github.com/trustedshops-public/connect-app-connector/commit/10fc0289f5966e34f205752ed5777db1c3f0ed4c))
+
 ## [1.10.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.4...1.10.5) (2024-04-12)
 
 
