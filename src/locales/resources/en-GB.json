@@ -279,7 +279,7 @@
       "submit": "Save changes"
     },
     "copyright": {
-      "text": "© [YEAR] Trusted Shops AG. All rights reserved. [%s]Imprint & data privacy[%s]",
+      "text": "© [YEAR] Trusted Shops SE. All rights reserved. [%s]Imprint & data privacy[%s]",
       "url_1": "https://www.trustedshops.co.uk/imprint/"
     },
     "help": {
