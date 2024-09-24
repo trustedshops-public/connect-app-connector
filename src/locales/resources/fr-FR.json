@@ -279,7 +279,7 @@
       "submit": "Enregistrer les modifications"
     },
     "copyright": {
-      "text": "© [YEAR] Trusted Shops AG. Tous droits réservés. [%s]Mentions légales & protection des données[%s]",
+      "text": "© [YEAR] Trusted Shops SE. Tous droits réservés. [%s]Mentions légales & protection des données[%s]",
       "url_1": "https://www.trustedshops.fr/mentions-legales-et-protection-des-donnees/"
     },
     "help": {

@@ -279,7 +279,7 @@
       "submit": "Guardar cambios"
     },
     "copyright": {
-      "text": "© [YEAR] Trusted Shops AG. Reservados todos los derechos. [%s]Aviso legal y protección de datos[%s]",
+      "text": "© [YEAR] Trusted Shops SE. Reservados todos los derechos. [%s]Aviso legal y protección de datos[%s]",
       "url_1": "https://www.trustedshops.es/aviso-legal/"
     },
     "help": {
