@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.6
+  browser-tools: circleci/browser-tools@1.4.8
   node: circleci/node@5.2.0
   cloudfront-s3-deploy: trustedshops-public/cloudfront-s3-deploy@3.0.0
   semantic-release: trustedshops-public/semantic-release@6.0.0
