@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "For touchpoints other than \"Checkout\", obtain consent from your customers according to [%s]Art. 7 GDPR[%s]. More information can be found in the [%s]eTrusted Help Centre[%s].",
+            "text": "For touchpoints outside the ‘checkout’, you must ensure that all recipients have effectively consented to their email address being sent to Trusted Shops in order to be reminded to submit a review. Further information can be found in the [%s]eTrusted Help Centre[%s].",
             "url_1": "https://gdprinfo.eu/en-article-7",
             "url_2": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites"
           }

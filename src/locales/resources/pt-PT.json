@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Para outros pontos de contacto que não o \"Checkout\", obtenha o consentimento dos seus clientes de acordo com o [%s]Art. 7 DO RGPD[%s]. Mais informações podem ser encontradas no [%s]Centro de Ajuda eTrusted[%s].",
+            "text": "Para touchpoints fora do “Checkout”, você deve garantir que todos os destinatários tenham consentido que os seus endereços de e-mail sejam transmitido à Trusted Shops para eles poderem receber um lembrete para realizar uma avaliação. Para mais informações, confira o [%s]Centro de Ajuda eTrusted[%s].",
             "url_1": "https://gdprinfo.eu/pt-pt/pt-pt-article-7",
             "url_2": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online"
           }
