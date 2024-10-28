@@ -94,8 +94,7 @@
         "orderstatus": {
           "warning": {
             "text": "W przypadku punktów styku poza „kasą” należy zapewnić, że wszyscy odbiorcy skutecznie wyrazili zgodę na przekazanie ich adresu e-mail do Trusted Shops w celu przypomnienia o przesłaniu oceny. Więcej informacji można znaleźć w [%s]centrum pomocy eTrusted[%s].",
-            "url_1": "https://gdprinfo.eu/pl/pl-article-7",
-            "url_2": "https://help.etrusted.com/hc/pl/articles/360025759231-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii"
+            "url_1": "https://help.etrusted.com/hc/pl/articles/360025759231-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii"
           }
         },
         "success": {

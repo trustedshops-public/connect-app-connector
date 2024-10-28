@@ -94,8 +94,7 @@
         "orderstatus": {
           "warning": {
             "text": "Für Touchpoints außerhalb des \"Checkouts\" müssen Sie sicherstellen, dass sämtliche Empfänger wirksam eingewilligt haben, dass ihre E-Mail Adresse an Trusted Shops übermittelt wird, um an die Abgabe einer Bewertung erinnert zu werden. Weitere Information finden Sie im [%s]eTrusted Hilfe-Center[%s].",
-            "url_1": "https://gdprinfo.eu/de/de-article-7",
-            "url_2": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen"
+            "url_1": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen"
           }
         },
         "success": {
