@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Para puntos de contacto que no sean \"Checkout\", obtenga el consentimiento de sus clientes de acuerdo con el [%s]Art. 7 RGPD[%s]. Puede encontrar más información en el [%s]Centro de ayuda de eTrusted[%s].",
+            "text": "Para los puntos de contacto fuera del \"pago\", debe asegurarse de que todos los destinatarios hayan dado su consentimiento efectivo para que su dirección de correo electrónico se envíe a Trusted Shops para que se les recuerde que deben dejar una reseña. Para obtener más información, consulte el [%s]Centro de ayuda de eTrusted[%s].",
             "url_1": "https://gdprinfo.eu/es/es-article-7",
             "url_2": "https://help.etrusted.com/hc/es/articles/360025759231-Consentimiento-para-las-invitaciones-de-valoraci%C3%B3n"
           }

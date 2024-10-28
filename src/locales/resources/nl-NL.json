@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Voor contactpunten anders dan \"Afrekenen\" dient u je toestemming te verkrijgen van uw je klanten in overeenstemming met [%s]art. 7 AVG[%s]. Meer informatie is te vinden vind je in het [%s]eTrusted Helpcentrum[%s]",
+            "text": "Voor contactmomenten buiten de kassa moet u ervoor zorgen dat alle ontvangers er effectief mee hebben ingestemd dat hun e-mailadres naar Trusted Shops wordt verzonden om eraan te worden herinnerd een beoordeling achter te laten. Zie het [%s]eTrusted Helpcentrum[%s] voor meer informatie.",
             "url_1": "https://gdprinfo.eu/nl/nl-article-7",
             "url_2": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
           }
