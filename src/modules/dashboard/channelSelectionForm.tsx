@@ -21,7 +21,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
       id="mapping_table"
       className="ts-relative ts-max-w-max ts-border ts-border-gray-500 ts-rounded"
     >
-      <table className="ts-w-full ">
+      <table className="ts-w-full">
         <thead>
           <tr>
             <th className="ts-px-6 ts-py-4 ts-border-r ts-border-gray-500 ts-w-[220px]">
