@@ -1,3 +1,11 @@
+## [1.11.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.0...1.11.1) (2024-10-28)
+
+
+### Bug Fixes
+
+* Translations reinitialise semantic release ([9340a0f](https://github.com/trustedshops-public/connect-app-connector/commit/9340a0fd2210a4fd06c85eb3d885369abbf0516b))
+* Update translations for the consent for Send Review invites based on order status ([449059c](https://github.com/trustedshops-public/connect-app-connector/commit/449059c0cbd530f333782ed3150d05eeed805773))
+
 ## [1.11.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.10.5...1.11.0) (2024-07-22)
 
 
