@@ -35,6 +35,20 @@ const DashboardPageModule: FC<{
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
+  const {
+    allowsEstimatedDeliveryDate,
+    allowsEventsByOrderStatus,
+    allowsSendReviewInvitesForPreviousOrders,
+    allowsSendReviewInvitesForProduct,
+    allowsSupportWidgets,
+  } = infoOfSystem
+
+  const displayReviewTab =
+    allowsEstimatedDeliveryDate ||
+    allowsEventsByOrderStatus ||
+    allowsSendReviewInvitesForPreviousOrders ||
+    allowsSendReviewInvitesForProduct
+
   const isVersionTwo =
     infoOfSystem.useVersionNumberOfConnector &&
     AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
@@ -117,7 +131,7 @@ const DashboardPageModule: FC<{
         accountRef: selectedShopChannels.eTrustedAccountRef,
       })
       getWidgetsFromAPI()
-      setIsLoadingInvitesForProducts(true)
+      displayReviewTab && setIsLoadingInvitesForProducts(true)
 
       if (
         Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportWidgets') &&
@@ -149,7 +163,7 @@ const DashboardPageModule: FC<{
         })
       }
 
-      if (!isVersionTwo) {
+      if (displayReviewTab && !isVersionTwo) {
         // call EventTypes for v1
         if (
           Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
@@ -197,7 +211,7 @@ const DashboardPageModule: FC<{
         }
       }
 
-      if (isVersionTwo) {
+      if (displayReviewTab && isVersionTwo) {
         // call EventTypes for v2
         if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus')) {
           dispatchAction({
@@ -240,7 +254,7 @@ const DashboardPageModule: FC<{
           action: EVENTS.SAVE_MAPPED_CHANNEL,
           payload: mappedChannelsResult,
         })
-        setInitialOrderStatusByMapping(mappedChannelsResult)
+        displayReviewTab && setInitialOrderStatusByMapping(mappedChannelsResult)
       } else {
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
@@ -251,19 +265,6 @@ const DashboardPageModule: FC<{
 
   useEffect(() => {
     if (!phrasesByKey) return
-    const {
-      allowsEstimatedDeliveryDate,
-      allowsEventsByOrderStatus,
-      allowsSendReviewInvitesForPreviousOrders,
-      allowsSendReviewInvitesForProduct,
-      allowsSupportWidgets,
-    } = infoOfSystem
-
-    const displayReviewTab =
-      allowsEstimatedDeliveryDate ||
-      allowsEventsByOrderStatus ||
-      allowsSendReviewInvitesForPreviousOrders ||
-      allowsSendReviewInvitesForProduct
 
     const tabs: ITabsConfig[] = [
       {
