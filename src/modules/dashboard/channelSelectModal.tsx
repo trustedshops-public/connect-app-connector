@@ -8,7 +8,7 @@ import settingsImg from '@/assets/Feature_related_Settings.svg'
 import ChannelSelectionForm from './channelSelectionForm'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
-import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
@@ -24,13 +24,21 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
   const { selectedChannels } = useStore(selectorChannels)
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const displayReviewTab =
+    infoOfSystem.allowsEstimatedDeliveryDate ||
+    infoOfSystem.allowsEventsByOrderStatus ||
+    infoOfSystem.allowsSendReviewInvitesForPreviousOrders ||
+    infoOfSystem.allowsSendReviewInvitesForProduct
+
   const saveChannelsInBL = () => {
     setIsLoadingSave(true)
     dispatchAction({
       action: EVENTS.SAVE_MAPPED_CHANNEL,
       payload: selectedChannels,
     })
-    setInitialOrderStatusByMapping(selectedChannels)
+    displayReviewTab && setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
     handleEtrustedConfiguration(
       user?.access_token,
