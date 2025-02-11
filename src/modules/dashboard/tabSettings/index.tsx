@@ -9,7 +9,7 @@ import { ScrinSpinner } from '@/components/layouts/spinner'
 import tabIcon from '@/assets/settings-tab-icon.svg'
 import warnIcon from '@/assets/settings-tab-warn-icon.svg'
 import useStore from '@/store/useStore'
-import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
 import warnIconOrange from '@/assets/warning-sign.svg'
 import ApproveDisconnectModal from './approveDisconnectModal'
 import { TabProps } from '@/modules/type'
@@ -44,6 +44,14 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const [showModal, setShowModal] = useState<boolean>(false)
 
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const displayReviewTab =
+    infoOfSystem.allowsEstimatedDeliveryDate ||
+    infoOfSystem.allowsEventsByOrderStatus ||
+    infoOfSystem.allowsSendReviewInvitesForPreviousOrders ||
+    infoOfSystem.allowsSendReviewInvitesForProduct
+
   useEffect(() => {
     setIsButtonDisabled(isEqual(initialSelectedChannels, selectedChannels))
   }, [initialSelectedChannels, selectedChannels])
@@ -54,7 +62,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       action: EVENTS.SAVE_MAPPED_CHANNEL,
       payload: selectedChannels,
     })
-    setInitialOrderStatusByMapping(selectedChannels)
+    displayReviewTab && setInitialOrderStatusByMapping(selectedChannels)
     setShowChannelModal(false)
     selectedChannels.forEach(channel => {
       if (
