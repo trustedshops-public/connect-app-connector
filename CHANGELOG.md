@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.1...1.11.2) (2025-02-11)
+
+
+### Bug Fixes
+
+* TPSCON-3080 Product Reviews deactivation after installing Shoper Plugin ([4ee01e5](https://github.com/trustedshops-public/connect-app-connector/commit/4ee01e5fd8ff9cbac4233cfed78969c8c60c97b8))
+
 ## [1.11.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.0...1.11.1) (2024-10-28)
 
 
