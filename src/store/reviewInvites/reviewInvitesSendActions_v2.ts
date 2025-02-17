@@ -217,7 +217,7 @@ export const reviewInvitesActionsStore_v2 = (
       },
     }))
   },
-  saveChangeUseTimeOfSendReviewInvites_v2: async (): Promise<void> => {
+  saveChangeUseTimeOfSendReviewInvites_v2: async () => {
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
