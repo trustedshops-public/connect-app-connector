@@ -294,8 +294,11 @@ export const reviewInvitesActionsStore_v2 = (
             )
           })
           .catch(err => {
-            // eslint-disable-next-line no-console
-            if (delay >= 8000) return console.error(err)
+            if (delay >= 8000) {
+              // eslint-disable-next-line no-console
+              console.error(err)
+              return
+            }
 
             setTimeout(() => {
               handlePatchInviteSetting(eventType)
