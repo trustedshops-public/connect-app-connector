@@ -28,13 +28,13 @@ const defaultStatus = {
 const handleDefaultOrderStatusUpdate = async (
   element: IMappedChannel,
   infoOfSystem: IUserInfo,
-  token: string
+  token: string,
 ) => {
   const eventTypes = await getEtrustedIEventType(element, infoOfSystem, token as string)
   const inviteSettingsByChannel = await getEtrustedInviteSettings(
     element,
     infoOfSystem,
-    token as string
+    token as string,
   )
 
   inviteSettingsByChannel.forEach(invite => {
@@ -72,7 +72,7 @@ const handleDefaultOrderStatusUpdate = async (
 
 export const reviewInvitesActionsStore_v2 = (
   set: SetState<AppStore>,
-  get: GetState<AppStore>
+  get: GetState<AppStore>,
 ): ReviewInvitesActionsStore_2 => ({
   setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => {
     const infoOfSystem = get().infoState.infoOfSystem
@@ -104,7 +104,7 @@ export const reviewInvitesActionsStore_v2 = (
         initialSelectedChannels.some(
           item =>
             item.eTrustedChannelRef === element.eTrustedChannelRef &&
-            item.salesChannelRef === element.salesChannelRef
+            item.salesChannelRef === element.salesChannelRef,
         )
       ) {
         return
@@ -187,12 +187,12 @@ export const reviewInvitesActionsStore_v2 = (
       const inviteSettingsByChannel = await getEtrustedInviteSettings(
         selectedShopChannel,
         infoOfSystem,
-        token as string
+        token as string,
       )
       const eventTypes = await getEtrustedIEventType(
         selectedShopChannel,
         infoOfSystem,
-        token as string
+        token as string,
       )
 
       set(store => ({
@@ -217,7 +217,7 @@ export const reviewInvitesActionsStore_v2 = (
       },
     }))
   },
-  saveChangeUseTimeOfSendReviewInvites_v2: async () => {
+  saveChangeUseTimeOfSendReviewInvites_v2: async (): Promise<void> => {
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
@@ -247,12 +247,12 @@ export const reviewInvitesActionsStore_v2 = (
 
       const callPromise = async (
         inviteSettings: InviteSettingsByChannelType[],
-        newEventType?: EventType
+        newEventType?: EventType,
       ): Promise<void> => {
         promiseAllRequest(
           inviteSettings.map(async invite => {
             const eventType = (newEventType?.id ? [...eventTypes, newEventType] : eventTypes).find(
-              event => event.id === invite.eventTypeId
+              event => event.id === invite.eventTypeId,
             )
             const isEnableProduct =
               eventType?.name === selectedReviewsProductType &&
@@ -273,9 +273,9 @@ export const reviewInvitesActionsStore_v2 = (
                 productInviteConfiguration: {
                   enabled: isEnableProduct,
                 },
-              }
+              },
             )
-          })
+          }),
         )
       }
 
@@ -290,7 +290,7 @@ export const reviewInvitesActionsStore_v2 = (
         await patchInviteSettings(selectedShopChannel, info, token as string, eventType.id, body)
           .then(async () => {
             await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
-              async responce => await callPromise(responce, eventType)
+              async responce => await callPromise(responce, eventType),
             )
           })
           .catch(err => {
