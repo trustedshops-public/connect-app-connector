@@ -39,7 +39,7 @@
           "title": "Sende Bewertungseinladungen zu früheren Bestellungen"
         },
         "help": {
-          "text": "Der optimale Zeitpunkt für das Versenden Ihrer Bewertungseinladung kann entscheidend sein, um eine gute Rückmeldungs-Rate zu gewährleisten.\nLies mehr über den [%s] optimalen Zeitpunkt für das Versenden von Bewertungseinladungen[%s].",
+          "text": "Der optimale Zeitpunkt für das Versenden deiner Bewertungseinladung kann entscheidend sein, um eine gute Rückmeldungs-Rate zu gewährleisten.\nLies mehr über den [%s] optimalen Zeitpunkt für das Versenden von Bewertungseinladungen[%s].",
           "url_1": "https://help.etrusted.com/hc/de/articles/360055245931-Wie-profitiere-ich-vom-Aktivierungsdatum-der-Sendungsverz%C3%B6gerung-"
         },
         "radioButton": {
@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Für Touchpoints außerhalb des \"Checkouts\" musst du sicherstellen, dass sämtliche Empfänger wirksam eingewilligt haben, dass ihre E-Mail Adresse an Trusted Shops übermittelt wird, um an die Abgabe einer Bewertung erinnert zu werden. Weitere Information findest du im [%s]eTrusted Hilfe-Center[%s].",
+            "text": "Für Touchpoints außerhalb des \"Checkouts\" musst du sicherstellen, dass sämtliche Empfänger wirksam eingewilligt haben, dass ihre E-Mail-Adresse an Trusted Shops übermittelt wird, um an die Abgabe einer Bewertung erinnert zu werden. Weitere Information findest du im [%s]eTrusted Hilfe-Center[%s].",
             "url_1": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen"
           }
         },
