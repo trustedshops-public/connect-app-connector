@@ -13,6 +13,8 @@ import withLocalisation from '@/locales/withLocalisation'
 import { PHRASES_DASHBOARD_KEYS } from '@/locales/keys'
 import useStore from '@/store/useStore'
 import {
+  selectAllState,
+  selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
   selectorNotificationStore,
@@ -23,6 +25,8 @@ import BackgroundCard from '@/components/layouts/backgroundCard'
 import ChannelSelectModal from './channelSelectModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -34,6 +38,8 @@ const DashboardPageModule: FC<{
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const { user } = useStore(selectorAuth)
+  const allState = useStore(selectAllState)
 
   const {
     allowsEstimatedDeliveryDate,
@@ -255,6 +261,12 @@ const DashboardPageModule: FC<{
           payload: mappedChannelsResult,
         })
         displayReviewTab && setInitialOrderStatusByMapping(mappedChannelsResult)
+        handleEtrustedConfiguration(
+          user?.access_token,
+          allState,
+          'channelSelector',
+          putEtrustedConfiguration,
+        )
       } else {
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
