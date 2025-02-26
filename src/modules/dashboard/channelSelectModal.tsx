@@ -20,8 +20,12 @@ interface Props {
 }
 
 const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }) => {
-  const { setIsLoadingSave, setInitialOrderStatusByMapping } = useStore()
-  const { selectedChannels } = useStore(selectorChannels)
+  const {
+    setIsLoadingSave,
+    setInitialOrderStatusByMapping,
+    saveTrustbadgesAfterRemappingChannels,
+  } = useStore()
+  const { selectedChannels, initialSelectedChannels, } = useStore(selectorChannels)
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
@@ -40,6 +44,18 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
     })
     displayReviewTab && setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
+    selectedChannels.forEach(channel => {
+      if (
+        initialSelectedChannels.some(
+          item =>
+            item.eTrustedChannelRef === channel.eTrustedChannelRef &&
+            item.salesChannelRef === channel.salesChannelRef,
+        )
+      ) {
+        return
+      }
+      saveTrustbadgesAfterRemappingChannels(channel)
+    })
     handleEtrustedConfiguration(
       user?.access_token,
       allState,
