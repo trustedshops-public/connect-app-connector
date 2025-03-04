@@ -1,3 +1,14 @@
+## [1.11.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.3...1.11.4) (2025-03-04)
+
+
+### Bug Fixes
+
+* TPSCON-2367 Sonarcloud issue ([5500d6a](https://github.com/trustedshops-public/connect-app-connector/commit/5500d6a2f02055020709029a16b749dbca17c62d))
+* TPSCON-2367 Sonarcloud issue fix ([0f76976](https://github.com/trustedshops-public/connect-app-connector/commit/0f76976ccc93a1ed247e13752d444318c010211d))
+* TPSCON-2367 Sonarcloud issue fix ([e83e3cb](https://github.com/trustedshops-public/connect-app-connector/commit/e83e3cbc70468de904ad8d6177a8cc14624b2c51))
+* TPSCON-2973 Save Trustbadge Config after Channel Mapping for all channels mapped ([7327183](https://github.com/trustedshops-public/connect-app-connector/commit/73271833c21c5aec47a15475a50a2b8b7d1f9222))
+* TPSCON-3076 NewGen Dashboard: No information tracked for new customers ([b5990da](https://github.com/trustedshops-public/connect-app-connector/commit/b5990dac72d0baa17766344f7fcdcfba64a730c0))
+
 ## [1.11.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.2...1.11.3) (2025-02-13)
 
 
