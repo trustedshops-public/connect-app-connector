@@ -260,6 +260,7 @@ const DashboardPageModule: FC<{
           action: EVENTS.SAVE_MAPPED_CHANNEL,
           payload: mappedChannelsResult,
         })
+        setSelectedChannels(mappedChannelsResult)
         displayReviewTab && setInitialOrderStatusByMapping(mappedChannelsResult)
         handleEtrustedConfiguration(
           user?.access_token,
