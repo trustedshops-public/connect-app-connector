@@ -13,7 +13,6 @@ import withLocalisation from '@/locales/withLocalisation'
 import { PHRASES_DASHBOARD_KEYS } from '@/locales/keys'
 import useStore from '@/store/useStore'
 import {
-  selectAllState,
   selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
@@ -39,7 +38,6 @@ const DashboardPageModule: FC<{
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { user } = useStore(selectorAuth)
-  const allState = useStore(selectAllState)
 
   const {
     allowsEstimatedDeliveryDate,
@@ -256,15 +254,17 @@ const DashboardPageModule: FC<{
       const mappedChannelsResult = getMappedChannels(shopChannels, channelsFromTSC)
 
       if (mappedChannelsResult.length === shopChannels.length) {
+        setSelectedChannels([...mappedChannelsResult])
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { auth, ...stateWithoutAuth } = useStore.getState()
         dispatchAction({
           action: EVENTS.SAVE_MAPPED_CHANNEL,
           payload: mappedChannelsResult,
         })
-        setSelectedChannels(mappedChannelsResult)
         displayReviewTab && setInitialOrderStatusByMapping(mappedChannelsResult)
         handleEtrustedConfiguration(
           user?.access_token,
-          allState,
+          stateWithoutAuth,
           'channelSelector',
           putEtrustedConfiguration,
         )
