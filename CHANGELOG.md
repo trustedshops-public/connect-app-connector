@@ -1,3 +1,11 @@
+## [1.11.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.4...1.11.5) (2025-03-13)
+
+
+### Bug Fixes
+
+* TPSCON-3076 Missing Channel Payload ([78272fd](https://github.com/trustedshops-public/connect-app-connector/commit/78272fdfd5f6b7c3da356078a2e5da23ffac58e5))
+* TPSCON-3076 Missing Selected Channels Payload ([66f087c](https://github.com/trustedshops-public/connect-app-connector/commit/66f087c584d8fe1487837fa42554bcf7fdb72855))
+
 ## [1.11.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.3...1.11.4) (2025-03-04)
 
 
