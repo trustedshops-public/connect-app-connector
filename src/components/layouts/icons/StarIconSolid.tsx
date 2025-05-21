@@ -1,7 +1,7 @@
 import { FC } from 'preact/compat'
 import { h } from 'preact'
 
-export const StarIconSolid: FC<{ color?: string }> = ({ color = 'ts-text-yellow-500' }) => (
+export const StarIconSolid: FC<{ color?: string }> = ({ color = '#DB6B22' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={`ts-w-3 ts-h-3 ${color}`}
