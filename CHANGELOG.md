@@ -1,3 +1,13 @@
+## [1.12.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.5...1.12.0) (2025-05-26)
+
+
+### Features
+
+* TPSCON-3255 Adapt illustrations in the Connector Layer ([d684c08](https://github.com/trustedshops-public/connect-app-connector/commit/d684c084bb2f9b6f9cef77fc4df4d50e30804c2c))
+* TPSCON-3255 Adapt illustrations in the Connector Layer ([80d2264](https://github.com/trustedshops-public/connect-app-connector/commit/80d22646c903d5b4877d636ca995d285261ffaa4))
+* TPSCON-3255 missing color adaption ([7fca21e](https://github.com/trustedshops-public/connect-app-connector/commit/7fca21ee9954aee9707bcaa2a0220bc587d32110))
+* TPSCON-3255 missing color adaption ([db3c6bb](https://github.com/trustedshops-public/connect-app-connector/commit/db3c6bb776c66d66c9db3ec06d2c1fb54f1d2894))
+
 ## [1.11.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.4...1.11.5) (2025-03-13)
 
 
