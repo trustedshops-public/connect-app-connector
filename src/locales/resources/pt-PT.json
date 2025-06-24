@@ -315,5 +315,14 @@
       "active": "ativo",
       "inactive": "inativo"
     }
+  },
+  "shopify": {
+    "global": {
+      "help": {
+        "link": {
+          "url_1": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify"
+        }
+      }
+    }
   }
 }
