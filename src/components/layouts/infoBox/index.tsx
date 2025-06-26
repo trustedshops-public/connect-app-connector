@@ -2,10 +2,19 @@ import { FC } from 'preact/compat'
 import { h, ComponentChildren } from 'preact'
 import TrustmarkImg from '@/assets/Trusted_Shops_Products_Trustmark.svg'
 import helpIcon from '@/assets/invites-tab-help-icon.svg'
+import useStore from '@/store/useStore'
+import { selectorInfoOfSystem } from '@/store/selector'
 
 const InfoBox: FC<{
   phrasesByKey: Nullable<{ [key: string]: string }>
 }> = ({ phrasesByKey }) => {
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const helpLink =
+    infoOfSystem?.nameOfSystem?.toLowerCase() === 'shopify'
+      ? phrasesByKey?.shopify_global_help_link_url_1
+      : phrasesByKey?.global_help_link_url_1
+
   return (
     <div className="ts-flex ts-h-infobox ts-w-infobox ts-p-2 ts-bg-backgroundCard ts-m-8 ts-border ts-border-gray-100 ts-border-dashed ts-rounded">
       <img src={TrustmarkImg} className="ts-h-full" />
@@ -20,7 +29,7 @@ const InfoBox: FC<{
         </div>
         {phrasesByKey && (
           <a
-            href={phrasesByKey.global_help_link_url_1}
+            href={helpLink}
             className="ts-text-blue-700 ts-cursor-pointer ts-font-normal ts-text-sm"
             target="_blank"
             rel="noreferrer"
