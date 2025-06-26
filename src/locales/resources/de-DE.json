@@ -315,5 +315,14 @@
       "active": "aktiv",
       "inactive": "inaktiv"
     }
+  },
+  "shopify": {
+    "global": {
+      "help": {
+        "link": {
+          "url_1": "https://help.etrusted.com/hc/de/articles/23970822885010-Trusted-Shops-nutzen-mit-Shopify"
+        }
+      }
+    }
   }
 }
