@@ -1,3 +1,10 @@
+## [1.13.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.12.0...1.13.0) (2025-06-27)
+
+
+### Features
+
+* TPSCON-3453 Change Integration Guide URL to a specific Shopify context ([d2aee10](https://github.com/trustedshops-public/connect-app-connector/commit/d2aee1035ee74dd48cac271f32fabdbd369c8440))
+
 ## [1.12.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.11.5...1.12.0) (2025-05-26)
 
 
