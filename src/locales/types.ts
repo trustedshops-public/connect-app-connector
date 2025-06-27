@@ -291,6 +291,10 @@ export type GLOBAL_KEYS = {
   global_jointcontrollership_url_1: string
 }
 
+export type SHOPIFY_GLOBAL_KEYS = {
+  shopify_global_help_link_url_1: string
+}
+
 export type AUTH_KEYS = {
   authentication_salesLink_text: string
   authentication_salesLink_url_1: string
@@ -306,7 +310,8 @@ export type AUTH_KEYS = {
   authentication_button_submit: string
   authentication_supporthelp_text: string
   authentication_supporthelp_url_1: string
-} & GLOBAL_KEYS
+} & GLOBAL_KEYS &
+  SHOPIFY_GLOBAL_KEYS
 
 export type ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: string
