@@ -217,7 +217,7 @@
       "productID": "ID produktu",
       "reload": "Wczytaj listę ponownie",
       "status": {
-        "integrated": "Zignorowany",
+        "integrated": "Zintegrowany",
         "notIntegrated": "Wymagane działania"
       },
       "table": {
