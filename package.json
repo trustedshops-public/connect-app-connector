@@ -14,7 +14,8 @@
     "test-install": "./src/tests/resources/scripts/install.sh",
     "test": "./src/tests/resources/scripts/run.sh",
     "test-local": "./src/tests/resources/scripts/run-local.sh",
-    "dev:test": "vite --mode test"
+    "dev:test": "vite --mode test",
+    "dev:production": "vite --mode production"
   },
   "dependencies": {
     "axios": "1.6.0",
