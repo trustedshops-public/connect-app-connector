@@ -1,3 +1,10 @@
+## [1.14.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.13.0...1.14.0) (2025-08-12)
+
+
+### Features
+
+* TPSCON-3550 Shopware App UI always displayed in English ([c95f1c4](https://github.com/trustedshops-public/connect-app-connector/commit/c95f1c4c520cf0452165fed4e85c007270f7b164))
+
 ## [1.13.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.12.0...1.13.0) (2025-06-27)
 
 
