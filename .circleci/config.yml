@@ -74,6 +74,49 @@ jobs:
       - build_prod
       - semantic-release/install
       - semantic-release/execute
+  trigger_qa_tests:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - run:
+          name: Trigger QA tests
+          command: |
+            RESPONSE=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+              --header "Circle-Token: $CIRCLE_CI_TOKEN" \
+              --header "Content-Type: application/json" \
+              --data '{
+                "branch": "main",
+                "parameters": {
+                  "development_trigger": true,
+                  "shop_system": "all",
+                  "environment": "QA"
+                }
+              }')
+
+            PIPELINE_NUMBER=$(echo "$RESPONSE" | grep -o '"number":[0-9]*' | head -1 | sed 's/"number"://')
+            echo "Triggered Test Pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$PIPELINE_NUMBER"
+
+  trigger_prod_tests:
+    docker:
+      - image: cimg/python:3.8
+    steps:
+      - run:
+          name: Trigger Prod tests
+          command: |
+            RESPONSE=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            --header "Circle-Token: $CIRCLE_CI_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "branch": "main",
+              "parameters": {
+                "development_trigger": true,
+                "shop_system": "all",
+                "environment": "PROD"
+              }
+            }')
+
+            PIPELINE_NUMBER=$(echo "$RESPONSE" | grep -o '"number":[0-9]*' | head -1 | sed 's/"number"://')
+            echo "Triggered Test Pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$PIPELINE_NUMBER"               
 
 workflows:
   version: 2
@@ -107,6 +150,9 @@ workflows:
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
           requires:
             - build_qa
+      - trigger_qa_tests:
+          requires:
+            - deploy_to_qa      
       - approve_deploy_to_prod:
           type: approval
           filters:
@@ -128,3 +174,6 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
+      - trigger_prod_tests:
+          requires:
+            - deploy_to_prod        
