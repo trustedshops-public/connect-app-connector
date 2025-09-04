@@ -11,9 +11,6 @@
     "format": "prettier --write src/**/*.{ts,tsx}",
     "zip": "bestzip eTrustedConnector.zip eTrustedConnector/*",
     "demo:dev": "cross-env VITE_USE_MOCK_BASELAYER=0 vite build && start demo/index.html",
-    "test-install": "./src/tests/resources/scripts/install.sh",
-    "test": "./src/tests/resources/scripts/run.sh",
-    "test-local": "./src/tests/resources/scripts/run-local.sh",
     "dev:test": "vite --mode test"
   },
   "dependencies": {
