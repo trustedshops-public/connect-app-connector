@@ -81,21 +81,17 @@ jobs:
       - run:
           name: Trigger QA tests
           command: |
-            RESPONSE=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
-              --header "Circle-Token: $CIRCLE_CI_TOKEN" \
-              --header "Content-Type: application/json" \
-              --data '{
-                "branch": "main",
-                "parameters": {
-                  "development_trigger": true,
-                  "shop_system": "all",
-                  "environment": "QA"
-                }
-              }')
-
-            PIPELINE_NUMBER=$(echo "$RESPONSE" | grep -o '"number":[0-9]*' | head -1 | sed 's/"number"://')
-            echo "Triggered Test Pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$PIPELINE_NUMBER"
-
+            curl -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            --header "Circle-Token: $CIRCLE_CI_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "branch": "main",
+              "parameters": {
+                "development_trigger": true,
+                "shop_system": "all",
+                "environment": "QA"
+              }
+            }'
   trigger_prod_tests:
     docker:
       - image: cimg/python:3.8
@@ -103,7 +99,7 @@ jobs:
       - run:
           name: Trigger Prod tests
           command: |
-            RESPONSE=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            curl -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
             --header "Circle-Token: $CIRCLE_CI_TOKEN" \
             --header "Content-Type: application/json" \
             --data '{
@@ -113,10 +109,7 @@ jobs:
                 "shop_system": "all",
                 "environment": "PROD"
               }
-            }')
-
-            PIPELINE_NUMBER=$(echo "$RESPONSE" | grep -o '"number":[0-9]*' | head -1 | sed 's/"number"://')
-            echo "Triggered Test Pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$PIPELINE_NUMBER"               
+            }'               
 
 workflows:
   version: 2
@@ -152,7 +145,9 @@ workflows:
             - build_qa
       - trigger_qa_tests:
           requires:
-            - deploy_to_qa      
+            - deploy_to_qa
+          context:
+            - connect-team        
       - approve_deploy_to_prod:
           type: approval
           filters:
@@ -176,4 +171,6 @@ workflows:
               ignore: /.*/
       - trigger_prod_tests:
           requires:
-            - deploy_to_prod        
+            - deploy_to_prod
+          context:
+            - connect-team          
