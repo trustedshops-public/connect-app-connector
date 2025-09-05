@@ -1,7 +1,0 @@
-robotframework
-robotframework-seleniumlibrary
-selenium
-robotframework-pageobjectlibrary
-robotframework-requests
-robotframework-pabot
-webdrivermanager
