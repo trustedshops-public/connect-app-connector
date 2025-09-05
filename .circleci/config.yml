@@ -81,7 +81,7 @@ jobs:
       - run:
           name: Trigger QA tests
           command: |
-            curl -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            response=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
             --header "Circle-Token: $CIRCLE_CI_TOKEN" \
             --header "Content-Type: application/json" \
             --data '{
@@ -91,7 +91,10 @@ jobs:
                 "shop_system": "all",
                 "environment": "QA"
               }
-            }'
+            }')
+
+            pipeline_number=$(echo "$response" | jq -r '.number')
+            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"
   trigger_prod_tests:
     docker:
       - image: cimg/python:3.8
@@ -99,7 +102,7 @@ jobs:
       - run:
           name: Trigger Prod tests
           command: |
-            curl -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            response=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
             --header "Circle-Token: $CIRCLE_CI_TOKEN" \
             --header "Content-Type: application/json" \
             --data '{
@@ -109,7 +112,10 @@ jobs:
                 "shop_system": "all",
                 "environment": "PROD"
               }
-            }'               
+            }')
+
+            pipeline_number=$(echo "$response" | jq -r '.number')
+            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"               
 
 workflows:
   version: 2
