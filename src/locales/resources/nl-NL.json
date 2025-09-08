@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Voor contactmomenten buiten de kassa moet u ervoor zorgen dat alle ontvangers er effectief mee hebben ingestemd dat hun e-mailadres naar Trusted Shops wordt verzonden om eraan te worden herinnerd een beoordeling achter te laten. Zie het [%s]eTrusted Helpcentrum[%s] voor meer informatie.",
+            "text": "Voor contactmomenten buiten de \"Checkout\" moet u ervoor zorgen dat alle ontvangers er effectief mee hebben ingestemd dat hun e-mailadres naar Trusted Shops wordt verzonden om eraan te worden herinnerd een beoordeling achter te laten. Zie het [%s]eTrusted Helpcentrum[%s] voor meer informatie.",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
           }
         },
