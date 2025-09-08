@@ -74,12 +74,16 @@ jobs:
       - build_prod
       - semantic-release/install
       - semantic-release/execute
-  trigger_qa_tests:
+  trigger_automated_tests:
+    parameters:
+      environment:
+        type: enum
+        enum: ["QA", "PROD"]
     docker:
-      - image: cimg/python:3.8
+      - image: cimg/python:3.8  
     steps:
       - run:
-          name: Trigger QA tests
+          name: Trigger << parameters.environment >> tests
           command: |
             response=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
             --header "Circle-Token: $CIRCLE_CI_TOKEN" \
@@ -89,33 +93,12 @@ jobs:
               "parameters": {
                 "development_trigger": true,
                 "shop_system": "all",
-                "environment": "QA"
+                "environment": "<< parameters.environment >>"
               }
             }')
 
             pipeline_number=$(echo "$response" | jq -r '.number')
-            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"
-  trigger_prod_tests:
-    docker:
-      - image: cimg/python:3.8
-    steps:
-      - run:
-          name: Trigger Prod tests
-          command: |
-            response=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
-            --header "Circle-Token: $CIRCLE_CI_TOKEN" \
-            --header "Content-Type: application/json" \
-            --data '{
-              "branch": "main",
-              "parameters": {
-                "development_trigger": true,
-                "shop_system": "all",
-                "environment": "PROD"
-              }
-            }')
-
-            pipeline_number=$(echo "$response" | jq -r '.number')
-            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"               
+            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"              
 
 workflows:
   version: 2
@@ -149,7 +132,9 @@ workflows:
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
           requires:
             - build_qa
-      - trigger_qa_tests:
+      - trigger_automated_tests:
+          name: trigger_qa_tests
+          environment: QA
           requires:
             - deploy_to_qa
           context:
@@ -175,8 +160,15 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
-      - trigger_prod_tests:
+      - trigger_automated_tests:
+          name: trigger_prod_tests
+          environment: PROD
           requires:
             - deploy_to_prod
           context:
-            - connect-team          
+            - connect-team  
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/          
