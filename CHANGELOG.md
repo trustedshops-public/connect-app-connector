@@ -1,3 +1,10 @@
+## [1.16.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.15.0...1.16.0) (2025-09-08)
+
+
+### Features
+
+* TPSCON-3619 Parameterize automated test triggers for QA and PROD ([#176](https://github.com/trustedshops-public/connect-app-connector/issues/176)) ([7e70211](https://github.com/trustedshops-public/connect-app-connector/commit/7e70211ca14a347ce021bb5ce20aacec84b3e5be))
+
 ## [1.15.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.14.0...1.15.0) (2025-09-08)
 
 
