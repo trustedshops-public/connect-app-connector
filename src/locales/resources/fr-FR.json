@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Pour les points de contact en dehors du « paiement », vous devez vous assurer que tous les destinataires ont effectivement consenti à ce que leur adresse e-mail soit envoyée à Trusted Shops afin qu'on leur rappelle de laisser un avis. Pour plus d'informations, consultez le [%s]centre d'aide eTrusted[%s].",
+            "text": "Pour les points de contact en dehors du « Checkout », vous devez vous assurer que tous les destinataires ont effectivement consenti à ce que leur adresse e-mail soit envoyée à Trusted Shops afin qu'on leur rappelle de laisser un avis. Pour plus d'informations, consultez le [%s]centre d'aide eTrusted[%s].",
             "url_1": "https://help.etrusted.com/hc/fr/articles/360025759231-Consentement-%C3%A0-l-envoi-d-invitations-%C3%A0-%C3%A9mettre-un-avis"
           }
         },

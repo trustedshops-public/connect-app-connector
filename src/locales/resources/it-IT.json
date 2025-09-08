@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Per i punti di contatto che non siano il “check-out”, è necessario assicurarsi che tutti i destinatari abbiano validamente acconsentito alla trasmissione del proprio indirizzo e-mail a Trusted Shops per essere avvisati dell'invio di una recensione. Per ulteriori informazioni, consultare [%s]Centro Assistenza eTrusted[%s]",
+            "text": "Per i punti di contatto che non siano il “Checkout”, è necessario assicurarsi che tutti i destinatari abbiano validamente acconsentito alla trasmissione del proprio indirizzo e-mail a Trusted Shops per essere avvisati dell'invio di una recensione. Per ulteriori informazioni, consultare [%s]Centro Assistenza eTrusted[%s]",
             "url_1": "https://help.etrusted.com/hc/it/articles/360025759231-Consenso-per-l-invio-degli-inviti-di-recensione"
           }
         },
