@@ -1,3 +1,10 @@
+## [1.15.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.14.0...1.15.0) (2025-09-08)
+
+
+### Features
+
+* Update config file to display pipeline URL ([#175](https://github.com/trustedshops-public/connect-app-connector/issues/175)) ([eddd407](https://github.com/trustedshops-public/connect-app-connector/commit/eddd407bd222d83a4a6e0d24e7a3d58a2c543dcc))
+
 ## [1.14.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.13.0...1.14.0) (2025-08-12)
 
 
