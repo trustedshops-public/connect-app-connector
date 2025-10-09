@@ -12,7 +12,7 @@ interface Props {
 
 const Radio: FC<Props> = ({ value, id, disabled, children, customClass, onClick }) => {
   return (
-    <div
+    <button
       onClick={() => {
         if (disabled || typeof onClick === 'undefined') return
         onClick()
@@ -45,7 +45,7 @@ const Radio: FC<Props> = ({ value, id, disabled, children, customClass, onClick 
       >
         {children}
       </label>
-    </div>
+    </button>
   )
 }
 
