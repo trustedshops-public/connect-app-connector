@@ -1,3 +1,10 @@
+## [1.18.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.17.0...1.18.0) (2025-10-09)
+
+
+### Features
+
+* TPSCON-3353 Keyboard navigation in the Connector Layer fix ([d2bcd6a](https://github.com/trustedshops-public/connect-app-connector/commit/d2bcd6a78f53be2814170308e08e283f99ccfdf5))
+
 ## [1.17.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.16.0...1.17.0) (2025-10-09)
 
 
