@@ -71,6 +71,7 @@ const Modal: FC<Props> = ({ children, showModal, footerContent, onClose }) => {
           <div
             className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black"
             onClick={onClose}
+            onKeyDown={onClose}
           />
         </Fragment>
       )}
