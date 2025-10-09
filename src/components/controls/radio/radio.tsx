@@ -13,6 +13,7 @@ interface Props {
 const Radio: FC<Props> = ({ value, id, disabled, children, customClass, onClick }) => {
   return (
     <button
+      type="button"
       onClick={() => {
         if (disabled || typeof onClick === 'undefined') return
         onClick()
