@@ -1,3 +1,11 @@
+## [1.17.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.16.0...1.17.0) (2025-10-09)
+
+
+### Features
+
+* TPSCON-3353 Keyboard navigation in the Connector Layer ([ba3f7ec](https://github.com/trustedshops-public/connect-app-connector/commit/ba3f7ec50739977e505e00496f29920ce25a553c))
+* TPSCON-3353 Keyboard navigation in the Connector Layer ([86394dd](https://github.com/trustedshops-public/connect-app-connector/commit/86394ddefdc71aba00fd9ceb1f3cdf38d47ac859))
+
 ## [1.16.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.15.0...1.16.0) (2025-09-08)
 
 
