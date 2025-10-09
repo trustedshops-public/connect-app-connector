@@ -20,6 +20,7 @@ const ApproveDisconnectModal: FC<Props> = ({
 }) => {
   return (
     <Modal
+      onClose={() => handleCancel(false)}
       showModal={showModal}
       footerContent={
         <div className="ts-flex ts-gap-2">

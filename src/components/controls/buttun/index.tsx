@@ -33,7 +33,7 @@ const Button: FC<Props> = ({
         id={`button_${id}`}
         data-testid={`button_${id}`}
         type={type}
-        className="ts-text-primary ts-text-sm ts-font-normal disabled:ts-text-secondary disabled:ts-cursor-not-allowed"
+        className="ts-text-primary ts-text-sm ts-font-normal focus:ts-ring-2 focus:ts-ring-blue-700 disabled:ts-text-secondary disabled:ts-cursor-not-allowed"
         onClick={onClick}
         disabled={disabled}
       >
@@ -51,10 +51,10 @@ const Button: FC<Props> = ({
       disabled:ts-to-gray-light-400 disabled:ts-text-secondary disabled:ts-text-opacity-50 disabled:ts-border-gray-600 disabled:ts-cursor-not-allowed
       ${
         theme === ButtonThemes.Secondary
-          ? 'ts-text-blue-700 ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-100 ts-border-gray-200 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-gray-100 active:ts-to-gray-light-500 '
+          ? 'ts-text-blue-700 ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-100 ts-border-gray-200 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500 focus:ts-ring-2 focus:ts-ring-blue-700 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-gray-100 active:ts-to-gray-light-500 '
           : theme === ButtonThemes.Warning
-          ? 'ts-text-red-900 ts-border-red-800 hover:ts-outline-none ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-100 hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-gray-100 active:ts-to-gray-light-500'
-          : 'ts-text-white ts-bg-gradient-to-b ts-appearance-none ts-from-blue-500 ts-to-blue-700 ts-border-blue-800 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-blue-400 hover:ts-to-blue-600 hover:ts-border-blue-700 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-blue-700 active:ts-to-blue-500 active:ts-border-blue-800 ts-transition-all'
+            ? 'ts-text-red-900 ts-border-red-800 hover:ts-outline-none ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-100 hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-gray-100 active:ts-to-gray-light-500'
+            : 'ts-text-white ts-bg-gradient-to-b ts-appearance-none ts-from-blue-500 ts-to-blue-700 ts-border-blue-800 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-blue-400 hover:ts-to-blue-600 hover:ts-border-blue-700 focus:ts-ring-2 focus:ts-ring-blue-700 active:ts-outline-none active:ts-bg-gradient-to-b active:ts-from-blue-700 active:ts-to-blue-500 active:ts-border-blue-800 ts-transition-all'
       } ${className}`}
       type={type}
       onClick={onClick}

@@ -24,6 +24,7 @@ const ApproveDisableModal: FC<Props> = ({
   return (
     <Modal
       showModal={showModal}
+      onClose={() => handleCancel(false)}
       footerContent={
         <div className="ts-flex ts-gap-2">
           <Button

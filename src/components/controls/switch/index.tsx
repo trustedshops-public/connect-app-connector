@@ -27,9 +27,9 @@ const Switch: FC<Props> = ({
         disabled && 'ts-opacity-25'
       }`}
     >
-      <div
+      <button
         id={`switch_button_${id}`}
-        className={`ts-w-switch ts-h-switch ts-flex ts-items-center ts-border ts-rounded-full ts-cursor-pointer
+        className={`ts-w-switch ts-h-switch ts-flex ts-items-center ts-border ts-rounded-full ts-cursor-pointer focus:ts-ring-3 focus:ts-ring-blue-700
         ${isToggle ? 'ts-bg-green-500 ts-border-green-600' : ' ts-bg-gray-100 ts-border-gray-200'} 
         ${disabled && 'ts-cursor-not-allowed'}`}
         onClick={() => {
@@ -41,7 +41,7 @@ const Switch: FC<Props> = ({
           className={`ts-bg-white ts--left-1 ts-h-5 ts-w-5 ts-border ts-border-gray-200 ts-rounded-full ts-shadow-switch ts-transform ts-duration-200 ts-ease-in-out
           ${isToggle ? 'ts-transform ts-translate-x-switch' : null}`}
         />
-      </div>
+      </button>
       <p id={`switch_label_${id}`} className="ts-text-sm ts-text-default">
         {isToggle ? labelOn : labelOff}
       </p>
