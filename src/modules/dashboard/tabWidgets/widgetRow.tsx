@@ -53,7 +53,7 @@ const PREVIEW_BY_APPLICATION_TYPE = {
   product_star: <PreviewMiniStars />,
   product_review_list: <PreviewReviewList />,
   review_carousel_service: <PreviewCarousel />,
-  trusted_stars_service: <PreviewTrustedStars />, 
+  trusted_stars_service: <PreviewTrustedStars />,
   testimonial_service: <PreviewCustomerVoice />,
   checkout_service: <PreviewTrustedCheckout />,
 }
