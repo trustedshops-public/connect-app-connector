@@ -180,7 +180,7 @@
       "contentType": {
         "productReviews": "Product reviews",
         "serviceReviews": "Service reviews",
-        "trustedCheckout": "Trust signals"
+        "trustedCheckout": "Buyer Protection"
       },
       "create": "+ Create a new widget",
       "description": "Use our widgets to offer your customers ratings at one glance and for in-depth insights. Get the best possible visibility by combining them with our Trustbadge.",
@@ -193,8 +193,8 @@
         "FullReviewList": "Full Review List",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Review Carousel",
-        "TrustedStars": "Trusted Stars",
-        "TrustedCheckout": "Trusted Checkout"
+        "TrustedCheckout": "Trusted Checkout",
+        "TrustedStars": "Trusted Stars"
       },
       "noWidgets": "You currently do not have any widgets for this channel, select another channel or create a new widget.",
       "popup": {

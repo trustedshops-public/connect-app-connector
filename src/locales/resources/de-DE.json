@@ -180,7 +180,7 @@
       "contentType": {
         "productReviews": "Produktbewertungen",
         "serviceReviews": "Servicebewertungen",
-        "trustedCheckout": "Vertrauenssignale"
+        "trustedCheckout": "Käuferschutz"
       },
       "create": "+ Erstelle ein neues Widget",
       "description": "Nutze unsere Widgets, um deinen Kunden einen umfassenden Überblick der Bewertungen zu bieten. Kombiniere die Widgets mit unserem Trustbadge, um die bestmögliche Sichtbarkeit zu erzielen.",
@@ -193,8 +193,8 @@
         "FullReviewList": "Bewertungsübersicht",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Bewertungs-Karussell",
-        "TrustedStars": "Trusted Stars",
-        "TrustedCheckout": "Trusted Checkout"
+        "TrustedCheckout": "Trusted Checkout",
+        "TrustedStars": "Trusted Stars"
       },
       "noWidgets": "Du hast derzeit keine Widgets für diesen Kanal, wähle einen anderen Kanal oder erstelle ein neues Widget.",
       "popup": {
