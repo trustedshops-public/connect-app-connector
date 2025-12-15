@@ -119,6 +119,7 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_name_ReviewCarousel: 'application.widgets.name.ReviewCarousel',
   application_widgets_name_TrustedStars: 'application.widgets.name.TrustedStars',
   application_widgets_name_CustomerVoice: 'application.widgets.name.customervoice',
+  application_widgets_name_TrustedCheckout: 'application.widgets.name.TrustedCheckout',
   application_widgets_contentType_productReviews: 'application.widgets.contentType.productReviews',
   application_widgets_contentType_serviceReviews: 'application.widgets.contentType.serviceReviews', 
   application_widgets_contentType_trustedCheckout: 'application.widgets.contentType.trustedCheckout',
