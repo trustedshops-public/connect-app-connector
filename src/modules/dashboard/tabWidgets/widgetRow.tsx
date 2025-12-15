@@ -11,6 +11,7 @@ import {
   PreviewMiniStars,
   PreviewReviewList,
   PreviewTrustedStars,
+  PreviewTrustedCheckout,
 } from './previewWidgets'
 import { IWidgetsChildren } from '@/baseLayers/types'
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -24,6 +25,7 @@ export enum Content {
   trusted_stars_service = 'Service reviews',
   review_carousel_service = 'Service reviews',
   testimonial_service = 'Service reviews',
+  checkout_service = 'Trusted Checkout'
 }
 
 enum ContentTranslate {
@@ -32,6 +34,7 @@ enum ContentTranslate {
   trusted_stars_service = 'application_widgets_contentType_serviceReviews',
   review_carousel_service = 'application_widgets_contentType_serviceReviews',
   testimonial_service = 'application_widgets_contentType_serviceReviews',
+  checkout_service = 'application_widgets_contentType_trustedCheckout',
 }
 
 enum ApplicationType {
@@ -40,6 +43,7 @@ enum ApplicationType {
   trusted_stars_service = 'application_widgets_name_TrustedStars',
   review_carousel_service = 'application_widgets_name_ReviewCarousel',
   testimonial_service = 'application_widgets_name_CustomerVoice',
+  checkout_service = 'application_widgets_name_TrustedCheckout',
 }
 
 const FULL_REVIEW_APPLICATION_TYPE = 'product_review_list'
@@ -49,8 +53,9 @@ const PREVIEW_BY_APPLICATION_TYPE = {
   product_star: <PreviewMiniStars />,
   product_review_list: <PreviewReviewList />,
   review_carousel_service: <PreviewCarousel />,
-  trusted_stars_service: <PreviewTrustedStars />,
+  trusted_stars_service: <PreviewTrustedStars />, 
   testimonial_service: <PreviewCustomerVoice />,
+  checkout_service: <PreviewTrustedCheckout />,
 }
 
 interface Props {
