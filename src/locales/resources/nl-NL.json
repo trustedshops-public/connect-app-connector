@@ -179,7 +179,8 @@
       "configuration": "Configuratie",
       "contentType": {
         "productReviews": "Productbeoordelingen",
-        "serviceReviews": "Servicebeoordelingen"
+        "serviceReviews": "Servicebeoordelingen",
+        "trustedCheckout": "Kopersbescherming"
       },
       "create": "+ Maak een nieuwe widget",
       "description": "Gebruik onze widgets om je klanten een uitgebreid overzicht van de beoordelingen te geven. Combineer de widgets met onze Trustbadge voor de best mogelijke zichtbaarheid.",
@@ -192,6 +193,7 @@
         "FullReviewList": "Full Review List",
         "MiniStars": "Mini Stars",
         "ReviewCarousel": "Review Carousel",
+        "TrustedCheckout": "Trusted Checkout",
         "TrustedStars": "Trusted Stars"
       },
       "noWidgets": "Op het moment heeft u geen widgets beschikbaar voor dit kanaal, gelieve een ander kanaal te kiezen of een nieuwe widget aan te maken.",
