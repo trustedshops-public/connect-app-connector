@@ -12,7 +12,7 @@ import tabIcon from '@/assets/widgets-tab-icon.svg'
 import { IWidgets } from '@/baseLayers/types'
 import { isEqual } from '@/utils'
 import useStore from '@/store/useStore'
-import { selectAllState, selectorAuth, selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
 import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
@@ -44,6 +44,8 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
   } = useStore(state => state.widgetState)
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const allowsTrustedCheckoutWidget = !!infoOfSystem?.allowsTrustedCheckoutWidget
   useEffect(() => {
     const widgetsChildrenFiltred = widgetsChildren.filter(
       (widget: WidgetChildren) => widget.widgetLocation?.id,
@@ -171,7 +173,12 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
                 {Array.isArray(widgetsChildren) &&
                   widgetsChildren.length > 0 &&
-                  widgetsChildren.map(widget => (
+                  widgetsChildren
+                    .filter(
+                      widget =>
+                        allowsTrustedCheckoutWidget || widget.applicationType !== 'checkout_service',
+                    )
+                    .map(widget => (
                     <WidgetRow
                       key={widget.widgetId}
                       widget={widget}
