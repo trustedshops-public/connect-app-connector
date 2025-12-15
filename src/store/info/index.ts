@@ -36,6 +36,11 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
       'allowsSupportWidgets'
     )
 
+    const isHasPropertyAllowsTrustedCheckoutWidget = Object.prototype.hasOwnProperty.call(
+      info,
+      'allowsTrustedCheckoutWidget'
+    )
+
     info = Object.prototype.hasOwnProperty.call(info, 'allowsSendReviewInvitesForPreviousOrders')
       ? {
           ...info,
@@ -48,6 +53,9 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
           }),
           ...(!isHasPropertyAllowsSupportWidgets && {
             allowsSupportWidgets: true,
+          }),
+          ...(!isHasPropertyAllowsTrustedCheckoutWidget && {
+            allowsTrustedCheckoutWidget: false,
           }),
         }
       : {
@@ -62,6 +70,9 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
           }),
           ...(!isHasPropertyAllowsSupportWidgets && {
             allowsSupportWidgets: true,
+          }),
+          ...(!isHasPropertyAllowsTrustedCheckoutWidget && {
+            allowsTrustedCheckoutWidget: false,
           }),
         }
 

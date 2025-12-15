@@ -13,6 +13,7 @@ import withLocalisation from '@/locales/withLocalisation'
 import { PHRASES_DASHBOARD_KEYS } from '@/locales/keys'
 import useStore from '@/store/useStore'
 import {
+  selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
   selectorNotificationStore,
@@ -23,6 +24,8 @@ import BackgroundCard from '@/components/layouts/backgroundCard'
 import ChannelSelectModal from './channelSelectModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -34,6 +37,21 @@ const DashboardPageModule: FC<{
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const { user } = useStore(selectorAuth)
+
+  const {
+    allowsEstimatedDeliveryDate,
+    allowsEventsByOrderStatus,
+    allowsSendReviewInvitesForPreviousOrders,
+    allowsSendReviewInvitesForProduct,
+    allowsSupportWidgets,
+  } = infoOfSystem
+
+  const displayReviewTab =
+    allowsEstimatedDeliveryDate ||
+    allowsEventsByOrderStatus ||
+    allowsSendReviewInvitesForPreviousOrders ||
+    allowsSendReviewInvitesForProduct
 
   const isVersionTwo =
     infoOfSystem.useVersionNumberOfConnector &&
@@ -90,6 +108,7 @@ const DashboardPageModule: FC<{
     setIsLoadingInvitesForProducts,
     getEventTypesFromApi,
     getEventTypesFromApi_v2,
+    setInitialOrderStatusByMapping,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -116,7 +135,7 @@ const DashboardPageModule: FC<{
         accountRef: selectedShopChannels.eTrustedAccountRef,
       })
       getWidgetsFromAPI()
-      setIsLoadingInvitesForProducts(true)
+      displayReviewTab && setIsLoadingInvitesForProducts(true)
 
       if (
         Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportWidgets') &&
@@ -148,7 +167,7 @@ const DashboardPageModule: FC<{
         })
       }
 
-      if (!isVersionTwo) {
+      if (displayReviewTab && !isVersionTwo) {
         // call EventTypes for v1
         if (
           Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
@@ -196,9 +215,9 @@ const DashboardPageModule: FC<{
         }
       }
 
-      if (isVersionTwo) {
+      if (displayReviewTab && isVersionTwo) {
         // call EventTypes for v2
-        if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate')) {
+        if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus')) {
           dispatchAction({
             action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
             payload: {
@@ -235,10 +254,20 @@ const DashboardPageModule: FC<{
       const mappedChannelsResult = getMappedChannels(shopChannels, channelsFromTSC)
 
       if (mappedChannelsResult.length === shopChannels.length) {
+        setSelectedChannels([...mappedChannelsResult])
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { auth, ...stateWithoutAuth } = useStore.getState()
         dispatchAction({
           action: EVENTS.SAVE_MAPPED_CHANNEL,
           payload: mappedChannelsResult,
         })
+        displayReviewTab && setInitialOrderStatusByMapping(mappedChannelsResult)
+        handleEtrustedConfiguration(
+          user?.access_token,
+          stateWithoutAuth,
+          'channelSelector',
+          putEtrustedConfiguration,
+        )
       } else {
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
@@ -249,19 +278,6 @@ const DashboardPageModule: FC<{
 
   useEffect(() => {
     if (!phrasesByKey) return
-    const {
-      allowsEstimatedDeliveryDate,
-      allowsEventsByOrderStatus,
-      allowsSendReviewInvitesForPreviousOrders,
-      allowsSendReviewInvitesForProduct,
-      allowsSupportWidgets,
-    } = infoOfSystem
-
-    const displayReviewTab =
-      allowsEstimatedDeliveryDate ||
-      allowsEventsByOrderStatus ||
-      allowsSendReviewInvitesForPreviousOrders ||
-      allowsSendReviewInvitesForProduct
 
     const tabs: ITabsConfig[] = [
       {
@@ -332,6 +348,7 @@ const DashboardPageModule: FC<{
                           {phrasesByKey.application_routes_channelSelector}
                         </label>
                         <Select
+                          testId={'channelSelection'}
                           id={'channelSelection'}
                           placeholder="Choose an option"
                           defaultValue={
@@ -341,6 +358,7 @@ const DashboardPageModule: FC<{
                         >
                           {mappedChannels.map(item => (
                             <Option
+                              testId={`channel_${item.eTrustedChannelRef}`}
                               id={`channel_${item.eTrustedChannelRef}`}
                               key={item.salesChannelRef}
                               value={item.salesChannelRef}

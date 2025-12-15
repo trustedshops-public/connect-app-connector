@@ -15,6 +15,7 @@ interface Props {
 const CreateWidgetPopup: FC<Props> = ({ channelRef, phrasesByKey, setOpenModal, modalIsOpen }) => (
   <Modal
     showModal={modalIsOpen}
+    onClose={() => setOpenModal(false)}
     footerContent={
       <div className="ts-flex ts-gap-2">
         <Button

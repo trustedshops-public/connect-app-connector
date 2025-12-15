@@ -11,6 +11,7 @@ import {
   PreviewMiniStars,
   PreviewReviewList,
   PreviewTrustedStars,
+  PreviewTrustedCheckout,
 } from './previewWidgets'
 import { IWidgetsChildren } from '@/baseLayers/types'
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -24,6 +25,7 @@ export enum Content {
   trusted_stars_service = 'Service reviews',
   review_carousel_service = 'Service reviews',
   testimonial_service = 'Service reviews',
+  checkout_service = 'Trusted Checkout'
 }
 
 enum ContentTranslate {
@@ -32,6 +34,7 @@ enum ContentTranslate {
   trusted_stars_service = 'application_widgets_contentType_serviceReviews',
   review_carousel_service = 'application_widgets_contentType_serviceReviews',
   testimonial_service = 'application_widgets_contentType_serviceReviews',
+  checkout_service = 'application_widgets_contentType_trustedCheckout',
 }
 
 enum ApplicationType {
@@ -40,6 +43,7 @@ enum ApplicationType {
   trusted_stars_service = 'application_widgets_name_TrustedStars',
   review_carousel_service = 'application_widgets_name_ReviewCarousel',
   testimonial_service = 'application_widgets_name_CustomerVoice',
+  checkout_service = 'application_widgets_name_TrustedCheckout',
 }
 
 const FULL_REVIEW_APPLICATION_TYPE = 'product_review_list'
@@ -51,6 +55,7 @@ const PREVIEW_BY_APPLICATION_TYPE = {
   review_carousel_service: <PreviewCarousel />,
   trusted_stars_service: <PreviewTrustedStars />,
   testimonial_service: <PreviewCustomerVoice />,
+  checkout_service: <PreviewTrustedCheckout />,
 }
 
 interface Props {
@@ -164,7 +169,7 @@ const WidgetRow: FC<Props> = ({
           </div>
         </div>
 
-        <div id={`widget_status_${widget.widgetId}`} className="ts-text-left ts-w-th2">
+        <div id={`widget_status_${widget.widgetId}`} className="ts-text-left ts-w-th2 ts-pr-2">
           {statusIntegrated ? (
             <Tag label={phrasesByKey.application_widgets_status_integrated} />
           ) : (
@@ -174,13 +179,15 @@ const WidgetRow: FC<Props> = ({
 
         <div
           id={`widget_content_${widget.widgetId}`}
-          className="ts-text-left ts-text-sm ts-text-default ts-w-th3"
+          className="ts-text-left ts-text-xxs ts-text-default ts-w-th3 ts-truncate"
+          title={phrasesByKey[ContentTranslate[widget.applicationType]]}
         >
           {phrasesByKey[ContentTranslate[widget.applicationType]]}
         </div>
 
         <div className="ts-text-left ts-w-th4 ">
           <Select
+            testId={`widgetLocation_${widget.widgetId}`}
             id={`widgetLocation_${widget.widgetId}`}
             isError={
               !widget.widgetLocation ||
@@ -195,6 +202,7 @@ const WidgetRow: FC<Props> = ({
             }
           >
             <Option
+              testId={`widgetLocation_deselect`}
               id={`widgetLocation_deselect`}
               value={'deselect'}
               changeSelectedOption={() => {
@@ -208,6 +216,7 @@ const WidgetRow: FC<Props> = ({
             </Option>
             {locationForThisWidget.map(option => (
               <Option
+                testId={`widgetLocation_${option.id}`}
                 id={`widgetLocation_${option.id}`}
                 key={option.id}
                 value={option.id}
@@ -251,6 +260,7 @@ const WidgetRow: FC<Props> = ({
             <label className="ts-text-sm">{phrasesByKey.application_widgets_productID}</label>
 
             <Select
+              testId={`productID_${widget.widgetId}`}
               id={`productID_${widget.widgetId}`}
               placeholder={phrasesByKey.global_placeholder_productid}
               defaultValue={defaultAttributeName}
@@ -259,6 +269,7 @@ const WidgetRow: FC<Props> = ({
             >
               {availableProducts.map(option => (
                 <Option
+                  testId={`productID_${option.id}`}
                   id={`productID_${option.id}`}
                   key={option.id}
                   value={option.id}

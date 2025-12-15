@@ -16,6 +16,8 @@ import {
   ReviewInvitesActionsStore_2,
 } from './types'
 import { EVENTS, dispatchAction } from '@/eventsLib'
+import { IMappedChannel } from '../channel/types'
+import { IUserInfo } from '../info/types'
 
 const defaultStatus = {
   name: CHECKOUT_TYPE,
@@ -23,13 +25,57 @@ const defaultStatus = {
   event_type: CHECKOUT_TYPE,
 }
 
+const handleDefaultOrderStatusUpdate = async (
+  element: IMappedChannel,
+  infoOfSystem: IUserInfo,
+  token: string,
+) => {
+  const eventTypes = await getEtrustedIEventType(element, infoOfSystem, token as string)
+  const inviteSettingsByChannel = await getEtrustedInviteSettings(
+    element,
+    infoOfSystem,
+    token as string,
+  )
+
+  inviteSettingsByChannel.forEach(invite => {
+    const eventType = eventTypes.find(event => event.id === invite.eventTypeId)
+    const isEnableProduct =
+      eventType?.name === defaultStatus.name && infoOfSystem.allowsSendReviewInvitesForProduct
+
+    const isEnableService = eventType?.name === defaultStatus.name
+
+    ;(async () => {
+      await patchInviteSettingsById(element, infoOfSystem, token as string, invite.id as string, {
+        enabled: true,
+        serviceInviteConfiguration: {
+          enabled: isEnableService,
+        },
+        productInviteConfiguration: {
+          enabled: isEnableProduct,
+        },
+      })
+    })()
+  })
+
+  dispatchAction({
+    action: EVENTS.SAVE_USED_ORDER_STATUSES,
+    payload: {
+      eTrustedChannelRef: element.eTrustedChannelRef,
+      salesChannelRef: element.salesChannelRef,
+      activeStatus: {
+        product: defaultStatus,
+        service: defaultStatus,
+      },
+    },
+  })
+}
+
 export const reviewInvitesActionsStore_v2 = (
   set: SetState<AppStore>,
-  get: GetState<AppStore>
+  get: GetState<AppStore>,
 ): ReviewInvitesActionsStore_2 => ({
   setAvailableOrderStatuses: (value: AvilableOrderStatusesType[]) => {
     const infoOfSystem = get().infoState.infoOfSystem
-
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
       .replace(/[^a-zA-Z0-9]/g, '_')
       .toLowerCase()
@@ -41,48 +87,96 @@ export const reviewInvitesActionsStore_v2 = (
           defaultStatus,
           ...value.map(item => ({
             ...item,
-            event_type: item.event_type || order_status_event_type,
+            ID: item?.ID?.toString(),
+            event_type: item?.event_type || order_status_event_type,
           })),
         ],
       },
     }))
   },
+  setInitialOrderStatusByMapping: (selectedChannels: IMappedChannel[]) => {
+    const token = get().auth.user?.access_token
+    const infoOfSystem = get().infoState.infoOfSystem
+    const initialSelectedChannels = get().channelState.initialSelectedChannels
+
+    selectedChannels.forEach(element => {
+      if (
+        initialSelectedChannels.some(
+          item =>
+            item.eTrustedChannelRef === element.eTrustedChannelRef &&
+            item.salesChannelRef === element.salesChannelRef,
+        )
+      ) {
+        return
+      }
+
+      (async () => {
+        await handleDefaultOrderStatusUpdate(element, infoOfSystem, token as string)
+      })()
+    })
+  },
+
   setUsedOrderStatuses: (value: PayloadUsedOrders) => {
     const infoOfSystem = get().infoState.infoOfSystem
-
+    const selectedShopChannel = get().channelState.selectedShopChannels
+    const token = get().auth.user?.access_token
     const order_status_event_type = `order_status_from_${infoOfSystem.nameOfSystem}`
+      .replace(/[^a-zA-Z0-9]/g, '_')
+      .toLowerCase()
+
+    if (
+      value.eTrustedChannelRef !== selectedShopChannel.eTrustedChannelRef ||
+      value.salesChannelRef !== selectedShopChannel.salesChannelRef
+    ) {
+      return
+    }
 
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
         selectedReviews: {
           product: {
-            ...value.activeStatus.product,
-            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.product || defaultStatus),
+            event_type:
+              value?.activeStatus?.product?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
-            ...value.activeStatus.service,
-            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.service || defaultStatus),
+            event_type:
+              value?.activeStatus?.service?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
         initialSelectedReviews: {
           product: {
-            ...value.activeStatus.product,
-            event_type: value.activeStatus.product?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.product || defaultStatus),
+            event_type:
+              value?.activeStatus?.product?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
           service: {
-            ...value.activeStatus.service,
-            event_type: value.activeStatus.service?.event_type || order_status_event_type,
+            ...(value?.activeStatus?.service || defaultStatus),
+            event_type:
+              value?.activeStatus?.service?.ID !== defaultStatus.ID
+                ? order_status_event_type
+                : defaultStatus.event_type,
           } as AvilableOrderStatusesType,
         },
       },
     }))
+
+    if (!value || !value.activeStatus) {
+      handleDefaultOrderStatusUpdate(selectedShopChannel, infoOfSystem, token as string)
+    }
   },
   getEventTypesFromApi_v2: async (): Promise<void> => {
     set(store => ({
       reviewInvitesState: {
         ...store.reviewInvitesState,
-        isLoading: true,
       },
     }))
     try {
@@ -93,12 +187,12 @@ export const reviewInvitesActionsStore_v2 = (
       const inviteSettingsByChannel = await getEtrustedInviteSettings(
         selectedShopChannel,
         infoOfSystem,
-        token as string
+        token as string,
       )
       const eventTypes = await getEtrustedIEventType(
         selectedShopChannel,
         infoOfSystem,
-        token as string
+        token as string,
       )
 
       set(store => ({
@@ -146,7 +240,6 @@ export const reviewInvitesActionsStore_v2 = (
           reviewInvitesState: {
             ...store.reviewInvitesState,
             // eventTypesAreLoadedFromAPI: true,
-            isLoading: true,
           },
         }))
         Promise.all(f).then(() => get().getEventTypesFromApi_v2())
@@ -154,15 +247,16 @@ export const reviewInvitesActionsStore_v2 = (
 
       const callPromise = async (
         inviteSettings: InviteSettingsByChannelType[],
-        newEventType?: EventType
+        newEventType?: EventType,
       ): Promise<void> => {
         promiseAllRequest(
           inviteSettings.map(async invite => {
             const eventType = (newEventType?.id ? [...eventTypes, newEventType] : eventTypes).find(
-              event => event.id === invite.eventTypeId
+              event => event.id === invite.eventTypeId,
             )
             const isEnableProduct =
-              eventType?.name === selectedReviewsProductType && info.allowsSendReviewInvitesForProduct
+              eventType?.name === selectedReviewsProductType &&
+              info.allowsSendReviewInvitesForProduct
 
             const isEnableService = eventType?.name === selectedReviewsServiceType
 
@@ -179,9 +273,9 @@ export const reviewInvitesActionsStore_v2 = (
                 productInviteConfiguration: {
                   enabled: isEnableProduct,
                 },
-              }
+              },
             )
-          })
+          }),
         )
       }
 
@@ -196,12 +290,15 @@ export const reviewInvitesActionsStore_v2 = (
         await patchInviteSettings(selectedShopChannel, info, token as string, eventType.id, body)
           .then(async () => {
             await getEtrustedInviteSettings(selectedShopChannel, info, token as string).then(
-              async responce => await callPromise(responce, eventType)
+              async responce => await callPromise(responce, eventType),
             )
           })
           .catch(err => {
-            // eslint-disable-next-line no-console
-            if (delay >= 8000) return console.error(err)
+            if (delay >= 8000) {
+              // eslint-disable-next-line no-console
+              console.error(err)
+              return
+            }
 
             setTimeout(() => {
               handlePatchInviteSetting(eventType)

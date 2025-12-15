@@ -27,8 +27,8 @@ const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab }) => {
             {tabs.map(({ name, id, isAvailable = true }) => {
               return (
                 isAvailable && (
-                  <li
-                    id={`tab_${name.replace(' ', '_')}`}
+                  <button
+                    id={`tab_${id}`}
                     key={id}
                     onClick={e => {
                       e.preventDefault()
@@ -42,7 +42,7 @@ const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab }) => {
                 } `}
                   >
                     {name}
-                  </li>
+                  </button>
                 )
               )
             })}

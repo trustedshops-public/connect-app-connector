@@ -5,7 +5,12 @@ import TextWithLink from '@/components/layouts/textWithLink'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import { Option, Select } from '@/components/controls/dropdown'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorReviewInvites } from '@/store/selector'
+import {
+  selectAllState,
+  selectorAuth,
+  selectorInfoOfSystem,
+  selectorReviewInvites,
+} from '@/store/selector'
 import { CHECKOUT_TYPE } from '@/store/reviewInvites/reviewInvitesSendActions'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
@@ -13,13 +18,21 @@ import { isEqual } from '@/utils'
 import infoIcon from '@/assets/settings-tab-warn-icon.svg'
 import warnIcon from '@/assets/warning-sign.svg'
 import timeIcon from '@/assets/invites-tab-time-icon.svg'
+import { IMappedChannel } from '@/baseLayers/types'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { putEtrustedConfiguration } from '@/api/api'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
   saveChanges: () => void
+  selectedShopChannels: IMappedChannel
 }
 
-const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) => {
+const SendReviewInvitesRightTime: FC<Props> = ({
+  phrasesByKey,
+  saveChanges,
+  selectedShopChannels,
+}) => {
   const { availableOrderStatusesAction, selectedReviews, initialSelectedReviews } =
     useStore(selectorReviewInvites)
   const { setSelectedReviews } = useStore()
@@ -27,6 +40,8 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
   const productlabelRef = useRef<HTMLLabelElement>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
 
   useEffect(() => {
     setIsButtonDisabled(isEqual(selectedReviews, initialSelectedReviews))
@@ -41,7 +56,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
   }
 
   const defaulServicetValue = capitalizeFirstLetter(
-    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || ''
+    availableOrderStatusesAction.find(i => i.ID === selectedReviews.service?.ID)?.name || '',
   )
 
   const defaulProductValue =
@@ -61,7 +76,6 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
     }
     adjustLabelWidth()
   }, [])
-
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -89,19 +103,30 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                   {phrasesByKey.application_invites_sendbyos_type_serviceReviews}
                 </label>
                 <Select
+                  testId={'channelSelection'}
                   id={'channelSelection'}
                   placeholder="Choose an option"
                   defaultValue={
                     defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
                   }
                   className="ts-w-[171px] ts-capitalize"
+                  disabled={!selectedShopChannels.eTrustedChannelRef}
                 >
                   {availableOrderStatusesAction.map(item => (
                     <Option
+                      testId={`channel`}
                       id={`channel`}
-                      key={item.ID}
+                      key={item?.ID}
                       value={'ID'}
-                      changeSelectedOption={() => setSelectedReviews({ service: item })}
+                      selected={item?.ID?.toString() === selectedReviews?.service?.ID?.toString()}
+                      disabled={
+                        item?.ID?.toString() !== selectedReviews?.product?.ID?.toString() &&
+                        item?.ID?.toString() !== CHECKOUT_TYPE &&
+                        selectedReviews?.product?.ID?.toString() !== CHECKOUT_TYPE
+                      }
+                      changeSelectedOption={() => {
+                        setSelectedReviews({ service: item })
+                      }}
                     >
                       <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
                         {item.name}
@@ -121,18 +146,27 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
                     {phrasesByKey.application_invites_sendbyos_type_productReviews}
                   </label>
                   <Select
+                    testId={'channelSelection'}
                     id={'channelSelection'}
                     placeholder="Choose an option"
                     defaultValue={
                       defaulProductValue.charAt(0).toUpperCase() + defaulProductValue.slice(1)
                     }
                     className="ts-w-[171px] ts-capitalize"
+                    disabled={!selectedShopChannels.eTrustedChannelRef}
                   >
                     {availableOrderStatusesAction.map(item => (
                       <Option
+                        testId={`channel`}
                         id={`channel`}
                         key={item.ID}
+                        selected={item?.ID?.toString() === selectedReviews?.product?.ID?.toString()}
                         value={'ID'}
+                        disabled={
+                          item?.ID?.toString() !== selectedReviews?.service?.ID?.toString() &&
+                          item?.ID?.toString() !== CHECKOUT_TYPE &&
+                          selectedReviews?.service?.ID?.toString() !== CHECKOUT_TYPE
+                        }
                         changeSelectedOption={() => setSelectedReviews({ product: item })}
                       >
                         <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
@@ -183,7 +217,15 @@ const SendReviewInvitesRightTime: FC<Props> = ({ phrasesByKey, saveChanges }) =>
           id={'saveReviewInvites'}
           label={phrasesByKey.global_button_save}
           theme={ButtonThemes.Primary}
-          onClick={saveChanges}
+          onClick={() => {
+            saveChanges()
+            handleEtrustedConfiguration(
+              user?.access_token,
+              allState,
+              'invites',
+              putEtrustedConfiguration,
+            )
+          }}
           disabled={isButtonDisabled}
         />
       </div>

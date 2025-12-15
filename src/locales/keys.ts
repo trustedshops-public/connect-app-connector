@@ -8,6 +8,7 @@ import {
   IWIDGETS_KEYS,
   ROUTES_KEYS,
   SETTINGS_KEYS,
+  SHOPIFY_GLOBAL_KEYS,
 } from './types'
 
 export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
@@ -37,6 +38,10 @@ export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
   global_jointcontrollership_url_1: 'global.jointcontrollership.url_1',
 }
 
+export const PHRASES_SHOPIFY_GLOBAL_KEYS: SHOPIFY_GLOBAL_KEYS = {
+  shopify_global_help_link_url_1: 'shopify.global.help.link.url_1',
+}
+
 export const PHRASES_AUTH_KEYS: AUTH_KEYS = {
   authentication_salesLink_text: 'authentication.salesLink.text',
   authentication_salesLink_url_1: 'authentication.salesLink.url_1',
@@ -53,6 +58,7 @@ export const PHRASES_AUTH_KEYS: AUTH_KEYS = {
   authentication_supporthelp_text: 'authentication.supporthelp.text',
   authentication_supporthelp_url_1: 'authentication.supporthelp.url_1',
   ...PHRASES_GLOBAL_KEYS,
+  ...PHRASES_SHOPIFY_GLOBAL_KEYS,
 }
 
 const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
@@ -113,8 +119,10 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_name_ReviewCarousel: 'application.widgets.name.ReviewCarousel',
   application_widgets_name_TrustedStars: 'application.widgets.name.TrustedStars',
   application_widgets_name_CustomerVoice: 'application.widgets.name.customervoice',
+  application_widgets_name_TrustedCheckout: 'application.widgets.name.TrustedCheckout',
   application_widgets_contentType_productReviews: 'application.widgets.contentType.productReviews',
-  application_widgets_contentType_serviceReviews: 'application.widgets.contentType.serviceReviews',
+  application_widgets_contentType_serviceReviews: 'application.widgets.contentType.serviceReviews', 
+  application_widgets_contentType_trustedCheckout: 'application.widgets.contentType.trustedCheckout',
 }
 
 export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
@@ -239,4 +247,5 @@ export const PHRASES_DASHBOARD_KEYS: DASHBOARD_KEYS = {
   ...PHRASES_CHANNEL_KEYS,
   ...PHRASES_ROUTES_KEYS,
   ...PHRASES_GLOBAL_KEYS,
+  ...PHRASES_SHOPIFY_GLOBAL_KEYS,
 }

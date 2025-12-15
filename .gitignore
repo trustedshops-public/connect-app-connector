@@ -7,7 +7,3 @@ dist-ssr
 .idea
 build
 demo-build
-.pabotsuitenames
-src/tests/results/
-src/tests/resources/scripts/local-env.sh
-__pycache__

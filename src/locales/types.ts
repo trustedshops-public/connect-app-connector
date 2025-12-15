@@ -291,6 +291,10 @@ export type GLOBAL_KEYS = {
   global_jointcontrollership_url_1: string
 }
 
+export type SHOPIFY_GLOBAL_KEYS = {
+  shopify_global_help_link_url_1: string
+}
+
 export type AUTH_KEYS = {
   authentication_salesLink_text: string
   authentication_salesLink_url_1: string
@@ -306,7 +310,8 @@ export type AUTH_KEYS = {
   authentication_button_submit: string
   authentication_supporthelp_text: string
   authentication_supporthelp_url_1: string
-} & GLOBAL_KEYS
+} & GLOBAL_KEYS &
+  SHOPIFY_GLOBAL_KEYS
 
 export type ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: string
@@ -364,8 +369,10 @@ export type IWIDGETS_KEYS = {
   application_widgets_name_ReviewCarousel: string
   application_widgets_name_TrustedStars: string
   application_widgets_name_CustomerVoice: string
+  application_widgets_name_TrustedCheckout: string
   application_widgets_contentType_productReviews: string
   application_widgets_contentType_serviceReviews: string
+  application_widgets_contentType_trustedCheckout: string
 }
 
 export type INVITES_KEYS = {
@@ -460,3 +467,5 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   IWIDGETS_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS
+
+export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets'

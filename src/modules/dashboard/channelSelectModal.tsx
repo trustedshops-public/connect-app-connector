@@ -8,7 +8,10 @@ import settingsImg from '@/assets/Feature_related_Settings.svg'
 import ChannelSelectionForm from './channelSelectionForm'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
-import { selectorChannels } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+
 
 interface Props {
   phrasesByKey: Nullable<DASHBOARD_KEYS>
@@ -17,8 +20,21 @@ interface Props {
 }
 
 const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }) => {
-  const { setIsLoadingSave } = useStore()
-  const { selectedChannels } = useStore(selectorChannels)
+  const {
+    setIsLoadingSave,
+    setInitialOrderStatusByMapping,
+    saveTrustbadgesAfterRemappingChannels,
+  } = useStore()
+  const { selectedChannels, initialSelectedChannels, } = useStore(selectorChannels)
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const displayReviewTab =
+    infoOfSystem.allowsEstimatedDeliveryDate ||
+    infoOfSystem.allowsEventsByOrderStatus ||
+    infoOfSystem.allowsSendReviewInvitesForPreviousOrders ||
+    infoOfSystem.allowsSendReviewInvitesForProduct
 
   const saveChannelsInBL = () => {
     setIsLoadingSave(true)
@@ -26,7 +42,26 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
       action: EVENTS.SAVE_MAPPED_CHANNEL,
       payload: selectedChannels,
     })
+    displayReviewTab && setInitialOrderStatusByMapping(selectedChannels)
     setShowModal(false)
+    selectedChannels.forEach(channel => {
+      if (
+        initialSelectedChannels.some(
+          item =>
+            item.eTrustedChannelRef === channel.eTrustedChannelRef &&
+            item.salesChannelRef === channel.salesChannelRef,
+        )
+      ) {
+        return
+      }
+      saveTrustbadgesAfterRemappingChannels(channel)
+    })
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      'channelSelector',
+      putEtrustedConfiguration,
+    )
   }
 
   return (

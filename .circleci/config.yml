@@ -1,10 +1,10 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.4.1
-  node: circleci/node@5.1.0
+  browser-tools: circleci/browser-tools@1.4.6
+  node: circleci/node@5.2.0
   cloudfront-s3-deploy: trustedshops-public/cloudfront-s3-deploy@3.0.0
-  semantic-release: trustedshops-public/semantic-release@5.1.0
+  semantic-release: trustedshops-public/semantic-release@6.0.0
   deterministic-zip: timo-reymann/deterministic-zip@1.0.0
 
 anchors:
@@ -41,10 +41,7 @@ commands:
 executors:
   node:
     docker:
-      - image: cimg/node:18.16-browsers
-  python:
-    docker:
-      - image: cimg/python:3.11.3-browsers
+      - image: cimg/node:21.5-browsers
 
 jobs:
   build_qa:
@@ -77,23 +74,31 @@ jobs:
       - build_prod
       - semantic-release/install
       - semantic-release/execute
-  test_e2e:
-    executor: python
+  trigger_automated_tests:
+    parameters:
+      environment:
+        type: enum
+        enum: ["QA", "PROD"]
+    docker:
+      - image: cimg/python:3.8  
     steps:
-      - attach_workspace:
-          at: .
-      - browser-tools/install-chrome
       - run:
-          name: Install dependencies
-          command: npm run test-install
-      - run:
-          name: Run tests
-          command: npm run test
-      - store_artifacts:
-          path: ./src/tests/results
-          destination: test-results
-      - store_test_results:
-          path: ./src/tests/results
+          name: Trigger << parameters.environment >> tests
+          command: |
+            response=$(curl -s -X POST https://circleci.com/api/v2/project/github/trustedshops/test-connect/pipeline \
+            --header "Circle-Token: $CIRCLE_CI_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data '{
+              "branch": "main",
+              "parameters": {
+                "development_trigger": true,
+                "shop_system": "all",
+                "environment": "<< parameters.environment >>"
+              }
+            }')
+
+            pipeline_number=$(echo "$response" | jq -r '.number')
+            echo "✅ Triggered pipeline: https://app.circleci.com/pipelines/github/trustedshops/test-connect/$pipeline_number"              
 
 workflows:
   version: 2
@@ -109,16 +114,9 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
-      - test_e2e:
-          requires:
-            - deploy_to_qa
-          context:
-            - connect-team
       - approve_semantic_release:
           <<: *filter_only_main
           type: approval
-          requires:
-            - test_e2e
       - semantic_release:
           <<: *filter_only_main
           requires:
@@ -134,6 +132,13 @@ workflows:
           aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
           requires:
             - build_qa
+      - trigger_automated_tests:
+          name: trigger_qa_tests
+          environment: QA
+          requires:
+            - deploy_to_qa
+          context:
+            - connect-team        
       - approve_deploy_to_prod:
           type: approval
           filters:
@@ -155,3 +160,15 @@ workflows:
               only: /.*/
             branches:
               ignore: /.*/
+      - trigger_automated_tests:
+          name: trigger_prod_tests
+          environment: PROD
+          requires:
+            - deploy_to_prod
+          context:
+            - connect-team  
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/          

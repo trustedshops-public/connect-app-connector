@@ -9,6 +9,7 @@ export interface IUserInfo {
   allowsEditIntegrationCode?: boolean
   allowsSupportWidgets?: boolean
   useVersionNumberOfConnector?: string
+  allowsTrustedCheckoutWidget?: boolean
 }
 
 export interface InfoState {

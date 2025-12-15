@@ -128,6 +128,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
 
     const INTERVAL = setInterval(() => {
       dispatchAction({ action: EVENTS.GET_INFORMATION_OF_SYSTEM, payload: null })
+      dispatchAction({ action: EVENTS.GET_LOCALE, payload: null })
     }, 2000)
 
     return () => {

@@ -9,6 +9,10 @@ import { IMappedChannel } from '@/baseLayers/types'
 import Button, { ButtonThemes } from '@/components/controls/buttun'
 import NumberInput from '@/components/controls/numberInput'
 import Switch from '@/components/controls/switch'
+import useStore from '@/store/useStore'
+import { selectAllState, selectorAuth } from '@/store/selector'
+import { ActionTypes, postEtrustedInteractions } from '@/api/api'
+import { handleEtrustedInteraction } from '@/utils/configurationDataHandler'
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -29,6 +33,8 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   isToggle,
   handleToggle,
 }) => {
+  const allState = useStore(selectAllState)
+  const { user } = useStore(selectorAuth)
   return (
     <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
       <div className="ts-w-full ts-flex ts-gap-8">
@@ -76,20 +82,29 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
                 setIsToggle={handleToggle}
                 switchWidth="ts-w-10"
               />
-              <p className="ts-text-default ts-text-sm ts-ml-2 ">{'Include product data'}</p>
+              <p className="ts-text-default ts-text-sm ts-ml-2 ">
+                {phrasesByKey.application_invites_sendbyos_export_productdata}
+              </p>
             </div>
 
             <Button
               id={'exportCSV'}
               label={phrasesByKey.application_invites_send_export_button}
               theme={ButtonThemes.Primary}
-              onClick={() =>
+              onClick={() => {
                 onExport({
                   id: selectedShopChannels?.eTrustedChannelRef,
                   salesChannelRef: selectedShopChannels.salesChannelRef,
                   includeProductData: isToggle,
                 })
-              }
+                handleEtrustedInteraction(
+                  user?.access_token,
+                  allState,
+                  ActionTypes.DATA_EXPORTED,
+                  'invites',
+                  postEtrustedInteractions,
+                )
+              }}
               disabled={!selectedShopChannels.eTrustedChannelRef}
             />
           </div>
