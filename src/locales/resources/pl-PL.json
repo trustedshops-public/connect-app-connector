@@ -180,7 +180,7 @@
       "contentType": {
         "productReviews": "Opinii o produktach",
         "serviceReviews": "Opinie dotyczące obsługi",
-        "trustedCheckout": "Trusted Checkout"
+        "trustedCheckout": "Trust signals"
       },
       "create": "+ Utwórz nowy widget",
       "description": "Skorzystaj z naszych widgetów, aby zapewnić swoim klientom kompleksowy przegląd opinii. Połącz widgety z naszym znakiem jakości Trustbadge, aby uzyskać jak najlepszą widoczność.",
@@ -193,7 +193,8 @@
         "FullReviewList": "Pełna lista opinii",
         "MiniStars": "Gwiazdki w wersji mini",
         "ReviewCarousel": "Karuzela z opiniami",
-        "TrustedStars": "Gwiazdki w wersji rozszerzonej\n"
+        "TrustedStars": "Gwiazdki w wersji rozszerzonej\n",
+        "TrustedCheckout": "Trusted Checkout"
       },
       "noWidgets": "Obecnie nie posiadasz żadnych widżetów dla tego kanału, wybierz inny kanał lub stwórz nowy widżet.",
       "popup": {

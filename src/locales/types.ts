@@ -369,6 +369,7 @@ export type IWIDGETS_KEYS = {
   application_widgets_name_ReviewCarousel: string
   application_widgets_name_TrustedStars: string
   application_widgets_name_CustomerVoice: string
+  application_widgets_name_TrustedCheckout: string
   application_widgets_contentType_productReviews: string
   application_widgets_contentType_serviceReviews: string
   application_widgets_contentType_trustedCheckout: string

@@ -180,7 +180,7 @@
       "contentType": {
         "productReviews": "Recensioni prodotto\n",
         "serviceReviews": "Recensioni servizio",
-        "trustedCheckout": "Trusted Checkout"
+        "trustedCheckout": "Trust signals"
       },
       "create": "+ Crea un nuovo widget",
       "description": "Utilizza i nostri widget per offrire ai tuoi e alle tue clienti una panoramica completa delle recensioni. Combina i widget con il nostro Trustbadge per ottenere la migliore visibilità possibile.",
@@ -193,7 +193,8 @@
         "FullReviewList": "Lista completa delle recensioni",
         "MiniStars": "Mini Stelle",
         "ReviewCarousel": "Carosello di recensioni",
-        "TrustedStars": "Stelle Trusted"
+        "TrustedStars": "Stelle Trusted",
+        "TrustedCheckout": "Trusted Checkout"
       },
       "noWidgets": "Attualmente non hai nessun widget per questo canale, seleziona un altro canale o crea un nuovo widget.",
       "popup": {

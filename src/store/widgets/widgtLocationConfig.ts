@@ -3,6 +3,7 @@ import { IWidgetLocation } from './types'
 export enum TypeReview {
   service = 'Service reviews',
   product = 'Product reviews',
+  checkout = 'Trusted Checkout',
 }
 
 export const WIDGET_LOCATIONS: IWidgetLocation[] = [
@@ -59,6 +60,6 @@ export const WIDGET_LOCATIONS: IWidgetLocation[] = [
     id: 'wdg-loc-cst',
     name: 'Custom',
     key: 'application_widgets_position_custom',
-    availableForType: [TypeReview.service, TypeReview.product],
+    availableForType: [TypeReview.service, TypeReview.product, TypeReview.checkout],
   },
 ]
