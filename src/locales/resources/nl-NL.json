@@ -179,7 +179,8 @@
       "configuration": "Configuratie",
       "contentType": {
         "productReviews": "Productbeoordelingen",
-        "serviceReviews": "Servicebeoordelingen"
+        "serviceReviews": "Servicebeoordelingen",
+        "trustedCheckout": "Trusted Checkout"
       },
       "create": "+ Maak een nieuwe widget",
       "description": "Gebruik onze widgets om je klanten een uitgebreid overzicht van de beoordelingen te geven. Combineer de widgets met onze Trustbadge voor de best mogelijke zichtbaarheid.",

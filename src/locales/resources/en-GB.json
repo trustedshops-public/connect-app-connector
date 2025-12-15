@@ -179,7 +179,8 @@
       "configuration": "Configuration",
       "contentType": {
         "productReviews": "Product reviews",
-        "serviceReviews": "Service reviews"
+        "serviceReviews": "Service reviews",
+        "trustedCheckout": "Trusted Checkout"
       },
       "create": "+ Create a new widget",
       "description": "Use our widgets to offer your customers ratings at one glance and for in-depth insights. Get the best possible visibility by combining them with our Trustbadge.",
