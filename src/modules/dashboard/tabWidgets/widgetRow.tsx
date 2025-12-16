@@ -6,6 +6,7 @@ import { EyeIcon, ChevronDownIconSolid } from '@/components/layouts/icons'
 import { Option, Select } from '@/components/controls/dropdown'
 import Tag from '@/components/controls/tag'
 import WidgetExtension from './widgetExtension'
+import { PreviewCustomerVoice } from './previewWidgets/previewCustomerVoice'
 import {
   PreviewCarousel,
   PreviewMiniStars,
@@ -17,7 +18,6 @@ import { IWidgetsChildren } from '@/baseLayers/types'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { IWidgetApi, IWidgetLocation } from '@/store/widgets/types'
 import useStore from '@/store/useStore'
-import { PreviewCustomerVoice } from './previewWidgets/previewCustomerVoice'
 
 export enum Content {
   product_star = 'Product reviews',
