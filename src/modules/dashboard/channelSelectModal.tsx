@@ -79,7 +79,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
         </div>
       }
     >
-      <div className="ts-font-sans ts-flex ts-w-max">
+      <div className="ts-font-sans ts-flex ts-w-max ts-max-h-[80vh] ts-overflow-y-auto">
         <span className="ts-w-20 ts-h-20">
           <img src={settingsImg} alt="settings" />
         </span>
