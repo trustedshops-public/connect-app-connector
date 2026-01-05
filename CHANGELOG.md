@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.0...1.19.1) (2026-01-05)
+
+
+### Bug Fixes
+
+* update ChannelSelectModal to improve overflow handling with max height ([b666096](https://github.com/trustedshops-public/connect-app-connector/commit/b66609658e7fb16a02fae8dff942bd996b0afdbc))
+
 ## [1.19.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.18.0...1.19.0) (2025-12-16)
 
 
