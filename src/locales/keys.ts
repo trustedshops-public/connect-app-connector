@@ -218,7 +218,8 @@ export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
   application_settings_disconnect_button: 'application.settings.disconnect.button',
   application_settings_disconnect_help_url_1: 'application.settings.disconnect.help.url_1',
   application_settings_disconnect_help_text: 'application.settings.disconnect.help.text',
-  application_settings_popup_text: 'application.settings.popup.text',
+  application_settings_disconnect_warning: 'application.settings.disconnect.warning',
+  application_settings_popup_text: 'application.settings.popup.text', 
   application_settings_popup_submit: 'application.settings.popup.submit',
   application_settings_popup_titel: 'application.settings.popup.titel',
 }

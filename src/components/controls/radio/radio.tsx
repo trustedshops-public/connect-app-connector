@@ -11,15 +11,17 @@ interface Props {
 }
 
 const Radio: FC<Props> = ({ value, id, disabled, children, customClass, onClick }) => {
+  const isSelected = value === id.toString()
+
   return (
     <button
       type="button"
       onClick={() => {
-        if (disabled || typeof onClick === 'undefined') return
-        onClick()
+        if (disabled) return
+        if (typeof onClick !== 'undefined') onClick()
       }}
-      className={`ts-flex ts-cursor-pointer ${customClass} ${
-        disabled && 'ts-opacity-25 ts-cursor-not-allowed'
+      className={`ts-flex ts-items-center ts-cursor-pointer ts-bg-transparent ts-border-0 ts-p-0 ts-text-left ${customClass || ''} ${
+        disabled ? 'ts-opacity-25 ts-cursor-not-allowed' : ''
       }`}
       id={id.toString()}
     >
@@ -27,22 +29,32 @@ const Radio: FC<Props> = ({ value, id, disabled, children, customClass, onClick 
 
       <div
         id={id.toString()}
-        className={`ts-flex ts-items-center ts-justify-center ts-h-[18px] ts-w-[18px] ts-rounded-full active:ts-bg-green-400 focus:ts-border-green-600
-            ${
-              value === id.toString()
-                ? 'ts-border ts-border-green-600 ts-bg-green-500'
-                : 'ts-border ts-border-gray-500'
-            }`}
+        className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
+        style={{
+          width: '20px',
+          height: '20px',
+          borderRadius: '50%',
+          border: isSelected ? '2px solid #155DFC' : '2px solid #D1D5DB',
+          backgroundColor: isSelected ? '#155DFC' : '#FFFFFF',
+          transition: 'all 0.15s ease',
+        }}
       >
-        <div
-          id={id.toString()}
-          className="ts-h-1/2 ts-w-1/2 ts-rounded-full ts-bg-white ts-m-auto"
-        />
+        {isSelected && (
+          <div
+            id={id.toString()}
+            style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: '#FFFFFF',
+            }}
+          />
+        )}
       </div>
 
       <label
         id={id.toString()}
-        className="ts-text-base ts-font-medium ts-text-default ts-ml-2 ts-block ts-cursor-pointer"
+        className="ts-font-medium ts-text-default ts-ml-3 ts-block ts-cursor-pointer"
       >
         {children}
       </label>

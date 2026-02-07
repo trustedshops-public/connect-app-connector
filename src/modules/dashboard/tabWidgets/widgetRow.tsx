@@ -120,14 +120,12 @@ const WidgetRow: FC<Props> = ({
   }, [widgetLocation, widget])
 
   useEffect(() => {
-    if (!widget || !widgetsFromAPI) return
-    const isDeleted = widgetsFromAPI.some(item => item.id === widget.widgetId)
+    if (!widget) return
 
     setStatusIntegrated(
       !!(
         widget.widgetLocation &&
         widget.widgetLocation.id &&
-        isDeleted &&
         (isProductReviewsWidget ? !!defaultAttributeName : true)
       )
     )
@@ -142,27 +140,45 @@ const WidgetRow: FC<Props> = ({
     updateWidgetLocation(widget.widgetId, { id: location.id, name: location.name })
   }
 
+  const getContentVariant = (): 'productReviews' | 'serviceReviews' | 'trustedCheckout' => {
+    const content = Content[widget.applicationType]
+    if (content === 'Trusted Checkout') return 'trustedCheckout'
+    if (content === 'Product reviews') return 'productReviews'
+    return 'serviceReviews'
+  }
+
   return (
     <div
       data-testid="widget_row"
-      className={`ts-border-b last:ts-border-b-0 ts-border-gray-500 ${
-        isOpen && 'ts-bg-backgroundCard'
+      className={`ts-border-b last:ts-border-b-0 ts-border-gray-100 ${
+        isOpen && 'ts-bg-gray-50'
       }`}
     >
-      <div className="ts-flex ts-items-center ts-px-6 ts-py-2">
-        <div className="ts-flex ts-items-center ts-text-left ts-w-th1">
+      <div className="ts-flex ts-items-center ts-px-6 ts-py-4">
+        <div className="ts-flex ts-items-center ts-gap-3 ts-text-left ts-w-th1">
           <Tooltip content={PREVIEW_BY_APPLICATION_TYPE[widget.applicationType]}>
-            <EyeIcon customClass="hover:ts-text-blue-700" />
+            <div
+              className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0 ts-cursor-pointer"
+              style={{
+                width: '48px',
+                height: '48px',
+                borderRadius: '14px',
+                backgroundColor: '#F5F5F5',
+              }}
+            >
+              <EyeIcon />
+            </div>
           </Tooltip>
 
           <div>
-            <p id={`widget_type_${widget.widgetId}`} className="ts-text-sm ts-text-default">
+            <p id={`widget_type_${widget.widgetId}`} className="ts-text-sm ts-font-bold ts-text-default">
               {phrasesByKey[ApplicationType[widget.applicationType]]}
             </p>
             <p
               id={`widget_id_${widget.widgetId}`}
               data-testid="widget_id"
               className="ts-text-xs ts-text-secondary"
+              style={{ fontSize: '11px', color: '#9CA3AF' }}
             >
               {widget.widgetId}
             </p>
@@ -179,10 +195,12 @@ const WidgetRow: FC<Props> = ({
 
         <div
           id={`widget_content_${widget.widgetId}`}
-          className="ts-text-left ts-text-xxs ts-text-default ts-w-th3 ts-truncate"
-          title={phrasesByKey[ContentTranslate[widget.applicationType]]}
+          className="ts-text-left ts-w-th3"
         >
-          {phrasesByKey[ContentTranslate[widget.applicationType]]}
+          <Tag
+            label={phrasesByKey[ContentTranslate[widget.applicationType]]}
+            variant={getContentVariant()}
+          />
         </div>
 
         <div className="ts-text-left ts-w-th4 ">
@@ -238,7 +256,7 @@ const WidgetRow: FC<Props> = ({
             <button
               id={`widget_expand_${widget.widgetId}`}
               onClick={() => setIsOpen(!isOpen)}
-              className="ts-flex ts-items-center ts-justify-center ts-w-6 ts-h-6 ts-border ts-rounded-full ts-border-gray-500 ts-cursor-pointer hover:ts-bg-gray-light-400"
+              className="ts-flex ts-items-center ts-justify-center ts-w-6 ts-h-6 ts-border ts-rounded-full ts-border-gray-200 ts-cursor-pointer ts-bg-white hover:ts-bg-gray-50"
             >
               <ChevronDownIconSolid
                 customClass={`"ts-fill-current ts-h-5 ts-w-5 ts-transform ${
