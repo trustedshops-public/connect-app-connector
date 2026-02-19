@@ -18,13 +18,14 @@ interface Props {
 const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab, renderContent = true }) => {
   return (
     <>
+      <style>{`#tabslist::-webkit-scrollbar { display: none; }`}</style>
       <div className="ts-flex ts-w-full ts-flex-wrap">
         <div className="ts-w-full">
           <ul
             id={`tabslist`}
-            className="ts-flex ts-w-full ts-gap-6 ts-pb-0"
+            className="ts-flex ts-w-full ts-gap-4 sm:ts-gap-6 ts-pb-0"
             role="tablist"
-            style={{ minHeight: '40px' }}
+            style={{ minHeight: '40px', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {tabs.map(({ name, id, isAvailable = true }) => {
               return (
@@ -36,7 +37,7 @@ const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab, renderContent = true }) =>
                       e.preventDefault()
                       setOpenTab(id)
                     }}
-                    className={`ts-text-sm ts-font-normal ts-px-1 ts-py-2 ts-flex ts-items-center ts-justify-center ts-cursor-pointer ts-bg-transparent ts-border-0 ts-border-b-2
+                    className={`ts-text-sm ts-font-normal ts-px-1 ts-py-2 ts-flex ts-items-center ts-justify-center ts-cursor-pointer ts-bg-transparent ts-border-0 ts-border-b-2 ts-whitespace-nowrap ts-flex-shrink-0
                 ${
                   id === openTab
                     ? 'ts-border-blue-700'

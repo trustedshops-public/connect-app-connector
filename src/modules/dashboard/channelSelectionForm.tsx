@@ -18,8 +18,8 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
 
   return (
     <div id="mapping_table" className="ts-relative ts-w-full">
-      {/* Column headers */}
-      <div className="ts-flex ts-items-center ts-py-3 ts-mb-2">
+      {/* Column headers - hidden on mobile */}
+      <div className="ts-hidden sm:ts-flex ts-items-center ts-py-3 ts-mb-2">
         <div className="ts-w-1/2">
           <p
             id={'shopsystem_title'}
@@ -42,14 +42,14 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
         </div>
       </div>
 
-      {/* Channel rows */}
+      {/* Channel rows - stack on mobile */}
       {shopChannels.map((elem, index) => (
         <div
           id={`mapping_row_${elem.id}`}
           key={elem.id}
-          className="ts-flex ts-items-center ts-py-4 ts-border-t ts-border-gray-100"
+          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-4 ts-border-t ts-border-gray-100 ts-gap-3 sm:ts-gap-0"
         >
-          <div className="ts-w-1/2">
+          <div className="sm:ts-w-1/2">
             <p
               id={`shopsystem_name_${elem.id}`}
               className="ts-text-default ts-font-normal ts-text-sm"
@@ -62,7 +62,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
               </p>
             )}
           </div>
-          <div className="ts-w-1/2">
+          <div className="sm:ts-w-1/2">
             <Select
               testId={`channelSelectionForm_${index}`}
               id={`channelSelectionForm_${elem.id}`}

@@ -13,6 +13,8 @@ import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } 
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
+import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
@@ -106,8 +108,8 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
         </div>
       ) : (
         <>
-          {/* Card 1: Widgets header */}
-          <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8">
+          {/* Widgets header - no card */}
+          <div className="ts-pb-2">
             <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
               {phrasesByKey.application_widgets_title}
             </h2>
@@ -118,9 +120,9 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
           {/* Card 2: Widget table */}
           <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md">
-            {/* Table header */}
+            {/* Table header - hidden on mobile */}
             <div
-              className="ts-flex ts-px-6 ts-items-center ts-w-full ts-py-3"
+              className="ts-hidden sm:ts-flex ts-px-6 ts-items-center ts-w-full ts-py-3"
               style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB', borderRadius: '16px 16px 0 0' }}
             >
               <p
@@ -178,7 +180,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
               ))}
 
             {/* Create new widget + Save */}
-            <div className="ts-flex ts-items-center ts-justify-between ts-px-6 ts-py-4">
+            <div className="ts-flex ts-flex-col sm:ts-flex-row ts-items-start sm:ts-items-center ts-justify-between ts-gap-3 sm:ts-gap-0 ts-px-4 sm:ts-px-6 ts-py-4">
               <button
                 id="button_openPopupCreateWidget"
                 data-testid="button_openPopupCreateWidget"
@@ -200,7 +202,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
                 className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
                 style={{
                   background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                  borderRadius: '8px',
+                  borderRadius: '4px',
                   height: '36px',
                 }}
               >
@@ -211,7 +213,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
           {/* Card 3: About Widgets */}
           <div
-            className="ts-rounded-[16px] ts-p-8"
+            className="ts-rounded-[16px] ts-shadow-md ts-p-4 sm:ts-p-8"
             style={{
               background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
               border: '1px solid #E5E7EB',
@@ -219,18 +221,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
           >
             <div className="ts-flex ts-items-start ts-gap-4">
               <div className="ts-flex-shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="40"
-                  viewBox="0 0 40 40"
-                  fill="none"
-                >
-                  <circle cx="20" cy="20" r="19" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1" />
-                  <circle cx="20" cy="20" r="8" stroke="#3B82F6" stroke-width="1.5" fill="none" />
-                  <path d="M20 17V20.5" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" />
-                  <circle cx="20" cy="23" r="0.75" fill="#3B82F6" />
-                </svg>
+                <HelpCircleIcon />
               </div>
               <div>
                 <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
@@ -247,11 +238,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
                   rel="noreferrer"
                 >
                   Open eTrusted Control Centre
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M7.5 1.5H10.5V4.5" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M5 7L10.5 1.5" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M9 6.5V9.5C9 9.76522 8.89464 10.0196 8.70711 10.2071C8.51957 10.3946 8.26522 10.5 8 10.5H2.5C2.23478 10.5 1.98043 10.3946 1.79289 10.2071C1.60536 10.0196 1.5 9.76522 1.5 9.5V4C1.5 3.73478 1.60536 3.48043 1.79289 3.29289C1.98043 3.10536 2.23478 3 2.5 3H5.5" stroke="#2563EB" stroke-linecap="round" stroke-linejoin="round" />
-                  </svg>
+                  <ExternalLinkIcon />
                 </a>
               </div>
             </div>

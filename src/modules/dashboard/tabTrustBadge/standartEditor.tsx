@@ -4,6 +4,8 @@ import { Option, Select } from '@/components/controls/dropdown'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import NumberInput from '@/components/controls/numberInput'
+import { DesktopMonitorIcon } from '@/components/layouts/icons/DesktopMonitorIcon'
+import { MobilePhoneIcon } from '@/components/layouts/icons/MobilePhoneIcon'
 import { PlacementDesktop, PlacementMobile } from './parseTrustbadgeData'
 
 interface Props {
@@ -31,11 +33,7 @@ const StandartEditor: FC<Props> = ({
       {/* Desktop section */}
       <div className="ts-mb-8">
         <div className="ts-flex ts-items-center ts-gap-2 ts-mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="1.5" y="2" width="13" height="9" rx="1" stroke="#374151" stroke-width="1.2" fill="none" />
-            <path d="M5.5 14H10.5" stroke="#374151" stroke-width="1.2" stroke-linecap="round" />
-            <path d="M8 11V14" stroke="#374151" stroke-width="1.2" stroke-linecap="round" />
-          </svg>
+          <DesktopMonitorIcon />
           <span className={`ts-text-sm ts-font-bold ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
             Desktop
           </span>
@@ -119,10 +117,7 @@ const StandartEditor: FC<Props> = ({
       {/* Mobile section */}
       <div>
         <div className="ts-flex ts-items-center ts-gap-2 ts-mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <rect x="3.5" y="1.5" width="9" height="13" rx="1.5" stroke="#374151" stroke-width="1.2" fill="none" />
-            <path d="M6.5 12.5H9.5" stroke="#374151" stroke-width="1.2" stroke-linecap="round" />
-          </svg>
+          <MobilePhoneIcon />
           <span className={`ts-text-sm ts-font-bold ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
             Mobile
           </span>

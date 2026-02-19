@@ -1,4 +1,7 @@
 import { h, Fragment } from 'preact'
+import { CodePackageIcon } from '@/components/layouts/icons/CodePackageIcon'
+import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
+import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
 import { FC, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
 // Radio selection is now handled inline with custom styled divs
@@ -293,10 +296,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
                           {value}
                           {id === 'expert' && (
                             <span className="ts-ml-2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ display: 'inline', verticalAlign: 'middle' }}>
-                                <path d="M4 1L2 3.5V10.5C2 10.7761 2.22386 11 2.5 11H9.5C9.77614 11 10 10.7761 10 10.5V3.5L8 1H4Z" stroke="#6B7280" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-                                <path d="M2 3.5H10" stroke="#6B7280" stroke-linecap="round" />
-                              </svg>
+                              <CodePackageIcon />
                             </span>
                           )}
                         </p>
@@ -352,7 +352,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
               className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
               style={{
                 background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                borderRadius: '8px',
+                borderRadius: '4px',
                 height: '40px',
               }}
             >
@@ -363,7 +363,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
         {/* Card 5: About the Trustbadge */}
         <div
-          className="ts-rounded-[16px] ts-p-8"
+          className="ts-rounded-[16px] ts-shadow-md ts-p-8"
           style={{
             background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
             border: '1px solid #E5E7EB',
@@ -371,12 +371,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         >
           <div className="ts-flex ts-items-start ts-gap-4">
             <div className="ts-flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none">
-                <circle cx="20" cy="20" r="19" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1" />
-                <circle cx="20" cy="20" r="8" stroke="#3B82F6" stroke-width="1.5" fill="none" />
-                <path d="M20 17V20.5" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" />
-                <circle cx="20" cy="23" r="0.75" fill="#3B82F6" />
-              </svg>
+              <HelpCircleIcon />
             </div>
             <div>
               <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
@@ -393,9 +388,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
                 rel="noreferrer"
               >
                 Learn more about Trustbadge
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                  <path d="M4.5 3L7.5 6L4.5 9" stroke="#2563EB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <ChevronRightSmallIcon />
               </a>
             </div>
           </div>

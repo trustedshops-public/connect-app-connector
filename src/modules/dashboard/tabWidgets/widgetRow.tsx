@@ -154,7 +154,8 @@ const WidgetRow: FC<Props> = ({
         isOpen && 'ts-bg-gray-50'
       }`}
     >
-      <div className="ts-flex ts-items-center ts-px-6 ts-py-4">
+      {/* Desktop row */}
+      <div className="ts-hidden sm:ts-flex ts-items-center ts-px-6 ts-py-4">
         <div className="ts-flex ts-items-center ts-gap-3 ts-text-left ts-w-th1">
           <Tooltip content={PREVIEW_BY_APPLICATION_TYPE[widget.applicationType]}>
             <div
@@ -268,8 +269,118 @@ const WidgetRow: FC<Props> = ({
         )}
       </div>
 
+      {/* Mobile card layout */}
+      <div className="sm:ts-hidden ts-px-4 ts-py-4" style={{ borderBottom: '1px solid #F3F4F6' }}>
+        <div className="ts-flex ts-items-center ts-gap-3 ts-mb-3">
+          <Tooltip content={PREVIEW_BY_APPLICATION_TYPE[widget.applicationType]}>
+            <div
+              className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0 ts-cursor-pointer"
+              style={{
+                width: '40px',
+                height: '40px',
+                borderRadius: '12px',
+                backgroundColor: '#F5F5F5',
+              }}
+            >
+              <EyeIcon />
+            </div>
+          </Tooltip>
+          <div className="ts-flex-1 ts-min-w-0">
+            <p className="ts-text-sm ts-font-bold ts-text-default ts-truncate">
+              {phrasesByKey[ApplicationType[widget.applicationType]]}
+            </p>
+            <p
+              className="ts-text-xs ts-text-secondary ts-truncate"
+              style={{ fontSize: '11px', color: '#9CA3AF' }}
+            >
+              {widget.widgetId}
+            </p>
+          </div>
+          {isProductReviewsWidget && (
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="ts-flex ts-items-center ts-justify-center ts-w-6 ts-h-6 ts-border ts-rounded-full ts-border-gray-200 ts-cursor-pointer ts-bg-white hover:ts-bg-gray-50 ts-flex-shrink-0"
+            >
+              <ChevronDownIconSolid
+                customClass={`"ts-fill-current ts-h-5 ts-w-5 ts-transform ${
+                  isOpen && 'ts--rotate-180'
+                } ts-transition ts-duration-150 ts-ease-in-out"`}
+              />
+            </button>
+          )}
+        </div>
+        <div className="ts-flex ts-flex-wrap ts-gap-2 ts-mb-3">
+          <div>
+            {statusIntegrated ? (
+              <Tag label={phrasesByKey.application_widgets_status_integrated} />
+            ) : (
+              <Tag isWarning={true} label={phrasesByKey.application_widgets_status_notIntegrated} />
+            )}
+          </div>
+          <div>
+            <Tag
+              label={phrasesByKey[ContentTranslate[widget.applicationType]]}
+              variant={getContentVariant()}
+            />
+          </div>
+        </div>
+        <div>
+          <p
+            className="ts-font-bold ts-mb-1"
+            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+          >
+            {phrasesByKey.application_widgets_table_header_4}
+          </p>
+          <Select
+            testId={`widgetLocation_mobile_${widget.widgetId}`}
+            id={`widgetLocation_mobile_${widget.widgetId}`}
+            isError={
+              !widget.widgetLocation ||
+              !widget.widgetLocation.id ||
+              !widgetLocation.some(prod => prod.id === widget.widgetLocation?.id)
+            }
+            placeholder={phrasesByKey.global_placeholder_location}
+            defaultValue={
+              phrasesByKey[
+                widgetLocation.find(loc => loc.id === widget.widgetLocation?.id)?.key as string
+              ] || widget.widgetLocation?.name
+            }
+          >
+            <Option
+              testId={`widgetLocation_mobile_deselect`}
+              id={`widgetLocation_mobile_deselect`}
+              value={'deselect'}
+              changeSelectedOption={() => {
+                isProductReviewsWidget && setIsOpen(true)
+                updateWidgetLocation(widget.widgetId, { id: '', name: '' })
+              }}
+            >
+              <p className="ts-m-2 ts-text-error ts-text-sm">
+                {phrasesByKey.global_placeholder_location}
+              </p>
+            </Option>
+            {locationForThisWidget.map(option => (
+              <Option
+                testId={`widgetLocation_mobile_${option.id}`}
+                id={`widgetLocation_mobile_${option.id}`}
+                key={option.id}
+                value={option.id}
+                selected={option.id === widget.widgetLocation?.id}
+                changeSelectedOption={() => {
+                  handleLocation(option)
+                }}
+              >
+                <p className="ts-m-2 ts-text-sm ts-text-default">
+                  {phrasesByKey[option.key as string] || option.name}
+                </p>
+              </Option>
+            ))}
+          </Select>
+        </div>
+      </div>
+
       {isOpen && isProductReviewsWidget && (
-        <div className="ts-flex ts-justify-between ts-p-6">
+        <div className="ts-flex ts-flex-col sm:ts-flex-row ts-justify-between ts-p-4 sm:ts-p-6">
           <div className="ts-w-60">
             <p className="ts-text-sm ts-font-bold ts-mb-3">
               {phrasesByKey.application_widgets_configuration}

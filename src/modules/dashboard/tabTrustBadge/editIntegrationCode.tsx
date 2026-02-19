@@ -4,6 +4,7 @@ import { getParsedTrustbadgeDataStrToObj } from './parseTrustbadgeData'
 import { isEqual } from '@/utils'
 import TextWithLink from '@/components/layouts/textWithLink'
 import { DASHBOARD_KEYS } from '@/locales/types'
+import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 
 interface Props {
@@ -70,11 +71,7 @@ const EditIntegrationCodeProps: FC<Props> = ({
           borderRadius: '10px',
         }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" className="ts-flex-shrink-0 ts-mt-0.5">
-          <circle cx="8" cy="8" r="6.5" stroke="#3B82F6" stroke-width="1.2" fill="none" />
-          <path d="M8 5.5V8.5" stroke="#3B82F6" stroke-width="1.2" stroke-linecap="round" />
-          <circle cx="8" cy="10.5" r="0.6" fill="#3B82F6" />
-        </svg>
+        <InfoCircleOutlinedIcon customClass="ts-flex-shrink-0 ts-mt-0.5" />
         <TextWithLink
           id={'trustbadge_expert_help'}
           url={phrasesByKey.application_trustbadge_expert_help_url_1}

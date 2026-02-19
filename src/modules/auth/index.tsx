@@ -10,6 +10,7 @@ import { AUTH_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectorAuth, selectorInfoOfSystem } from '@/store/selector'
 import LoginIllustration from '@/assets/login-section-illustration.svg'
+import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 
 type IFormLogin = Pick<IFormValues, 'clientId' | 'clientSecret'>
 
@@ -65,8 +66,8 @@ const LoginPageModule: FC<{
           </div>
         ) : (
           <>
-            <div className="ts-w-1/2 ts-flex ts-flex-col ts-min-h-screen">
-              <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-20">
+            <div className="ts-w-full sm:ts-w-1/2 ts-flex ts-flex-col ts-min-h-screen">
+              <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-5 sm:ts-px-20">
                 <div className="ts-w-full" style={{ maxWidth: '400px' }}>
                   <h1 className="ts-text-xl ts-font-bold ts-text-default ts-mb-8">
                     {phrasesByKey.authentication_credentials_connect_title}
@@ -150,22 +151,12 @@ const LoginPageModule: FC<{
                     style={{ color: '#024DF0' }}
                   >
                     {phrasesByKey.global_help_link_text}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12"
-                      viewBox="0 0 12 12"
-                      fill="none"
-                    >
-                      <path d="M7.5 1.5H10.5V4.5" stroke="#155DFC" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M5 7L10.5 1.5" stroke="#155DFC" stroke-linecap="round" stroke-linejoin="round" />
-                      <path d="M9 6.5V9.5C9 9.76522 8.89464 10.0196 8.70711 10.2071C8.51957 10.3946 8.26522 10.5 8 10.5H2.5C2.23478 10.5 1.98043 10.3946 1.79289 10.2071C1.60536 10.0196 1.5 9.76522 1.5 9.5V4C1.5 3.73478 1.60536 3.48043 1.79289 3.29289C1.98043 3.10536 2.23478 3 2.5 3H5.5" stroke="#155DFC" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
+                    <ExternalLinkIcon color="#155DFC" />
                   </a>
                 </div>
               </div>
 
-              <div className="ts-px-20 ts-py-6 ts-text-center">
+              <div className="ts-px-5 sm:ts-px-20 ts-py-6 ts-text-center">
                 {phrasesByKey && (
                   <TextWithLink
                     id={'copyright'}
@@ -178,7 +169,7 @@ const LoginPageModule: FC<{
               </div>
             </div>
        
-            <div className="ts-w-1/2 ts-min-h-screen">
+            <div className="ts-hidden sm:ts-block ts-w-1/2 ts-min-h-screen">
               <img
                 src={LoginIllustration}
                 alt="Trusted Shops Integration"

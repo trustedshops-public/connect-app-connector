@@ -26,6 +26,8 @@ import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import OverviewTab from './tabOverview/index'
+import { GearIcon } from '@/components/layouts/icons/GearIcon'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -54,9 +56,12 @@ const DashboardPageModule: FC<{
     allowsSendReviewInvitesForPreviousOrders ||
     allowsSendReviewInvitesForProduct
 
-  const isVersionTwo =
-    infoOfSystem.useVersionNumberOfConnector &&
-    AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
+  const isVersionTwo = true
+
+  const TrstdLoginTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabTrstdLogin/index')} />
+  )
+
   const TrustBadgeTab = (props: TabProps) => (
     <LazyLoading props={props} importComponent={() => import('./tabTrustBadge/index')} />
   )
@@ -273,23 +278,40 @@ const DashboardPageModule: FC<{
     }
   }, [channelsFromTSC, shopChannels])
 
+  const handleNavigateToTab = (tabId: number) => {
+    setShowSettings(false)
+    setOpenTab(tabId)
+  }
+
   useEffect(() => {
     if (!phrasesByKey) return
 
     const tabs: ITabsConfig[] = [
       {
         id: 0,
+        name: 'Overview',
+        component: (
+          <OverviewTab phrasesByKey={phrasesByKey} onNavigateToTab={handleNavigateToTab} />
+        ),
+      },
+      {
+        id: 1,
+        name: '#trstd login',
+        component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
+      },
+      {
+        id: 2,
         name: phrasesByKey.application_routes_trustbadge,
         component: <TrustBadgeTab phrasesByKey={phrasesByKey} />,
       },
       {
-        id: 1,
+        id: 3,
         name: phrasesByKey.application_routes_widgets,
         component: <WidgetTab phrasesByKey={phrasesByKey} />,
         isAvailable: allowsSupportWidgets,
       },
       {
-        id: 2,
+        id: 4,
         name: phrasesByKey.application_routes_invites,
         component: isVersionTwo ? (
           <ReviewInvitesTab_v2 phrasesByKey={phrasesByKey} />
@@ -329,10 +351,10 @@ const DashboardPageModule: FC<{
             ) : (
               <>
                 {/* Header bar - centered like tabs and content */}
-                <div className="ts-w-full ts-pt-8 ts-pb-6">
-                  <div className="ts-flex ts-items-center ts-justify-between ts-max-w-backgroundCard ts-mx-auto ts-px-8">
+                <div className="ts-w-full ts-pt-6 sm:ts-pt-8 ts-pb-4 sm:ts-pb-6">
+                  <div className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     {!showSettings && (
-                      <div className="ts-flex ts-items-center ts-gap-2">
+                      <div className="ts-flex ts-items-center ts-gap-2 ts-min-w-0">
                         <label
                           className={`${
                             !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-darkLabel'
@@ -377,23 +399,7 @@ const DashboardPageModule: FC<{
                         border: showSettings ? '1.5px solid #024DF0' : '1.5px solid transparent',
                       }}
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M6.586 2.586A2 2 0 0 1 8 2a2 2 0 0 1 1.414.586A2 2 0 0 1 10 4c0 .39-.112.773-.327 1.1l.007.007.32.32.32-.32A2 2 0 0 1 12 4a2 2 0 0 1 2 2 2 2 0 0 1-.586 1.414A2 2 0 0 1 12 8c-.39 0-.773-.112-1.1-.327l-.007.007-.32.32.32.32A2 2 0 0 1 12 10a2 2 0 0 1-2 2 2 2 0 0 1-1.414-.586A2 2 0 0 1 8 10c0-.39.112-.773.327-1.1l-.007-.007-.32-.32-.32.32A2 2 0 0 1 6 10a2 2 0 0 1-2-2c0-.553.224-1.053.586-1.414A2 2 0 0 1 6 6c.39 0 .773.112 1.1.327l.007-.007.32-.32-.32-.32A2 2 0 0 1 6 4a2 2 0 0 1 .586-1.414z"
-                          stroke="currentColor"
-                          stroke-width="1.2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          fill="none"
-                        />
-                        <circle cx="8" cy="8" r="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
-                      </svg>
+                      <GearIcon />
                       <span className="ts-text-sm ts-font-normal">
                         Channel mapping
                       </span>
@@ -403,7 +409,7 @@ const DashboardPageModule: FC<{
 
                 {/* Tabs bar - full width border, tabs centered */}
                 <div className="ts-w-full ts-border-b ts-border-gray-divider">
-                  <div className="ts-max-w-backgroundCard ts-mx-auto ts-px-8">
+                  <div className="ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     <Tabs
                       tabs={tabConfig}
                       openTab={showSettings ? -1 : openTab}
@@ -417,7 +423,7 @@ const DashboardPageModule: FC<{
                 </div>
 
                 {/* Content area - centered */}
-                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-8 ts-py-6">
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6">
                   {showSettings ? (
                     <SettingsTab phrasesByKey={phrasesByKey} />
                   ) : (
@@ -427,7 +433,10 @@ const DashboardPageModule: FC<{
                   )}
 
                   {!!toastList.length && <ToastList phrasesByKey={phrasesByKey} />}
+                </div>
 
+                {/* Footer - always rendered outside content area */}
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pb-6">
                   <div className="ts-flex ts-items-center ts-justify-center ts-mt-8">
                     {phrasesByKey && (
                       <TextWithLink
