@@ -19,7 +19,7 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
 
       {/* Empty state card */}
       <div
-        className="ts-bg-white ts-rounded-[16px] ts-p-8 ts-flex ts-flex-col ts-items-center ts-justify-center"
+        className="ts-bg-white ts-rounded-[14px] ts-p-8 ts-flex ts-flex-col ts-items-center ts-justify-center"
         style={{
           border: '1px solid #E5E7EB',
           minHeight: '240px',

@@ -37,13 +37,22 @@ const Tabs: FC<Props> = ({ openTab, tabs, setOpenTab, renderContent = true }) =>
                       e.preventDefault()
                       setOpenTab(id)
                     }}
-                    className={`ts-text-sm ts-font-normal ts-px-1 ts-py-2 ts-flex ts-items-center ts-justify-center ts-cursor-pointer ts-bg-transparent ts-border-0 ts-border-b-2 ts-whitespace-nowrap ts-flex-shrink-0
+                    className={`ts-px-1 ts-py-2 ts-flex ts-items-center ts-justify-center ts-cursor-pointer ts-bg-transparent ts-border-0 ts-border-b-2 ts-whitespace-nowrap ts-flex-shrink-0
                 ${
                   id === openTab
-                    ? 'ts-border-blue-700'
-                    : 'ts-text-secondary ts-border-transparent hover:ts-text-default'
+                    ? ''
+                    : 'ts-border-transparent'
                 } `}
-                    style={id === openTab ? { color: '#024DF0', borderBottomColor: '#024DF0' } : {}}
+                    style={{
+                      color: id === openTab ? '#155DFC' : '#4A5565',
+                      textAlign: 'center',
+                      fontSize: '14px',
+                      fontStyle: 'normal',
+                      fontWeight: 500,
+                      lineHeight: '20px',
+                      letterSpacing: '-0.15px',
+                      borderBottomColor: id === openTab ? '#155DFC' : 'transparent',
+                    }}
                   >
                     {name}
                   </button>

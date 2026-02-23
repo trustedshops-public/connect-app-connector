@@ -52,7 +52,7 @@ const CreateWidgetPopup: FC<Props> = ({ channelRef, phrasesByKey, setOpenModal, 
               <div
                 className="ts-bg-white"
                 style={{
-                  borderRadius: '16px',
+                  borderRadius: '14px',
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 }}
               >

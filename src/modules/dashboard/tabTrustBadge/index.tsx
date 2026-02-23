@@ -171,7 +171,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         <TrustBadgeSwitcher handleSwitch={handleSwitch} phrasesByKey={phrasesByKey} />
 
         {/* Card 2: Placement & Visibility */}
-        <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8">
+        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
           <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
             Placement & Visibility
           </h2>
@@ -241,7 +241,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
         {/* Card 3: Choose your integration settings */}
         {infoOfSystem.allowsEditIntegrationCode && (
-          <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8">
+          <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
             <h2 className={`ts-text-default ts-text-sm ts-font-bold ts-mb-1 ${isDisabled && 'ts-opacity-25'}`}>
               Choose your integration settings
             </h2>
@@ -314,7 +314,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         )}
 
         {/* Card 4: Placement settings / Edit code */}
-        <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8">
+        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
           {selectedOption === 'standard' ? (
             <>
               <h2 className={`ts-text-default ts-text-sm ts-font-bold ts-mb-1 ${isDisabled && 'ts-opacity-25'}`}>
@@ -352,7 +352,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
         {/* Card 5: About the Trustbadge */}
         <div
-          className="ts-rounded-[16px] ts-shadow-md ts-p-8"
+          className="ts-rounded-[14px] ts-shadow-md ts-p-8"
           style={{
             background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
             border: '1px solid #E5E7EB',

@@ -85,9 +85,8 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         {featureCards.map(card => (
           <div
             key={card.id}
-            className="ts-bg-white ts-rounded-[16px] ts-flex ts-flex-col sm:ts-flex-row"
+            className="ts-bg-white ts-rounded-[17.4px] ts-flex ts-flex-col sm:ts-flex-row"
             style={{
-              border: '1px solid #E5E7EB',
               overflow: 'hidden',
             }}
           >
@@ -168,7 +167,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       `}</style>
 
       <div
-        className="ts-rounded-[16px] ts-p-6 sm:ts-p-8"
+        className="ts-rounded-[14px] ts-p-6 sm:ts-p-8 ts-shadow-md"
         style={{
           background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
           border: '1px solid #E5E7EB',
