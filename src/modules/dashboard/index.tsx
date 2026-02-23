@@ -1,7 +1,7 @@
 import { Fragment, h } from 'preact'
 import { FC, Suspense, useEffect, useState } from 'preact/compat'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
-import Logo from '@/components/controls/logo'
+// Logo removed from dashboard header
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { Option, Select } from '@/components/controls/dropdown'
 import TextWithLink from '@/components/layouts/textWithLink'
@@ -20,12 +20,14 @@ import {
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-import BackgroundCard from '@/components/layouts/backgroundCard'
+// BackgroundCard removed from dashboard
 import ChannelSelectModal from './channelSelectModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import OverviewTab from './tabOverview/index'
+import { GearIcon } from '@/components/layouts/icons/GearIcon'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -33,6 +35,7 @@ const DashboardPageModule: FC<{
 }> = ({ setPhrasesByKey, phrasesByKey }) => {
   const [openTab, setOpenTab] = useState<number>(0)
   const [showModal, setShowModal] = useState<boolean>(false)
+  const [showSettings, setShowSettings] = useState<boolean>(false)
 
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
@@ -45,6 +48,7 @@ const DashboardPageModule: FC<{
     allowsSendReviewInvitesForPreviousOrders,
     allowsSendReviewInvitesForProduct,
     allowsSupportWidgets,
+    allowSupportTrstdLogin,
   } = infoOfSystem
 
   const displayReviewTab =
@@ -56,6 +60,11 @@ const DashboardPageModule: FC<{
   const isVersionTwo =
     infoOfSystem.useVersionNumberOfConnector &&
     AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
+
+  const TrstdLoginTab = (props: TabProps) => (
+    <LazyLoading props={props} importComponent={() => import('./tabTrstdLogin/index')} />
+  )
+
   const TrustBadgeTab = (props: TabProps) => (
     <LazyLoading props={props} importComponent={() => import('./tabTrustBadge/index')} />
   )
@@ -77,10 +86,6 @@ const DashboardPageModule: FC<{
 
   const SettingsTab = (props: TabProps) => (
     <LazyLoading props={props} importComponent={() => import('./tabSettings/index')} />
-  )
-
-  const InfoBox = (props: TabProps) => (
-    <LazyLoading props={props} importComponent={() => import('@/components/layouts/infoBox')} />
   )
 
   const {
@@ -276,23 +281,41 @@ const DashboardPageModule: FC<{
     }
   }, [channelsFromTSC, shopChannels])
 
+  const handleNavigateToTab = (tabId: number) => {
+    setShowSettings(false)
+    setOpenTab(tabId)
+  }
+
   useEffect(() => {
     if (!phrasesByKey) return
 
     const tabs: ITabsConfig[] = [
       {
         id: 0,
+        name: 'Overview',
+        component: (
+          <OverviewTab phrasesByKey={phrasesByKey} onNavigateToTab={handleNavigateToTab} />
+        ),
+      },
+      {
+        id: 1,
+        name: '#trstd login',
+        component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
+        isAvailable: allowSupportTrstdLogin,
+      },
+      {
+        id: 2,
         name: phrasesByKey.application_routes_trustbadge,
         component: <TrustBadgeTab phrasesByKey={phrasesByKey} />,
       },
       {
-        id: 1,
+        id: 3,
         name: phrasesByKey.application_routes_widgets,
         component: <WidgetTab phrasesByKey={phrasesByKey} />,
         isAvailable: allowsSupportWidgets,
       },
       {
-        id: 2,
+        id: 4,
         name: phrasesByKey.application_routes_invites,
         component: isVersionTwo ? (
           <ReviewInvitesTab_v2 phrasesByKey={phrasesByKey} />
@@ -300,11 +323,6 @@ const DashboardPageModule: FC<{
           <ReviewInvitesTab phrasesByKey={phrasesByKey} />
         ),
         isAvailable: displayReviewTab,
-      },
-      {
-        id: 3,
-        name: phrasesByKey.application_routes_settings,
-        component: <SettingsTab phrasesByKey={phrasesByKey} />,
       },
     ]
 
@@ -328,24 +346,25 @@ const DashboardPageModule: FC<{
         <Suspense fallback={<Spinner />}>
           <div
             id={'dashboard_wrapper'}
-            className="ts-flex ts-flex-col ts-font-sans ts-items-center ts-justify-center"
+            className="ts-flex ts-flex-col ts-font-sans ts-w-full"
           >
-            <BackgroundCard customClass="ts-p-8">
-              {isChannelsLoading ? (
-                <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-96">
-                  <Spinner />
-                </div>
-              ) : (
-                <>
-                  <div className="ts-relative ts-flex ts-items-center ts-justify-center ts-mb-8">
-                    {openTab !== 3 && (
-                      <div className="ts-absolute ts-left-0 ts-w-chanelSelected">
+            {isChannelsLoading ? (
+              <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-96">
+                <Spinner />
+              </div>
+            ) : (
+              <>
+                {/* Header bar - centered like tabs and content */}
+                <div className="ts-w-full ts-pt-6 sm:ts-pt-8 ts-pb-4 sm:ts-pb-6">
+                  <div className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
+                    {!showSettings && (
+                      <div className="ts-flex ts-items-center ts-gap-2 ts-min-w-0">
                         <label
                           className={`${
                             !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-darkLabel'
-                          }  ts-font-normal ts-text-sm`}
+                          } ts-font-normal ts-text-sm`}
                         >
-                          {phrasesByKey.application_routes_channelSelector}
+                          Channel
                         </label>
                         <Select
                           testId={'channelSelection'}
@@ -372,14 +391,56 @@ const DashboardPageModule: FC<{
                         </Select>
                       </div>
                     )}
-                    <Logo />
+                    {showSettings && <div />}
+                    <button
+                      id="button_channelMapping"
+                      data-testid="button_channelMapping"
+                      type="button"
+                      onClick={() => setShowSettings(true)}
+                      className="ts-flex ts-items-center ts-gap-1 ts-cursor-pointer ts-bg-transparent ts-px-4 ts-py-2 ts-rounded-full"
+                      style={{
+                        color: '#024DF0',
+                        border: showSettings ? '1.5px solid #024DF0' : '1.5px solid transparent',
+                      }}
+                    >
+                      <GearIcon />
+                      <span className="ts-text-sm ts-font-normal">
+                        Channel mapping
+                      </span>
+                    </button>
                   </div>
+                </div>
 
-                  <div className="ts-rounded ts-w-full ts-h-auto ts-relative">
-                    <Tabs tabs={tabConfig} openTab={openTab} setOpenTab={setOpenTab} />
-                    {!!toastList.length && <ToastList phrasesByKey={phrasesByKey} />}
+                {/* Tabs bar - full width border, tabs centered */}
+                <div className="ts-w-full ts-border-b ts-border-gray-divider">
+                  <div className="ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
+                    <Tabs
+                      tabs={tabConfig}
+                      openTab={showSettings ? -1 : openTab}
+                      setOpenTab={(id: number) => {
+                        setShowSettings(false)
+                        setOpenTab(id)
+                      }}
+                      renderContent={false}
+                    />
                   </div>
+                </div>
 
+                {/* Content area - centered */}
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6">
+                  {showSettings ? (
+                    <SettingsTab phrasesByKey={phrasesByKey} />
+                  ) : (
+                    <div className="ts-w-full">
+                      {tabConfig.find(item => item.id === openTab)?.component}
+                    </div>
+                  )}
+
+                  {!!toastList.length && <ToastList phrasesByKey={phrasesByKey} />}
+                </div>
+
+                {/* Footer - always rendered outside content area */}
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pb-6">
                   <div className="ts-flex ts-items-center ts-justify-center ts-mt-8">
                     {phrasesByKey && (
                       <TextWithLink
@@ -400,10 +461,9 @@ const DashboardPageModule: FC<{
                       />
                     )}
                   </div>
-                </>
-              )}
-            </BackgroundCard>
-            <InfoBox phrasesByKey={phrasesByKey} />
+                </div>
+              </>
+            )}
           </div>
           <ChannelSelectModal
             phrasesByKey={phrasesByKey}

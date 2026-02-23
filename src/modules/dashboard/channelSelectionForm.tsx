@@ -17,98 +17,97 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
   }
 
   return (
-    <div
-      id="mapping_table"
-      className="ts-relative ts-max-w-max ts-border ts-border-gray-500 ts-rounded"
-    >
-      <table className="ts-w-full">
-        <thead>
-          <tr>
-            <th className="ts-px-6 ts-py-4 ts-border-r ts-border-gray-500 ts-w-[220px]">
-              <p
-                id={'shopsystem_title'}
-                className="ts-text-default ts-font-bold ts-text-sm ts-text-left"
-              >
-                {phrasesByKey?.channelSelect_title_shopsystem.replace(
-                  '[%]shopsystem[%]',
-                  infoOfSystem.nameOfSystem,
-                )}
+    <div id="mapping_table" className="ts-relative ts-w-full">
+      {/* Column headers - hidden on mobile */}
+      <div className="ts-hidden sm:ts-flex ts-items-center ts-py-3 ts-mb-2">
+        <div className="ts-w-1/2">
+          <p
+            id={'shopsystem_title'}
+            className="ts-font-bold ts-text-left"
+            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+          >
+            {phrasesByKey?.channelSelect_title_shopsystem.replace(
+              '[%]shopsystem[%]',
+              infoOfSystem.nameOfSystem,
+            )}
+          </p>
+        </div>
+        <div className="ts-w-1/2">
+          <p
+            className="ts-font-bold ts-text-left"
+            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+          >
+            {phrasesByKey?.channelSelect_title_etrusted}
+          </p>
+        </div>
+      </div>
+
+      {/* Channel rows - stack on mobile */}
+      {shopChannels.map((elem, index) => (
+        <div
+          id={`mapping_row_${elem.id}`}
+          key={elem.id}
+          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-4 ts-border-t ts-border-gray-100 ts-gap-3 sm:ts-gap-0"
+        >
+          <div className="sm:ts-w-1/2">
+            <p
+              id={`shopsystem_name_${elem.id}`}
+              className="ts-text-default ts-font-normal ts-text-sm"
+            >
+              {elem.name}
+            </p>
+            {elem.url && (
+              <p className="ts-text-xs" style={{ color: '#9ca3af' }}>
+                {elem.url}
               </p>
-            </th>
-            <th className="ts-px-6 ts-py-4 ts-w-[220px]">
-              <p className="ts-text-default ts-font-bold ts-text-sm ts-text-left">
-                {phrasesByKey?.channelSelect_title_etrusted}
-              </p>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {shopChannels.map((elem, index) => (
-            <tr
-              id={`mapping_row_${elem.id}`}
-              key={elem.id}
-              className={
-                selectedChannels.some(item => item.salesChannelRef === elem.id)
-                  ? 'ts-bg-backgroundCard ts-border ts-border-blue-700 last:ts-rounded-b'
-                  : 'ts-border-t ts-border-gray-500 last:ts-border-b-0'
+            )}
+          </div>
+          <div className="sm:ts-w-1/2">
+            <Select
+              testId={`channelSelectionForm_${index}`}
+              id={`channelSelectionForm_${elem.id}`}
+              placeholder={phrasesByKey?.global_placeholder_channel}
+              defaultValue={
+                selectedChannels
+                  ? selectedChannels.find(item => item.salesChannelRef === elem.id)
+                      ?.eTrustedName
+                  : null
               }
             >
-              <td className="ts-border-r ts-border-gray-500 ts-px-6 ts-py-4 ts-w-[220px]">
-                <p
-                  id={`shopsystem_name_${elem.id}`}
-                  className="ts-text-default ts-font-normal ts-text-sm ts-text-left"
-                >
-                  {elem.name}
+              <Option
+                testId={`widgetLocation_deselect`}
+                id={`widgetLocation_deselect`}
+                value={'deselect'}
+                changeSelectedOption={() => onChangeChannel(elem, null)}
+              >
+                <p className="ts-m-2 ts-text-error ts-text-sm">
+                  {phrasesByKey?.global_placeholder_channel}
                 </p>
-              </td>
-              <td className="ts-px-6 ts-py-2 ts-w-[220px]">
-                <Select
-                  testId={`channelSelectionForm_${index}`}
-                  id={`channelSelectionForm_${elem.id}`}
-                  placeholder={phrasesByKey?.global_placeholder_channel}
-                  defaultValue={
-                    selectedChannels
-                      ? selectedChannels.find(item => item.salesChannelRef === elem.id)
-                          ?.eTrustedName
-                      : null
-                  }
+              </Option>
+              {channelsFromTSC.map((item, optionIndex) => (
+                <Option
+                  testId={`channel_${optionIndex}`}
+                  id={`channel_${item.id}`}
+                  key={item.id}
+                  value={item.id}
+                  selected={selectedChannels.some(
+                    chn =>
+                      chn.eTrustedChannelRef === item.id && chn.salesChannelRef === elem.id,
+                  )}
+                  changeSelectedOption={() => onChangeChannel(elem, item)}
                 >
-                  <Option
-                    testId={`widgetLocation_deselect`}
-                    id={`widgetLocation_deselect`}
-                    value={'deselect'}
-                    changeSelectedOption={() => onChangeChannel(elem, null)}
+                  <p
+                    id={`channel_name_${item.id}`}
+                    className="ts-m-2 ts-text-darkLabel ts-font-normal ts-text-sm ts-text-ellipsis ts-overflow-hidden"
                   >
-                    <p className="ts-m-2 ts-text-error ts-text-sm">
-                      {phrasesByKey?.global_placeholder_channel}
-                    </p>
-                  </Option>
-                  {channelsFromTSC.map((item, optionIndex) => (
-                    <Option
-                      testId={`channel_${optionIndex}`}
-                      id={`channel_${item.id}`}
-                      key={item.id}
-                      value={item.id}
-                      selected={selectedChannels.some(
-                        chn =>
-                          chn.eTrustedChannelRef === item.id && chn.salesChannelRef === elem.id,
-                      )}
-                      changeSelectedOption={() => onChangeChannel(elem, item)}
-                    >
-                      <p
-                        id={`channel_name_${item.id}`}
-                        className="ts-m-2 ts-text-darkLabel ts-font-normal ts-text-sm ts-text-ellipsis ts-overflow-hidden"
-                      >
-                        {item.name}
-                      </p>
-                    </Option>
-                  ))}
-                </Select>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                    {item.name}
+                  </p>
+                </Option>
+              ))}
+            </Select>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }

@@ -228,6 +228,7 @@ export interface IWidgets {
 interface ISettings {
   title: string
   channel: {
+    caution: string
     description: string
     title: string
   }
@@ -240,6 +241,7 @@ interface ISettings {
       url_1: string
     }
     title: string
+    warning: string
   }
 }
 
@@ -439,6 +441,7 @@ export type SETTINGS_KEYS = {
   application_settings_disconnect_button: string
   application_settings_disconnect_help_url_1: string
   application_settings_disconnect_help_text: string
+  application_settings_disconnect_warning: string
   application_settings_popup_text: string
   application_settings_popup_submit: string
   application_settings_popup_titel: string

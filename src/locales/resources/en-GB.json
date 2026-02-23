@@ -119,31 +119,33 @@
       "channelSelector": "Channel selected:",
       "invites": "Review invites",
       "settings": "Settings",
-      "trustbadge": "Trustbadge",
+      "trustbadge": "Trustbadge", 
       "widgets": "Widgets"
     },
     "settings": {
       "channel": {
-        "caution": "Be aware that the configuration made for your shop is deleted once you select a different eTrusted channel from the dropdown. ",
-        "description": "Connect your shops with your eTrusted channels.",
-        "title": "Channel settings"
+        "caution": "Changing channel mappings will reset any existing configuration for affected channels. Make sure to review your settings after saving changes.",
+        "description": "Match each [%]shopsystem[%] channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
+        "title": "Channel mapping"
       },
-      "description": "Manage your Trusted Shops Easy Integrations.",
+      "description": "Match each shop channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
       "disconnect": {
         "button": "Disconnect",
-        "description": "If you disconnect Trusted Shops from your shop system, your configuration choices will be deleted.",
+        "description": "Disconnecting will remove all Trusted Shops features from your shop and delete your configuration settings.",
         "help": {
-          "text": "Do you need assistance? [%s]Contact us[%s].",
+          "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our Help Center. [%s]Contact us[%s]",
           "url_1": "mailto:members@trustedshops.com"
         },
-        "title": "Disconnect Trusted Shops"
+        "title": "Disconnect integration",
+        "warning": "All your channel mappings, widget configurations, and active features will be removed. You will need to reconnect and reconfigure everything if you want to use Trusted Shops again.",
+        "warningText": "This action cannot be undone"
       },
       "popup": {
         "submit": "Disconnect",
         "text": "By clicking Disconnect, everything you have set up will be deleted. Restoring your settings is not possible.",
         "titel": "Are you sure you want to disconnect Trusted Shops from your shop system?"
       },
-      "title": "Settings"
+      "title": "Channel mapping"
     },
     "trustbadge": {
       "description": "The Trustbadge is Trusted Shops most recognisable signature and the best way to ensure trust. It is also essential to the activation of reviews and of the buyer protection.",
@@ -183,7 +185,7 @@
         "trustedCheckout": "Buyer Protection"
       },
       "create": "+ Create a new widget",
-      "description": "Use our widgets to offer your customers ratings at one glance and for in-depth insights. Get the best possible visibility by combining them with our Trustbadge.",
+      "description": "Show your stars, inspire trust. Display your Trusted Shops ratings and reviews across your website with customizable widgets that match your brand.",
       "extension": {
         "description": "The widget anchor appears under the product name and allows users to scroll down automatically to the main Full Review List widget.",
         "title": "Anchor widget extension (optional):"
@@ -231,12 +233,12 @@
         },
         "title": "Current widgets for {{ channel }}:"
       },
-      "title": "Widgets - show your stars, inspire trust"
+      "title": "Widgets"
     }
   },
   "authentication": {
     "button": {
-      "submit": "Connect"
+      "submit": "Start connection"
     },
     "client": "Client ID",
     "credentials": {
@@ -245,10 +247,10 @@
       },
       "help": {
         "button": {
-          "text": "Request",
+          "text": "Request Client ID & Secret",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "To connect your shop, you need a Client ID and a Client Secret.\n\nClient ID and Client Secret are not the same as your eTrusted login details.\n\nThat’s why you need to make a request.",
+        "text": "You can find both in the Trusted Shops Control Center.",
         "title": "Are you new here?"
       }
     },

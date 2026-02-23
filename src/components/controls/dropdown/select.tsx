@@ -192,12 +192,12 @@ const Select: FC<Props> = ({
     }
   }
 
-  const buttonClasses = `ts-flex ts-justify-between ts-items-center ts-h-8 ts-w-full ts-border-solid ts-border ts-rounded focus:ts-outline-none focus:ts-ring-2 focus:ts-ring-blue-800 focus:ts-border-transparent ts-pl-2 ts-pr-1
+  const buttonClasses = `ts-flex ts-justify-between ts-items-center ts-w-full ts-border-solid ts-border ts-pl-3 ts-pr-2 focus:ts-outline-none focus:ts-ring-2 focus:ts-ring-blue-800 focus:ts-border-transparent
     ${disabled ? 'ts-opacity-25 ts-cursor-not-allowed' : ''}
     ${
       isError
-        ? 'ts-bg-backgroundError ts-border-red-500'
-        : 'ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-100 ts-to-gray-light-200 ts-border-gray-border hover:ts-outline-none hover:ts-border-gray-400 hover:ts-bg-gradient-to-b hover:ts-appearance-none hover:ts-from-white hover:ts-to-gray-light-300'
+        ? 'ts-bg-backgroundError ts-border-red-500 ts-rounded'
+        : 'ts-bg-white ts-border-gray-100 hover:ts-border-gray-200 ts-rounded-[8px]'
     }`
 
   const listboxId = `listContainer_${id}`
@@ -219,6 +219,7 @@ const Select: FC<Props> = ({
         onKeyDown={onButtonKeyDown}
         disabled={disabled}
         className={buttonClasses}
+        style={{ height: '36px', minWidth: '160px' }}
       >
         <p
           id={`selectValue_${id}`}
@@ -235,7 +236,7 @@ const Select: FC<Props> = ({
       </button>
 
       {isOpen && (
-        <div className="ts-absolute ts-w-full ts-bg-white ts-border ts-rounded ts-max-h-80 ts-overflow-auto ts-shadow-md ts-z-10">
+        <div className="ts-absolute ts-w-full ts-bg-white ts-border ts-rounded-[8px] ts-max-h-80 ts-overflow-auto ts-shadow-md ts-z-10 ts-mt-1">
           <ul
             id={listboxId}
             data-testid={`listContainer_${testId}`}

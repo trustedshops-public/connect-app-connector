@@ -67,6 +67,7 @@ type InputProps = {
   customClass?: string
   iconAfterLabel?: VNode
   id?: string
+  placeholder?: string
 }
 
 const handleInputChange = (e: { target: { value: string } }) => {
@@ -86,6 +87,7 @@ export const InputH: FC<InputProps> = ({
   customClass,
   iconAfterLabel,
   id,
+  placeholder,
 }) => (
   <label
     id={`input_Wrapper_${id}`}
@@ -105,6 +107,7 @@ export const InputH: FC<InputProps> = ({
       data-testid={`input_${id}`}
       type={type}
       disabled={disabled}
+      placeholder={placeholder}
       {...register(registerName, { required, onChange: handleInputChange })}
       className={`ts-shadow-input ts-text-sm ts-border-gray-border ts-rounded ts-h-8 ts-p-2 ts-mt-1 disabled:ts-bg-gradient-to-b disabled:ts-appearance-none disabled:ts-from-gray-light-400 disabled:ts-to-gray-light-400 disabled:ts-text-secondary disabled:ts-text-opacity-50 disabled:ts-border-gray-600 disabled:ts-cursor-not-allowed
                 ${customClass && customClass}

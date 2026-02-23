@@ -1,11 +1,10 @@
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 import { FC } from 'preact/compat'
-import Button, { ButtonThemes } from '@/components/controls/buttun'
-import Modal from '@/components/layouts/modal'
+import { useEffect, useRef } from 'preact/hooks'
 import { dispatchAction, EVENTS } from '@/eventsLib'
-import settingsImg from '@/assets/Feature_related_Settings.svg'
 
 import ChannelSelectionForm from './channelSelectionForm'
+import StyledButton from '@/components/controls/styledButton'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
@@ -20,12 +19,13 @@ interface Props {
 }
 
 const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }) => {
+  const modalRef = useRef<HTMLDivElement>(null)
   const {
     setIsLoadingSave,
     setInitialOrderStatusByMapping,
     saveTrustbadgesAfterRemappingChannels,
   } = useStore()
-  const { selectedChannels, initialSelectedChannels, } = useStore(selectorChannels)
+  const { selectedChannels, initialSelectedChannels } = useStore(selectorChannels)
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
@@ -35,6 +35,12 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
     infoOfSystem.allowsEventsByOrderStatus ||
     infoOfSystem.allowsSendReviewInvitesForPreviousOrders ||
     infoOfSystem.allowsSendReviewInvitesForProduct
+
+  useEffect(() => {
+    if (showModal && modalRef.current) {
+      modalRef.current.focus()
+    }
+  }, [showModal])
 
   const saveChannelsInBL = () => {
     setIsLoadingSave(true)
@@ -65,36 +71,66 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
   }
 
   return (
-    <Modal
-      showModal={showModal}
-      footerContent={
-        <div className="ts-flex ts-gap-2">
-          <Button
-            id={'saveChannelsModal'}
-            label={phrasesByKey && phrasesByKey.channelSelect_submit}
-            theme={ButtonThemes.Primary}
-            disabled={!selectedChannels.length}
-            onClick={() => saveChannelsInBL()}
-          />
-        </div>
-      }
-    >
-      <div className="ts-font-sans ts-flex ts-w-max ts-max-h-[80vh] ts-overflow-y-auto">
-        <span className="ts-w-20 ts-h-20">
-          <img src={settingsImg} alt="settings" />
-        </span>
-        <div className="ts-ml-8">
-          <p className="ts-mb-8 ts-text-default ts-text-md ts-font-bold">
-            {phrasesByKey?.channelSelect_titel}
-          </p>
+    <Fragment>
+      {showModal && (
+        <Fragment>
+          <div
+            ref={modalRef}
+            tabIndex={-1}
+            role="dialog"
+            aria-modal="true"
+            className="ts-justify-center ts-items-center ts-flex ts-overflow-x-hidden ts-overflow-y-auto ts-fixed ts-inset-0 ts-z-50 ts-outline-none focus:ts-outline-none ts-font-sans"
+          >
+            <div
+              className="ts-relative ts-w-full ts-mx-4 ts-my-4 sm:ts-mx-auto sm:ts-my-0"
+              style={{ maxWidth: '600px' }}
+            >
+              <div
+                className="ts-bg-white"
+                style={{
+                  borderRadius: '16px',
+                  boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+                }}
+              >
+                <div className="ts-p-5 sm:ts-p-10">
+                  <h2
+                    className="ts-text-default ts-font-bold ts-mb-2"
+                    style={{ fontSize: '20px', lineHeight: '28px' }}
+                  >
+                    {phrasesByKey?.channelSelect_titel}
+                  </h2>
+                  <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
+                    Assigning a channel to each shop in your shop system ensures reviews are collected for the right URL.
+                  </p>
 
-          <ChannelSelectionForm phrasesByKey={phrasesByKey} />
-          <p className="ts-text-default ts-text-sm ts-font-normal ts-mt-6">
-            {phrasesByKey?.channelSelect_info}
-          </p>
-        </div>
-      </div>
-    </Modal>
+                  <ChannelSelectionForm phrasesByKey={phrasesByKey} />
+
+                  <StyledButton
+                    id="saveChannelsModal"
+                    variant="primary"
+                    fullWidth
+                    height={44}
+                    disabled={!selectedChannels.length}
+                    onClick={() => saveChannelsInBL()}
+                    className="ts-mt-6"
+                  >
+                    {phrasesByKey?.channelSelect_submit}
+                  </StyledButton>
+
+                  <p
+                    className="ts-text-sm ts-font-normal ts-mt-4 ts-text-center"
+                    style={{ color: '#9CA3AF' }}
+                  >
+                    {phrasesByKey?.channelSelect_info}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+        </Fragment>
+      )}
+    </Fragment>
   )
 }
 
