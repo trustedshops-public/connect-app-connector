@@ -11,6 +11,7 @@ import useStore from '@/store/useStore'
 import { selectorAuth, selectorInfoOfSystem } from '@/store/selector'
 import LoginIllustration from '@/assets/login-section-illustration.svg'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
+import StyledButton from '@/components/controls/styledButton'
 
 type IFormLogin = Pick<IFormValues, 'clientId' | 'clientSecret'>
 
@@ -59,14 +60,14 @@ const LoginPageModule: FC<{
 
   return (
     phrasesByKey && (
-      <div className="ts-font-sans ts-flex ts-min-h-screen ts-bg-white">
+      <div className="ts-font-sans ts-flex ts-min-h-screen sm:ts-h-screen sm:ts-overflow-hidden ts-bg-white">
         {isAuthLoading ? (
-          <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-min-h-screen ts-w-full">
+          <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-full ts-w-full">
             <Spinner />
           </div>
         ) : (
           <>
-            <div className="ts-w-full sm:ts-w-1/2 ts-flex ts-flex-col ts-min-h-screen">
+            <div className="ts-w-full sm:ts-w-1/2 ts-flex ts-flex-col ts-min-h-screen sm:ts-h-screen sm:ts-overflow-y-auto">
               <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-5 sm:ts-px-20">
                 <div className="ts-w-full" style={{ maxWidth: '400px' }}>
                   <h1 className="ts-text-xl ts-font-bold ts-text-default ts-mb-8">
@@ -124,19 +125,9 @@ const LoginPageModule: FC<{
                       {phrasesByKey.authentication_credentials_help_button_text} &rarr;
                     </a>
 
-                    <button
-                      id="button_credentialsSubmit"
-                      data-testid="button_credentialsSubmit"
-                      type="submit"
-                      className="ts-w-full ts-text-white ts-py-3 ts-font-bold ts-text-base ts-cursor-pointer ts-transition-all ts-border-0 ts-mb-8"
-                      style={{
-                        height: '48px',
-                        borderRadius: '4px',
-                        background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                      }}
-                    >
+                    <StyledButton id="credentialsSubmit" variant="primary" type="submit" fullWidth height={48} className="ts-mb-8">
                       {phrasesByKey.authentication_button_submit}
-                    </button>
+                    </StyledButton>
                   </form>
 
                   <p className="ts-text-sm ts-text-default ts-mb-1">
@@ -169,7 +160,7 @@ const LoginPageModule: FC<{
               </div>
             </div>
        
-            <div className="ts-hidden sm:ts-block ts-w-1/2 ts-min-h-screen">
+            <div className="ts-hidden sm:ts-block ts-w-1/2 sm:ts-h-screen">
               <img
                 src={LoginIllustration}
                 alt="Trusted Shops Integration"

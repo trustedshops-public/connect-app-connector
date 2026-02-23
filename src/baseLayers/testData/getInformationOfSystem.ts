@@ -25,6 +25,8 @@ export const getInformationOfSystem = (
         allowsEstimatedDeliveryDate: true,
         allowsEventsByOrderStatus: true,
         allowsSendReviewInvitesForPreviousOrders: true,
+        useVersionNumberOfConnector: '2.0',
+        allowSupportTrstdLogin: true,
       }
     case 'no_value':
       return {}

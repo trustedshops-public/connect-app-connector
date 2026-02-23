@@ -2,11 +2,12 @@ import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import useStore from '@/store/useStore'
-import { selectorTrustbadgeState } from '@/store/selector'
+import { selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
 import TrstdLoginOverview from '@/assets/trstd-login-overview.svg'
 import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
 import ReviewInvitesOverview from '@/assets/review-invites-overview.svg'
+import StyledButton from '@/components/controls/styledButton'
 import { ActiveStatusIcon } from '@/components/layouts/icons/ActiveStatusIcon'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
@@ -17,6 +18,8 @@ interface OverviewTabProps extends TabProps {
 
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const { allowSupportTrstdLogin } = infoOfSystem
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -25,7 +28,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       : false
 
   const featureCards = [
-    {
+    ...(allowSupportTrstdLogin ? [{
       id: 'trstd-login',
       tabId: 1,
       title: '#trstd login',
@@ -35,7 +38,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       isActive: false,
       buttonLabel: 'Configure',
       buttonVariant: 'outlined' as const,
-    },
+    }] : []),
     {
       id: 'trustbadge',
       tabId: 2,
@@ -71,7 +74,6 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
 
   return (
     <div className="ts-flex ts-flex-col ts-gap-6">
-      {/* Feature cards grid - 2 columns on desktop, 1 on mobile */}
       <div
         style={{
           display: 'grid',
@@ -89,7 +91,6 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
               overflow: 'hidden',
             }}
           >
-            {/* Illustration - left side on desktop, top on mobile */}
             <div
               className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
               style={{
@@ -104,7 +105,6 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
               />
             </div>
 
-            {/* Content - right side */}
             <div className="ts-p-5 ts-flex-1 ts-flex ts-flex-col">
               <div className="ts-flex ts-items-start ts-justify-between ts-mb-2">
                 <h3
@@ -147,38 +147,18 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
               </p>
 
               <div className="ts-mt-auto">
-                <button
-                  type="button"
+                <StyledButton
+                  variant={card.buttonVariant === 'filled' ? 'primary' : 'outlined'}
                   onClick={() => onNavigateToTab(card.tabId)}
-                  className="ts-text-sm ts-font-bold ts-cursor-pointer ts-border-0"
-                  style={
-                    card.buttonVariant === 'filled'
-                      ? {
-                          color: '#FFFFFF',
-                          background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                          borderRadius: '4px',
-                          padding: '8px 24px',
-                          height: '36px',
-                        }
-                      : {
-                          color: '#005aa0',
-                          background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 9%, #E8E8E8 100%)',
-                          border: '1px solid #D1D5DB',
-                          borderRadius: '4px',
-                          padding: '8px 24px',
-                          height: '36px',
-                        }
-                  }
                 >
                   {card.buttonLabel}
-                </button>
+                </StyledButton>
               </div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Responsive grid style */}
       <style>{`
         @media (max-width: 639px) {
           .overview-grid {
@@ -187,7 +167,6 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         }
       `}</style>
 
-      {/* Need help card */}
       <div
         className="ts-rounded-[16px] ts-p-6 sm:ts-p-8"
         style={{
@@ -196,8 +175,11 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         }}
       >
         <div className="ts-flex ts-items-start ts-gap-4">
-          <div className="ts-flex-shrink-0">
-            <HelpCircleIcon />
+          <div
+            className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+            style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
+          >
+            <HelpCircleIcon customClass="ts-text-blue-600" />
           </div>
           <div>
             <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">

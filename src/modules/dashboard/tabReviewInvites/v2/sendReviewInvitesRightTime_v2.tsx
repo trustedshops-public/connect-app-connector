@@ -4,6 +4,7 @@ import { FC, useEffect, useState, useRef } from 'preact/compat'
 import TextWithLink from '@/components/layouts/textWithLink'
 import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
 import { Option, Select } from '@/components/controls/dropdown'
+import StyledButton from '@/components/controls/styledButton'
 import useStore from '@/store/useStore'
 import {
   selectAllState,
@@ -195,10 +196,10 @@ const SendReviewInvitesRightTime: FC<Props> = ({
 
       {/* Save button */}
       <div className="ts-flex ts-justify-end">
-        <button
+        <StyledButton
           id="saveReviewInvites"
-          data-testid="saveReviewInvites"
-          type="button"
+          variant="primary"
+          disabled={isButtonDisabled}
           onClick={() => {
             saveChanges()
             handleEtrustedConfiguration(
@@ -208,16 +209,9 @@ const SendReviewInvitesRightTime: FC<Props> = ({
               putEtrustedConfiguration,
             )
           }}
-          disabled={isButtonDisabled}
-          className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
-          style={{
-            background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-            borderRadius: '4px',
-            height: '36px',
-          }}
         >
           {phrasesByKey.global_button_save}
-        </button>
+        </StyledButton>
       </div>
     </div>
   )

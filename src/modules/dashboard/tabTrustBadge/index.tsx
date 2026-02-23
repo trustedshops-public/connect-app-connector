@@ -2,6 +2,7 @@ import { h, Fragment } from 'preact'
 import { CodePackageIcon } from '@/components/layouts/icons/CodePackageIcon'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import StyledButton from '@/components/controls/styledButton'
 import { FC, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
 // Radio selection is now handled inline with custom styled divs
@@ -343,21 +344,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
           )}
 
           <div className="ts-flex ts-justify-end ts-mt-6">
-            <button
-              id="button_saveChangesTrustbadge"
-              data-testid="button_saveChangesTrustbadge"
-              type="button"
-              disabled={isDisabled || isButtonDisabled}
-              onClick={saveDataTrustbadge}
-              className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
-              style={{
-                background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                borderRadius: '4px',
-                height: '40px',
-              }}
-            >
+            <StyledButton id="saveChangesTrustbadge" variant="primary" height={40} disabled={isDisabled || isButtonDisabled} onClick={saveDataTrustbadge}>
               {phrasesByKey.global_button_submit}
-            </button>
+            </StyledButton>
           </div>
         </div>
 
@@ -370,8 +359,11 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
           }}
         >
           <div className="ts-flex ts-items-start ts-gap-4">
-            <div className="ts-flex-shrink-0">
-              <HelpCircleIcon />
+            <div
+              className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+              style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
+            >
+              <HelpCircleIcon customClass="ts-text-blue-600" />
             </div>
             <div>
               <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">

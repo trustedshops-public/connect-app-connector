@@ -2,6 +2,7 @@ import { FC } from 'preact/compat'
 import { h, Fragment } from 'preact'
 import { useEffect, useRef } from 'preact/hooks'
 import { ExternalLinkIcon } from '@/components/layouts/icons'
+import StyledButton from '@/components/controls/styledButton'
 import { DASHBOARD_KEYS } from '@/locales/types'
 
 interface Props {
@@ -79,41 +80,23 @@ const CreateWidgetPopup: FC<Props> = ({ channelRef, phrasesByKey, setOpenModal, 
 
                   {/* Buttons */}
                   <div className="ts-flex ts-flex-col-reverse sm:ts-flex-row ts-gap-3">
-                    <button
-                      id="cancelCreateWidgetPopup"
-                      type="button"
-                      onClick={() => setOpenModal(false)}
-                      className="ts-flex-1 ts-text-sm ts-font-bold ts-cursor-pointer"
-                      style={{
-                        height: '36px',
-                        borderRadius: '4px',
-                        border: '1px solid #D1D5DB',
-                        background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 9%, #E8E8E8 100%)',
-                        color: '#005aa0',
-                      }}
-                    >
+                    <StyledButton id="cancelCreateWidgetPopup" variant="outlined" flex1 onClick={() => setOpenModal(false)}>
                       {phrasesByKey.global_button_cancel}
-                    </button>
-                    <button
+                    </StyledButton>
+                    <StyledButton
                       id="submitCreateWidgetPopup"
-                      type="button"
+                      variant="primary"
+                      flex1
                       onClick={() => {
                         window.open(
                           `${phrasesByKey.application_widgets_popup_submit_url_1}?channels=${channelRef}`
                         )
                         setOpenModal(false)
                       }}
-                      className="ts-flex-1 ts-text-sm ts-font-bold ts-text-white ts-cursor-pointer ts-flex ts-items-center ts-justify-center ts-gap-2"
-                      style={{
-                        height: '36px',
-                        borderRadius: '4px',
-                        border: 'none',
-                        background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                      }}
                     >
                       {phrasesByKey.application_widgets_popup_submit_text}
                       <ExternalLinkIcon color="#FFFFFF" />
-                    </button>
+                    </StyledButton>
                   </div>
                 </div>
               </div>

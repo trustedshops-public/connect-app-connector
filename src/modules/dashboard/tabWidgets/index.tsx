@@ -15,6 +15,7 @@ import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
+import StyledButton from '@/components/controls/styledButton'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
@@ -193,21 +194,9 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
                 {phrasesByKey.application_widgets_create}
               </button>
 
-              <button
-                id="button_saveWidgetsChanges"
-                data-testid="button_saveWidgetsChanges"
-                type="button"
-                onClick={handleSaveChanges}
-                disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled}
-                className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
-                style={{
-                  background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                  borderRadius: '4px',
-                  height: '36px',
-                }}
-              >
+              <StyledButton id="saveWidgetsChanges" variant="primary" disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled} onClick={handleSaveChanges}>
                 {phrasesByKey.global_button_submit}
-              </button>
+              </StyledButton>
             </div>
           </div>
 
@@ -220,8 +209,11 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
             }}
           >
             <div className="ts-flex ts-items-start ts-gap-4">
-              <div className="ts-flex-shrink-0">
-                <HelpCircleIcon />
+              <div
+                className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+                style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
+              >
+                <HelpCircleIcon customClass="ts-text-blue-600" />
               </div>
               <div>
                 <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">

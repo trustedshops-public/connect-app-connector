@@ -48,6 +48,7 @@ const DashboardPageModule: FC<{
     allowsSendReviewInvitesForPreviousOrders,
     allowsSendReviewInvitesForProduct,
     allowsSupportWidgets,
+    allowSupportTrstdLogin,
   } = infoOfSystem
 
   const displayReviewTab =
@@ -56,7 +57,9 @@ const DashboardPageModule: FC<{
     allowsSendReviewInvitesForPreviousOrders ||
     allowsSendReviewInvitesForProduct
 
-  const isVersionTwo = true
+  const isVersionTwo =
+    infoOfSystem.useVersionNumberOfConnector &&
+    AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
 
   const TrstdLoginTab = (props: TabProps) => (
     <LazyLoading props={props} importComponent={() => import('./tabTrstdLogin/index')} />
@@ -298,6 +301,7 @@ const DashboardPageModule: FC<{
         id: 1,
         name: '#trstd login',
         component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
+        isAvailable: allowSupportTrstdLogin,
       },
       {
         id: 2,

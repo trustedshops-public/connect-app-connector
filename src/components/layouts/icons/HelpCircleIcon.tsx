@@ -1,17 +1,14 @@
 import { FC } from 'preact/compat'
 import { h } from 'preact'
 
-export const HelpCircleIcon: FC = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="40"
-    height="40"
-    viewBox="0 0 40 40"
-    fill="none"
-  >
-    <circle cx="20" cy="20" r="19" fill="#EFF6FF" stroke="#DBEAFE" stroke-width="1" />
-    <circle cx="20" cy="20" r="8" stroke="#3B82F6" stroke-width="1.5" fill="none" />
-    <path d="M20 17V20.5" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" />
-    <circle cx="20" cy="23" r="0.75" fill="#3B82F6" />
+interface Props {
+  customClass?: string
+}
+
+export const HelpCircleIcon: FC<Props> = ({ customClass }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" className={customClass}>
+    <path d="M9.99984 18.3337C14.6022 18.3337 18.3332 14.6027 18.3332 10.0003C18.3332 5.39795 14.6022 1.66699 9.99984 1.66699C5.39746 1.66699 1.6665 5.39795 1.6665 10.0003C1.6665 14.6027 5.39746 18.3337 9.99984 18.3337Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M10 13.3333V10" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M10 6.66699H10.0083" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
 )

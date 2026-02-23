@@ -14,8 +14,9 @@ import {
   handleEtrustedInteraction,
 } from '@/utils/configurationDataHandler'
 import { WarningTriangleIcon } from '@/components/layouts/icons/WarningTriangleIcon'
-import { HelpQuestionIcon } from '@/components/layouts/icons/HelpQuestionIcon'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import { GearIcon } from '@/components/layouts/icons/GearIcon'
+import StyledButton from '@/components/controls/styledButton'
 
 const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
   const {
@@ -130,21 +131,9 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
             <ChannelSelectionForm phrasesByKey={phrasesByKey} />
 
             <div className="ts-flex ts-justify-end ts-mt-6">
-              <button
-                id="button_settingsSaveChannels"
-                data-testid="button_settingsSaveChannels"
-                type="button"
-                onClick={saveChannelsInBL}
-                disabled={isButtonDisabled}
-                className="ts-text-white ts-text-sm ts-font-bold ts-px-6 ts-py-2.5 ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
-                style={{
-                  background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                  borderRadius: '4px',
-                  height: '40px',
-                }}
-              >
+              <StyledButton id="settingsSaveChannels" variant="primary" height={40} disabled={isButtonDisabled} onClick={saveChannelsInBL}>
                 {phrasesByKey.global_button_submit}
-              </button>
+              </StyledButton>
             </div>
           </div>
         )}
@@ -176,22 +165,9 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
               {phrasesByKey.application_settings_disconnect_warning}
             </p>
           </div>
-          <button
-            id="button_settingsDisconnectOpenModal"
-            data-testid="button_settingsDisconnectOpenModal"
-            type="button"
-            onClick={() => setShowModal(true)}
-            className="ts-flex-shrink-0 ts-text-sm ts-font-bold ts-px-5 ts-py-2 ts-cursor-pointer"
-            style={{
-              color: '#B91C1C',
-              background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 9%, #E8E8E8 100%)',
-              border: '1px solid #9E262A',
-              borderRadius: '4px',
-              height: '36px',
-            }}
-          >
+          <StyledButton id="settingsDisconnectOpenModal" variant="danger" className="ts-flex-shrink-0" onClick={() => setShowModal(true)}>
             {phrasesByKey.application_settings_disconnect_button}
-          </button>
+          </StyledButton>
         </div>
       </div>
 
@@ -204,8 +180,11 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
         }}
       >
         <div className="ts-flex ts-items-start ts-gap-4">
-          <div className="ts-flex-shrink-0">
-            <HelpQuestionIcon />
+          <div
+            className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+            style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
+          >
+            <GearIcon customClass="ts-text-blue-600" />
           </div>
           <div>
             <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">

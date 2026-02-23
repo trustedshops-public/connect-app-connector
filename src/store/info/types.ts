@@ -10,6 +10,7 @@ export interface IUserInfo {
   allowsSupportWidgets?: boolean
   useVersionNumberOfConnector?: string
   allowsTrustedCheckoutWidget?: boolean
+  allowSupportTrstdLogin?: boolean
 }
 
 export interface InfoState {

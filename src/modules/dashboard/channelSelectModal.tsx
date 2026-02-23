@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'preact/hooks'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 
 import ChannelSelectionForm from './channelSelectionForm'
+import StyledButton from '@/components/controls/styledButton'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
@@ -104,20 +105,17 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
 
                   <ChannelSelectionForm phrasesByKey={phrasesByKey} />
 
-                  <button
+                  <StyledButton
                     id="saveChannelsModal"
-                    type="button"
+                    variant="primary"
+                    fullWidth
+                    height={44}
                     disabled={!selectedChannels.length}
                     onClick={() => saveChannelsInBL()}
-                    className="ts-w-full ts-text-white ts-text-sm ts-font-bold ts-border-0 ts-cursor-pointer ts-mt-6 disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
-                    style={{
-                      background: 'linear-gradient(180deg, #1c8dc6 0%, #005aa0 100%)',
-                      borderRadius: '4px',
-                      height: '44px',
-                    }}
+                    className="ts-mt-6"
                   >
                     {phrasesByKey?.channelSelect_submit}
-                  </button>
+                  </StyledButton>
 
                   <p
                     className="ts-text-sm ts-font-normal ts-mt-4 ts-text-center"

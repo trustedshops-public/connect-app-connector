@@ -2,6 +2,7 @@ import { h, Fragment } from 'preact'
 import { FC } from 'preact/compat'
 import { useEffect, useRef } from 'preact/hooks'
 import { WarningTriangleIcon } from '@/components/layouts/icons'
+import StyledButton from '@/components/controls/styledButton'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import { DASHBOARD_KEYS } from '@/locales/types'
 
@@ -94,36 +95,12 @@ const ApproveDisableModal: FC<Props> = ({
 
                   {/* Buttons */}
                   <div className="ts-flex ts-flex-col-reverse sm:ts-flex-row ts-gap-3">
-                    <button
-                      id="cancelDiactivateTB"
-                      type="button"
-                      onClick={() => handleCancel(false)}
-                      className="ts-flex-1 ts-text-sm ts-font-bold ts-cursor-pointer"
-                      style={{
-                        height: '36px',
-                        borderRadius: '4px',
-                        border: '1px solid #D1D5DB',
-                        background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 9%, #E8E8E8 100%)',
-                        color: '#005aa0',
-                      }}
-                    >
+                    <StyledButton id="cancelDiactivateTB" variant="outlined" flex1 onClick={() => handleCancel(false)}>
                       {phrasesByKey?.global_button_cancel}
-                    </button>
-                    <button
-                      id="submitDiactivateTB"
-                      type="button"
-                      onClick={() => diactivateTB(data)}
-                      className="ts-flex-1 ts-text-sm ts-font-bold ts-cursor-pointer"
-                      style={{
-                        height: '36px',
-                        borderRadius: '4px',
-                        border: '1px solid #9E262A',
-                        background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 9%, #E8E8E8 100%)',
-                        color: '#B91C1C',
-                      }}
-                    >
+                    </StyledButton>
+                    <StyledButton id="submitDiactivateTB" variant="danger" flex1 onClick={() => diactivateTB(data)}>
                       {phrasesByKey?.application_trustbadge_popup_submit}
-                    </button>
+                    </StyledButton>
                   </div>
                 </div>
               </div>
