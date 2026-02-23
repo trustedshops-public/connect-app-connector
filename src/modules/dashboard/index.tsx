@@ -347,6 +347,7 @@ const DashboardPageModule: FC<{
           <div
             id={'dashboard_wrapper'}
             className="ts-flex ts-flex-col ts-font-sans ts-w-full"
+            style={{ backgroundColor: '#F9FAFB' }}
           >
             {isChannelsLoading ? (
               <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-96">
@@ -355,7 +356,7 @@ const DashboardPageModule: FC<{
             ) : (
               <>
                 {/* Header bar - centered like tabs and content */}
-                <div className="ts-w-full ts-pt-6 sm:ts-pt-8 ts-pb-4 sm:ts-pb-6">
+                <div className="ts-w-full ts-pt-6 sm:ts-pt-8 ts-pb-4 sm:ts-pb-6" style={{ backgroundColor: '#FFFFFF' }}>
                   <div className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     {!showSettings && (
                       <div className="ts-flex ts-items-center ts-gap-2 ts-min-w-0">
@@ -412,7 +413,7 @@ const DashboardPageModule: FC<{
                 </div>
 
                 {/* Tabs bar - full width border, tabs centered */}
-                <div className="ts-w-full ts-border-b ts-border-gray-divider">
+                <div className="ts-w-full ts-border-b ts-border-gray-divider" style={{ backgroundColor: '#FFFFFF' }}>
                   <div className="ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     <Tabs
                       tabs={tabConfig}
@@ -427,7 +428,7 @@ const DashboardPageModule: FC<{
                 </div>
 
                 {/* Content area - centered */}
-                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6">
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6" style={{ backgroundColor: '#F9FAFB', minHeight: '100%', flex: 1 }}>
                   {showSettings ? (
                     <SettingsTab phrasesByKey={phrasesByKey} />
                   ) : (
@@ -440,7 +441,7 @@ const DashboardPageModule: FC<{
                 </div>
 
                 {/* Footer - always rendered outside content area */}
-                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pb-6">
+                <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pb-6" style={{ backgroundColor: '#F9FAFB' }}>
                   <div className="ts-flex ts-items-center ts-justify-center ts-mt-8">
                     {phrasesByKey && (
                       <TextWithLink
