@@ -3,6 +3,7 @@ import { FC, useEffect, useState, useRef } from 'preact/compat'
 
 import TextWithLink from '@/components/layouts/textWithLink'
 import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
+import { WarningTriangleIcon } from '@/components/layouts/icons'
 import { Option, Select } from '@/components/controls/dropdown'
 import StyledButton from '@/components/controls/styledButton'
 import useStore from '@/store/useStore'
@@ -76,7 +77,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   }, [])
 
   return (
-    <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
         {phrasesByKey.application_invites_sendbyos_title}
       </h3>
@@ -168,6 +169,36 @@ const SendReviewInvitesRightTime: FC<Props> = ({
               </Option>
             ))}
           </Select>
+        </div>
+      )}
+
+      {/* Warning box */}
+      {isSelectedReviewCheckout && (
+        <div
+          className="ts-flex ts-items-start ts-gap-3 ts-p-4 ts-mb-6"
+          style={{
+            backgroundColor: '#FFFBEB',
+            border: '1px solid #FDE68A',
+            borderRadius: '10px',
+          }}
+        >
+          <div
+            className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-full"
+            style={{ width: '20px', height: '20px' }}
+          >
+            <WarningTriangleIcon customClass="ts-w-5 ts-h-5 ts-text-amber-500" />
+          </div>
+          <div style={{ color: '#92400E' }}>
+            <TextWithLink
+              id={'orderstatus_warning_text'}
+              url={[
+                phrasesByKey.application_invites_sendbyos_orderstatus_warning_url_1,
+                phrasesByKey.application_invites_sendbyos_orderstatus_warning_url_2,
+              ]}
+              text={phrasesByKey.application_invites_sendbyos_orderstatus_warning_text}
+              textStyle="ts-text-sm ts-italic"
+            />
+          </div>
         </div>
       )}
 

@@ -120,11 +120,11 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
           </div>
 
           {/* Card 2: Widget table */}
-          <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md">
+          <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md">
             {/* Table header - hidden on mobile */}
             <div
               className="ts-hidden sm:ts-flex ts-px-6 ts-items-center ts-w-full ts-py-3"
-              style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB', borderRadius: '16px 16px 0 0' }}
+              style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB', borderRadius: '14px 14px 0 0' }}
             >
               <p
                 className="ts-text-left ts-font-bold ts-w-th1"
@@ -202,7 +202,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
           {/* Card 3: About Widgets */}
           <div
-            className="ts-rounded-[16px] ts-shadow-md ts-p-4 sm:ts-p-8"
+            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8"
             style={{
               background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
               border: '1px solid #E5E7EB',

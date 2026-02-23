@@ -58,7 +58,7 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
           style={{
             background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
             border: '1px solid #BEDBFF',
-            borderRadius: '16px',
+            borderRadius: '14px',
             padding: '32px',
           }}
         >
@@ -66,7 +66,7 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
             style={{
               color: '#1447E6',
               backgroundColor: '#DBEAFE',
-              borderRadius: '16px',
+              borderRadius: '14px',
               padding: '8px 16px',
               height: '32px',
               display: 'inline-block',

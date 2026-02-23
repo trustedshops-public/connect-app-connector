@@ -106,7 +106,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       </div>
 
       {/* Card: Warning + Channel mapping + Save */}
-      <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-4 sm:ts-p-8">
+      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8">
         {/* Important warning box */}
         <div
           className="ts-flex ts-items-start ts-gap-3 ts-p-4 ts-mb-8"
@@ -140,7 +140,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       </div>
 
       {/* Card 2: Disconnect integration */}
-      <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-4 sm:ts-p-8">
+      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8">
         <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
           {phrasesByKey.application_settings_disconnect_title}
         </h2>
@@ -173,7 +173,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
       {/* Card 3: Need help */}
       <div
-        className="ts-rounded-[16px] ts-shadow-md ts-p-4 sm:ts-p-8 mb-8"
+        className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8 mb-8"
         style={{
           background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
           border: '1px solid #E5E7EB',

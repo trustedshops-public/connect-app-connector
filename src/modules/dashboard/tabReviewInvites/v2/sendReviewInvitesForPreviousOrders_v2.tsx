@@ -34,7 +34,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   const { user } = useStore(selectorAuth)
 
   return (
-    <div className="ts-bg-white ts-rounded-[16px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
         {phrasesByKey.application_invites_send_export_title}
       </h3>
