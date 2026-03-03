@@ -19,7 +19,7 @@ interface OverviewTabProps extends TabProps {
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
-  const { allowSupportTrstdLogin } = infoOfSystem
+  const { allowsSupportTrstdLogin } = infoOfSystem
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -28,7 +28,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       : false
 
   const featureCards = [
-    ...(allowSupportTrstdLogin ? [{
+    ...(allowsSupportTrstdLogin ? [{
       id: 'trstd-login',
       tabId: 1,
       title: '#trstd login',

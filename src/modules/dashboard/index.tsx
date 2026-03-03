@@ -48,7 +48,7 @@ const DashboardPageModule: FC<{
     allowsSendReviewInvitesForPreviousOrders,
     allowsSendReviewInvitesForProduct,
     allowsSupportWidgets,
-    allowSupportTrstdLogin,
+    allowsSupportTrstdLogin,
   } = infoOfSystem
 
   const displayReviewTab =
@@ -301,7 +301,7 @@ const DashboardPageModule: FC<{
         id: 1,
         name: '#trstd login',
         component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
-        isAvailable: allowSupportTrstdLogin,
+        isAvailable: allowsSupportTrstdLogin,
       },
       {
         id: 2,

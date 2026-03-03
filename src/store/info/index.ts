@@ -35,9 +35,9 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
       info,
       'allowsSupportWidgets'
     )
-    const isHasPropertyAllowSupportTrstdLogin = Object.prototype.hasOwnProperty.call(
+    const isHasPropertyAllowsSupportTrstdLogin = Object.prototype.hasOwnProperty.call(
       info,
-      'allowSupportTrstdLogin'
+      'allowsSupportTrstdLogin'
     )
     const isHasPropertyAllowsTrustedCheckoutWidget = Object.prototype.hasOwnProperty.call(
       info,
@@ -57,8 +57,8 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
           ...(!isHasPropertyAllowsSupportWidgets && {
             allowsSupportWidgets: true,
           }),
-          ...(!isHasPropertyAllowSupportTrstdLogin && {
-            allowSupportTrstdLogin: false,
+          ...(!isHasPropertyAllowsSupportTrstdLogin && {
+            allowsSupportTrstdLogin: false,
           }),
           ...(!isHasPropertyAllowsTrustedCheckoutWidget && {
             allowsTrustedCheckoutWidget: false,
@@ -77,8 +77,8 @@ export const infoStore = (set: SetState<AppStore>, get: GetState<AppStore>): Inf
           ...(!isHasPropertyAllowsSupportWidgets && {
             allowsSupportWidgets: true,
           }),
-          ...(!isHasPropertyAllowSupportTrstdLogin && {
-            allowSupportTrstdLogin: false,
+          ...(!isHasPropertyAllowsSupportTrstdLogin && {
+            allowsSupportTrstdLogin: false,
           }),
           ...(!isHasPropertyAllowsTrustedCheckoutWidget && {
             allowsTrustedCheckoutWidget: false,

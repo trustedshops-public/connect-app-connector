@@ -26,7 +26,7 @@ export const getInformationOfSystem = (
         allowsEventsByOrderStatus: true,
         allowsSendReviewInvitesForPreviousOrders: true,
         useVersionNumberOfConnector: '2.0',
-        allowSupportTrstdLogin: true,
+        allowsSupportTrstdLogin: true,
       }
     case 'no_value':
       return {}

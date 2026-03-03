@@ -68,13 +68,15 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
   const handleSaveChanges = () => {
     const copyWidgets = JSON.parse(JSON.stringify(widgets)) as IWidgets
     const widgetsWithoutPId: WidgetChildren[] = []
-    copyWidgets.children[0].children.forEach(
+    copyWidgets.children[0].children = copyWidgets.children[0].children.filter(
       (widget: WidgetChildren) => {
         if (widget.widgetLocation?.id) {
           if (widget.attributes?.productIdentifier?.attributeName === '') {
             widgetsWithoutPId.push(widget)
           }
+          return widget
         }
+        return
       },
     )
     if (widgetsWithoutPId.length) {
