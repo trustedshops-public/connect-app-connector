@@ -2,6 +2,8 @@ import { h, Fragment } from 'preact'
 import { CodePackageIcon } from '@/components/layouts/icons/CodePackageIcon'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import { DesktopIcon } from '@/components/layouts/icons/DesktopIcon'
+import { MobileIcon } from '@/components/layouts/icons/MobileIcon'
 import StyledButton from '@/components/controls/styledButton'
 import { FC, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
@@ -179,39 +181,31 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
             The Trustbadge is automatically placed on your shop and adapts seamlessly to both desktop and mobile layouts, building customer trust at every touchpoint.
           </p>
 
-          {/* Desktop / Mobile toggle */}
+          {/* Desktop / Mobile tabs */}
           <div className="ts-flex ts-justify-center ts-mb-6">
-            <div
-              className="ts-flex ts-rounded-full ts-p-1"
-              style={{ border: '1px solid #E5E7EB', backgroundColor: '#F9FAFB' }}
-            >
+            <div className="ts-flex ts-gap-6">
               <button
                 type="button"
                 onClick={() => setPreviewTab('desktop')}
-                className={`ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-normal ts-rounded-full ts-border-0 ts-cursor-pointer ${
-                  previewTab === 'desktop' ? 'ts-bg-white ts-shadow-sm' : 'ts-bg-transparent'
-                }`}
-                style={{ color: previewTab === 'desktop' ? '#111827' : '#6B7280' }}
+                className="ts-flex ts-items-center ts-gap-2 ts-px-1 ts-pb-2 ts-text-sm ts-font-medium ts-bg-transparent ts-border-0 ts-border-b-2 ts-cursor-pointer"
+                style={{
+                  color: previewTab === 'desktop' ? '#155DFC' : '#6B7280',
+                  borderBottomColor: previewTab === 'desktop' ? '#155DFC' : 'transparent',
+                }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <rect x="1.5" y="2" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.2" fill="none" />
-                  <path d="M5.5 14H10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                  <path d="M8 11V14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                </svg>
+                <DesktopIcon />
                 Desktop
               </button>
               <button
                 type="button"
                 onClick={() => setPreviewTab('mobile')}
-                className={`ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-normal ts-rounded-full ts-border-0 ts-cursor-pointer ${
-                  previewTab === 'mobile' ? 'ts-bg-white ts-shadow-sm' : 'ts-bg-transparent'
-                }`}
-                style={{ color: previewTab === 'mobile' ? '#111827' : '#6B7280' }}
+                className="ts-flex ts-items-center ts-gap-2 ts-px-1 ts-pb-2 ts-text-sm ts-font-medium ts-bg-transparent ts-border-0 ts-border-b-2 ts-cursor-pointer"
+                style={{
+                  color: previewTab === 'mobile' ? '#155DFC' : '#6B7280',
+                  borderBottomColor: previewTab === 'mobile' ? '#155DFC' : 'transparent',
+                }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <rect x="3.5" y="1.5" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
-                  <path d="M6.5 12.5H9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                </svg>
+                <MobileIcon />
                 Mobile
               </button>
             </div>

@@ -114,6 +114,8 @@ const DashboardPageModule: FC<{
     getEventTypesFromApi,
     getEventTypesFromApi_v2,
     setInitialOrderStatusByMapping,
+    getTrstdLoginConfiguration,
+    clearTrstdLoginState,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -133,6 +135,14 @@ const DashboardPageModule: FC<{
       }
       getTrustbadge(selectedShopChannels)
       clearWidgetData()
+      clearTrstdLoginState()
+
+      if (
+        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportTrstdLogin') &&
+        infoOfSystem.allowsSupportTrstdLogin
+      ) {
+        getTrstdLoginConfiguration(selectedShopChannels)
+      }
 
       setIsLoading(true)
       setETrustedChannelRef({

@@ -471,4 +471,4 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS
 
-export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets'
+export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets' | 'trstdLogin'

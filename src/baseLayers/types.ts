@@ -37,6 +37,30 @@ export interface IWidgetsChildren {
   }
 }
 
+export interface ITrstdLoginConfiguration {
+  script?: {
+    tag?: string
+    attributes?: {
+      [key: string]: { value?: string; attributeName?: string }
+    }
+  }
+  integration?: {
+    applicationType?: string
+    tag?: string
+    location?: {
+      id?: string
+      name?: string
+    }
+    trstdLoginEnabled?: boolean
+  }
+}
+
+export interface ITrstdLogin {
+  id: string
+  salesChannelRef: string
+  configuration?: ITrstdLoginConfiguration
+}
+
 export interface IMappedChannel {
   eTrustedChannelRef: string
   eTrustedLocale: string

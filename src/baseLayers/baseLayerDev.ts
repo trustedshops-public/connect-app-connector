@@ -11,7 +11,9 @@ import { getTrustbadge } from './testData/getTrustbadgeMock'
 import { getValueReviewChannel } from './testData/getValueReviewChannel'
 import { getWidgetLocation } from './testData/getWidgetLocation'
 import { getWidgets } from './testData/getWidgets'
-import { IMappedChannel, IWidgets } from './types'
+import { getTrstdLoginConfiguration } from './testData/getTrstdLoginMock'
+import { getTrstdLoginLocation } from './testData/getTrstdLoginLocation'
+import { IMappedChannel, ITrstdLogin, IWidgets } from './types'
 import { getUsedOrderStaruses } from './testData/getUsedOrderStatuses'
 
 export const DEV = 'development'
@@ -164,6 +166,57 @@ export const baseLayerDev = (): void => {
         }, 400)
       }
     },
+
+   
+      [EVENTS.GET_TRSTDLOGIN_CONFIGURATION_PROVIDED]: () => {
+        console.log('GET_TRSTDLOGIN_CONFIGURATION_PROVIDED')
+        setTimeout(() => {
+          dispatchAction({
+            action: EVENTS.SET_TRSTDLOGIN_CONFIGURATION_PROVIDED,
+            payload: getTrstdLoginConfiguration(DEFAULT_ENV),
+          })
+        }, 400)
+      },
+
+  
+      [EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION]: (event: { payload: ITrstdLogin }) => {
+        try {
+          console.log('SAVE_TRSTDLOGIN_CONFIGURATION_BaseLayer', event.payload)
+          setTimeout(() => {
+            dispatchAction({
+              action: EVENTS.SET_TRSTDLOGIN_CONFIGURATION_PROVIDED,
+              payload: event.payload,
+            })
+            sendingNotification(
+              EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION,
+              'TRSTD LOGIN CONFIGURATION SAVED',
+              'success',
+              'save'
+            )
+          }, 400)
+        } catch (error) {
+          setTimeout(() => {
+            sendingNotification(
+              EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION,
+              'TRSTD LOGIN CONFIGURATION NOT SAVED',
+              'error',
+              'save'
+            )
+          }, 400)
+        }
+      },
+
+  
+      [EVENTS.GET_LOCATION_FOR_TRSTDLOGIN]: () => {
+        console.log('GET_LOCATION_FOR_TRSTDLOGIN')
+        setTimeout(() => {
+          dispatchAction({
+            action: EVENTS.SET_LOCATION_FOR_TRSTDLOGIN,
+            payload: getTrstdLoginLocation(DEFAULT_ENV),
+          })
+        }, 400)
+      },
+
 
     [EVENTS.GET_LOCATION_FOR_WIDGET]: () => {
       console.log('GET_LOCATION_FOR_WIDGET')
