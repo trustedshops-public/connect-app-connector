@@ -245,7 +245,7 @@
       },
       "help": {
         "button": {
-          "text": "Zapytanie ofertowe",
+          "text": "Wygeneruj Client ID i Client Secret",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
         "text": "Aby połączyć swój sklep, potrzebujesz ID klienta i Client Secret.\n\nIdentyfikator klienta i Client Secret nie są takie same jak Twoje dane logowania do eTrusted.\n\nDlatego musisz złożyć wniosek.",
