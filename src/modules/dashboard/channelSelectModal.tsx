@@ -97,11 +97,10 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                     className="ts-text-default ts-font-bold ts-mb-2"
                     style={{ fontSize: '20px', lineHeight: '28px' }}
                   >
-                    {phrasesByKey?.channelSelect_titel}
+                    Map your channels to #trstd
                   </h2>
                   <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-                    Assigning a channel to each shop in your shop system ensures reviews are collected for the right URL.
-                  </p>
+                  Reviews and trust signals will appear on the correct website.<br></br>You can update this anytime.                  </p>
 
                   <ChannelSelectionForm phrasesByKey={phrasesByKey} />
 
@@ -114,15 +113,8 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                     onClick={() => saveChannelsInBL()}
                     className="ts-mt-6"
                   >
-                    {phrasesByKey?.channelSelect_submit}
+                    Confirm channel mapping
                   </StyledButton>
-
-                  <p
-                    className="ts-text-sm ts-font-normal ts-mt-4 ts-text-center"
-                    style={{ color: '#9CA3AF' }}
-                  >
-                    {phrasesByKey?.channelSelect_info}
-                  </p>
                 </div>
               </div>
             </div>

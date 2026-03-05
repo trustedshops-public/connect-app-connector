@@ -57,7 +57,7 @@ export interface IFormValues {
 }
 
 type InputProps = {
-  label: string
+  label?: string
   register: UseFormRegister<IFormValues>
   required: boolean
   registerName: Path<IFormValues>
