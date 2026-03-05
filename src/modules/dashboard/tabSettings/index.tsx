@@ -118,9 +118,9 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
         >
           <WarningTriangleIcon customClass="ts-flex-shrink-0 ts-mt-0.5" />
           <div>
-            <p className="ts-text-sm ts-font-bold ts-mb-1" style={{ color: '#92400E' }}>Important</p>
+            <p className="ts-text-sm ts-font-bold ts-mb-1" style={{ color: '#92400E' }}>Changes affect existing settings</p>
             <p className="ts-text-sm ts-font-normal" style={{ color: '#B45309' }}>
-              {phrasesByKey.application_settings_channel_caution}
+            Updating the channel mapping overwrites any existing configuration of those channels. 
             </p>
           </div>
         </div>
