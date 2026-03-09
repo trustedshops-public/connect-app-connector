@@ -314,6 +314,8 @@ const PHRASES_CHANNEL_KEYS: CHANNEL_KEYS = {
 }
 
 const PHRASES_ROUTES_KEYS: ROUTES_KEYS = {
+  application_routes_overview: 'application.routes.overview',
+  application_routes_trstd_login: 'application.routes.trstd_login',
   application_routes_trustbadge: 'application.routes.trustbadge',
   application_routes_widgets: 'application.routes.widgets',
   application_routes_invites: 'application.routes.invites',

@@ -149,6 +149,8 @@
       }
     },
     "routes": {
+      "overview": "Overview",
+      "trstd_login": "#trstd login",
       "authentication": "Authentication",
       "channelSelector": "Channel selected:",
       "invites": "Review invites",
