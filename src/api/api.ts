@@ -276,7 +276,7 @@ await post<object, object>(
 
 export interface ITrstdLoginRequest {
   channelId: string
-  enableTrustedLogin: boolean
+  trstdLoginEnabled: boolean
 }
 
 export interface ITrstdLoginResponse {

@@ -27,12 +27,13 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey: _phrasesByKey }) => {
     <div className="ts-flex ts-flex-col ts-gap-6">
       {isLoadingBL && <ScrinSpinner />}
 
-      {/* Header - centered text with link */}
-      <div className="ts-text-center ts-pb-2">
+      {/* Header */}
+      <div className="ts-pb-2">
+        <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
+          #trstd login
+        </h2>
         <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
-          Adapt the #trstd login to your corporate design, register testing URLs, and generate integration snippets
-          <br />
-          for manual placement.{' '}
+          Adapt the #trstd login to your corporate design, register testing URLs, and generate integration snippets for manual placement.{' '}
           <a
             href="https://app.etrusted.com"
             target="_blank"

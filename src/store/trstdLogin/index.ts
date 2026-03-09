@@ -115,7 +115,7 @@ export const trstdLoginStore = (
       const response = await postTrstdLoginConfiguration(info, token as string, [
         {
           channelId: selectedShopChannels.eTrustedChannelRef,
-          enableTrustedLogin: enabled,
+          trstdLoginEnabled: enabled,
         },
       ])
 
@@ -225,22 +225,7 @@ export const trstdLoginStore = (
         'trstdLogin',
         putEtrustedConfiguration,
       )
-
-      get().addInToastList({
-        event: 'TRSTD_LOGIN_CONFIGURATION',
-        status: 'success',
-        type: 'save',
-      })
-    } catch(error: any) {
-      console.error(
-        'Error updating trstd login configuration',
-        error.response?.data,
-      )
-      get().addInToastList({
-        event: 'TRSTD_LOGIN_CONFIGURATION',
-        status: 'error',
-        type: 'save',
-      })
+    } catch {
       set(store => ({
         trstdLoginState: {
           ...store.trstdLoginState,

@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
+import { selectorInfoOfSystem, selectorTrstdLogin, selectorTrustbadgeState } from '@/store/selector'
 import TrstdLoginOverview from '@/assets/trstd-login-overview.svg'
 import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
@@ -18,8 +18,11 @@ interface OverviewTabProps extends TabProps {
 
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
+  const { trstdLoginData } = useStore(selectorTrstdLogin)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { allowsSupportTrstdLogin } = infoOfSystem
+
+  const isTrstdLoginActive = !!trstdLoginData?.configuration?.integration?.trstdLoginEnabled
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -35,7 +38,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       description:
         'Lorem ipsum dolor sit amet consectetur. Sociis vestibulum dui eros nec sed ipsum et pellentesque. Pulvinar dolor bibendum arcu ut erat ac viverra donec.',
       illustration: TrstdLoginOverview,
-      isActive: false,
+      isActive: isTrstdLoginActive,
       buttonLabel: 'Configure',
       buttonVariant: 'outlined' as const,
     }] : []),
