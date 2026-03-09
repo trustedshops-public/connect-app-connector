@@ -374,7 +374,7 @@
       "title": "Widgets",
       "about": {
         "title": "About Widgets",
-        "description": "Widgets are created and managed in the eTrusted Control Centre. Once created, they automatically sync to your [infoOfSystem.nameOfSystem] installation and can be placed across your website.",
+        "description": "Widgets are created and managed in the eTrusted Control Centre. Once created, they automatically sync to your {{shopSystemName}} installation and can be placed across your website.",
         "learnMore": "Open Trusted Shops Control Centre",
         "learnMore_url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
       }

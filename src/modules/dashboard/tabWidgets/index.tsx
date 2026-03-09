@@ -254,7 +254,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
                   {phrasesByKey.application_widgets_about_title}
                 </p>
                 <p className="ts-text-sm ts-font-normal ts-mb-3" style={{ color: '#6b7280' }}>
-                  {phrasesByKey.application_widgets_about_description}
+                  {phrasesByKey.application_widgets_about_description.replace('{{shopSystemName}}', infoOfSystem?.nameOfSystem.charAt(0).toUpperCase() + infoOfSystem?.nameOfSystem.slice(1))}
                 </p>
                 <a
                   href={phrasesByKey.application_widgets_about_learnMore_url}
