@@ -97,10 +97,16 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                     className="ts-text-default ts-font-bold ts-mb-2"
                     style={{ fontSize: '20px', lineHeight: '28px' }}
                   >
-                    Map your channels to #trstd
+                    {phrasesByKey?.channelSelect_titel}
                   </h2>
-                  <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-                  Reviews and trust signals will appear on the correct website.<br></br>You can update this anytime.                  </p>
+                  <p
+                    className="ts-text-sm ts-font-normal ts-mb-6 ts-whitespace-pre-line"
+                    style={{ color: '#6b7280' }}
+                  >
+                    {(phrasesByKey?.channelSelect_info ?? '')
+                      .replace(/\.\s+/g, '.\n')
+                      .replace(/\.(?=[A-Z])/g, '.\n')}
+                  </p>
 
                   <ChannelSelectionForm phrasesByKey={phrasesByKey} />
 
@@ -113,7 +119,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                     onClick={() => saveChannelsInBL()}
                     className="ts-mt-6"
                   >
-                    Confirm channel mapping
+                    {phrasesByKey?.channelSelect_submit}
                   </StyledButton>
                 </div>
               </div>

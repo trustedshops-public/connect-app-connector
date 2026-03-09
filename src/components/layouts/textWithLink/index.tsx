@@ -1,4 +1,4 @@
-import { h } from 'preact'
+import { h, ComponentChildren } from 'preact'
 import { getStringWithUrlFromPhrases } from '@/helpers'
 import { FC } from 'preact/compat'
 
@@ -8,9 +8,10 @@ interface Props {
   textStyle?: string
   linkStyle?: string
   id?: string
+  linkSuffix?: ComponentChildren
 }
 
-const TextWithLink: FC<Props> = ({ text, url, textStyle, linkStyle = '', id }) => {
+const TextWithLink: FC<Props> = ({ text, url, textStyle, linkStyle = '', id, linkSuffix }) => {
   const textWithUrl = getStringWithUrlFromPhrases(text, url)
   return (
     <p id={`text_${id}`} className={`${textStyle} ts-whitespace-pre-wrap`}>
@@ -26,6 +27,7 @@ const TextWithLink: FC<Props> = ({ text, url, textStyle, linkStyle = '', id }) =
               rel="noreferrer"
             >
               {item.text}
+              {linkSuffix}
             </a>
           ) : (
             item.text

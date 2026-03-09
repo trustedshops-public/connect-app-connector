@@ -35,23 +35,23 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   const shopSystemName = infoOfSystem.nameOfSystem || 'Shopsystem'
 
   return (
-    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
-        Send review invites for past orders
+        {phrasesByKey.application_invites_v3_previousOrders_title}
       </h3>
       <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280', maxWidth: '80%' }}>
-        Export your previous orders and upload them to your eTrusted account to send review invitations. Make sure all customers have given their consent to receive review invites.
+        {phrasesByKey.application_invites_v3_previousOrders_description}
       </p>
 
       <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
 
       {/* Step 1 */}
       <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-3">
-        Step 1: Export orders from {shopSystemName.charAt(0).toUpperCase() + shopSystemName.slice(1)}
+        {phrasesByKey.application_invites_v3_previousOrders_step1_title.replace('{{shopSystemName}}', shopSystemName.charAt(0).toUpperCase() + shopSystemName.slice(1))}
       </p>
 
       <p className="ts-text-default ts-text-sm ts-mb-3">
-        Export orders made in the past
+        {phrasesByKey.application_invites_v3_previousOrders_step1_exportLabel}
       </p>
 
       <div className="ts-flex ts-items-center ts-gap-3 ts-mb-5">
@@ -110,7 +110,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
             </button>
           </div>
         </div>
-        <p className="ts-text-default ts-text-sm" style={{ color: '#6b7280' }}>days</p>
+        <p className="ts-text-default ts-text-sm" style={{ color: '#6b7280' }}>{phrasesByKey.application_invites_v3_previousOrders_step1_days}</p>
       </div>
 
       {/* Include product data toggle */}
@@ -195,15 +195,15 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
 
       {/* Step 2 */}
       <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-3">
-        Step 2: Upload orders in the Control Centre
+        {phrasesByKey.application_invites_v3_previousOrders_step2_title}
       </p>
 
       <p className="ts-text-sm ts-font-normal ts-mb-4" style={{ color: '#6b7280' }}>
-        After exporting your orders, upload the CSV file in your eTrusted account to send review invitations.
+        {phrasesByKey.application_invites_v3_previousOrders_step2_description}
       </p>
 
       <a
-        href={phrasesByKey.application_invites_send_export_step_2_description_url_2}
+        href={phrasesByKey.application_invites_v3_previousOrders_step2_url_1}
         target="_blank"
         rel="noopener noreferrer"
         className="ts-inline-flex ts-items-center ts-gap-2 ts-text-sm ts-font-medium"
@@ -216,7 +216,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
           background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 8.85%, #E8E8E8 100%)',
         }}
       >
-        Send manual invites
+        {phrasesByKey.application_invites_v3_previousOrders_step2_buttonLabel}
         <ArrowRightLineIcon />
       </a>
     </div>

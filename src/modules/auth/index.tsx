@@ -71,24 +71,22 @@ const LoginPageModule: FC<{
               <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-5 sm:ts-px-16">
                 <div className="ts-w-full" style={{ maxWidth: '380px' }}>
                   <h1 className="ts-font-bold ts-text-default ts-mb-3" style={{ fontSize: '22px', lineHeight: '1.3' }}>
-                    Connect your shop to #trstd
+                    {phrasesByKey.authentication_credentials_connect_title}
                   </h1>
 
-                  <p className="ts-text-sm ts-font-normal ts-mb-8" style={{ color: '#374151' }}>
-                    Find your Client ID &amp; Secret in{' '}
-                    <a
-                      id="link_credentialsRequest"
-                      href={phrasesByKey.authentication_credentials_help_button_url.concat(
-                        `?plugin=${nameOfSystem}`
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ts-underline ts-cursor-pointer"
-                      style={{ color: '#2563EB' }}
-                    >
-                      Trusted Shops' Control Centre
-                    </a>
-                  </p>
+                  {phrasesByKey && (
+                    <div style={{ color: '#374151' }}>
+                      <TextWithLink
+                        id="credentialsRequest"
+                        text={phrasesByKey.authentication_credentials_help_button_text}
+                        url={phrasesByKey.authentication_credentials_help_button_url.concat(
+                          `?plugin=${nameOfSystem}`,
+                        )}
+                        textStyle="ts-text-sm ts-font-normal ts-mb-8"
+                        linkStyle="ts-underline ts-cursor-pointer ts-text-[#024DF0]"
+                      />
+                    </div>
+                  )}
 
                   <form className="ts-flex ts-flex-col" onSubmit={handleSubmit(onSubmit)}>
                     <div className="ts-flex ts-flex-col ts-gap-4 ts-mb-4">
@@ -98,7 +96,7 @@ const LoginPageModule: FC<{
                           registerName="clientId"
                           register={register}
                           isError={!!errors.clientId || !!clientIdError}
-                          placeholder="Client ID"
+                          placeholder={phrasesByKey.authentication_client}
                           customClass="!ts-h-[46px] !ts-px-4 !ts-py-3 !ts-shadow-none !ts-border !ts-border-[#D1D5DC] !ts-rounded-lg !ts-text-sm"
                           required
                         />
@@ -108,7 +106,7 @@ const LoginPageModule: FC<{
                           id={'clientSecret'}
                           registerName="clientSecret"
                           register={register}
-                          placeholder="Client Secret"
+                          placeholder={phrasesByKey.authentication_secret}
                           type="password"
                           isError={!!errors.clientSecret || !!clientSecretError}
                           customClass="!ts-h-[46px] !ts-px-4 !ts-py-3 !ts-shadow-none !ts-border !ts-border-[#D1D5DC] !ts-rounded-lg !ts-text-sm"
@@ -124,11 +122,11 @@ const LoginPageModule: FC<{
                     )}
 
                     <p className="ts-text-sm ts-font-normal ts-mb-5" style={{ color: '#6B7280' }}>
-                      These are different from your Trusted Shops login credentials
+                      {phrasesByKey.authentication_credentials_help_text}
                     </p>
 
                     <StyledButton id="credentialsSubmit" variant="primary" type="submit" fullWidth height={46} className="ts-mb-0">
-                      Connect
+                      {phrasesByKey.authentication_button_submit}
                     </StyledButton>
                   </form>
                 </div>
@@ -137,13 +135,13 @@ const LoginPageModule: FC<{
               <div className="ts-px-5 sm:ts-px-16 ts-pb-6 ts-flex ts-flex-col ts-items-center ts-gap-2">
                 <a
                   id="link_integrationGuide"
-                  href={phrasesByKey.global_help_link_url_1}
+                  href={phrasesByKey.authentication_integration_guide_url}
                   target="_blank"
                   rel="noreferrer"
                   className="ts-text-sm ts-font-normal ts-cursor-pointer ts-inline-flex ts-items-center ts-gap-1"
                   style={{ color: '#2563EB' }}
                 >
-                  View integration guide
+                  {phrasesByKey.authentication_integration_guide_text}
                   <ExternalLinkIcon color="#2563EB" />
                 </a>
                 {phrasesByKey && (
@@ -159,16 +157,22 @@ const LoginPageModule: FC<{
             </div>
 
             <div className="ts-hidden sm:ts-flex ts-flex-col ts-w-1/2 sm:ts-h-screen" style={{ position: 'relative' }}>
-              <div className="ts-flex ts-justify-center ts-px-8 ts-py-5" style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 1 }}>
-                <a
-                  href="https://www.trustedshops.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ts-text-sm ts-font-normal ts-cursor-pointer ts-underline"
-                  style={{ color: '#6B7280' }}
-                >
-                  Not yet a customer?
-                </a>
+              <div
+                className="ts-flex ts-justify-center ts-px-8 ts-py-5"
+                style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 1, color: '#667085' }}
+              >
+                {phrasesByKey && (
+                  <TextWithLink
+                    id="salesLink"
+                    text={phrasesByKey.authentication_salesLink_text}
+                    url={phrasesByKey.authentication_salesLink_url_1.concat(
+                      `?a_aid=${nameOfSystem}`,
+                    )}
+                    textStyle="ts-text-default ts-font-normal ts-text-sm"
+                    
+                    linkStyle="ts-underline ts-cursor-pointer ts-text-[#667085]"
+                  />
+                )}
               </div>
               <img
                 src={LoginIllustration}

@@ -8,6 +8,7 @@ import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
 import ReviewInvitesOverview from '@/assets/review-invites-overview.svg'
 import StyledButton from '@/components/controls/styledButton'
+import TextWithLink from '@/components/layouts/textWithLink'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 
@@ -30,43 +31,39 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
     ...(allowsSupportTrstdLogin ? [{
       id: 'trstd-login',
       tabId: 1,
-      title: '#trstd login',
-      description:
-        'Protects your visitors from fakes. Once activated, the personal #trstd secret is displayed, proving that the site is authentic. Fake websites can\'t do this. A strong signal that also protects you from brand misuse.',
+      title: phrasesByKey.overview_trstd_login_title,
+      description: phrasesByKey.overview_trstd_login_description,
       illustration: TrstdLoginOverview,
       hasStatus: true,
-      statusLabel: 'Enabled \u00b7 Auto placement',
-      buttonLabel: 'Configure',
+      statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
+      buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
     {
       id: 'trustbadge',
       tabId: 2,
-      title: 'Trustbadge',
-      description:
-        'Builds trust at first glance through the Trusted Shops brand. Displays your rating based on real orders and, if awarded, the Trusted Shops Trustmark with Buyer Protection across all payment methods.',
+      title: phrasesByKey.overview_trustbadge_title,
+      description: phrasesByKey.overview_trustbadge_description,
       illustration: TrustbadgeOverview,
       hasStatus: true,
-      statusLabel: isTrustbadgeActive ? 'Enabled \u00b7 Auto placement' : 'Inactive',
+      statusLabel: isTrustbadgeActive ? phrasesByKey.overview_trustbadge_status_enabled : phrasesByKey.overview_trustbadge_status_inactive,
       isActive: isTrustbadgeActive,
-      buttonLabel: 'Configure',
+      buttonLabel: phrasesByKey.overview_trustbadge_button_configure,
     },
     {
       id: 'widgets',
       tabId: 3,
-      title: 'Widgets',
-      description:
-        'Show off what your customers say about your business. Choose how you want to display reviews and other trust elements across your website to attract new customers and boost sales.',
+      title: phrasesByKey.overview_widgets_title,
+      description: phrasesByKey.overview_widgets_description,
       illustration: WidgetsOverview,
-      buttonLabel: 'Manage',
+      buttonLabel: phrasesByKey.overview_widgets_button_manage,
     },
     {
       id: 'review-invites',
       tabId: 4,
-      title: 'Review Invites',
-      description:
-        'Get more reviews by inviting your customers to leave a review after they\'ve made a purchase. You can set up review invites in the Trusted Shops Control Centre.',
+      title: phrasesByKey.overview_invites_title,
+      description: phrasesByKey.overview_invites_description,
       illustration: ReviewInvitesOverview,
-      buttonLabel: 'Manage',
+      buttonLabel: phrasesByKey.overview_invites_button_manage,
     },
   ]
 
@@ -83,10 +80,9 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         {featureCards.map(card => (
           <div
             key={card.id}
-            className="ts-bg-white ts-rounded-[14px] ts-flex ts-flex-col sm:ts-flex-row"
+            className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-flex ts-flex-col sm:ts-flex-row"
             style={{
               overflow: 'hidden',
-              boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.08), 0px 1px 2px rgba(0, 0, 0, 0.04)',
             }}
           >
             <div
@@ -171,19 +167,14 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
 
       <div className="ts-flex ts-items-center ts-gap-2 ts-py-3">
         <HelpCircleIcon customClass="ts-text-[#155DFC] ts-flex-shrink-0" />
-        <span className="ts-text-sm ts-font-normal" style={{ color: '#374151' }}>
-          Need help with setup or configuration?
-        </span>
-        <a
-          href={phrasesByKey.global_help_link_url_1}
-          className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
-          style={{ color: '#2563EB' }}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open integration guide
-          <ExternalLinkIcon />
-        </a>
+        <TextWithLink
+          id="overview_help"
+          text={phrasesByKey.overview_help_text}
+          url={phrasesByKey.overview_help_url}
+          textStyle="ts-text-sm ts-font-normal ts-m-0 ts-text-[#374151]"
+          linkStyle="ts-inline-flex ts-items-center ts-gap-1 ts-underline !ts-text-[#155DFC]"
+          linkSuffix={<ExternalLinkIcon />}
+        />
       </div>
     </div>
   )

@@ -28,6 +28,10 @@ export interface IPhraseAuth {
     text: '[%s]Need help with creating the Client ID and Client Secret?[%s]'
     url_1: 'mailto:members@trustedshops.com'
   }
+  integration_guide: {
+    text: string
+    url: string
+  }
 }
 
 export interface IInvites {
@@ -164,6 +168,57 @@ export interface IRoutes {
   settings: string
   trustbadge: string
   widgets: string
+}
+
+export interface IOverview {
+  help: {
+    text: string
+    url: string
+  }
+  trstd_login: {
+    title: string
+    description: string
+    status: {
+      enabled: string
+      inactive: string
+    }
+    button: {
+      configure: string
+    }
+  }
+  trustbadge: {
+    title: string
+    description: string
+    status: {
+      enabled: string
+      inactive: string
+    }
+    button: {
+      configure: string
+    }
+  }
+  widgets: {
+    title: string
+    description: string
+    status: {
+      enabled: string
+      inactive: string
+    }
+    button: {
+      manage: string
+    }
+  }
+  invites: {
+    title: string
+    description: string
+    status: {
+      enabled: string
+      inactive: string
+    }
+    button: {
+      manage: string
+    }
+  }
 }
 
 export interface ITrustbadge {
@@ -312,8 +367,36 @@ export type AUTH_KEYS = {
   authentication_button_submit: string
   authentication_supporthelp_text: string
   authentication_supporthelp_url_1: string
+  authentication_integration_guide_text: string
+  authentication_integration_guide_url: string
 } & GLOBAL_KEYS &
   SHOPIFY_GLOBAL_KEYS
+
+  export type OVERVIEW_KEYS = {
+    overview_help_text: string
+    overview_help_url: string 
+    overview_trstd_login_title: string
+    overview_trstd_login_description: string
+    overview_trstd_login_status_enabled: string
+    overview_trstd_login_status_inactive: string
+    overview_trstd_login_button_configure: string
+    overview_trustbadge_title: string
+    overview_trustbadge_description: string
+    overview_trustbadge_status_enabled: string
+    overview_trustbadge_status_inactive: string
+    overview_trustbadge_button_configure: string
+    overview_widgets_title: string
+    overview_widgets_description: string
+    overview_widgets_status_enabled: string
+    overview_widgets_status_inactive: string
+    overview_widgets_button_manage: string
+    overview_invites_title: string
+    overview_invites_description: string
+    overview_invites_status_enabled: string
+    overview_invites_status_inactive: string
+    overview_invites_button_manage: string
+  }
+
 
 export type ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: string
@@ -334,6 +417,28 @@ export type ITRUSTBADGE_KEYS = {
   application_trustbadge_popup_submit: string
   application_trustbadge_popup_titel: string
   application_trustbadge_popup_text: string
+  application_trustbadge_displayToggle_label: string
+  application_trustbadge_automaticPlacement_title: string
+  application_trustbadge_automaticPlacement_description: string
+  application_trustbadge_preview_mobile: string
+  application_trustbadge_preview_desktop: string
+  application_trustbadge_integration_title: string
+  application_trustbadge_integration_description: string
+  application_trustbadge_radioButtonOptions_standard_value: string
+  application_trustbadge_radioButtonOptions_standard_description: string
+  application_trustbadge_radioButtonOptions_expert_value: string
+  application_trustbadge_radioButtonOptions_expert_description: string
+  application_trustbadge_placementSection_desktopLabel: string
+  application_trustbadge_placementSection_mobileLabel: string
+  application_trustbadge_placementSection_positionLabel: string
+  application_trustbadge_placementSection_verticalOffsetLabel: string
+  application_trustbadge_placementSection_center: string
+  application_trustbadge_placementSection_left: string
+  application_trustbadge_placementSection_right: string
+  application_trustbadge_about_title: string
+  application_trustbadge_about_description: string
+  application_trustbadge_about_learnMore: string  
+  application_trustbadge_about_learnMore_url: string
 }
 
 export type IWIDGETS_KEYS = {
@@ -375,6 +480,10 @@ export type IWIDGETS_KEYS = {
   application_widgets_contentType_productReviews: string
   application_widgets_contentType_serviceReviews: string
   application_widgets_contentType_trustedCheckout: string
+  application_widgets_about_title: string
+  application_widgets_about_description: string
+  application_widgets_about_learnMore: string
+  application_widgets_about_learnMore_url: string
 }
 
 export type INVITES_KEYS = {
@@ -428,6 +537,26 @@ export type INVITES_KEYS = {
   application_invites_sendbyos_success_delay_text: string
   application_invites_sendbyos_success_delay_url_1: string
   application_invites_sendbyos_export_productdata: string
+  application_invites_v3_title: string
+  application_invites_v3_description: string
+  application_invites_v3_rightTime_title: string
+  application_invites_v3_rightTime_description: string
+  application_invites_v3_rightTime_serviceReviews: string
+  application_invites_v3_rightTime_productReviews: string
+  application_invites_v3_rightTime_placeholder: string
+  application_invites_v3_rightTime_productUpgrade_text: string
+  application_invites_v3_rightTime_productUpgrade_url_1: string
+  application_invites_v3_previousOrders_title: string
+  application_invites_v3_previousOrders_description: string
+  application_invites_v3_previousOrders_step1_title: string
+  application_invites_v3_previousOrders_step1_exportLabel: string
+  application_invites_v3_previousOrders_step1_days: string
+  application_invites_v3_previousOrders_step2_title: string
+  application_invites_v3_previousOrders_step2_description: string
+  application_invites_v3_previousOrders_step2_buttonLabel: string
+  application_invites_v3_previousOrders_step2_url_1: string
+  application_invites_v3_rightTime_help_text: string
+  application_invites_v3_rightTime_help_url_1: string
 }
 
 export type SETTINGS_KEYS = {
@@ -445,6 +574,14 @@ export type SETTINGS_KEYS = {
   application_settings_popup_text: string
   application_settings_popup_submit: string
   application_settings_popup_titel: string
+  application_settings_popup_description: string
+  application_settings_popup_body: string
+  application_settings_channel_warning_title: string
+  application_settings_channel_warning_description: string
+  application_settings_disconnect_warning_title: string
+  application_settings_help_title: string
+  application_settings_help_text: string
+  application_settings_help_url_1: string
 }
 
 export type CHANNEL_KEYS = {
@@ -469,6 +606,7 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   INVITES_KEYS &
   IWIDGETS_KEYS &
   ITRUSTBADGE_KEYS &
-  GLOBAL_KEYS
+  GLOBAL_KEYS &
+  OVERVIEW_KEYS
 
 export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets'

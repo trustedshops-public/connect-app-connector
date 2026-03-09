@@ -60,7 +60,7 @@ const ApproveDisableModal: FC<Props> = ({
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 }}
               >
-                <div className="ts-p-6 sm:ts-p-8">
+                <div className="ts-p-6">
                   {/* Header: icon + title */}
                   <div className="ts-flex ts-items-start ts-gap-3 ts-pb-5" style={{ borderBottom: '1px solid #E5E7EB' }}>
                     <div
@@ -85,12 +85,6 @@ const ApproveDisableModal: FC<Props> = ({
                     >
                       {phrasesByKey?.application_trustbadge_popup_text}
                     </p>
-                    <p
-                      className="ts-font-normal ts-mt-5"
-                      style={{ fontSize: '14px', lineHeight: '21px', color: '#4B5563' }}
-                    >
-                      Are you sure you want to continue?
-                    </p>
                   </div>
 
                   {/* Buttons */}
@@ -98,7 +92,7 @@ const ApproveDisableModal: FC<Props> = ({
                     <StyledButton id="cancelDiactivateTB" variant="outlined" flex1 onClick={() => handleCancel(false)}>
                       {phrasesByKey?.global_button_cancel}
                     </StyledButton>
-                    <StyledButton id="submitDiactivateTB" variant="danger" flex1 onClick={() => diactivateTB(data)}>
+                    <StyledButton id="submitDiactivateTB" variant="primary" flex1 onClick={() => diactivateTB(data)}>
                       {phrasesByKey?.application_trustbadge_popup_submit}
                     </StyledButton>
                   </div>

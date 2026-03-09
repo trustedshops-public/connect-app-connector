@@ -31,10 +31,11 @@ const StandartEditor: FC<Props> = ({
   return (
     <div>
       {/* Desktop section */}
-      <div className="ts-mb-8">
+      <div className="ts-mb-6">
+      <div style={{ borderBottom: '1px solid #E5E7EB', margin: '0 0 30px 0' }} />
         <div className="ts-flex ts-items-center ts-gap-2 ts-mb-4">
           <DesktopMonitorIcon />
-          <span className={`ts-text-sm ts-font-bold ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
+          <span className={`ts-text-sm ts-font-normal ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
             Desktop
           </span>
         </div>
@@ -118,7 +119,7 @@ const StandartEditor: FC<Props> = ({
       <div>
         <div className="ts-flex ts-items-center ts-gap-2 ts-mb-4">
           <MobilePhoneIcon />
-          <span className={`ts-text-sm ts-font-bold ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
+          <span className={`ts-text-sm ts-font-normal ts-text-default ${isDisabled && 'ts-opacity-25'}`}>
             Mobile
           </span>
         </div>

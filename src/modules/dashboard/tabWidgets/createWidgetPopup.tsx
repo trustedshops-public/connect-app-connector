@@ -56,7 +56,7 @@ const CreateWidgetPopup: FC<Props> = ({ channelRef, phrasesByKey, setOpenModal, 
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 }}
               >
-                <div className="ts-p-6 sm:ts-p-8">
+                <div className="ts-p-6">
                   {/* Title */}
                   <h2
                     className="ts-text-default ts-font-bold ts-pb-5"

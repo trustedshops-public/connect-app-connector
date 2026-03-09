@@ -1,6 +1,40 @@
 {
   "application": {
     "invites": {
+      "v3": {
+        "title": "Review invites",
+        "description": "Send review invites to your customers at the right time to collect more reviews and improve the quality of your customer feedback.",
+        "rightTime": {
+          "title": "Configure review invite settings",
+          "description": "Choose when your customers receive a review invite by selecting a shop touchpoint.",
+          "serviceReviews": "Service reviews",
+          "productReviews": "Product reviews",
+          "placeholder": "Choose an option",
+          "productUpgrade": {
+            "text": "If you haven't booked product reviews yet, [%s]contact our sales team to upgrade[%s].",
+            "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+          },
+          "help": {
+            "text": "The most commonly used touchpoint for sending reviews is customer checkout. To make sure customers get review invites at the right time, we add a standard delay of 5 days for the send-out. You can change this in the [%s]Trusted Shops Control Centre[%s].",
+            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
+          }
+        },
+        "previousOrders": {
+          "title": "Send review invites for past orders",
+          "description": "Get more reviews by manually inviting previous customers to rate their experience. Make sure all customers have given their consent to receive review invite emails.",
+          "step1": {
+            "title": "Step 1: Export orders from {{shopSystemName}}",
+            "exportLabel": "Export orders made in the past",
+            "days": "days"
+          },
+          "step2": {
+            "title": "Step 2: Upload orders in the Control Centre",
+            "description": "After exporting your orders, upload the CSV file in your eTrusted account to send review invitations.",
+            "buttonLabel": "Send manual invites",
+            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
+          }
+        }
+      },
       "product": {
         "description": {
           "text": "If you have already booked Product Reviews as an extra feature, you are able to collect product reviews. To do so, move the slider to active. This way you can send Product Review invites to your customers. \n\nAre Product Reviews not yet part of your contract? Then [%s]book Product Reviews[%s] now.",
@@ -126,34 +160,136 @@
       "channel": {
         "caution": "Changing channel mappings will reset any existing configuration for affected channels. Make sure to review your settings after saving changes.",
         "description": "Match each [%]shopsystem[%] channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
-        "title": "Channel mapping"
+        "title": "Channel mapping",
+        "warning": {
+          "title": "Changes affect existing settings",
+          "description": "Updating the channel mapping overwrites any existing configuration of those channels."
+        }
       },
       "description": "Match each shop channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
       "disconnect": {
         "button": "Disconnect",
         "description": "Disconnecting will remove all Trusted Shops features from your shop and delete your configuration settings.",
         "help": {
-          "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our Help Center. [%s]Contact us[%s]",
-          "url_1": "mailto:members@trustedshops.com"
+          "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our [%s]Help Centre[%s].",
+          "url_1": "https://help.etrusted.com/hc/en-gb"
         },
         "title": "Disconnect integration",
         "warning": "All your channel mappings, widget configurations, and active features will be removed. You will need to reconnect and reconfigure everything if you want to use Trusted Shops again.",
-        "warningText": "This action cannot be undone"
+        "warningTitle": "This action cannot be undone"
       },
       "popup": {
-        "submit": "Disconnect",
+        "submit": "Yes, disconnect",
         "text": "By clicking Disconnect, everything you have set up will be deleted. Restoring your settings is not possible.",
-        "titel": "Are you sure you want to disconnect Trusted Shops from your shop system?"
+        "titel": "Disconnect Trusted Shops?",
+        "description": "This action will permanently remove the integration and all associated data.",
+        "body": "By disconnecting, the following will be removed:\n\n• All channel mappings and configurations\n• Active #trstd login and Trustbadge widgets\n• Review invite settings\n• Connection to Trusted Shops services"
       },
-      "title": "Channel mapping"
+      "title": "Channel mapping",
+      "help": {
+        "title": "Need help with integration?",
+        "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our [%s]Help Centre[%s].",
+        "url_1": "https://help.etrusted.com/hc/en-gb"
+      }
+    },
+    "overview": {
+      "help": {
+        "text": "Need help with setup or configuration? [%s]Open integration guide[%s]",
+        "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
+      },
+      "trstd_login": {
+        "title": "#trstd login",
+        "description": "Protects your visitors from fakes. Once activated, the personal #trstd secret is displayed, proving that the site is authentic. Fake websites can't do this. A strong signal that also protects you from brand misuse.",
+        "status": {
+          "enabled": "Enabled \u00b7 Auto placement",
+          "inactive": "Inactive"
+        },
+        "button": {
+          "configure": "Configure"
+        }
+      },
+      "trustbadge": {
+        "title": "Trustbadge",
+        "description": "Builds trust at first glance through the Trusted Shops brand. Displays your rating based on real orders and, if awarded, the Trusted Shops Trustmark with Buyer Protection across all payment methods.",
+        "status": {
+          "enabled": "Enabled \u00b7 Auto placement",
+          "inactive": "Inactive"
+        },
+        "button": {
+          "configure": "Configure"
+        }
+      },
+      "widgets": {
+        "title": "Widgets",
+        "description": "Show off what your customers say about your business. Choose how you want to display reviews and other trust elements across your website to attract new customers and boost sales. ",
+        "status": {
+          "enabled": "Enabled \u00b7 Auto placement",
+          "inactive": "Inactive"
+        },
+        "button": {
+          "manage": "Manage"
+        }
+      },
+      "invites": {
+        "title": "Send review invites for products",
+        "description": "Get more reviews by inviting your customers to leave a review after they’ve made a purchase. You can set up review invites in the Trusted Shops Control Centre.",
+        "status": {
+          "enabled": "Enabled \u00b7 Auto placement",
+          "inactive": "Inactive"
+        },
+        "button": {
+          "manage": "Manage"
+        }
+      }
     },
     "trustbadge": {
-      "description": "The Trustbadge is Trusted Shops most recognisable signature and the best way to ensure trust. It is also essential to the activation of reviews and of the buyer protection.",
+      "description": "Show off the trust you've earned with Trusted Shops' most recognisable element. Start collecting reviews and using Trusted Shops features by adding the Trustbadge to your website.",
       "expert": {
         "help": {
           "text": "Go to overview of [%s]Trustbadge parameter[%s].",
           "url_1": "https://help.etrusted.com/hc/en-gb/articles/360047497311"
         }
+      },
+      "displayToggle": {
+        "label": "Display on this channel (with automatic placement)"
+      },
+      "automaticPlacement": {
+        "title": "Automatic Placement",
+        "description": "The Trustbadge is automatically placed on your shop website and adapts seamlessly to both desktop and mobile layouts, building customer trust at every touchpoint."
+      },
+      "preview": {
+        "mobile": "Mobile",
+        "desktop": "Desktop"
+      },
+      "integration": {
+        "title": "Trustbadge integration",
+        "description": "Select how you want to integrate the Trustbadge into your shop."
+      },
+      "radioButtonOptions": {
+        "standard": {
+          "value": "Standard integration",
+          "description": "Display the standard Trustbadge on all pages of your website and customise its position. "
+        },
+        "expert": {
+          "value": "Edit integration code",
+          "description": "Manually edit the integration code to fit your needs for more control over placement and styling.."
+        }
+      },
+      "placementSection": {
+        "desktopLabel": "Desktop",
+        "mobileLabel": "Mobile",
+        "positionLabel": "Position",
+        "verticalOffsetLabel": "Vertical offset (px)",
+        "center": "Center",
+        "left": "Left",
+        "right": "Right"
+        
+      },
+      "about": {
+        "title": "About the Trustbadge",
+        "description": "The Trustbadge displays your Trusted Shops certification, star rating, and provides access to Buyer Protection. It automatically updates with your latest reviews and rating.",
+        "learnMore": "Learn more about Trustbadge",
+        "learnMore_url": "https://help.etrusted.com/hc/en-gb/articles/360047497311"
       },
       "integrationmode": "Choose your integration settings",
       "placement": {
@@ -168,7 +304,7 @@
       "popup": {
         "submit": "Deactivate",
         "text": "By deactivating the Trustbadge, it will no longer be displayed. Your Buyer Protection and the collection of reviews remain active.",
-        "titel": "Are you sure you want to deactivate the Trustbadge?"
+        "titel": "Deactivate the Trustbadge?"
       },
       "radioButton": {
         "expert": "Edit integration code",
@@ -233,24 +369,30 @@
         },
         "title": "Current widgets for {{ channel }}:"
       },
-      "title": "Widgets"
+      "title": "Widgets",
+      "about": {
+        "title": "About Widgets",
+        "description": "Widgets are created and managed in the eTrusted Control Centre. Once created, they automatically sync to your [infoOfSystem.nameOfSystem] installation and can be placed across your website.",
+        "learnMore": "Open Trusted Shops Control Centre",
+        "learnMore_url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
+      }
     }
   },
   "authentication": {
     "button": {
-      "submit": "Start connection"
+      "submit": "Connect"
     },
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Connect your shop"
+        "title": "Connect your shop to #trstd"
       },
       "help": {
         "button": {
-          "text": "Request Client ID & Secret",
+          "text": "Find your Client ID & Secret in [%s]Trusted Shops' Control Centre[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "You can find both in the Trusted Shops Control Center.",
+        "text": "These are different from your Trusted Shops login credentials",
         "title": "Are you new here?"
       }
     },
@@ -264,12 +406,16 @@
       "text": "[%s]Need help with creating the Client ID and Client Secret?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
+    "integrationGuide": {
+      "text": "View integration guide",
+      "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
+    },
     "title": "Welcome to Trusted Shops Easy Integration"
   },
   "channelSelect": {
-    "info": "Note: you can edit your choice at any time in the settings",
-    "submit": "Save",
-    "titel": "Start now by matching a channel",
+    "info": "Reviews and trust signals will appear on the correct website.You can update this anytime.",
+    "submit": "Confirm channel mapping",
+    "titel": "Map your channels to #trstd",
     "title": {
       "etrusted": "eTrusted channels",
       "shopsystem": "[%]shopsystem[%] channels"
