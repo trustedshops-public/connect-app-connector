@@ -23,32 +23,22 @@ const EditIntegrationCodeProps: FC<Props> = ({
   setIsButtonDisabled,
   initialTrustbadgeDataChild,
 }) => {
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText(textStr)
-  }
-
   return (
     <div className="ts-mt-6">
+      <div style={{ borderBottom: '1px solid #E5E7EB', margin: '0 0 30px 0' }} />
       <div className="ts-flex ts-items-center ts-justify-between ts-mb-2">
-        <span className="ts-text-sm ts-font-normal ts-text-default">
+        <span className="ts-text-sm ts-font-normal ts-text-default ts-mb-2"
+          style={{ color: '#364153' }}
+        >
           Integration Code
         </span>
-        <button
-          type="button"
-          onClick={handleCopyCode}
-          className="ts-text-sm ts-font-normal ts-border-0 ts-bg-transparent ts-cursor-pointer ts-p-0"
-          style={{ color: '#2563EB' }}
-          disabled={isDisabled}
-        >
-          Copy code
-        </button>
       </div>
       <textarea
         disabled={isDisabled}
         value={textStr}
         className={`ts-w-full ts-p-4 ts-text-sm ts-border-0 ts-outline-none ts-resize-y ${isDisabled ? 'ts-opacity-50' : ''}`}
         style={{
-          height: '240px',
+          height: '427px',
           backgroundColor: '#1F2937',
           borderRadius: '10px',
           fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
@@ -69,9 +59,6 @@ const EditIntegrationCodeProps: FC<Props> = ({
           )
         }}
       />
-      <p className="ts-text-xs ts-font-normal ts-mt-2" style={{ color: '#6b7280' }}>
-        Paste this code into your shop's theme files before the closing &lt;/body&gt; tag.
-      </p>
     </div>
   )
 }

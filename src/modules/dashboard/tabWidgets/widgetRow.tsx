@@ -172,7 +172,8 @@ const WidgetRow: FC<Props> = ({
           </Tooltip>
 
           <div>
-            <p id={`widget_type_${widget.widgetId}`} className="ts-text-sm ts-font-bold ts-text-default">
+            <p id={`widget_type_${widget.widgetId}`} className="ts-text-default" 
+            style={{ fontSize: '14px', fontWeight: '500', color: '#101828' }}>
               {phrasesByKey[ApplicationType[widget.applicationType]]}
             </p>
             <p

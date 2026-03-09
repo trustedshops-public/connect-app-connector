@@ -77,12 +77,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   }, [])
 
   return (
-    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
-        Configure review invite settings
+        {phrasesByKey.application_invites_v3_rightTime_title}
       </h3>
       <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-        Choose when your customers receive a review invite by selecting a shop touchpoint.
+        {phrasesByKey.application_invites_v3_rightTime_description}
       </p>
 
       <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
@@ -93,12 +93,12 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           ref={servicelabelRef}
           className="ts-text-default ts-font-bold ts-text-sm ts-mb-2 ts-block"
         >
-          Service reviews
+          {phrasesByKey.application_invites_v3_rightTime_serviceReviews}
         </label>
         <Select
           testId={'channelSelection'}
           id={'channelSelection'}
-          placeholder="Choose an option"
+          placeholder={phrasesByKey.application_invites_v3_rightTime_placeholder}
           defaultValue={
             defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
           }
@@ -136,7 +136,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
             ref={productlabelRef}
             className="ts-text-default ts-font-bold ts-text-sm ts-mb-2 ts-block"
           >
-            Product reviews
+            {phrasesByKey.application_invites_v3_rightTime_productReviews}
           </label>
           <div className="ts-flex ts-items-center ts-gap-4">
             <Select
@@ -170,15 +170,13 @@ const SendReviewInvitesRightTime: FC<Props> = ({
               ))}
             </Select>
             <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
-              If you haven't booked product reviews yet,{' '}
-              <a
-                href="https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: '#2563EB', textDecoration: 'none' }}
-              >
-                contact our sales team to upgrade
-              </a>.
+                <TextWithLink
+                id={'productUpgrade'}
+                url={phrasesByKey.application_invites_v3_rightTime_productUpgrade_url_1}
+                text={phrasesByKey.application_invites_v3_rightTime_productUpgrade_text}
+                textStyle="ts-text-sm"
+                linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
+              />
             </p>
           </div>
         </div>
@@ -209,6 +207,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
               ]}
               text={phrasesByKey.application_invites_sendbyos_orderstatus_warning_text}
               textStyle="ts-text-sm ts-italic"
+              linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
             />
           </div>
         </div>
@@ -227,9 +226,10 @@ const SendReviewInvitesRightTime: FC<Props> = ({
         <div>
           <TextWithLink
             id={'Control Centre'}
-            url={phrasesByKey.application_invites_sendbyos_success_delay_url_1}
-            text={phrasesByKey.application_invites_sendbyos_success_delay_text}
+            url={[phrasesByKey.application_invites_v3_rightTime_help_url_1]}
+            text={phrasesByKey.application_invites_v3_rightTime_help_text}
             textStyle="ts-text-sm"
+            linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
           />
         </div>
       </div>

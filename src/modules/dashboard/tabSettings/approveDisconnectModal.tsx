@@ -35,13 +35,6 @@ const ApproveDisconnectModal: FC<Props> = ({
     }
   }, [showModal])
 
-  const bulletItems = [
-    'All channel mappings and configurations',
-    'Active #trstd login and Trustbadge widgets',
-    'Review invite settings',
-    'Connection to Trusted Shops services',
-  ]
-
   return (
     <Fragment>
       {showModal && (
@@ -64,7 +57,7 @@ const ApproveDisconnectModal: FC<Props> = ({
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 }}
               >
-                <div className="ts-p-6 sm:ts-p-8">
+                <div className="ts-p-6">
                   {/* Header: icon + title + subtitle */}
                   <div className="ts-flex ts-items-start ts-gap-3 ts-pb-5" style={{ borderBottom: '1px solid #E5E7EB' }}>
                     <div
@@ -84,40 +77,38 @@ const ApproveDisconnectModal: FC<Props> = ({
                         className="ts-font-normal ts-mt-1"
                         style={{ fontSize: '13px', lineHeight: '18px', color: '#6B7280' }}
                       >
-                        This action will permanently remove the integration and all associated data.
+                        {phrasesByKey?.application_settings_popup_description}
                       </p>
                     </div>
                   </div>
 
                   {/* Body: description + bullet list */}
                   <div className="ts-pt-5 ts-pb-6">
-                    <p
-                      className="ts-font-normal ts-mb-4"
+                    <div
+                      className="ts-font-normal"
                       style={{ fontSize: '14px', lineHeight: '21px', color: '#4B5563' }}
                     >
-                      By disconnecting, the following will be removed:
-                    </p>
-
-                    <ul className="ts-list-none ts-p-0 ts-m-0 ts-flex ts-flex-col ts-gap-3">
-                      {bulletItems.map((item) => (
-                        <li key={item} className="ts-flex ts-items-center ts-gap-3">
-                          <span
-                            className="ts-flex-shrink-0 ts-rounded-full"
-                            style={{ width: '6px', height: '6px', backgroundColor: '#EF4444' }}
-                          />
-                          <span style={{ fontSize: '14px', lineHeight: '20px', color: '#374151' }}>
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    <p
-                      className="ts-font-normal ts-mt-5"
-                      style={{ fontSize: '14px', lineHeight: '21px', color: '#4B5563' }}
-                    >
-                      Are you sure you want to continue?
-                    </p>
+                      {(phrasesByKey?.application_settings_popup_body ?? '')
+                        .split('\n')
+                        .filter(Boolean)
+                        .map((line, i) =>
+                          line.trim().startsWith('•') ? (
+                            <p key={i} className="ts-m-0 ts-mb-2 ts-flex ts-items-center ts-gap-2">
+                              <span
+                                className="ts-flex-shrink-0"
+                                style={{ color: '#EF4444' }}
+                              >
+                                •
+                              </span>
+                              <span>{line.trim().slice(1).trim()}</span>
+                            </p>
+                          ) : (
+                            <p key={i} className="ts-m-0 ts-mb-4">
+                              {line.trim()}
+                            </p>
+                          ),
+                        )}
+                    </div>
                   </div>
 
                   {/* Buttons */}

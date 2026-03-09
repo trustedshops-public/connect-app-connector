@@ -360,13 +360,6 @@ const DashboardPageModule: FC<{
                   <div className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     {!showSettings && (
                       <div className="ts-flex ts-items-center ts-gap-2 ts-min-w-0">
-                        <label
-                          className={`${
-                            !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-darkLabel'
-                          } ts-font-normal ts-text-sm`}
-                        >
-                          Channel
-                        </label>
                         <Select
                           testId={'channelSelection'}
                           id={'channelSelection'}
@@ -398,10 +391,10 @@ const DashboardPageModule: FC<{
                       data-testid="button_channelMapping"
                       type="button"
                       onClick={() => setShowSettings(true)}
-                      className="ts-flex ts-items-center ts-gap-1 ts-cursor-pointer ts-bg-transparent ts-px-4 ts-py-2 ts-rounded-full"
+                      className="ts-flex ts-items-center ts-gap-1 ts-cursor-pointer ts-bg-transparent ts-px-4 ts-py-2 ts-rounded-[8px]"
                       style={{
                         color: '#024DF0',
-                        border: showSettings ? '1.5px solid #024DF0' : '1.5px solid transparent',
+                        border: showSettings ? '2px solid #024DF0' : '2px solid transparent',
                       }}
                     >
                       <GearIcon />

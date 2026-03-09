@@ -1,6 +1,8 @@
 import { h } from 'preact'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import { MobilePhoneIcon } from '@/components/layouts/icons/MobilePhoneIcon'
+import { DesktopMonitorIcon } from '@/components/layouts/icons/DesktopMonitorIcon'
 import StyledButton from '@/components/controls/styledButton'
 import { FC, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
@@ -30,13 +32,13 @@ import trustbadgeMobile from '@/assets/trustbadge-mobile.svg'
 
 const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const dataRadioButton = [
-    { value: 'Standard integration', id: 'standard', desc: 'Automatically integrated trustbadge. The Trustbadge will be displayed on all pages with default settings.' },
-    { value: 'Edit integration code', id: 'expert', desc: 'Manually edit the integration code to your needs for more control over placement and styling.' },
+    { value: phrasesByKey.application_trustbadge_radioButtonOptions_standard_value, id: 'standard', desc: phrasesByKey.application_trustbadge_radioButtonOptions_standard_description },
+    { value: phrasesByKey.application_trustbadge_radioButtonOptions_expert_value, id: 'expert', desc: phrasesByKey.application_trustbadge_radioButtonOptions_expert_description },
   ]
   const placementPhrase = {
-    left: phrasesByKey.application_trustbadge_placement_left,
-    right: phrasesByKey.application_trustbadge_placement_right,
-    center: phrasesByKey.application_trustbadge_placement_center,
+    left: phrasesByKey.application_trustbadge_placementSection_left,
+    right: phrasesByKey.application_trustbadge_placementSection_right,
+    center: phrasesByKey.application_trustbadge_placementSection_center,
   }
   const [isDisabled, setIsDisabled] = useState(true)
   const [selectedOption, setSelectedOption] = useState(dataRadioButton[0].id)
@@ -166,11 +168,21 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       <div className="ts-flex ts-flex-col ts-gap-6">
         {(isLoadingAPI || isLoadingBL || isLoadingSave) && <ScrinSpinner />}
 
+        {/* Trustbadge header - no card */}
+        <div className="ts-pb-1">
+          <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
+            {phrasesByKey.application_trustbadge_titel}
+          </h2>
+          <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
+            {phrasesByKey.application_trustbadge_description}
+          </p>
+        </div>
+
         {/* Card 1: Toggle + Automatic Placement Preview */}
-        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
+        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
           <div className="ts-flex ts-items-center ts-justify-between">
             <span className="ts-text-sm ts-font-normal ts-text-default">
-              Display on this channel (with automatic placement)
+              {phrasesByKey.application_trustbadge_displayToggle_label}
             </span>
             <button
               id="switch_button_trustBadge"
@@ -212,50 +224,41 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
             className="ts-text-default ts-font-bold ts-text-center ts-mb-2"
             style={{ fontSize: '16px' }}
           >
-            Automatic Placement
+            {phrasesByKey.application_trustbadge_automaticPlacement_title}
           </h2>
           <p
             className="ts-text-sm ts-font-normal ts-text-center ts-mb-6"
             style={{ color: '#6b7280' }}
           >
-            The Trustbadge is automatically placed on your shop website and adapts seamlessly to both desktop and mobile layouts, building customer trust at every touchpoint.
+            {phrasesByKey.application_trustbadge_automaticPlacement_description}
           </p>
 
           {/* Mobile / Desktop tab toggle */}
           <div className="ts-flex ts-justify-center ts-mb-6">
-            <div className="ts-flex" style={{ borderBottom: '2px solid #E5E7EB' }}>
+            <div className="ts-flex">
               <button
                 type="button"
                 onClick={() => setPreviewTab('mobile')}
-                className="ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-medium ts-border-0 ts-cursor-pointer ts-bg-transparent"
+                className="ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-medium ts-border-0 ts-cursor-pointer ts-bg-transparent ts-rounded-none"
                 style={{
                   color: previewTab === 'mobile' ? '#155DFC' : '#6B7280',
-                  borderBottom: previewTab === 'mobile' ? '2px solid #155DFC' : '2px solid transparent',
-                  marginBottom: '-2px',
+                  borderBottom: previewTab === 'mobile' ? '2px solid #155DFC' : 'none',
                 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <rect x="3.5" y="1.5" width="9" height="13" rx="1.5" stroke="currentColor" stroke-width="1.2" fill="none" />
-                  <path d="M6.5 12.5H9.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                </svg>
-                Mobile
+                <MobilePhoneIcon />
+                {phrasesByKey.application_trustbadge_preview_mobile}
               </button>
               <button
                 type="button"
                 onClick={() => setPreviewTab('desktop')}
-                className="ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-medium ts-border-0 ts-cursor-pointer ts-bg-transparent"
+                className="ts-flex ts-items-center ts-gap-2 ts-px-5 ts-py-2 ts-text-sm ts-font-medium ts-border-0 ts-cursor-pointer ts-bg-transparent ts-rounded-none"
                 style={{
                   color: previewTab === 'desktop' ? '#155DFC' : '#6B7280',
-                  borderBottom: previewTab === 'desktop' ? '2px solid #155DFC' : '2px solid transparent',
-                  marginBottom: '-2px',
+                  borderBottom: previewTab === 'desktop' ? '2px solid #155DFC' : 'none',
                 }}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 16 16" fill="none">
-                  <rect x="1.5" y="2" width="13" height="9" rx="1" stroke="currentColor" stroke-width="1.2" fill="none" />
-                  <path d="M5.5 14H10.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                  <path d="M8 11V14" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" />
-                </svg>
-                Desktop
+                <DesktopMonitorIcon />
+                {phrasesByKey.application_trustbadge_preview_desktop}
               </button>
             </div>
           </div>
@@ -270,16 +273,18 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         </div>
 
         {/* Card 2: Trustbadge integration */}
-        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8">
+        <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
           <h2
             className="ts-text-default ts-font-bold ts-mb-1"
             style={{ fontSize: '16px' }}
           >
-            Trustbadge integration
+            {phrasesByKey.application_trustbadge_integration_title}
           </h2>
           <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-            Select how you want to integrate the Trustbadge into your shop.
+            {phrasesByKey.application_trustbadge_integration_description}
           </p>
+
+          <div style={{ borderBottom: '1px solid #E5E7EB', margin: '20px 0' }} />
 
           {infoOfSystem.allowsEditIntegrationCode ? (
             <div className="ts-flex ts-flex-col ts-gap-3">
@@ -290,7 +295,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
                     key={id}
                     className={`ts-rounded-[10px] ${isDisabled ? 'ts-opacity-50 ts-cursor-not-allowed' : 'ts-cursor-pointer'}`}
                     style={{
-                      border: isSelected ? '1px solid #BFDBFE' : '1px solid #E5E7EB',
+                      border: isSelected ? '2px solid #2B7FFF' : '1px solid #E5E7EB',
                       backgroundColor: isSelected ? 'rgba(239, 246, 255, 0.50)' : '#FFFFFF',
                       padding: '16px 20px',
                     }}
@@ -334,12 +339,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
                     {isSelected && id === 'standard' && (
                       <div className="ts-mt-6" onClick={e => e.stopPropagation()}>
-                        <p
-                          className="ts-text-sm ts-font-normal ts-mb-4"
-                          style={{ color: '#374151' }}
-                        >
-                          Customize the position of the Trustbadge on your website.
-                        </p>
+                       
                         <StandartEditor
                           phrasesByKey={phrasesByKey}
                           isDisabled={isDisabled}
@@ -373,7 +373,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
                 className="ts-text-sm ts-font-normal ts-mb-4"
                 style={{ color: '#374151' }}
               >
-                Customize the position of the Trustbadge on your website.
+                {phrasesByKey.application_trustbadge_integration_description}
               </p>
               <StandartEditor
                 phrasesByKey={phrasesByKey}
@@ -400,7 +400,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
         {/* About the Trustbadge */}
         <div
-            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8"
+            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6"
             style={{
               background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
               border: '1px solid #E5E7EB',
@@ -415,22 +415,22 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
             </div>
             <div>
               <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
-                About the Trustbadge
+                {phrasesByKey.application_trustbadge_about_title}
               </p>
               <p
                 className="ts-text-sm ts-font-normal ts-mb-3"
                 style={{ color: '#6b7280' }}
               >
-                The Trustbadge displays your Trusted Shops certification, star rating, and provides access to Buyer Protection. It automatically updates with your latest reviews and rating.
+                {phrasesByKey.application_trustbadge_about_description}
               </p>
               <a
-                href="https://help.etrusted.com/hc/en-gb/articles/360047497311"
+                href={phrasesByKey.application_trustbadge_about_learnMore_url}
                 className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
                 style={{ color: '#2563EB' }}
                 target="_blank"
                 rel="noreferrer"
               >
-                Learn more about Trustbadge
+                {phrasesByKey.application_trustbadge_about_learnMore}
                 <ChevronRightSmallIcon />
               </a>
             </div>

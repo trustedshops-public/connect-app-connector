@@ -44,7 +44,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
         <div
           id={`mapping_row_${elem.id}`}
           key={elem.id}
-          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-4 ts-border-t ts-border-gray-100 ts-gap-3 sm:ts-gap-0"
+          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-3 ts-gap-3 sm:ts-gap-0"
         >
           <div className="sm:ts-w-1/2">
             <p
