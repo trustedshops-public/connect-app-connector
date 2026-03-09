@@ -593,6 +593,8 @@ export type CHANNEL_KEYS = {
 }
 
 export type ROUTES_KEYS = {
+  application_routes_overview: string
+  application_routes_trstd_login: string
   application_routes_trustbadge: string
   application_routes_widgets: string
   application_routes_invites: string

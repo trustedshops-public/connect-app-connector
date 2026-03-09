@@ -292,14 +292,14 @@ const DashboardPageModule: FC<{
     const tabs: ITabsConfig[] = [
       {
         id: 0,
-        name: 'Overview',
+        name: phrasesByKey.application_routes_overview,
         component: (
           <OverviewTab phrasesByKey={phrasesByKey} onNavigateToTab={handleNavigateToTab} />
         ),
       },
       {
         id: 1,
-        name: '#trstd login',
+        name: phrasesByKey.application_routes_trstd_login,
         component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
         isAvailable: allowsSupportTrstdLogin,
       },
