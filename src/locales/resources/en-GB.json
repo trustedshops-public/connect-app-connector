@@ -1,40 +1,6 @@
 {
   "application": {
     "invites": {
-      "v3": {
-        "title": "Review invites",
-        "description": "Send review invites to your customers at the right time to collect more reviews and improve the quality of your customer feedback.",
-        "rightTime": {
-          "title": "Configure review invite settings",
-          "description": "Choose when your customers receive a review invite by selecting a shop touchpoint.",
-          "serviceReviews": "Service reviews",
-          "productReviews": "Product reviews",
-          "placeholder": "Choose an option",
-          "productUpgrade": {
-            "text": "If you haven't booked product reviews yet, [%s]contact our sales team to upgrade[%s].",
-            "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
-          },
-          "help": {
-            "text": "The most commonly used touchpoint for sending reviews is customer checkout. To make sure customers get review invites at the right time, we add a standard delay of 5 days for the send-out. You can change this in the [%s]Trusted Shops Control Centre[%s].",
-            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
-          }
-        },
-        "previousOrders": {
-          "title": "Send review invites for past orders",
-          "description": "Get more reviews by manually inviting previous customers to rate their experience. Make sure all customers have given their consent to receive review invite emails.",
-          "step1": {
-            "title": "Step 1: Export orders from {{shopSystemName}}",
-            "exportLabel": "Export orders made in the past",
-            "days": "days"
-          },
-          "step2": {
-            "title": "Step 2: Upload orders in the Control Centre",
-            "description": "After exporting your orders, upload the CSV file in your eTrusted account to send review invitations.",
-            "buttonLabel": "Send manual invites",
-            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
-          }
-        }
-      },
       "product": {
         "description": {
           "text": "If you have already booked Product Reviews as an extra feature, you are able to collect product reviews. To do so, move the slider to active. This way you can send Product Review invites to your customers. \n\nAre Product Reviews not yet part of your contract? Then [%s]book Product Reviews[%s] now.",
@@ -157,6 +123,40 @@
           "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
+      },
+      "v3": {
+        "description": "Send review invites to your customers at the right time to collect more reviews and improve the quality of your customer feedback.",
+        "previousOrders": {
+          "description": "Get more reviews by manually inviting previous customers to rate their experience. Make sure all customers have given their consent to receive review invite emails.",
+          "step1": {
+            "days": "days",
+            "exportLabel": "Export orders made in the past",
+            "title": "Step 1: Export orders from {{shopSystemName}}"
+          },
+          "step2": {
+            "buttonLabel": "Send manual invites",
+            "description": "After exporting your orders, upload the CSV file in your eTrusted account to send review invitations.",
+            "title": "Step 2: Upload orders in the Control Centre",
+            "url": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
+          },
+          "title": "Send review invites for past orders"
+        },
+        "rightTime": {
+          "description": "Choose when your customers receive a review invite by selecting a shop touchpoint.",
+          "help": {
+            "text": "The most commonly used touchpoint for sending reviews is customer checkout. To make sure customers get review invites at the right time, we add a standard delay of 5 days for the send-out. You can change this in the [%s]Trusted Shops Control Centre[%s].",
+            "url": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
+          },
+          "placeholder": "Choose an option",
+          "productReviews": "Product reviews",
+          "productUpgrade": {
+            "text": "If you haven't booked product reviews yet, [%s]contact our sales team to upgrade[%s].",
+            "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+          },
+          "serviceReviews": "Service reviews",
+          "title": "Configure review invite settings"
+        },
+        "title": "Review invites"
       }
     },
     "overview": {
@@ -210,12 +210,12 @@
       }
     },
     "routes": {
-      "overview": "Overview",
-      "trstd_login": "#trstd login",
       "authentication": "Authentication",
       "channelSelector": "Channel selected:",
       "invites": "Review invites",
+      "overview": "Overview",
       "settings": "Channel mapping",
+      "trstd_login": "#trstd login",
       "trustbadge": "Trustbadge",
       "widgets": "Widgets"
     },
@@ -412,6 +412,10 @@
       }
     },
     "error": "Error: make sure you are using the correct client credentials.",
+    "integrationGuide": {
+      "text": "View integration guide",
+      "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
+    },
     "salesLink": {
       "text": "[%s]Not yet a customer?[%s]",
       "url": "https://checkout.trustedshops.com",
@@ -422,10 +426,6 @@
       "text": "[%s]Need help with creating the Client ID and Client Secret?[%s]",
       "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
-    },
-    "integrationGuide": {
-      "text": "View integration guide",
-      "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
     },
     "title": "Welcome to Trusted Shops Easy Integration"
   },
