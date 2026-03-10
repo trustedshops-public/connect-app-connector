@@ -399,7 +399,7 @@ const DashboardPageModule: FC<{
                     >
                       <GearIcon />
                       <span className="ts-text-sm ts-font-normal">
-                        Channel mapping
+                        {phrasesByKey.application_routes_settings}
                       </span>
                     </button>
                   </div>
