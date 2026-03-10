@@ -1,9 +1,7 @@
 import { FC } from 'preact/compat'
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import { getParsedTrustbadgeDataStrToObj } from './parseTrustbadgeData'
 import { isEqual } from '@/utils'
-import { TabInfoBox } from '@/components/layouts/infoBox'
-import TextWithLink from '@/components/layouts/textWithLink'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 
@@ -18,7 +16,6 @@ interface Props {
 }
 
 const EditIntegrationCodeProps: FC<Props> = ({
-  phrasesByKey,
   isDisabled,
   textStr,
   onChangeScript,
@@ -27,35 +24,42 @@ const EditIntegrationCodeProps: FC<Props> = ({
   initialTrustbadgeDataChild,
 }) => {
   return (
-    <>
-      <div className="ts-h-full ts-mb-6">
-        <textarea
-          disabled={isDisabled}
-          value={textStr}
-          className="ts-bg-gray-300 ts-w-full ts-h-[360px] ts-p-[18px] ts-text-sm ts-text-code ts-font-code"
-          onBlur={e => {
-            onChangeScript((e.target as HTMLInputElement).value)
-          }}
-          onChange={e => {
-            setTextStr((e.target as HTMLInputElement).value)
-            setIsButtonDisabled(
-              isEqual(
-                getParsedTrustbadgeDataStrToObj((e.target as HTMLInputElement).value),
-                initialTrustbadgeDataChild
-              )
-            )
-          }}
-        />
+    <div className="ts-mt-6">
+      <div style={{ borderBottom: '1px solid #E5E7EB', margin: '0 0 30px 0' }} />
+      <div className="ts-flex ts-items-center ts-justify-between ts-mb-2">
+        <span className="ts-text-sm ts-font-normal ts-text-default ts-mb-2"
+          style={{ color: '#364153' }}
+        >
+          Integration Code
+        </span>
       </div>
-      <TabInfoBox>
-        <TextWithLink
-          id={'trustbadge_expert_help'}
-          url={phrasesByKey.application_trustbadge_expert_help_url_1}
-          text={phrasesByKey.application_trustbadge_expert_help_text}
-          textStyle="ts-text-default ts-text-sm"
-        />
-      </TabInfoBox>
-    </>
+      <textarea
+        disabled={isDisabled}
+        value={textStr}
+        className={`ts-w-full ts-p-4 ts-text-sm ts-border-0 ts-outline-none ts-resize-y ${isDisabled ? 'ts-opacity-50' : ''}`}
+        style={{
+          height: '427px',
+          backgroundColor: '#1F2937',
+          borderRadius: '10px',
+          fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+          fontSize: '13px',
+          lineHeight: '1.6',
+          color: '#E5E7EB',
+        }}
+        onBlur={e => {
+          onChangeScript((e.target as HTMLInputElement).value)
+        }}
+        onChange={e => {
+          setTextStr((e.target as HTMLInputElement).value)
+          setIsButtonDisabled(
+            isEqual(
+              getParsedTrustbadgeDataStrToObj((e.target as HTMLInputElement).value),
+              initialTrustbadgeDataChild
+            )
+          )
+        }}
+      />
+    </div>
   )
 }
 

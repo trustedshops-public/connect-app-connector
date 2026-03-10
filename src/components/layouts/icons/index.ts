@@ -10,6 +10,10 @@ import { VerificationIconSolid } from './VerificationIconSolid'
 import { ExclamationCircleIcon } from './ExclamationCircleIcon'
 import { InformationCircleIcon } from './InformationCircleIcon'
 import { ChevronDownIcon, ChevronDownIconSolid } from './ChevronDownIcon'
+import { WarningTriangleIcon } from './WarningTriangleIcon'
+import { ExternalLinkIcon } from './ExternalLinkIcon'
+import { MobilePhoneIcon } from './MobilePhoneIcon'
+import { DesktopMonitorIcon } from './DesktopMonitorIcon'
 
 export {
   EyeIcon,
@@ -25,4 +29,8 @@ export {
   InformationCircleIcon,
   ExclamationCircleIcon,
   VerificationIconSolid,
+  WarningTriangleIcon,
+  ExternalLinkIcon,
+  MobilePhoneIcon,
+  DesktopMonitorIcon,
 }

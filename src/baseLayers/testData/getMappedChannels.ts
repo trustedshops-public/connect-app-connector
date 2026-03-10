@@ -18,17 +18,7 @@ export const getMappedChannels = (defaultEnv?: string): { [key: string]: string 
       ]
     case TEST: //value for 'test'
       return [
-        {
-          eTrustedChannelRef: 'chl-b2c3bf02-f7e3-4a48-92a9-80e6f8420cdc',
-          eTrustedLocale: 'de_DE',
-          eTrustedName: '03022022012556_german_shop.com',
-          eTrustedUrl: '03022022012556_german_shop.com',
-          eTrustedAccountRef: 'acc-a82010d5-5cb5-45e7-90dc-c281535bab57',
-          salesChannelLocale: 'de_DE',
-          salesChannelName: 'eTrusted TestMock Shop',
-          salesChannelRef: 'shop-7e52920a-2722-4881-9908-ecec98c716e4',
-          salesChannelUrl: 'demoshop.trustedshops.com',
-        },
+        
       ]
     case 'none':
       return []

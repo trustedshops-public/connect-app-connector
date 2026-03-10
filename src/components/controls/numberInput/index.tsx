@@ -50,9 +50,12 @@ const NumberInput: FC<Props> = ({ value = '', min, max, disabled, onChange, id }
         max={max?.toString()}
         disabled={disabled}
         onBlur={() => onChange(val.toString())}
-        customClass="[appearance:textfield] "
+        customClass="[appearance:textfield] !ts-pr-10 !ts-h-[40px] !ts-rounded-[8px] !ts-border-gray-200"
       />
-      <div className="ts-absolute ts-right-0 ts-h-8 ts-top-0 ts-rounded-r">
+      <div
+        className="ts-absolute ts-right-0 ts-top-0 ts-flex ts-flex-col ts-h-full"
+        style={{ borderLeft: '1px solid #E5E7EB', borderRadius: '0 8px 8px 0', overflow: 'hidden' }}
+      >
         <button
           id={`input_number_increment_${id}`}
           data-testid={`input_number_increment_${id}`}
@@ -60,8 +63,9 @@ const NumberInput: FC<Props> = ({ value = '', min, max, disabled, onChange, id }
           onClick={() => {
             onChange(onChangeValue(+val + 1))
           }}
-          className={`ts-h-4 ts-w-6 ts-bg-gray-400 ts-flex ts-items-center ts-justify-center ts-border ts-border-gray-100 ts-rounded-tr ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-light-200 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500
-            ${disabled && 'ts-opacity-25 ts-cursor-not-allowed'}`}
+          className={`ts-flex ts-items-center ts-justify-center ts-bg-white ts-border-0 ts-cursor-pointer hover:ts-bg-gray-50
+            ${disabled ? 'ts-opacity-25 ts-cursor-not-allowed' : ''}`}
+          style={{ width: '32px', flex: 1, borderBottom: '1px solid #E5E7EB', fontSize: '14px', color: '#374151' }}
         >
           +
         </button>
@@ -72,10 +76,11 @@ const NumberInput: FC<Props> = ({ value = '', min, max, disabled, onChange, id }
           onClick={() => {
             onChange(onChangeValue(+val - 1))
           }}
-          className={`ts-h-4 ts-w-6 ts-bg-gray-400 ts-flex ts-items-center ts-justify-center ts-border ts-border-gray-100 ts-rounded-br ts-bg-gradient-to-b ts-appearance-none ts-from-gray-light-500 ts-to-gray-light-200 hover:ts-outline-none hover:ts-bg-gradient-to-b hover:ts-from-white hover:ts-gray-light-500
-            ${disabled && 'ts-opacity-25 ts-cursor-not-allowed'}`}
+          className={`ts-flex ts-items-center ts-justify-center ts-bg-white ts-border-0 ts-cursor-pointer hover:ts-bg-gray-50
+            ${disabled ? 'ts-opacity-25 ts-cursor-not-allowed' : ''}`}
+          style={{ width: '32px', flex: 1, fontSize: '14px', color: '#374151' }}
         >
-          -
+          −
         </button>
       </div>
     </div>

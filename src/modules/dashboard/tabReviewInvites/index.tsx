@@ -78,7 +78,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
   }
 
   return (
-    <div className="ts-w-full ts-flex ts-flex-col ts-gap-8">
+    <div className="ts-w-full ts-flex ts-flex-col ts-gap-6">
       {isLoading && <ScrinSpinner />}
 
       {infoOfSystem.allowsSendReviewInvitesForProduct && (

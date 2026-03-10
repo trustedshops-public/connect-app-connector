@@ -31,8 +31,8 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
   return (
-    <div className="ts-p-8 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
-      <div className="ts-w-full ts-flex ts-gap-8">
+    <div className="ts-p-6 ts-w-full ts-flex ts-flex-col ts-items-end ts-bg-white ts-shadow-md ts-rounded first:ts-rounded-t-none">
+      <div className="ts-w-full ts-flex ts-gap-6">
         <div className="ts-min-w-20 ts-h-20">
           <img className="ts-w-20 ts-h-20" src={exportIcon} alt="tab-icon" />
         </div>

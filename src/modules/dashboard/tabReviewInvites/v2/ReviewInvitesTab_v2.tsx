@@ -29,8 +29,17 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   }
 
   return (
-    <div className="ts-w-full ts-flex ts-flex-col ts-gap-8">
+    <div className="ts-w-full ts-flex ts-flex-col ts-gap-6">
       {isLoading && <ScrinSpinner />}
+
+      <div className="ts-pb-1">
+        <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
+          {phrasesByKey.application_invites_v3_title}
+        </h2>
+        <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280'}}>
+          {phrasesByKey.application_invites_v3_description}
+        </p>
+      </div>
 
       {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
         <SendReviewInvitesRightTime_2

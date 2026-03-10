@@ -14,7 +14,10 @@ const RadioGroup: FC<Props> = ({ children, onChange, disabled, formClassNames = 
       className={formClassNames}
       onClick={(e): void => {
         if (disabled) return
-        onChange((e.target as HTMLInputElement).id.toString())
+        const targetId = (e.target as HTMLInputElement).id?.toString()
+        if (targetId) {
+          onChange(targetId)
+        }
       }}
     >
       {children}

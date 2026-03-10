@@ -1,3 +1,17 @@
+## [1.19.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.0...1.19.1) (2026-01-05)
+
+
+### Bug Fixes
+
+* update ChannelSelectModal to improve overflow handling with max height ([b666096](https://github.com/trustedshops-public/connect-app-connector/commit/b66609658e7fb16a02fae8dff942bd996b0afdbc))
+
+## [1.19.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.18.0...1.19.0) (2025-12-16)
+
+
+### Features
+
+* TPSCON-3904 Trusted Checkout ([ba951b8](https://github.com/trustedshops-public/connect-app-connector/commit/ba951b8e88f8c04da2b5610b7549e3d2aa760128))
+
 ## [1.18.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.17.0...1.18.0) (2025-10-09)
 
 

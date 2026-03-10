@@ -1,6 +1,40 @@
 {
   "application": {
     "invites": {
+      "v3": {
+        "title": "Review invites",
+        "description": "Send review invites to your customers at the right time to collect more reviews and improve the quality of your customer feedback.",
+        "rightTime": {
+          "title": "Configure review invite settings",
+          "description": "Choose when your customers receive a review invite by selecting a shop touchpoint.",
+          "serviceReviews": "Service reviews",
+          "productReviews": "Product reviews",
+          "placeholder": "Choose an option",
+          "productUpgrade": {
+            "text": "If you haven't booked product reviews yet, [%s]contact our sales team to upgrade[%s].",
+            "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+          },
+          "help": {
+            "text": "The most commonly used touchpoint for sending reviews is customer checkout. To make sure customers get review invites at the right time, we add a standard delay of 5 days for the send-out. You can change this in the [%s]Trusted Shops Control Centre[%s].",
+            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
+          }
+        },
+        "previousOrders": {
+          "title": "Send review invites for past orders",
+          "description": "Get more reviews by manually inviting previous customers to rate their experience. Make sure all customers have given their consent to receive review invite emails.",
+          "step1": {
+            "title": "Step 1: Export orders from {{shopSystemName}}",
+            "exportLabel": "Export orders made in the past",
+            "days": "days"
+          },
+          "step2": {
+            "title": "Step 2: Upload orders in the Control Centre",
+            "description": "After exporting your orders, upload the CSV file in your eTrusted account to send review invitations.",
+            "buttonLabel": "Send manual invites",
+            "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025038111-How-can-I-manually-invite-customers-for-review-with-the-Review-Collector-"
+          }
+        }
+      },
       "product": {
         "description": {
           "text": "If you have already booked Product Reviews as an extra feature, you are able to collect product reviews. To do so, move the slider to active. This way you can send Product Review invites to your customers. \n\nAre Product Reviews not yet part of your contract? Then [%s]book Product Reviews[%s] now.",
@@ -210,6 +244,8 @@
       }
     },
     "routes": {
+      "overview": "Overview",
+      "trstd_login": "#trstd login",
       "authentication": "Authentication",
       "channelSelector": "Channel selected:",
       "invites": "Review invites",
@@ -230,8 +266,10 @@
         }
       },
       "description": "Match each shop channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
+      "description": "Match each shop channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
       "disconnect": {
         "button": "Disconnect",
+        "description": "Disconnecting will remove all Trusted Shops features from your shop and delete your configuration settings.",
         "description": "Disconnecting will remove all Trusted Shops features from your shop and delete your configuration settings.",
         "help": {
           "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our [%s]Help Centre[%s].",
@@ -342,6 +380,7 @@
       },
       "create": "+ Create a new widget",
       "description": "Show your stars, inspire trust. Display your Trusted Shops ratings and reviews across your website with customizable widgets that match your brand.",
+      "description": "Show your stars, inspire trust. Display your Trusted Shops ratings and reviews across your website with customizable widgets that match your brand.",
       "extension": {
         "description": "The widget anchor appears under the product name and allows users to scroll down automatically to the main Full Review List widget.",
         "title": "Anchor widget extension (optional):"
@@ -401,12 +440,15 @@
     "credentials": {
       "connect": {
         "title": "Connect your shop to #trstd"
+        "title": "Connect your shop to #trstd"
       },
       "help": {
         "button": {
           "text": "Find your Client ID & Secret in [%s]Trusted Shops' Control Centre[%s]",
+          "text": "Find your Client ID & Secret in [%s]Trusted Shops' Control Centre[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
+        "text": "These are different from your Trusted Shops login credentials",
         "text": "These are different from your Trusted Shops login credentials",
         "title": "Are you new here?"
       }
@@ -427,9 +469,16 @@
       "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
     },
+    "integrationGuide": {
+      "text": "View integration guide",
+      "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
+    },
     "title": "Welcome to Trusted Shops Easy Integration"
   },
   "channelSelect": {
+    "info": "Reviews and trust signals will appear on the correct website.You can update this anytime.",
+    "submit": "Confirm channel mapping",
+    "titel": "Map your channels to #trstd",
     "info": "Reviews and trust signals will appear on the correct website.You can update this anytime.",
     "submit": "Confirm channel mapping",
     "titel": "Map your channels to #trstd",

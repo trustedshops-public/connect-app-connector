@@ -1,22 +1,22 @@
 import { h, Fragment } from 'preact'
 import { FC } from 'preact/compat'
 import { useEffect, useState } from 'preact/hooks'
-import { getPhraseWithReplacement } from '@/helpers'
-import Button, { ButtonThemes } from '@/components/controls/buttun'
 import CreateWidgetPopup from './createWidgetPopup'
 import WidgetRow from './widgetRow'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 import Spinner, { ScrinSpinner } from '@/components/layouts/spinner'
 import { WidgetChildren } from '@/store/widgets/types'
-import tabIcon from '@/assets/widgets-tab-icon.svg'
 import { IWidgets } from '@/baseLayers/types'
 import { isEqual } from '@/utils'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
-import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
+import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
+import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
+import StyledButton from '@/components/controls/styledButton'
 
 const ATTRIBUTE_OPTIONS = [
   { id: 'data-sku', name: 'SKU' },
@@ -116,7 +116,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
   }
 
   return (
-    <div className="ts-w-full ts-bg-white ts-p-8 ts-shadow-md ts-rounded-b">
+    <div className="ts-flex ts-flex-col ts-gap-6">
       {isWidgetLoading && <ScrinSpinner />}
 
       {isLoading ? (
@@ -124,109 +124,152 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
           <Spinner />
         </div>
       ) : (
-        <div className="ts-w-full ts-flex ts-gap-8">
-          <div className="ts-min-w-20 ts-h-20">
-            <img className="ts-w-20 ts-h-20" src={tabIcon} alt="icon" />
-          </div>
-
-          <div className="ts-w-[calc(100%-112px)]">
-            <p className="ts-text-default ts-text-md ts-font-bold ts-mb-4">
+        <>
+          {/* Widgets header - no card */}
+          <div className="ts-pb-1">
+            <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
               {phrasesByKey.application_widgets_title}
-            </p>
-            <p className="ts-text-default ts-text-sm ts-mb-4 ">
+            </h2>
+            <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
               {phrasesByKey.application_widgets_description}
             </p>
+          </div>
 
-            {selectedShopChannels && Object.keys(selectedShopChannels).length > 0 && (
-              <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-6">
-                {getPhraseWithReplacement(phrasesByKey.application_widgets_table_title, {
-                  channel: selectedShopChannels.eTrustedName,
-                })}
+          {/* Card 2: Widget table */}
+          <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md">
+            {/* Table header - hidden on mobile */}
+            <div
+              className="ts-hidden sm:ts-flex ts-px-6 ts-items-center ts-w-full ts-py-3"
+              style={{ backgroundColor: '#F9FAFB', borderBottom: '1px solid #E5E7EB', borderRadius: '14px 14px 0 0' }}
+            >
+              <p
+                className="ts-text-left ts-font-bold ts-w-th1"
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
+              >
+                {phrasesByKey.application_widgets_table_header_1}
               </p>
+              <p
+                className="ts-text-left ts-font-bold ts-w-th2"
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
+              >
+                {phrasesByKey.application_widgets_table_header_2}
+              </p>
+              <p
+                className="ts-text-left ts-font-bold ts-w-th3"
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
+              >
+                {phrasesByKey.application_widgets_table_header_3}
+              </p>
+              <p
+                className="ts-text-left ts-font-bold ts-w-th4"
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
+              >
+                {phrasesByKey.application_widgets_table_header_4}
+              </p>
+              <div className="ts-w-th5" />
+            </div>
+
+            {/* Table rows */}
+            {Array.isArray(widgetsChildren) && widgetsChildren.length === 0 && (
+              <div className="ts-flex ts-items-center ts-pl-6 ts-py-4 ts-w-full ts-border-b ts-border-gray-100">
+                <p id="no_widgets_text" className="ts-italic ts-w-full ts-text-sm" style={{ color: '#6b7280' }}>
+                  {phrasesByKey.application_widgets_noWidgets}.
+                </p>
+              </div>
             )}
 
-            <div className="ts-w-full ts-mb-6 ts-border ts-rounded ts-border-gray-500">
-              <div className="ts-flex ts-px-6 ts-items-center ts-w-full ts-h-10 ts-border-b ts-border-gray-500">
-                <p className="ts-text-left ts-text-sm ts-font-bold ts-text-default ts-w-th1">
-                  {phrasesByKey.application_widgets_table_header_1}
-                </p>
-                <p className="ts-text-left ts-text-sm ts-font-bold ts-text-default ts-w-th2">
-                  {phrasesByKey.application_widgets_table_header_2}
-                </p>
-                <p className="ts-text-left ts-text-sm ts-font-bold ts-text-default ts-w-th3">
-                  {phrasesByKey.application_widgets_table_header_3}
-                </p>
-                <p className="ts-text-left ts-text-sm ts-font-bold ts-text-default ts-w-th4">
-                  {phrasesByKey.application_widgets_table_header_4}
-                </p>
-                <div className="ts-text-left ts-text-sm ts-font-bold ts-text-default ts-w-th5" />
-              </div>
+            {Array.isArray(widgetsChildren) &&
+              widgetsChildren.length > 0 &&
+              widgetsChildren
+                .filter(
+                  widget =>
+                    allowsTrustedCheckoutWidget || widget.applicationType !== 'checkout_service',
+                )
+                .map(widget => (
+                <WidgetRow
+                  key={widget.widgetId}
+                  widget={widget}
+                  widgetsFromAPI={widgetsFromAPI}
+                  phrasesByKey={phrasesByKey}
+                  availableProducts={availableProducts}
+                  widgetsWithoutProductId={widgetsWithoutProductId}
+                />
+              ))}
 
-              <>
-                {Array.isArray(widgetsChildren) && widgetsChildren.length === 0 && (
-                  <div className="ts-flex ts-items-center ts-pl-6 ts-h-12 ts-w-full ts-border-b">
-                    <p id="no_widgets_text" className="ts-italic ts-w-full ts-text-sm">
-                      {phrasesByKey.application_widgets_noWidgets}.
-                    </p>
-                  </div>
-                )}
-
-                {Array.isArray(widgetsChildren) &&
-                  widgetsChildren.length > 0 &&
-                  widgetsChildren
-                    .filter(
-                      widget =>
-                        allowsTrustedCheckoutWidget || widget.applicationType !== 'checkout_service',
-                    )
-                    .map(widget => (
-                    <WidgetRow
-                      key={widget.widgetId}
-                      widget={widget}
-                      widgetsFromAPI={widgetsFromAPI}
-                      phrasesByKey={phrasesByKey}
-                      availableProducts={availableProducts}
-                      widgetsWithoutProductId={widgetsWithoutProductId}
-                    />
-                  ))}
-
-                <div className="ts-flex ts-items-center ts-h-12 ts-px-6 ts-text-sm ts-justify-between">
-                  <Button
-                    id={'openPopupCreateWidget'}
-                    label={phrasesByKey.application_widgets_create}
-                    theme={ButtonThemes.Link}
-                    type="link"
-                    disabled={!selectedShopChannels.eTrustedChannelRef}
-                    onClick={() => setOpenModal(true)}
-                  />
-
-                  <Button
-                    id={'reloadListWidget'}
-                    label={
-                      <div className=" ts-flex ts-gap-1">
-                        <RefreshIcon color={'ts-text-blue-700'} />
-                        {phrasesByKey.application_widgets_reload}
-                      </div>
-                    }
-                    theme={ButtonThemes.Link}
-                    type="link"
-                    disabled={!selectedShopChannels.eTrustedChannelRef}
-                    onClick={onReloadList}
-                  />
-                </div>
-              </>
-            </div>
-
-            <div className="ts-w-full ts-flex ts-justify-end">
-              <Button
-                id={'saveWidgetsChanges'}
-                label={phrasesByKey.global_button_submit}
-                theme={ButtonThemes.Primary}
-                onClick={handleSaveChanges}
-                disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled}
-              />
+            {/* Create new widget + Reload list */}
+            <div className="ts-flex ts-flex-col sm:ts-flex-row ts-items-start sm:ts-items-center ts-justify-between ts-gap-3 ts-px-4 sm:ts-px-6 ts-py-4">
+              <button
+                id="button_openPopupCreateWidget"
+                data-testid="button_openPopupCreateWidget"
+                type="button"
+                disabled={!selectedShopChannels.eTrustedChannelRef}
+                onClick={() => setOpenModal(true)}
+                className="ts-flex ts-items-center ts-gap-1 ts-text-sm ts-font-normal ts-bg-transparent ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
+                style={{ color: '#155DFC' }}
+              >
+                {phrasesByKey.application_widgets_create}
+              </button>
+              <button
+                type="button"
+                onClick={onReloadList}
+                disabled={!selectedShopChannels.eTrustedChannelRef || isLoading}
+                className="ts-flex ts-items-center ts-gap-2 ts-text-sm ts-font-normal ts-bg-transparent ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
+                style={{ color: '#155DFC' }}
+              >
+                <RefreshIcon customClass="ts-h-4 ts-w-4 ts-flex-shrink-0" />
+                {phrasesByKey.application_widgets_reload}
+              </button>
             </div>
           </div>
-        </div>
+
+          {/* Save changes - outside the card */}
+          <div className="ts-flex ts-justify-end">
+            <StyledButton
+              id="saveWidgetsChanges"
+              variant="primary"
+              disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled}
+              onClick={handleSaveChanges}
+            >
+              {phrasesByKey.global_button_submit}
+            </StyledButton>
+          </div>
+
+          {/* Card 3: About Widgets */}
+          <div
+            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6"
+            style={{
+              background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
+              border: '1px solid #E5E7EB',
+            }}
+          >
+            <div className="ts-flex ts-items-start ts-gap-4">
+              <div
+                className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+                style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
+              >
+                <HelpCircleIcon customClass="ts-text-blue-600" />
+              </div>
+              <div>
+                <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
+                  {phrasesByKey.application_widgets_about_title}
+                </p>
+                <p className="ts-text-sm ts-font-normal ts-mb-3" style={{ color: '#6b7280' }}>
+                  {phrasesByKey.application_widgets_about_description.replace('{{shopSystemName}}', infoOfSystem?.nameOfSystem.charAt(0).toUpperCase() + infoOfSystem?.nameOfSystem.slice(1))}
+                </p>
+                <a
+                  href={phrasesByKey.application_widgets_about_learnMore_url}
+                  className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
+                  style={{ color: '#2563EB' }}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {phrasesByKey.application_widgets_about_learnMore}
+                  <ExternalLinkIcon />
+                </a>
+              </div>
+            </div>
+          </div>
+        </>
       )}
       <CreateWidgetPopup
         phrasesByKey={phrasesByKey}
