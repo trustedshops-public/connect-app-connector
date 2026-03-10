@@ -266,7 +266,7 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
   application_invites_v3_rightTime_productReviews: 'application.invites.v3.rightTime.productReviews',
   application_invites_v3_rightTime_placeholder: 'application.invites.v3.rightTime.placeholder',
   application_invites_v3_rightTime_productUpgrade_text: 'application.invites.v3.rightTime.productUpgrade.text',
-  application_invites_v3_rightTime_productUpgrade_url_1: 'application.invites.v3.rightTime.productUpgrade.url_1',
+  application_invites_v3_rightTime_productUpgrade_url: 'application.invites.v3.rightTime.productUpgrade.url',
   application_invites_v3_previousOrders_title: 'application.invites.v3.previousOrders.title',
   application_invites_v3_previousOrders_description: 'application.invites.v3.previousOrders.description',
   application_invites_v3_previousOrders_step1_title: 'application.invites.v3.previousOrders.step1.title',
@@ -275,9 +275,9 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
   application_invites_v3_previousOrders_step2_title: 'application.invites.v3.previousOrders.step2.title',
   application_invites_v3_previousOrders_step2_description: 'application.invites.v3.previousOrders.step2.description',
   application_invites_v3_previousOrders_step2_buttonLabel: 'application.invites.v3.previousOrders.step2.buttonLabel',
-  application_invites_v3_previousOrders_step2_url_1: 'application.invites.v3.previousOrders.step2.url_1',
+  application_invites_v3_previousOrders_step2_url: 'application.invites.v3.previousOrders.step2.url',
   application_invites_v3_rightTime_help_text: 'application.invites.v3.rightTime.help.text',
-  application_invites_v3_rightTime_help_url_1: 'application.invites.v3.rightTime.help.url_1',
+  application_invites_v3_rightTime_help_url: 'application.invites.v3.rightTime.help.url',
 }
 
 export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
@@ -302,7 +302,7 @@ export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
   application_settings_disconnect_warning_title: 'application.settings.disconnect.warningTitle',
   application_settings_help_title: 'application.settings.help.title',
   application_settings_help_text: 'application.settings.help.text',
-  application_settings_help_url_1: 'application.settings.help.url_1',
+  application_settings_help_url: 'application.settings.help.url',
 }
 
 const PHRASES_CHANNEL_KEYS: CHANNEL_KEYS = {
