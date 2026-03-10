@@ -545,7 +545,7 @@ export type INVITES_KEYS = {
   application_invites_v3_rightTime_productReviews: string
   application_invites_v3_rightTime_placeholder: string
   application_invites_v3_rightTime_productUpgrade_text: string
-  application_invites_v3_rightTime_productUpgrade_url_1: string
+  application_invites_v3_rightTime_productUpgrade_url: string
   application_invites_v3_previousOrders_title: string
   application_invites_v3_previousOrders_description: string
   application_invites_v3_previousOrders_step1_title: string
@@ -554,9 +554,9 @@ export type INVITES_KEYS = {
   application_invites_v3_previousOrders_step2_title: string
   application_invites_v3_previousOrders_step2_description: string
   application_invites_v3_previousOrders_step2_buttonLabel: string
-  application_invites_v3_previousOrders_step2_url_1: string
+  application_invites_v3_previousOrders_step2_url: string
   application_invites_v3_rightTime_help_text: string
-  application_invites_v3_rightTime_help_url_1: string
+  application_invites_v3_rightTime_help_url: string
 }
 
 export type SETTINGS_KEYS = {
@@ -581,7 +581,7 @@ export type SETTINGS_KEYS = {
   application_settings_disconnect_warning_title: string
   application_settings_help_title: string
   application_settings_help_text: string
-  application_settings_help_url_1: string
+  application_settings_help_url: string
 }
 
 export type CHANNEL_KEYS = {

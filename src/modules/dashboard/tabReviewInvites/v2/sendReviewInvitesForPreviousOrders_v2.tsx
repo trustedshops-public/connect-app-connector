@@ -203,7 +203,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
       </p>
 
       <a
-        href={phrasesByKey.application_invites_v3_previousOrders_step2_url_1}
+        href={phrasesByKey.application_invites_v3_previousOrders_step2_url}
         target="_blank"
         rel="noopener noreferrer"
         className="ts-inline-flex ts-items-center ts-gap-2 ts-text-sm ts-font-medium"
