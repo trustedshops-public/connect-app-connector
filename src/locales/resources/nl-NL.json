@@ -4,12 +4,10 @@
       "product": {
         "description": {
           "text": "Wanneer je productbeoordelingen als extra feature hebt besteld, kun je deze ook verzamelen. Zet hiervoor de schuifregelaar op actief. \nMaken productbeoordelingen nog geen deel uit van je contract?  Dan kun [%s]je deze productbeoordelingen nu toevoegen[%s].",
-          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         },
         "help": {
           "text": "Productbeoordelingen helpen klanten om, op basis van de ervaringen van anderen, hun eigen mening te vormen over de producten waarin ze geïnteresseerd zijn. Zo geef je jouw klanten waardevol advies voordat ze iets kopen. Dit heeft een positief effect op de performance van je webshop. Hier lees je meer over [%s]productbeoordelingen[%s].",
-          "url": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
         },
         "title": "Beoordelingsverzoeken voor producten versturen"
@@ -22,7 +20,6 @@
           "description": "Om beoordelingsverzoeken naar je bestaande klanten te verzenden, dien je een CSV-bestand met hun gegevens te exporteren. Houd er rekening mee dat je de toestemming van je klanten nodig hebt om hun e-mailadressen met Trusted Shops te mogen delen.",
           "help": {
             "text": "Als je beoordelingen niet automatisch wil verzamelen of als je naast de automatische beoordelingsverzoeken ook handmatige beoordelingsverzoeken naar je klanten wil verzenden, kun je de [%s]Review Collector[%s] gebruiken.",
-            "url": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-"
           },
           "step": {
@@ -33,7 +30,6 @@
             "2": {
               "description": {
                 "text": "Log in op je [%s]eTrusted-account[%s] en upload het CSV-bestand. Meer informatie vind je op ‘[%s]Handmatige beoordelingsverzoeken verzenden[%s]‘.",
-                "url": "https://app.etrusted.[STAGE]",
                 "url_1": "https://app.etrusted.[STAGE]",
                 "url_2": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-"
               },
@@ -44,7 +40,6 @@
         },
         "help": {
           "text": "Het tijdstip dat je een beoordelingsverzoek naar je klant stuurt, kan cruciaal zijn voor een goede respons.\nLees meer over [%s]het optimale tijdstip voor het verzenden van beoordelingsverzoeken[%s].\n",
-          "url": "https://help.etrusted.com/hc/nl/articles/360055245931-Wanneer-is-het-handig-om-een-activeringsdatum-voor-de-verzendtermijn-te-gebruiken-",
           "url_1": "https://help.etrusted.com/hc/nl/articles/360055245931-Wanneer-is-het-handig-om-een-activeringsdatum-voor-de-verzendtermijn-te-gebruiken-"
         },
         "radioButton": {
@@ -57,7 +52,6 @@
           "notUse": {
             "note": {
               "text": "Opgelet: beoordelingsverzoeken worden verzonden zoals jij ze in het <[%s]eTrusted Controlecentrum[%s] hebt ingesteld. Hierbij wordt met de activeringsdatum van de verzendvertraging (geschatte leverdatum) geen rekening gehouden. ",
-              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Gebruik de geschatte leverdatum niet om beoordelingsverzoeken te verzenden."
@@ -72,7 +66,6 @@
             "text": "[%b]Gebruik de bestelstatus 'Verzonden'[%b] om beoordelingsverzoeken te versturen.",
             "warning": {
               "text": "Voordat je deze optie gebruikt, moet je volgens [%s]Art. 7 AVG[%s] toestemming van je klanten hebben. Meer informatie vind je in het [%s]eTrusted Helpcenter[%s].",
-              "url": "https://gdprinfo.eu/nl/nl-article-7",
               "url_1": "https://gdprinfo.eu/nl/nl-article-7",
               "url_2": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
             }
@@ -86,7 +79,6 @@
           "use": {
             "note": {
               "text": "Opgelet: Wanneer je in jouw [%s]eTrusted Controlecentrum[%s] een verzendvertraging hebt ingesteld, wordt deze verzendvertraging geactiveerd zodra de geschatte leverdatum is bereikt.",
-              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Gebruik de verwachte leveringsdatum om beoordelingsverzoeken te verzenden. "
@@ -102,14 +94,12 @@
         "orderstatus": {
           "warning": {
             "text": "Voor contactmomenten buiten de \"Checkout\" moet u ervoor zorgen dat alle ontvangers er effectief mee hebben ingestemd dat hun e-mailadres naar Trusted Shops wordt verzonden om eraan te worden herinnerd een beoordeling achter te laten. Zie het [%s]eTrusted Helpcentrum[%s] voor meer informatie.",
-            "url": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
           }
         },
         "success": {
           "delay": {
             "text": "Standaard worden uw je uitnodigingen voor beoordelingen reviews verzonden met een geoptimaliseerde vertraging op basis van de gegevens van Trusted Shops. U Je kunt dit wijzigen in het [%s]Control Center[%s].",
-            "url": "https://app.etrusted.[STAGE]",
             "url_1": "https://app.etrusted.[STAGE]"
           }
         },
@@ -120,7 +110,6 @@
         },
         "upgradedescription": {
           "text": "Als je nog geen productreviews hebt geboekt, [%s]neem dan contact op met ons verkoopteam[%s] om te upgraden",
-          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
       }
@@ -145,7 +134,6 @@
         "description": "Als je de koppeling tussen Trusted Shops en je shopsysteem verbreekt, worden je configuratie-instellingen gewist.",
         "help": {
           "text": "Heb je hulp nodig? [%s]Neem dan contact met ons op[%s].",
-          "url": "mailto:members@trustedshops.com",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Trusted Shops verbreken"
@@ -162,7 +150,6 @@
       "expert": {
         "help": {
           "text": "Ga naar het overzicht van [%s]Trustbadge parameters[%s].",
-          "url": "https://help.etrusted.com/hc/nl/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/nl/articles/360047497311"
         }
       },
@@ -213,7 +200,6 @@
       "popup": {
         "submit": {
           "text": "Ga naar eTrusted",
-          "url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
         "text": "- Klik op \"Ga naar eTrusted\" om vervolgens naar het Control Centre te gaan.\n\n- Log in en kies een widget uit de bibliotheek.\n\n- Klik op \"Configure\" en vervolgens op de knop 'Complete widget creation'.\n\n- Om de widget in je shop te plaatsen, keer je terug naar de plugin-configuraties.",
@@ -269,13 +255,11 @@
     "error": "Foutmelding: zorg ervoor dat je de juiste Client Credentials gebruikt.",
     "salesLink": {
       "text": "[%s]Ben je nog lid?[%s]",
-      "url": "https://checkout.trustedshops.com",
       "url_1": "https://checkout.trustedshops.com"
     },
     "secret": "Client Secret",
     "supporthelp": {
       "text": "[%s]Hulp nodig bij het aanmaken van de Client ID en Client Secret?[%s]",
-      "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
     },
     "title": "Welkom bij Trusted Shops Easy Integration"
@@ -297,13 +281,11 @@
     },
     "copyright": {
       "text": "© [YEAR] Trusted Shops SE. Alle rechten voorbehouden. [%s]Colofon & gegevensbescherming[%s]",
-      "url": "https://www.trustedshops.nl/juridische-informatie/",
       "url_1": "https://www.trustedshops.nl/juridische-informatie/"
     },
     "help": {
       "link": {
         "text": "Stap-voor-stap-integratiehandleiding openen",
-        "url": "https://help.etrusted.com/hc/nl/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/nl/articles/4905016318237"
       },
       "text": "Ontdek hoe je jouw webshop aan Trusted Shops koppelt.",
@@ -311,7 +293,6 @@
     },
     "jointcontrollership": {
       "text": "[%s]Rechten van de betrokkenen volgens de overeenkomst van gezamenlijk beheer[%s]",
-      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
@@ -338,7 +319,6 @@
     "global": {
       "help": {
         "link": {
-          "url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify",
           "url_1": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
         }
       }

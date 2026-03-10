@@ -4,12 +4,10 @@
       "product": {
         "description": {
           "text": "Se já tiver registado avaliações de produtos como funcionalidade adicional, também as pode juntar. Para o efeito, deslize o regulador para a posição ativa. \nAs avaliações de produtos ainda não fazem parte do seu contrato?  Então [%s]registe agora as avaliações de[%s] produtos.",
-          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         },
         "help": {
           "text": "As avaliações de produtos ajudam os seus clientes a formar uma opinião própria sobre os produtos em que estão interessados, com base nas experiências de outras pessoas. Desta forma, está a fornecer orientações úteis aos seus clientes ainda antes da compra, o que tem um efeito positivo no desempenho da sua loja. Leia mais sobre as [%s]avaliações de produtos.[%s]",
-          "url": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
         },
         "title": "Envie convites de avaliação relativamente a produtos"
@@ -22,7 +20,6 @@
           "description": "Para enviar convites de avaliação aos seus clientes existentes, exporte um ficheiro CSV com os respetivos dados. Tenha em conta que precisa do consentimento dos clientes para reencaminhar os seus endereços de e-mail para a Trusted Shops.",
           "help": {
             "text": "Se não quiser juntar as avaliações automaticamente ou se quiser pedir aos clientes que, para além do envio automático de convites, procedam à entrega manual de avaliações, pode utilizar o [%s]*Recompilador de Revisões[%s]*.",
-            "url": "https://help.etrusted.com/hc/pt/articles/360025038111-O-que-%C3%A9-o-Review-Collector-",
             "url_1": "https://help.etrusted.com/hc/pt/articles/360025038111-O-que-%C3%A9-o-Review-Collector-"
           },
           "step": {
@@ -33,7 +30,6 @@
             "2": {
               "description": {
                 "text": "Inicie sessão na sua [%s]*conta eTrusted[%s]*, e proceda ao upload do ficheiro CSV. Pode consultar mais informações em \"[%s]*Enviar convites manuais[%s]*.",
-                "url": "https://app.etrusted.[STAGE]",
                 "url_1": "https://app.etrusted.[STAGE]",
                 "url_2": "https://help.etrusted.com/hc/pt/articles/360025038111-O-que-%C3%A9-o-Review-Collector-"
               },
@@ -44,7 +40,6 @@
         },
         "help": {
           "text": "O momento ideal para enviar o seu convite de avaliação pode ser decisivo para garantir uma boa taxa de feedback.\nLeia mais sobre [%s]*O momento ideal para o envio de convites de avaliação.[%s]*",
-          "url": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-",
           "url_1": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
         },
         "radioButton": {
@@ -57,7 +52,6 @@
           "notUse": {
             "note": {
               "text": "Nota: os convites de avaliação são enviados de acordo com os ajustes que tenha feito no [%s]*Centro de Controlo eTrusted[%s]*. A data de ativação do atraso de envio (Estimated Delivery Date) não foi tida em consideração.",
-              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Não utilizar a data de envio prevista para enviar convites de avaliação."
@@ -72,7 +66,6 @@
             "text": "[%b]Utilize o estado da encomenda \"Expedida\" [%b] para enviar convites de avaliação.",
             "warning": {
               "text": "Antes de utilizar esta opção, obtenha o consentimento dos seus clientes de acordo com o [%s]Art.º 7.º do RGPD[%s]. Podem ser encontradas mais informações no [%s]Centro de Ajuda  eTrusted[%s].",
-              "url": "https://gdprinfo.eu/pt-pt/pt-pt-article-7",
               "url_1": "https://gdprinfo.eu/pt-pt/pt-pt-article-7",
               "url_2": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online"
             }
@@ -86,7 +79,6 @@
           "use": {
             "note": {
               "text": "Nota: se tiver definido um atraso de envio no seu [%s]*Centro de Controlo eTrusted[%s]*, o atraso de envio é ativado assim que seja atingida a data prevista.",
-              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Utilize a data de entrega estimada para enviar convites de avaliação. "
@@ -102,14 +94,12 @@
         "orderstatus": {
           "warning": {
             "text": "Para touchpoints fora do “Checkout”, você deve garantir que todos os destinatários tenham consentido que os seus endereços de e-mail sejam transmitido à Trusted Shops para eles poderem receber um lembrete para realizar uma avaliação. Para mais informações, confira o [%s]Centro de Ajuda eTrusted[%s].",
-            "url": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online",
             "url_1": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online"
           }
         },
         "success": {
           "delay": {
             "text": "Por predefinição, os seus convites para revisão serão enviados com um atraso optimizado com base nos dados das Lojas de confiança. Pode alterar esta opção no [%s]Centro de Controlo[%s].",
-            "url": "https://app.etrusted.[STAGE]",
             "url_1": "https://app.etrusted.[STAGE]"
           }
         },
@@ -120,7 +110,6 @@
         },
         "upgradedescription": {
           "text": "Se ainda não reservou revisões de produtos, [%s]contacte a nossa equipa de vendas[%s] para atualizar.",
-          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
       }
@@ -145,7 +134,6 @@
         "description": "Se desligar a ligação entre a Trusted Shops e o seu sistema de lojas, os ajustes de configuração são apagados.",
         "help": {
           "text": "Precisa de apoio?  [%s]*Contacte-nos.[%s]*",
-          "url": "mailto:members@trustedshops.com",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Separar Trusted Shops"
@@ -162,7 +150,6 @@
       "expert": {
         "help": {
           "text": "Vá até à vista geral dos [%s]*parâmetros do Trustbadge.[%s]*",
-          "url": "https://help.etrusted.com/hc/pt/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/pt/articles/360047497311"
         }
       },
@@ -213,7 +200,6 @@
       "popup": {
         "submit": {
           "text": "Ir para eTrusted",
-          "url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
         "text": "- Clique em \"Ir para eTrusted\" e será redirecionado para o Centro de Controlo.\n\n- Inicie sessão e escolha um widget da biblioteca.\n\n- Clique em \"Configurar\" e depois no botão \"Concluir widget de criação\".\n\n- Para colocar o widget na sua loja, regresse às suas configurações de plug-in.",
@@ -269,13 +255,11 @@
     "error": "Erro: certifique-se de que utiliza as Client Credentials corretas.",
     "salesLink": {
       "text": "[%s]Ainda não é cliente?[%s]",
-      "url": "https://checkout.trustedshops.com",
       "url_1": "https://checkout.trustedshops.com"
     },
     "secret": "Client Secret",
     "supporthelp": {
       "text": "[%s]Precisa de ajuda para criar a ID do Cliente e a Senha Secreta do Cliente?[%s]",
-      "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
     },
     "title": "Bem-vindo à Integração fácil da Trusted Shops"
@@ -297,13 +281,11 @@
     },
     "copyright": {
       "text": "© [YEAR] Trusted Shops SE. Todos os direitos reservados. [%s]Aviso legal & Proteção de dados[%s]",
-      "url": "https://support.trustedshops.com/pt/imprint",
       "url_1": "https://support.trustedshops.com/pt/imprint"
     },
     "help": {
       "link": {
         "text": "Abrir as instruções passo-a-passo para a integração",
-        "url": "https://help.etrusted.com/hc/pt/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/pt/articles/4905016318237"
       },
       "text": "Descubra como pode interligar a sua loja com a Trusted Shops.",
@@ -311,7 +293,6 @@
     },
     "jointcontrollership": {
       "text": "[%s]Direitos do titular dos dados ao abrigo do acordo de corresponsabilidade pelo tratamento[%s]",
-      "url": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
@@ -341,7 +322,6 @@
     "global": {
       "help": {
         "link": {
-          "url": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify",
           "url_1": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify"
         }
       }
