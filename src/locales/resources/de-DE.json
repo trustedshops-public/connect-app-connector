@@ -4,10 +4,12 @@
       "product": {
         "description": {
           "text": "Wenn du Produktbewertungen bereits als zusätzliches Feature gebucht hast, kannst du diese auch sammeln. Schiebe dazu den Regler auf aktiv. \n\nSind Produktbewertungen noch nicht Bestandteil deines Vertrags? Dann [%s]buche Produktbewertungen[%s] jetzt.",
+          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         },
         "help": {
           "text": "Produktbewertungen helfen deiner Kundschaft, sich auf der Grundlage der Erfahrungen anderer eine eigene Meinung über die Produkte zu bilden, für die sie sich interessieren. Auf diese Weise gibst du deiner Kundschaft schon vor dem Kauf eine wertvolle Orientierungshilfe, was sich positiv auf die Performance deines Shops auswirkt. Lies mehr über [%s]Produktbewertungen.[%s]",
+          "url": "https://help.etrusted.com/hc/de/sections/360008367812-Produktbewertungen",
           "url_1": "https://help.etrusted.com/hc/de/sections/360008367812-Produktbewertungen"
         },
         "title": "Sende Bewertungseinladungen für Produkte"
@@ -20,6 +22,7 @@
           "description": "Um Bewertungseinladungen an deine bestehende Kundschaft zu versenden, exportiere bitte eine CSV-Datei mit deren Daten. Beachte, dass du die Zustimmung der Kund*innen benötigst, um deren E-Mail-Adresse an Trusted Shops weiterzuleiten.",
           "help": {
             "text": "Wenn du Bewertungen nicht automatisch sammeln möchtest oder wenn du Kunden zusätzlich zum automatischen Versand von Einladungen manuell zur Abgabe von Bewertungen auffordern möchtest, kannst du den [%s]Review Collector[%s] verwenden.\n",
+            "url": "https://help.etrusted.com/hc/de/articles/360025038111-Wie-kann-ich-manuell-zur-Bewertung-einladen-mit-dem-Review-Collector-",
             "url_1": "https://help.etrusted.com/hc/de/articles/360025038111-Wie-kann-ich-manuell-zur-Bewertung-einladen-mit-dem-Review-Collector-"
           },
           "step": {
@@ -30,6 +33,7 @@
             "2": {
               "description": {
                 "text": "Melde dich bei deinem [%s]eTrusted-Konto[%s] an und lade die CSV-Datei hoch. Weitere Informationen findest du unter \"[%s]Manuelle Einladungen versenden[%s]\".",
+                "url": "https://app.etrusted.[STAGE]",
                 "url_1": "https://app.etrusted.[STAGE]",
                 "url_2": "https://help.etrusted.com/hc/de/articles/360025038111-Wie-kann-ich-manuell-zur-Bewertung-einladen-mit-dem-Review-Collector-"
               },
@@ -40,6 +44,7 @@
         },
         "help": {
           "text": "Der optimale Zeitpunkt für das Versenden deiner Bewertungseinladung kann entscheidend sein, um eine gute Rückmeldungs-Rate zu gewährleisten.\nLies mehr über den [%s] optimalen Zeitpunkt für das Versenden von Bewertungseinladungen[%s].",
+          "url": "https://help.etrusted.com/hc/de/articles/360055245931-Wie-profitiere-ich-vom-Aktivierungsdatum-der-Sendungsverz%C3%B6gerung-",
           "url_1": "https://help.etrusted.com/hc/de/articles/360055245931-Wie-profitiere-ich-vom-Aktivierungsdatum-der-Sendungsverz%C3%B6gerung-"
         },
         "radioButton": {
@@ -52,6 +57,7 @@
           "notUse": {
             "note": {
               "text": "Hinweis: Bewertungseinladungen werden so versandt, wie du das im [%s]eTrusted Kontrollzentrum[%s] eingerichtet hast. Dabei wird das Aktivierungsdatum der Sendungsverzögerung (Estimated Delivery Date) nicht berücksichtigt. ",
+              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Nicht das voraussichtliche Zustellungsdatum verwenden, um Bewertungseinladungen zu versenden."
@@ -66,6 +72,7 @@
             "text": "[%b]Verwende den Bestellstatus \"Versendet\"[%b], um Bewertungseinladungen zu versenden.",
             "warning": {
               "text": "Bevor du diese Option verwendest, hole dir die Zustimmung deiner Kunden gemäß [%s]Art. 7 DSGVO[%s] ein. Weitere Informationen findest du im [%s]eTrusted Hilfe-Center[%s].",
+              "url": "https://gdprinfo.eu/de/de-article-7",
               "url_1": "https://gdprinfo.eu/de/de-article-7",
               "url_2": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen"
             }
@@ -79,6 +86,7 @@
           "use": {
             "note": {
               "text": "Hinweis: Wenn du in deinem [%s]eTrusted Control Center[%s] eine Sendungsverzögerung eingestellt hast, wird die Sendungsverzögerung ausgelöst, sobald das voraussichtliche Datum erreicht ist.",
+              "url": "https://app.etrusted.[STAGE]",
               "url_1": "https://app.etrusted.[STAGE]"
             },
             "text": "Verwende das voraussichtliche Zustellungsdatum, um Bewertungseinladungen zu versenden. "
@@ -93,13 +101,15 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Für Touchpoints außerhalb des \"Checkouts\" musst du sicherstellen, dass sämtliche Empfänger*innen wirksam eingewilligt haben, dass ihre E-Mail-Adresse an Trusted Shops übermittelt wird, um an die Abgabe einer Bewertung erinnert zu werden. Weitere Information findest du im [%s]eTrusted Hilfe-Center[%s].",
+            "text": "Für Touchpoints außerhalb des \"Checkouts\" musst du sicherstellen, dass sämtliche Empfänger*innen wirksam eingewilligt haben, dass ihre E-Mail-Adresse an Trusted Shops übermittelt wird, um an die Abgabe einer Bewertung erinnert zu werden. Weitere Information findest du im [%s]Trusted Shops Hilfe-Center[%s].",
+            "url": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen",
             "url_1": "https://help.etrusted.com/hc/de/articles/360025759231-Einwilligungen-f%C3%BCr-Bewertungseinladungen"
           }
         },
         "success": {
           "delay": {
             "text": "Standardmäßig werden deine Bewertungseinladungen mit einer optimierten Verzögerung basierend auf Trusted Shops Daten verschickt. Du kannst dies im [%s]Control Center[%s] anpassen.",
+            "url": "https://app.etrusted.[STAGE]",
             "url_1": "https://app.etrusted.[STAGE]"
           }
         },
@@ -110,23 +120,114 @@
         },
         "upgradedescription": {
           "text": "Wenn du noch keine Produktbewertungen gebucht hast, [%s]wende dich an unser Vertriebsteam[%s], um ein Upgrade zu erhalten.",
+          "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
+      },
+      "v3": {
+        "description": "Verschicke Bewertungseinladungen zum richtigen Zeitpunkt an deine Kunden. So sammelst du mehr Bewertungen in besserer Qualität.",
+        "previousOrders": {
+          "description": "Sammle noch mehr Bewertungen, indem du frühere Kund*innen manuell zum Bewerten ihrer Erfahrungen einlädtst. Stelle vor dem Versand sicher, dass alle Kund*innen dem Erhalt von Bewertungseinladungen zugestimmt haben.",
+          "step1": {
+            "days": "Tage",
+            "exportLabel": "Exportiere Bestellungen der letzten",
+            "title": "Schritt 1: Bestellungen aus {{shopSystemName}} exportieren"
+          },
+          "step2": {
+            "buttonLabel": "Manuelle Einladungen versenden",
+            "description": "Nachdem du deine Bestellungen exportiert hast, lade die CSV-Datei im Trusted Shops Kontrollzentrum hoch, um Bewertungseinladungen zu versenden.",
+            "title": "Schritt 2: Bestellungen im Kontrollzentrum hochladen",
+            "url": "https://help.etrusted.com/hc/de/articles/23970823597458"
+          },
+          "title": "Bewertungseinladungen für vergangene Bestellungen senden"
+        },
+        "rightTime": {
+          "description": "Wähle einen Touchpoint, um festzulegen, wann deine Kund*innen eine Bewertungseinladung erhalten.",
+          "help": {
+            "text": "Der am häufigsten genutzte Touchpoint zum Versenden von Bewertungseinladungen ist der Kunden-Checkout. Damit Kund*innen Bewertungseinladungen zum richtigen Zeitpunkt erhalten, legen wir standardmäßig eine Sendeverzögerung von 5 Tagen fest. Diese Einstellung kannst du im [%s]Trusted Shops Kontrollzentrum[%s] ändern.",
+            "url": "https://help.etrusted.com/hc/de/articles/23970885730834"
+          },
+          "placeholder": "Option auswählen",
+          "productReviews": "Produktbewertungen",
+          "productUpgrade": {
+            "text": "Noch keine Produktbewertungen gebucht? [%s]Kontaktiere jetzt unser Team für ein Upgrade[%s].",
+            "url": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
+          },
+          "serviceReviews": "Servicebewertungen",
+          "title": "Einstellungen für Bewertungseinladungen konfigurieren"
+        },
+        "title": "Bewertungseinladungen"
+      }
+    },
+    "overview": {
+      "help": {
+        "text": "Brauchst du Hilfe bei der Konfiguration deiner Produkte?\n[%s]Öffne den Integrationsleitfaden[%s]",
+        "url": "https://help.etrusted.com/hc/de/articles/23970910593170"
+      },
+      "invites": {
+        "button": {
+          "manage": "Bearbeiten"
+        },
+        "description": "Sammle mehr Bewertungen, indem du deine Kundschaft nach dem Kauf zum Bewerten deines Unternehmens einlädtst. Bewertungseinladungen kannst du im Trusted Shops Kontrollzentrum einrichten.",
+        "status": {
+          "enabled": "Aktiviert · Auto Platzierung",
+          "inactive": "Nicht eingerichtet"
+        },
+        "title": "Bewertungseinladungen"
+      },
+      "trstd_login": {
+        "button": {
+          "configure": "Einrichten"
+        },
+        "description": "Schützt deine Visitor vor Fakes. Wird nach Aktivieren das persönliche #trstd Secret angezeigt, ist die Seite echt. Fake Websites können das nicht. Ein starkes Zeichen, das dich auch vor Markenmissbrauch schützt.",
+        "status": {
+          "enabled": "Aktiviert · Auto Platzierung",
+          "inactive": "Nicht eingerichtet"
+        },
+        "title": "#trstd login"
+      },
+      "trustbadge": {
+        "button": {
+          "configure": "Einrichten"
+        },
+        "description": "Baue mit Trusted Shops schon beim ersten Blick Vertrauen auf. Das Trustbadge zeigt echte Bewertungen an, und wenn vorhanden das Gütesiegel mit dem Trusted Shops Käuferschutz für deinen Shop.",
+        "status": {
+          "enabled": "Aktiviert · Auto Platzierung",
+          "inactive": "Nicht eingerichtet"
+        },
+        "title": "Trustbadge"
+      },
+      "widgets": {
+        "button": {
+          "manage": "Bearbeiten"
+        },
+        "description": "Zeige der Welt, wie deine Kundschaft dein Unternehmen bewertet. \nMit Widgets wählst du selbst aus, wie du Bewertungen und andere Vertrauenselemente auf deiner Website präsentierst und damit neue Kunden gewinnst.",
+        "status": {
+          "enabled": "Aktiviert · Auto Platzierung",
+          "inactive": "Nicht eingerichtet"
+        },
+        "title": "Widgets"
       }
     },
     "routes": {
       "authentication": "Authentifizierung",
       "channelSelector": "Ausgewählter Kanal",
       "invites": "Bewertungseinladungen",
-      "settings": "Einstellungen",
+      "overview": "Übersicht",
+      "settings": "Channel mapping",
+      "trstd_login": "#trstd login",
       "trustbadge": "Trustbadge",
       "widgets": "Widgets"
     },
     "settings": {
       "channel": {
         "caution": "Beachte, dass die für deinen Shop vorgenommene Konfiguration gelöscht wird, sobald du einen anderen eTrusted Channel aus der Dropdown-Liste auswählst. ",
-        "description": "Verbinde deine Shops mit deinen eTrusted-Kanälen.",
-        "title": "Kanal-Einstellungen"
+        "description": "Ordne jeden [%]shopsystem[%]-Kanal dem entsprechenden Trusted Shops-Kanal zu, damit Bewertungen richtig erfasst werden.",
+        "title": "Channel mapping",
+        "warning": {
+          "description": "Das Aktualisieren des Channel Mappings überschreibt alle vorherigen Konfigurationen dieser Kanäle.",
+          "title": "Änderungen überschreiben bestehende Einstellungen"
+        }
       },
       "description": "Verwalte deine Trusted Shops Easy Integrationen.",
       "disconnect": {
@@ -134,24 +235,52 @@
         "description": "Wenn du die Verbindung zwischen Trusted Shops und deinem Shopsystem trennst, werden deine Konfigurationseinstellungen gelöscht.",
         "help": {
           "text": "Brauchst du Unterstützung? [%s]Kontaktiere uns[%s].",
+          "url": "https://support.trustedshops.com/de/kontakt?",
           "url_1": "https://support.trustedshops.com/de/kontakt?"
         },
-        "title": "Trusted Shops trennen"
+        "title": "Trusted Shops trennen",
+        "warning": "Alle Channel Mappings, Widget-Konfigurationen und aktive Features werden entfernt. Wenn du Trusted Shops erneut nutzen möchtest, musst du die Integration und Konfiguration erneut starten. ",
+        "warningTitle": "Dieser Schritt kann nicht rückgängig gemacht werden"
+      },
+      "help": {
+        "text": "Erfahre mehr über Channel Mapping, Multi-Kanal Setup und Hilfe bei Problemen im [%s]Trusted Shops Hilfezentrum[%s].",
+        "title": "Du brauchst Hilfe bei der Integration?",
+        "url": "https://help.etrusted.com/hc/de"
       },
       "popup": {
+        "body": "Durch das Trennen der Integration wird Folgendes entfernt:\n\n• Alle Channel Mappings und Konfigurationen\n• Aktive #trstd login und Trustbadge-Widgets\n• Einstellungen für Bewertungseinladungen\n• Verbindung zu Trusted Shops-Diensten",
+        "description": "Damit werden die Integration und alle zugehörigen Daten unwiderruflich gelöscht.",
         "submit": "Verbindung trennen",
         "text": "Wenn du auf Trennen klickst, wird alles, was du eingerichtet hast, gelöscht. Eine Wiederherstellung deiner Einstellungen ist nicht möglich.",
         "titel": "Bist du sicher, dass du die Verbindung von Trusted Shops und deinem Shopsystem trennen möchtest?"
       },
-      "title": "Einstellungen"
+      "title": "Channel mapping"
     },
     "trustbadge": {
+      "about": {
+        "description": "Das Trustbadge zeigt das Trusted Shops Gütesiegel, aktuelle Bewertungen und die Gesamtbewertung für deinen Shop an. Kund*innen können über das Trustbadge außerdem auf den Käuferschutz zugreifen.   ",
+        "learnMore": "Mehr erfahren",
+        "learnMore_url": "https://help.etrusted.com/hc/de/articles/23970876808850",
+        "title": "Über das Trustbadge"
+      },
+      "automaticPlacement": {
+        "description": "Das Trustbadge wird automatisch auf deiner Website integriert und passt sich an alle Bildschirmgrößen an. So baust du an jedem Kunden-Touchpoint Vertrauen auf.",
+        "title": "Automatische Platzierung"
+      },
       "description": "Das Trustbadge ist Trusted Shops sichtbarstes Markenzeichen und der beste Weg, Vertrauen zu schaffen. Es ist auch wesentlich für die Aktivierung von Bewertungen und den Käuferschutz. ",
+      "displayToggle": {
+        "label": "Für diesen Kanal anzeigen (mit automatischer Platzierung)"
+      },
       "expert": {
         "help": {
           "text": "Gehe zur Übersicht der [%s]Trustbadge Parameter[%s].",
+          "url": "https://help.etrusted.com/hc/de/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/de/articles/360047497311"
         }
+      },
+      "integration": {
+        "description": "Entscheide selbst, wie das Trustbadge auf deiner Website angezeigt wird. ",
+        "title": "Trustbadge konfigurieren"
       },
       "integrationmode": "Wähle deine Integrationseinstellungen",
       "placement": {
@@ -163,19 +292,47 @@
         "pixels": "Pixel",
         "right": "Rechts"
       },
+      "placementSection": {
+        "desktopLabel": "Desktop",
+        "left": "Links",
+        "mobileLabel": "Mobil",
+        "positionLabel": "Position",
+        "right": "Rechts",
+        "verticalOffsetLabel": "Vertikale Verschiebung (px)"
+      },
       "popup": {
         "submit": "Deaktivieren",
         "text": "Wenn du das Trustbadge deaktivierst, wird es nicht mehr angezeigt. Dein Käuferschutz und das Sammeln von Bewertungen bleiben aktiv.",
         "titel": "Bist du sicher, dass du das Trustbadge deaktivieren möchtest?"
       },
+      "preview": {
+        "desktop": "Desktop",
+        "mobile": "Mobil"
+      },
       "radioButton": {
         "expert": "Integrationscode bearbeiten",
         "standard": "Standard"
+      },
+      "radioButtonOptions": {
+        "expert": {
+          "description": "Bearbeite den Integrationscode, um die Platzierung und Gestaltung des Trustbadge individuell anzupassen. ",
+          "value": "Integrationscode bearbeiten"
+        },
+        "standard": {
+          "description": "Das Trustbadge wird als Standard-Variante auf allen Seiten deiner Website angezeigt, an einer Position deiner Wahl. ",
+          "value": "Standard-Einstellungen"
+        }
       },
       "subtitel": "Starte mit dem wichtigsten Feature von Trusted Shops",
       "titel": "Trustbadge"
     },
     "widgets": {
+      "about": {
+        "description": "Widgets werden im Trusted Shops Kontrollzentrum erstellt und bearbeitet. Sobald du ein Widget erstellt hast, wird es automatisch mit deiner {{shopSystemName}}-Installation \nsynchronisiert und kann auf deiner Website platziert werden. ",
+        "learnMore": "Zum Trusted Shops Kontrollzentrum",
+        "learnMore_url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
+        "title": "Über Widgets"
+      },
       "configuration": "Konfiguration",
       "contentType": {
         "productReviews": "Produktbewertungen",
@@ -200,6 +357,7 @@
       "popup": {
         "submit": {
           "text": "Zu eTrusted",
+          "url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
         "text": "- Klicke auf \"Zu eTrusted\". Du wirst zum Kontrollzentrum weitergeleitet.\n\n- Melde dich an und wähle ein Widget aus der Bibliothek.\n\n- Klicke auf \"Konfigurieren“ und danach auf „Widget-Konfiguration abschließen“.\n\n- Kehre in deine Plugin-Konfiguration zurück, um das Widget in deinem Shop zu platzieren.",
@@ -241,25 +399,31 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Verbinde deinen Shop"
+        "title": "Verbinde deinen Shop mit #trstd"
       },
       "help": {
         "button": {
-          "text": "Anfragen",
+          "text": "Deine Client ID & Client Secret findest du im Trusted Shops Kontrollzentrum",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Um deinen Shop zu verbinden, benötigst du eine Client ID und ein Client Secret.\n\nClient ID und Client Secret sind nicht identisch mit deinen eTrusted Login-Daten.\n\nDu musst diese daher anfragen.",
+        "text": "Diese unterscheiden sich von deinen Trusted Shops Login-Daten.",
         "title": "Bist du neu hier?"
       }
     },
     "error": "Fehler: Vergewissere dich, dass du die richtigen Client Credentials verwendest.",
+    "integrationGuide": {
+      "text": "Integrationsanleitung ansehen",
+      "url": "https://help.etrusted.com/hc/de/articles/23970910593170"
+    },
     "salesLink": {
       "text": "[%s]Bist du noch keine Kund*in?[%s]",
+      "url": "https://checkout.trustedshops.com",
       "url_1": "https://checkout.trustedshops.com"
     },
     "secret": "Client Secret",
     "supporthelp": {
       "text": "[%s]Brauchst du Hilfe bei der Erstellung der Client ID und des Client Secret?[%s]",
+      "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
     },
     "title": "Willkommen bei Trusted Shops Easy Integration"
@@ -267,7 +431,7 @@
   "channelSelect": {
     "info": "Hinweis: Du kannst deine Auswahl jederzeit in den Einstellungen ändern",
     "submit": "Speichern",
-    "titel": "Beginne jetzt mit der Zuordnung eines Kanals",
+    "titel": "Ordne deine Kanäle #trstd zu",
     "title": {
       "etrusted": "eTrusted-Kanäle",
       "shopsystem": "[%]shopsystem[%] Kanäle"
@@ -281,11 +445,13 @@
     },
     "copyright": {
       "text": "© [YEAR] Trusted Shops SE. Alle Rechte vorbehalten. [%s]Impressum & Datenschutz[%s]",
+      "url": "https://www.trustedshops.de/impressum/",
       "url_1": "https://www.trustedshops.de/impressum/"
     },
     "help": {
       "link": {
         "text": "Schritt-für-Schritt-Anleitung zur Integration öffnen",
+        "url": "https://help.etrusted.com/hc/de/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/de/articles/4905016318237"
       },
       "text": "Erfahre, wie du deinen Shop mit Trusted Shops verbinden kannst.",
@@ -293,6 +459,7 @@
     },
     "jointcontrollership": {
       "text": "[%s]Betroffenenrechte unter der Vereinbarung zur gemeinsamen Verantwortlichkeit[%s]",
+      "url": "https://help.etrusted.com/hc/de/articles/13208959054877-Betroffenenrechte-unter-der-Vereinbarung-zur-gemeinsamen-Verantwortlichkeit",
       "url_1": "https://help.etrusted.com/hc/de/articles/13208959054877-Betroffenenrechte-unter-der-Vereinbarung-zur-gemeinsamen-Verantwortlichkeit"
     },
     "notification": {
@@ -322,6 +489,7 @@
     "global": {
       "help": {
         "link": {
+          "url": "https://help.etrusted.com/hc/de/articles/23970822885010-Trusted-Shops-nutzen-mit-Shopify",
           "url_1": "https://help.etrusted.com/hc/de/articles/23970822885010-Trusted-Shops-nutzen-mit-Shopify"
         }
       }
