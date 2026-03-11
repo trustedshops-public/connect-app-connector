@@ -611,4 +611,4 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   GLOBAL_KEYS &
   OVERVIEW_KEYS
 
-export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets'
+export type SelectedTab = '' | 'channelSelector' | 'initialConfiguration' | 'invites' | 'settings' | 'trustbadge' | 'widgets'
