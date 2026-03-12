@@ -223,7 +223,7 @@
         "button": "Verbindung trennen",
         "description": "Wenn du die Verbindung zwischen Trusted Shops und deinem Shopsystem trennst, werden deine Konfigurationseinstellungen gelöscht.",
         "help": {
-          "text": "Brauchst du Unterstützung? [%s]Kontaktiere uns[%s].",
+          "text": "Erfahre mehr über Channel Mapping, Multi-Kanal Setup und Hilfe bei Problemen im [%s]Trusted Shops Hilfezentrum[%s].\n",
           "url_1": "https://support.trustedshops.com/de/kontakt?"
         },
         "title": "Trusted Shops trennen",
@@ -235,11 +235,11 @@
         "title": "Du brauchst Hilfe bei der Integration?"
       },
       "popup": {
-        "body": "Durch das Trennen der Integration wird Folgendes entfernt:\n\n• Alle Channel Mappings und Konfigurationen\n• Aktive #trstd login und Trustbadge-Widgets\n• Einstellungen für Bewertungseinladungen\n• Verbindung zu Trusted Shops-Diensten",
+        "body": "Durch das Trennen der Integration wird Folgendes entfernt:\n\n• Alle Channel Mappings und Konfigurationen\n• Aktive Trustbadge und Widgets\n• Einstellungen für Bewertungseinladungen\n• Verbindung zu Trusted Shops-Diensten",
         "description": "Damit werden die Integration und alle zugehörigen Daten unwiderruflich gelöscht.",
-        "submit": "Verbindung trennen",
+        "submit": "Entfernen",
         "text": "Wenn du auf Trennen klickst, wird alles, was du eingerichtet hast, gelöscht. Eine Wiederherstellung deiner Einstellungen ist nicht möglich.",
-        "titel": "Bist du sicher, dass du die Verbindung von Trusted Shops und deinem Shopsystem trennen möchtest?"
+        "titel": "Trusted Shops entfernen?"
       },
       "title": "Channel mapping"
     },
@@ -254,7 +254,7 @@
         "description": "Das Trustbadge wird automatisch auf deiner Website integriert und passt sich an alle Bildschirmgrößen an. So baust du an jedem Kunden-Touchpoint Vertrauen auf.",
         "title": "Automatische Platzierung"
       },
-      "description": "Das Trustbadge ist Trusted Shops sichtbarstes Markenzeichen und der beste Weg, Vertrauen zu schaffen. Es ist auch wesentlich für die Aktivierung von Bewertungen und den Käuferschutz. ",
+      "description": "Mache Vertrauen sichtbar – mit dem bekanntesten Element von Trusted Shops. Binde das Trustbadge in deine Website ein, um Bewertungen zu sammeln und Trusted Shops-Funktionen zu nutzen.",
       "displayToggle": {
         "label": "Für diesen Kanal anzeigen (mit automatischer Platzierung)"
       },
@@ -289,7 +289,7 @@
       "popup": {
         "submit": "Deaktivieren",
         "text": "Wenn du das Trustbadge deaktivierst, wird es nicht mehr angezeigt. Dein Käuferschutz und das Sammeln von Bewertungen bleiben aktiv.",
-        "titel": "Bist du sicher, dass du das Trustbadge deaktivieren möchtest?"
+        "titel": "Trustbadge deaktivieren?"
       },
       "preview": {
         "desktop": "Desktop",
@@ -342,11 +342,11 @@
       "noWidgets": "Du hast derzeit keine Widgets für diesen Kanal, wähle einen anderen Kanal oder erstelle ein neues Widget.",
       "popup": {
         "submit": {
-          "text": "Zu eTrusted",
+          "text": "Zum Kontrollzentrum",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
-        "text": "- Klicke auf \"Zu eTrusted\". Du wirst zum Kontrollzentrum weitergeleitet.\n\n- Melde dich an und wähle ein Widget aus der Bibliothek.\n\n- Klicke auf \"Konfigurieren“ und danach auf „Widget-Konfiguration abschließen“.\n\n- Kehre in deine Plugin-Konfiguration zurück, um das Widget in deinem Shop zu platzieren.",
-        "title": "Du möchtest ein Widget integrieren?"
+        "text": "Schließe die Einrichtung deiner Widgets über die Widget-Bibliothek im Trusted Kontrollzentrum ab. Klicke dort beim Widget deiner Wahl auf „Konfigurieren“ und kehre anschließend auf diese Seite zurück, um das Widget zu platzieren.",
+        "title": "Fast geschafft! So integrierst du ein Widget auf deiner Website."
       },
       "position": {
         "custom": "Manuelle Platzierung",
@@ -374,7 +374,7 @@
         },
         "title": "Aktuelle Widgets für {{ channel }}:"
       },
-      "title": "Widgets - zeige deine Sterne, wecke Vertrauen"
+      "title": "Widgets"
     }
   },
   "authentication": {
@@ -413,7 +413,7 @@
   },
   "channelSelect": {
     "info": "Hinweis: Du kannst deine Auswahl jederzeit in den Einstellungen ändern",
-    "submit": "Speichern",
+    "submit": "Zuordnung bestätigen",
     "titel": "Ordne deine Kanäle #trstd zu",
     "title": {
       "etrusted": "eTrusted-Kanäle",
