@@ -101,7 +101,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "For touchpoints outside the ‘checkout’, you must ensure that all recipients have effectively consented to their email address being sent to Trusted Shops in order to be reminded to submit a review. Further information can be found in the [%s]eTrusted Help Centre[%s].",
+            "text": "For touchpoints outside the ‘checkout’, you must ensure that all recipients have effectively consented to their email address being sent to Trusted Shops in order to be reminded to submit a review. Further information can be found in the [%s]Trusted Shops Help Centre[%s].",
             "url": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites",
             "url_1": "https://help.etrusted.com/hc/en-gb/articles/360025759231-Consent-for-review-invites"
           }
@@ -173,7 +173,7 @@
           "enabled": "Enabled · Auto placement",
           "inactive": "Inactive"
         },
-        "title": "Send review invites for products"
+        "title": "Review Invites"
       },
       "trstd_login": {
         "button": {
@@ -222,7 +222,7 @@
     "settings": {
       "channel": {
         "caution": "Changing channel mappings will reset any existing configuration for affected channels. Make sure to review your settings after saving changes.",
-        "description": "Match each [%]shopsystem[%] channel with the corresponding eTrusted channel to ensure reviews are collected correctly.",
+        "description": "Match each [%]shopsystem[%] channel with the corresponding Trusted Shops channel to ensure reviews are collected correctly.",
         "title": "Channel mapping",
         "warning": {
           "description": "Updating the channel mapping overwrites any existing configuration of those channels.",
@@ -248,7 +248,7 @@
         "url": "https://help.etrusted.com/hc/en-gb"
       },
       "popup": {
-        "body": "By disconnecting, the following will be removed:\n\n• All channel mappings and configurations\n• Active #trstd login and Trustbadge widgets\n• Review invite settings\n• Connection to Trusted Shops services",
+        "body": "By disconnecting, the following will be removed:\n\n• All channel mappings and configurations\n• Active Trustbadge and widgets\n• Review invite settings\n• Connection to Trusted Shops services",
         "description": "This action will permanently remove the integration and all associated data.",
         "submit": "Yes, disconnect",
         "text": "By clicking Disconnect, everything you have set up will be deleted. Restoring your settings is not possible.",
@@ -280,7 +280,7 @@
       },
       "integration": {
         "description": "Select how you want to integrate the Trustbadge into your shop.",
-        "title": "Trustbadge integration"
+        "title": "Trustbadge configuration"
       },
       "integrationmode": "Choose your integration settings",
       "placement": {
@@ -316,12 +316,12 @@
       },
       "radioButtonOptions": {
         "expert": {
-          "description": "Manually edit the integration code to fit your needs for more control over placement and styling..",
+          "description": "Manually edit the integration code to fit your needs for more control over placement and styling.",
           "value": "Edit integration code"
         },
         "standard": {
           "description": "Display the standard Trustbadge on all pages of your website and customise its position. ",
-          "value": "Standard integration"
+          "value": "Standard settings"
         }
       },
       "subtitel": "Get started with Trusted Shops most essential feature",
@@ -329,7 +329,7 @@
     },
     "widgets": {
       "about": {
-        "description": "Widgets are created and managed in the eTrusted Control Centre. Once created, they automatically sync to your {{shopSystemName}} installation and can be placed across your website.",
+        "description": "Widgets are created and managed in the Trusted Shops Control Centre. Once created, they automatically sync to your {{shopSystemName}} installation and can be placed across your website.",
         "learnMore": "Open Trusted Shops Control Centre",
         "learnMore_url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
         "title": "About Widgets"
@@ -357,12 +357,12 @@
       "noWidgets": "You currently do not have any widgets for this channel, select another channel or create a new widget.",
       "popup": {
         "submit": {
-          "text": "Go to eTrusted",
+          "text": "Go to Control Centre",
           "url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
-        "text": "- Click \"Go to eTrusted\" and get redirected to the Control Centre.\n\n- Login and choose a widget from the library.\n\n- Click \"Configure\" and then the “Complete widget creation” button.\n\n- To place the widget in your shop, return to your plugin configurations.",
-        "title": "Would you like to integrate a widget in your shop?"
+        "text": "Finish setting up your widgets via the widgets library in the Trusted Shops Control Centre. Click \"configure\" for your chosen widget, then come back to this page to place the widget.",
+        "title": "Almost there! Integrate a widget on your website."
       },
       "position": {
         "custom": "Manual placement",
