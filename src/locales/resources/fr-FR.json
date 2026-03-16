@@ -138,6 +138,9 @@
         },
         "title": "Dissocier Trusted Shops"
       },
+      "help": {
+        "url": "https://help.etrusted.com/hc/fr/categories/23970766112914"
+      },
       "popup": {
         "submit": "Dissocier",
         "text": "En cliquant sur dissocier, tout ce que vous avez configuré sera supprimé. Il n’est pas possible de restaurer vos paramètres.",

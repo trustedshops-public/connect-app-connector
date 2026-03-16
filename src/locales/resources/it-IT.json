@@ -138,6 +138,9 @@
         },
         "title": "Scollega Trusted Shops"
       },
+      "help": {
+        "url": "https://help.etrusted.com/hc/it/categories/23970766112914"
+      },
       "popup": {
         "submit": "Disconnessione",
         "text": "Se clicchi su Disconnetti, tutte le impostazioni verranno eliminate. Non è possibile ripristinare le impostazioni.",

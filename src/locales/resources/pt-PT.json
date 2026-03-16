@@ -138,6 +138,9 @@
         },
         "title": "Separar Trusted Shops"
       },
+      "help": {
+        "url": "https://help.etrusted.com/hc/pt/categories/23970766112914"
+      },
       "popup": {
         "submit": "Desligar ligação",
         "text": "Ao clicar em Desligar, tudo o que configurou será eliminado. Não é possível restaurar as suas configurações.",

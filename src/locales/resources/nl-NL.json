@@ -138,6 +138,9 @@
         },
         "title": "Trusted Shops verbreken"
       },
+      "help": {
+        "url": "https://help.etrusted.com/hc/nl/categories/23970766112914"
+      },
       "popup": {
         "submit": "Koppeling verbreken",
         "text": "Klik je op Verbinding verbreken dan wordt alles wat je hebt ingesteld, verwijderd. Het herstellen van deze instellingen is dan niet mogelijk.",

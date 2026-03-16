@@ -157,7 +157,7 @@
         "button": {
           "manage": "Bearbeiten"
         },
-        "description": "Sammle mehr Bewertungen, indem du deine Kundschaft nach dem Kauf zum Bewerten deines Unternehmens einlädtst. Bewertungseinladungen kannst du im Trusted Shops Kontrollzentrum einrichten.",
+        "description": "Sammle mehr Bewertungen, indem du deine Kundschaft nach dem Kauf zum Bewerten deines Unternehmens einlädst. Bewertungseinladungen kannst du im Trusted Shops Kontrollzentrum einrichten.",
         "status": {
           "enabled": "Aktiviert · Auto Platzierung",
           "inactive": "Nicht eingerichtet"
@@ -232,7 +232,8 @@
       },
       "help": {
         "text": "Erfahre mehr über Channel Mapping, Multi-Kanal Setup und Hilfe bei Problemen im [%s]Trusted Shops Hilfezentrum[%s].",
-        "title": "Du brauchst Hilfe bei der Integration?"
+        "title": "Du brauchst Hilfe bei der Integration?",
+        "url": "https://help.etrusted.com/hc/de/categories/23970766112914"
       },
       "popup": {
         "body": "Durch das Trennen der Integration wird Folgendes entfernt:\n\n• Alle Channel Mappings und Konfigurationen\n• Aktive Trustbadge und Widgets\n• Einstellungen für Bewertungseinladungen\n• Verbindung zu Trusted Shops-Diensten",
@@ -401,7 +402,7 @@
       "url": "https://help.etrusted.com/hc/de/articles/23970910593170"
     },
     "salesLink": {
-      "text": "[%s]Bist du noch keine Kund*in?[%s]",
+      "text": "[%s]Neu bei Trusted Shops?[%s]",
       "url_1": "https://checkout.trustedshops.com"
     },
     "secret": "Client Secret",
