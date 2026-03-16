@@ -245,7 +245,7 @@
       "help": {
         "text": "Learn more about channel mapping, multi-channel setup, and troubleshooting in our [%s]Help Centre[%s].",
         "title": "Need help with integration?",
-        "url": "https://help.etrusted.com/hc/en-gb"
+        "url": "https://help.etrusted.com/hc/en-gb/categories/23970766112914"
       },
       "popup": {
         "body": "By disconnecting, the following will be removed:\n\n• All channel mappings and configurations\n• Active Trustbadge and widgets\n• Review invite settings\n• Connection to Trusted Shops services",

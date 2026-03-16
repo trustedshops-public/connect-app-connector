@@ -138,6 +138,9 @@
         },
         "title": "Rozłącz się z Trusted Shops"
       },
+      "help": {
+        "url": "https://help.etrusted.com/hc/pl/categories/23970766112914"
+      },
       "popup": {
         "submit": "Rozłącz połączenie",
         "text": "Po kliknięciu opcji Rozłącz połączenie wszystkie skonfigurowane ustawienia zostaną usunięte. Przywrócenie ustawień nie jest możliwe.",
