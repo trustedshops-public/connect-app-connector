@@ -388,7 +388,7 @@
       },
       "help": {
         "button": {
-          "text": "Deine Client ID & Client Secret findest du im Trusted Shops Kontrollzentrum",
+          "text": "Deine Client ID & Client Secret findest du im [%s]Trusted Shops Kontrollzentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
         "text": "Diese unterscheiden sich von deinen Trusted Shops Login-Daten.",
