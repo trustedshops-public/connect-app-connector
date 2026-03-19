@@ -1,11 +1,27 @@
-input[type=number]::-webkit-inner-spin-button, .num
-input[type=number]::-webkit-outer-spin-button, .num
-{
-  -webkit-appearance: none;
-  margin: 0;
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  margin: 0 !important;
+  display: none !important;
 }
 
-input[type=number], .num
-{
-  -moz-appearance: textfield;
+input[type=number] {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
+}
+
+input[type=number]:hover::-webkit-inner-spin-button,
+input[type=number]:hover::-webkit-outer-spin-button,
+input[type=number]:focus::-webkit-inner-spin-button,
+input[type=number]:focus::-webkit-outer-spin-button {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: none !important;
+}
+
+input[type=number]:hover,
+input[type=number]:focus {
+  -moz-appearance: textfield !important;
+  appearance: textfield !important;
 }
