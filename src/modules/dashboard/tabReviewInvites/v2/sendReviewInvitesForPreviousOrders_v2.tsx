@@ -56,7 +56,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
 
       <div className="ts-flex ts-items-center ts-gap-3 ts-mb-5">
         <div
-          className="ts-flex ts-items-center"
+          className="ts-flex ts-items-center ts-hide-number-spin"
           style={{
             border: '1px solid #D1D5DB',
             borderRadius: '8px',
@@ -65,6 +65,19 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
             width: '130px',
           }}
         >
+          <style>{`
+            .ts-hide-number-spin input[type=number]::-webkit-inner-spin-button,
+            .ts-hide-number-spin input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none !important;
+              appearance: none !important;
+              display: none !important;
+              margin: 0 !important;
+            }
+            .ts-hide-number-spin input[type=number] {
+              -moz-appearance: textfield !important;
+              appearance: textfield !important;
+            }
+          `}</style>
           <input
             id="number_numberOfDays"
             type="number"
@@ -80,9 +93,6 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
               height: '100%',
               padding: '0 10px',
               outline: 'none',
-              appearance: 'textfield',
-              MozAppearance: 'textfield',
-              WebkitAppearance: 'none',
               backgroundColor: '#FFFFFF',
             }}
           />
