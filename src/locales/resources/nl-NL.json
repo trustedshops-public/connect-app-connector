@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "Voor contactmomenten buiten de \"Checkout\" moet u ervoor zorgen dat alle ontvangers er effectief mee hebben ingestemd dat hun e-mailadres naar Trusted Shops wordt verzonden om eraan te worden herinnerd een beoordeling achter te laten. Zie het [%s]eTrusted Helpcentrum[%s] voor meer informatie.",
+            "text": "Voor contactpunten buiten de afrekenpagina moet je ervoor zorgen dat alle ontvangers toestemming hebben gegeven voor het doorsturen van hun e-mailadres aan Trusted Shops, zodat ze een herinnering voor het geven van een beoordeling kunnen krijgen. Ga voor meer informatie naar het [%s]Trusted Shops Helpcenter[%s].",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
           }
         },
@@ -112,49 +112,157 @@
           "text": "Als je nog geen productreviews hebt geboekt, [%s]neem dan contact op met ons verkoopteam[%s] om te upgraden",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
+      },
+      "v3": {
+        "description": "Stuur je klanten op het juiste moment beoordelingsverzoeken om meer beoordelingen te verzamelen en de kwaliteit van je klantenfeedback te verbeteren.",
+        "previousOrders": {
+          "description": "Ontvang meer beoordelingen door klanten uit het verleden handmatig uit te nodigen om hun ervaring te beoordelen. Zorg ervoor dat al je klanten toestemming hebben gegeven voor het ontvangen van beoordelingsverzoeken.",
+          "step1": {
+            "days": "dagen",
+            "exportLabel": "Exporteer bestellingen uit het verleden",
+            "title": "Stap 1: Exporteer bestellingen uit {{shopSystemName}}"
+          },
+          "step2": {
+            "buttonLabel": "Stuur handmatige beoordelingsverzoeken",
+            "description": "Nadat je de bestellingen hebt geëxporteerd, kan je het CSV-bestand uploaden in je eTrusted-account om beoordelingsverzoeken te versturen.",
+            "title": "Stap 2: Upload bestellingen in het controlecentrum"
+          },
+          "title": "Stuur beoordelingsverzoeken voor bestellingen uit het verleden"
+        },
+        "rightTime": {
+          "description": "Kies wanneer je klanten een beoordelingsverzoek ontvangen door een contactpunt in je webwinkel te selecteren.",
+          "help": {
+            "text": "Het meest gebruikte contactpunt voor het sturen van beoordelingen is de afrekenpagina. Om ervoor te zorgen dat klanten de beoordelingsverzoeken op het juiste moment ontvangen, hanteren we een standaardwachttijd van 5 dagen voordat we het verzoek sturen. Je kan deze wachttijd aanpassen in het [%s]Trusted Shops controlecentrum[%s]."
+          },
+          "placeholder": "Kies een optie",
+          "productReviews": "Productbeoordelingen",
+          "productUpgrade": {
+            "text": "Als je nog geen productbeoordelingen hebt geboekt, neem dan [%s]contact op met ons salesteam voor een upgrade[%s]."
+          },
+          "serviceReviews": "Servicebeoordelingen",
+          "title": "Configureer je instellingen voor beoordelingsverzoeken voor services"
+        },
+        "title": "Beoordelingsverzoeken"
+      }
+    },
+    "overview": {
+      "help": {
+        "text": "Hulp nodig met de instellingen of de configuratie? [%s]Open de integratiehandleiding[%s]"
+      },
+      "invites": {
+        "button": {
+          "manage": "Beheren"
+        },
+        "description": "Ontvang meer beoordelingen door klanten een beoordelingsverzoek te sturen als ze iets hebben gekocht. Je kan beoordelingsverzoeken instellen in het Trusted Shops controlecentrum.",
+        "status": {
+          "enabled": "Ingeschakeld · Automatische plaatsing",
+          "inactive": "Inactief"
+        },
+        "title": "Beoordelingsverzoeken"
+      },
+      "trstd_login": {
+        "button": {
+          "configure": "Configureren"
+        },
+        "description": "Beschermt je bezoekers tegen malafide webshops. Als deze functie is geactiveerd, wordt het persoonlijke #trstd secret weergegeven. Dit bewijst dat de site authentiek is. Malafide webshops kunnen dit niet. Dit kenmerk is een sterk signaal, dat ook je merk beschermt tegen misbruik.",
+        "status": {
+          "enabled": "Ingeschakeld · Automatische plaatsing",
+          "inactive": "Inactief"
+        },
+        "title": "#trstd login"
+      },
+      "trustbadge": {
+        "button": {
+          "configure": "Configureren"
+        },
+        "description": "Bouwt direct vertrouwen op via het Trusted Shops-merk. Geeft je beoordeling weer op basis van echte bestellingen, en als het Trusted Shops Keurmerk is toegekend, wordt dit weergegeven met kopersbescherming bij alle betalingswijzen.",
+        "status": {
+          "enabled": "Ingeschakeld · Automatische plaatsing",
+          "inactive": "Inactief"
+        },
+        "title": "Trustbadge"
+      },
+      "widgets": {
+        "button": {
+          "manage": "Beheren"
+        },
+        "description": "Laat zien wat je klanten zeggen over je bedrijf. Kies hoe je beoordelingen en andere elementen voor meer vertrouwen wil weergeven op je website om nieuwe klanten aan te trekken en je omzet te verhogen.",
+        "status": {
+          "enabled": "Ingeschakeld · Automatische plaatsing",
+          "inactive": "Inactief"
+        },
+        "title": "Widgets"
       }
     },
     "routes": {
       "authentication": "Authenticatie",
       "channelSelector": "Geselecteerd kanaal",
       "invites": "Beoordelingsverzoeken",
-      "settings": "Instellingen",
+      "overview": "Overzicht",
+      "settings": "Kanaaltoewijzing",
+      "trstd_login": "#trstd login",
       "trustbadge": "Trustbadge",
       "widgets": "Widgets"
     },
     "settings": {
       "channel": {
         "caution": "Houd er rekening mee dat de configuratie die voor je shop is gemaakt, wordt verwijderd zodra je een ander eTrusted-kanaal selecteert in het vervolgkeuzemenu.",
-        "description": "Koppel je webshops aan je eTrusted kanalen.",
-        "title": "Kanaalinstellingen"
+        "description": "Koppel elk [%]shopsystem[%]-kanaal met een bijpassend Trusted Shops-kanaal om ervoor te zorgen dat beoordelingen correct worden verzameld.",
+        "title": "Kanaaltoewijzing",
+        "warning": {
+          "description": "Als je de kanaaltoewijzing bijwerkt, overschrijf je alle bestaande configuraties van deze kanalen.",
+          "title": "Wijzigingen hebben een uitwerking op bestaande instellingen"
+        }
       },
       "description": "Beheer hier je Trusted Shops Easy Integrations.",
       "disconnect": {
         "button": "Koppeling verbreken",
         "description": "Als je de koppeling tussen Trusted Shops en je shopsysteem verbreekt, worden je configuratie-instellingen gewist.",
         "help": {
-          "text": "Heb je hulp nodig? [%s]Neem dan contact met ons op[%s].",
+          "text": "Ga naar het [%s]Helpcenter[%s] voor meer informatie over kanaaltoewijzing, configuraties met meerdere kanalen en probleemoplossing.",
           "url_1": "mailto:members@trustedshops.com"
         },
-        "title": "Trusted Shops verbreken"
+        "title": "Trusted Shops verbreken",
+        "warning": "Al je kanaaltoewijzingen, widgetconfiguraties en actieve functies worden verwijderd. Je moet alles opnieuw verbinden en configureren als je Trusted Shops weer wilt gebruiken.",
+        "warningTitle": "Deze actie kan niet ongedaan worden gemaakt"
       },
       "help": {
+        "text": "Ga naar het [%s]Helpcenter[%s] voor meer informatie over kanaaltoewijzing, configuraties met meerdere kanalen en probleemoplossing.",
+        "title": "Hulp nodig bij de integratie?",
         "url": "https://help.etrusted.com/hc/nl/categories/23970766112914"
       },
       "popup": {
+        "body": "Als je deze verbinding opheft, worden de volgende items verwijderd: \n\n• Alle kanaaltoewijzingen en configuraties \n• Actieve Trustbadge en widgets \n• Instellingen voor beoordelingsverzoeken \n• Koppelingen met Trusted Shops-services",
+        "description": "Deze actie verwijdert de integratie en alle bijbehorende gegevens permanent.",
         "submit": "Koppeling verbreken",
         "text": "Klik je op Verbinding verbreken dan wordt alles wat je hebt ingesteld, verwijderd. Het herstellen van deze instellingen is dan niet mogelijk.",
         "titel": "Weet je zeker dat je Trusted Shops wilt loskoppelen van je shopsysteem?"
       },
-      "title": "Instellingen"
+      "title": "Kanaaltoewijzing"
     },
     "trustbadge": {
-      "description": "De Trustbadge is het meest zichtbare handelsmerk van Trusted Shops en de beste manier om vertrouwen te wekken. Het is ook essentieel voor het activeren van beoordelingen en de kopersbescherming. ",
+      "about": {
+        "description": "De Trustbadge geeft je Trusted Shops-certificering met je beoordelingssterren weer en geeft toegang tot kopersbescherming. De badge wordt automatisch bijgewerkt met je meest recente beoordelingen en sterren.",
+        "learnMore": "Lees meer over de Trustbadge",
+        "title": "Over de Trustbadge"
+      },
+      "automaticPlacement": {
+        "description": "De Trustbadge wordt automatisch op de website van je shop geplaatst en past zich probleemloos aan aan verschillende lay-outs voor desktop en mobiel. Zo bouw je bij ieder contactpunt vertrouwen op bij je klanten.",
+        "title": "Automatische plaatsing"
+      },
+      "description": "Laat zien dat je klanten je vertrouwen, met het meest herkenbare element van Trusted Shops. Begin met het verzamelen van beoordelingen en gebruik de functies van Trusted Shops door de Trustbadge toe te voegen aan je website.",
+      "displayToggle": {
+        "label": "Weergeven op dit kanaal (met automatische plaatsing)"
+      },
       "expert": {
         "help": {
           "text": "Ga naar het overzicht van [%s]Trustbadge parameters[%s].",
           "url_1": "https://help.etrusted.com/hc/nl/articles/360047497311"
         }
+      },
+      "integration": {
+        "description": "Selecteer hoe je de Trustbadge wil integreren in je webshop.",
+        "title": "Trustbadge-configuratie"
       },
       "integrationmode": "Kies uw integratie-instellingen",
       "placement": {
@@ -166,19 +274,46 @@
         "pixels": "Pixels",
         "right": "Rechts"
       },
+      "placementSection": {
+        "desktopLabel": "Desktop",
+        "left": "Links",
+        "mobileLabel": "Mobiel",
+        "positionLabel": "Positie",
+        "right": "Rechts",
+        "verticalOffsetLabel": "Verticale offset (px)"
+      },
       "popup": {
         "submit": "Deactiveren",
         "text": "Door de Trustbadge te deactiveren, wordt deze niet meer weergegeven. De kopersbescherming en het verzamelen van beoordelingen blijven wel actief.",
-        "titel": "Weet je zeker dat je de Trustbadge wil deactiveren?"
+        "titel": "Trustbadge deactiveren?"
+      },
+      "preview": {
+        "desktop": "Desktop",
+        "mobile": "Mobiel"
       },
       "radioButton": {
         "expert": "Integratiecode bewerken",
         "standard": "Standaard"
       },
+      "radioButtonOptions": {
+        "expert": {
+          "description": "Bewerk de integratiecode handmatig voor meer controle over de plaatsing en stijl.",
+          "value": "Integratiecode bewerken"
+        },
+        "standard": {
+          "description": "Geef de standaard Trustbadge weer op alle pagina's van je website en pas de positie van de badge aan.",
+          "value": "Standaardinstellingen"
+        }
+      },
       "subtitel": "Begin met de belangrijkste feature van Trusted Shops",
       "titel": "Trustbadge"
     },
     "widgets": {
+      "about": {
+        "description": "Widgets worden gemaakt en beheerd in het Trusted Shops-controlecentrum. Hierna synchroniseren ze automatisch met je {{shopSystemName}}-installatie, en kunnen ze op heel je website worden geplaatst.",
+        "learnMore": "Trusted Shops-controlecentrum openen",
+        "title": "Over widgets"
+      },
       "configuration": "Configuratie",
       "contentType": {
         "productReviews": "Productbeoordelingen",
@@ -186,7 +321,7 @@
         "trustedCheckout": "Kopersbescherming"
       },
       "create": "+ Maak een nieuwe widget",
-      "description": "Gebruik onze widgets om je klanten een uitgebreid overzicht van de beoordelingen te geven. Combineer de widgets met onze Trustbadge voor de best mogelijke zichtbaarheid.",
+      "description": "Laat je sterren zien en win vertrouwen. Laat je Trusted Shops-beoordelingen en sterren zien op je hele website, met aanpasbare widgets die bij je merk passen.",
       "extension": {
         "description": "De ankerlink van de widget verschijnt onder de productnaam en stelt gebruikers in staat automatisch naar de Full Review List widget te scrollen.",
         "title": "Ankerwidget uitbreiding (optioneel):"
@@ -202,11 +337,11 @@
       "noWidgets": "Op het moment heeft u geen widgets beschikbaar voor dit kanaal, gelieve een ander kanaal te kiezen of een nieuwe widget aan te maken.",
       "popup": {
         "submit": {
-          "text": "Ga naar eTrusted",
+          "text": "Naar het controlecentrum",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
-        "text": "- Klik op \"Ga naar eTrusted\" om vervolgens naar het Control Centre te gaan.\n\n- Log in en kies een widget uit de bibliotheek.\n\n- Klik op \"Configure\" en vervolgens op de knop 'Complete widget creation'.\n\n- Om de widget in je shop te plaatsen, keer je terug naar de plugin-configuraties.",
-        "title": "Wil je een widget in je shop integreren?"
+        "text": "Voltooi de configuratie van je widgets via de widget-bibliotheek in het Trusted Shops-controlecentrum. Klik op \"Configureren\" voor je gekozen widget en kom terug naar deze pagina om de widget te plaatsen.",
+        "title": "Je bent er bijna! Integreer een widget op je website."
       },
       "position": {
         "custom": "Positie selecteren",
@@ -234,7 +369,7 @@
         },
         "title": "Huidige widgets voor {{ channel }}:"
       },
-      "title": "Widgets - toon je sterren en creëer vertrouwen!"
+      "title": "Widgets"
     }
   },
   "authentication": {
@@ -244,18 +379,21 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Verbind je shop"
+        "title": "Verbind je webshop met #trstd"
       },
       "help": {
         "button": {
-          "text": "Aanvragen",
+          "text": "Zoek je client-ID en secret in het [%s]Trusted Shops-controlecentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Om je shop te kunnen verbinden, heb je een Client ID en een Client Secret nodig.\n\nClient-ID en Client Secret zijn niet hetzelfde als je eTrusted inloggegevens.\n\nDaarom moet je een aanvraag indienen.",
+        "text": "Deze gegevens zijn niet hetzelfde als je Trusted Shops-aanmeldingsgegevens.",
         "title": "Ben je hier nieuw?"
       }
     },
     "error": "Foutmelding: zorg ervoor dat je de juiste Client Credentials gebruikt.",
+    "integrationGuide": {
+      "text": "Integratiehandleiding bekijken"
+    },
     "salesLink": {
       "text": "[%s]Ben je nog lid?[%s]",
       "url_1": "https://checkout.trustedshops.com"
@@ -269,8 +407,8 @@
   },
   "channelSelect": {
     "info": "Let op: je kunt je keuze op elk gewenst moment in de instellingen bewerken",
-    "submit": "Opslaan",
-    "titel": "Begin nu door een kanaal aan te passen",
+    "submit": "Kanaaltoewijzing bevestigen",
+    "titel": "Wijs je kanalen toe aan #trstd",
     "title": {
       "etrusted": "eTrusted-kanalen",
       "shopsystem": "[%]shopsystem[%] kanalen"
