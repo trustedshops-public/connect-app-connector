@@ -93,7 +93,7 @@
         },
         "orderstatus": {
           "warning": {
-            "text": "W przypadku punktów styku poza „Checkout” należy zapewnić, że wszyscy odbiorcy skutecznie wyrazili zgodę na przekazanie ich adresu e-mail do Trusted Shops w celu przypomnienia o przesłaniu oceny. Więcej informacji można znaleźć w [%s]centrum pomocy eTrusted[%s].",
+            "text": "W przypadku etapów sprzedaży innych niż „kasa” musisz upewnić się, że wszyscy odbiorcy wyrazili zgodę na przesłanie ich adresów e-mail do Trusted Shops w celu przypomnienia o wystawieniu opinii. Więcej informacji znajdziesz w [%s]Centrum pomocy Trusted Shops[%s].",
             "url_1": "https://help.etrusted.com/hc/pl/articles/360025759231-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii"
           }
         },
@@ -112,49 +112,157 @@
           "text": "Jeśli nie zarezerwowałeś jeszcze oceny produktów, [%s]skontaktuj się z naszym zespołem sprzedaży[%s], aby dokonać aktualizacji",
           "url_1": "https://www.trustedshops.com/tsb2b/sa/upgradeCenter.seam"
         }
+      },
+      "v3": {
+        "description": "Wyślij klientom zaproszenia we właściwym czasie, aby zebrać więcej opinii i poprawić ich jakość.",
+        "previousOrders": {
+          "description": "Uzyskaj więcej opinii, samodzielnie zapraszając klientów do oceny satysfakcji z zakupów. Upewnij się, że wszyscy klienci wyrazili zgodę na otrzymywanie e-maili z zaproszeniem do wystawienia opinii.",
+          "step1": {
+            "days": "dni",
+            "exportLabel": "Wyeksportuj zrealizowane zamówienia",
+            "title": "Krok 1: Wyeksportuj zamówienia z {{shopSystemName}}"
+          },
+          "step2": {
+            "buttonLabel": "Wyślij zaproszenia ręczne",
+            "description": "Po wyeksportowaniu zamówień prześlij plik CSV na swoje konto eTrusted, aby wysłać zaproszenia do wystawienia opinii.",
+            "title": "Krok 2: Prześlij zamówienia do Centrum Kontrolnego"
+          },
+          "title": "Wyślij zaproszenia do wystawienia opinii za zrealizowane zamówienia"
+        },
+        "rightTime": {
+          "description": "Wybierz, w jakim momencie procesu sprzedaży klienci mają otrzymać zaproszenia do wystawienia opinii.",
+          "help": {
+            "text": "Najczęściej wybierany moment to realizacja płatności (kasa). Aby upewnić się, że klient otrzyma zaproszenie do wystawienia opinii we właściwym momencie, dodajemy standardowe opóźnienie wysyłki wynoszące 5 dni. Możesz to zmienić w [%s]Centrum Kontrolnym Trusted Shops[%s]."
+          },
+          "placeholder": "Wybierz opcję",
+          "productReviews": "Opinie o produkcie",
+          "productUpgrade": {
+            "text": "Jeśli nie masz wykupionej funkcji opinii o produkcie, [%s]skontaktuj się z nami, aby ją zamówić[%s]."
+          },
+          "serviceReviews": "Opinie dotyczące obsługi",
+          "title": "Skonfiguruj zaproszenia do wystawienia opinii"
+        },
+        "title": "Zaproszenia do wystawienia opinii"
+      }
+    },
+    "overview": {
+      "help": {
+        "text": "Nie radzisz sobie z konfiguracją? [%s]Otwórz przewodnik po integracji[%s]"
+      },
+      "invites": {
+        "button": {
+          "manage": "Zarządzaj"
+        },
+        "description": "Uzyskaj więcej opinii, zapraszając klientów do wystawienia opinii po dokonaniu zakupu. Możesz skonfigurować zaproszenia do wystawienia opinii w Centrum Kontrolnym Trusted Shops.",
+        "status": {
+          "enabled": "Włączone · Automatyczne umiejscowienie",
+          "inactive": "Nieaktywne"
+        },
+        "title": "Zaproszenia do wystawienia opinii"
+      },
+      "trstd_login": {
+        "button": {
+          "configure": "Skonfiguruj"
+        },
+        "description": "Chroni odwiedzających przed fałszywymi sklepami. Po aktywacji wyświetlany będzie znak #trstd secret jako świadectwo autentyczności strony. Fałszywe sklepy tego nie potrafią! Silny sygnał, który chroni również przed niewłaściwym użyciem marki.",
+        "status": {
+          "enabled": "Włączone · Automatyczne umiejscowienie",
+          "inactive": "Nieaktywne"
+        },
+        "title": "#trstd login"
+      },
+      "trustbadge": {
+        "button": {
+          "configure": "Skonfiguruj"
+        },
+        "description": "Natychmiastowo buduj zaufanie dzięki marce Trusted Shops. Wyświetla Twoją ocenę z prawdziwych zamówień i znak jakości Trusted Shops (jeśli został przyznany) z Ochroną Kupującego we wszystkich metodach płatności.",
+        "status": {
+          "enabled": "Włączone · Automatyczne umiejscowienie",
+          "inactive": "Nieaktywne"
+        },
+        "title": "Trustbadge"
+      },
+      "widgets": {
+        "button": {
+          "manage": "Zarządzaj"
+        },
+        "description": "Pochwal się tym, co o Twojej firmie mówią klienci. Wybierz, jak chcesz wyświetlać opinie na stronie, aby przyciągnąć nowych klientów i podnieść sprzedaż.",
+        "status": {
+          "enabled": "Włączone · Automatyczne umiejscowienie",
+          "inactive": "Nieaktywne"
+        },
+        "title": "Widgety"
       }
     },
     "routes": {
       "authentication": "Uwierzytelnienie",
       "channelSelector": "Wybrany kanał",
       "invites": "Zaproszenia do wystawienia opinii",
-      "settings": "Ustawienia",
+      "overview": "Przegląd",
+      "settings": "Mapowanie kanału",
+      "trstd_login": "#trstd login",
       "trustbadge": "Trustbadge",
       "widgets": "Widgety"
     },
     "settings": {
       "channel": {
         "caution": "Pamiętaj, że po wybraniu innego kanału eTrusted z listy rozwijanej konfiguracja Twojego sklepu zostanie usunięta.",
-        "description": "Połącz swoje sklepy z kanałami eTrusted.",
-        "title": "Ustawienia kanałów"
+        "description": "Połącz każdy kanał [%]systemu sklepu[%] z odpowiednim kanałem Trusted Shops, aby zapewnić prawidłowe zbieranie opinii.",
+        "title": "Mapowanie kanału",
+        "warning": {
+          "description": "Aktualizacja mapowania kanału powoduje nadpisanie dotychczasowej konfiguracji kanału.",
+          "title": "Zmiany mają wpływ na bieżące ustawienia"
+        }
       },
       "description": "Zarządzaj łatwymi Łatwa Integracja Trusted Shops.",
       "disconnect": {
         "button": "Rozłącz połączenie",
         "description": "Jeśli rozłączysz połączenie między Trusted Shops a swoim systemem sklepowym, Twoje ustawienia konfiguracyjne zostaną usunięte.",
         "help": {
-          "text": "Potrzebujesz wsparcia? [%s]Skontaktuj się z nami[%s].",
+          "text": "Dowiedz się więcej o mapowaniu kanału, konfiguracji wielu kanałów oraz rozwiązywaniu problemów w [%s]Centrum pomocy[%s].",
           "url_1": "mailto:members@trustedshops.com"
         },
-        "title": "Rozłącz się z Trusted Shops"
+        "title": "Rozłącz się z Trusted Shops",
+        "warning": "Wszystkie mapowania kanału, konfiguracje widgetów oraz aktywne funkcje zostaną usunięte. Konieczne będzie ponowne połączenie i konfiguracja wszystkich ustawień w przypadku powrotu do korzystania z Trusted Shops.",
+        "warningTitle": "Tego działania nie można cofnąć"
       },
       "help": {
+        "text": "Dowiedz się więcej o mapowaniu kanału, konfiguracji wielu kanałów oraz rozwiązywaniu problemów w [%s]Centrum pomocy[%s].",
+        "title": "Nie radzisz sobie z integracją?",
         "url": "https://help.etrusted.com/hc/pl/categories/23970766112914"
       },
       "popup": {
+        "body": "Jeśli nastąpi rozłączenie, usuniemy: \n\n• Wszystkie mapowania kanałów oraz konfiguracje \n• Aktywne odznaki Trustbadge i widgety \n• Ustawienia zaproszeń do wystawienia opinii \n• Połączenie z usługami Trusted Shops",
+        "description": "To działanie spowoduje trwałe usunięcie integracji i powiązanych danych.",
         "submit": "Rozłącz połączenie",
         "text": "Po kliknięciu opcji Rozłącz połączenie wszystkie skonfigurowane ustawienia zostaną usunięte. Przywrócenie ustawień nie jest możliwe.",
         "titel": "Czy na pewno chcesz odłączyć Trusted Shops od swojego systemu sklepowego?"
       },
-      "title": "Ustawienia"
+      "title": "Mapowanie kanału"
     },
     "trustbadge": {
-      "description": "Trustbadge jest najbardziej widocznym znakiem towarowym Trusted Shops i najlepszym sposobem budowania zaufania. Jest on również niezbędny do aktywacji opinii i Ochrony Kupującego. ",
+      "about": {
+        "description": "Trustbadge wyświetla certyfikację Trusted Shops oraz ocenę w gwiazdkach i umożliwia dostęp do Ochrony kupującego. Automatycznie aktualizuje najnowsze opinie i oceny.",
+        "learnMore": "Dowiedz się więcej o Trustbadge",
+        "title": "Informacje o Trustbadge"
+      },
+      "automaticPlacement": {
+        "description": "Odznaka Trustbadge jest automatycznie umieszczana w witrynie sklepu. Płynnie dopasowuje się do układu aplikacji mobilnej i na komputer.",
+        "title": "Automatyczne umiejscowienie"
+      },
+      "description": "Pokaż, że klienci Ci ufają, dzięki najbardziej rozpoznawalnemu znakowi Trusted Shops. Aby zacząć zbierać opinie za pomocą funkcji Trusted Shops, dodaj odznakę Trustbadge do swojej witryny.",
+      "displayToggle": {
+        "label": "Wyświetlaj w tym kanale (z automatycznym umiejscowieniem)"
+      },
       "expert": {
         "help": {
           "text": "Przejdź do przeglądu [%s]parametrów Trustbadge[%s].",
           "url_1": "https://help.etrusted.com/hc/pl/articles/360047497311"
         }
+      },
+      "integration": {
+        "description": "Wybierz, w jaki sposób chcesz zintegrować Trustbadge ze swoim sklepem.",
+        "title": "Konfiguracja Trustbadge"
       },
       "integrationmode": "Wybierz ustawienia integracji",
       "placement": {
@@ -166,19 +274,46 @@
         "pixels": "Pixel",
         "right": "Po prawej"
       },
+      "placementSection": {
+        "desktopLabel": "Aplikacja na komputer",
+        "left": "Po lewej",
+        "mobileLabel": "Aplikacja mobilna",
+        "positionLabel": "Pozycja",
+        "right": "Po prawej",
+        "verticalOffsetLabel": "Pionowe przesunięcie (w pikselach)"
+      },
       "popup": {
         "submit": "Dezaktywuj",
         "text": "Po dezaktywacji Trustbadge nie będzie już wyświetlany. Ochrona Kupującego i zbieranie opinii pozostają aktywne.",
-        "titel": "Czy na pewno chcesz dezaktywować Trustbadge?"
+        "titel": "Dezaktywować Trustbadge?"
+      },
+      "preview": {
+        "desktop": "Aplikacja na komputer",
+        "mobile": "Aplikacja mobilna"
       },
       "radioButton": {
         "expert": "Edytuj kod integracji",
         "standard": "Standardowy"
       },
+      "radioButtonOptions": {
+        "expert": {
+          "description": "Ręcznie edytuj kod integracji, aby dostosować go do swoich potrzeb i samodzielnie wybrać umiejscowienie i styl.",
+          "value": "Edytuj kod integracji"
+        },
+        "standard": {
+          "description": "Wyświetlaj standardową odznakę Trustbadge na wszystkich stronach witryny i wybierz jej umiejscowienie.",
+          "value": "Ustawienia standardowe"
+        }
+      },
       "subtitel": "Zacznij od najważniejszej funkcji Trusted Shops",
       "titel": "Trustbadge"
     },
     "widgets": {
+      "about": {
+        "description": "W Centrum Kontrolnym Trusted Shops możesz tworzyć widgety i zarządzać nimi. Po utworzeniu widgety automatycznie zsynchronizują się z instalacją w sklepie {{shopSystemName}} i mogą zostać umieszczone w jego witrynie.",
+        "learnMore": "Otwórz Centrum Kontrolne Trusted Shops",
+        "title": "Informacje o widgetach"
+      },
       "configuration": "Konfiguracja",
       "contentType": {
         "productReviews": "Opinii o produktach",
@@ -186,7 +321,7 @@
         "trustedCheckout": "Ochrona Kupującego"
       },
       "create": "+ Utwórz nowy widget",
-      "description": "Skorzystaj z naszych widgetów, aby zapewnić swoim klientom kompleksowy przegląd opinii. Połącz widgety z naszym znakiem jakości Trustbadge, aby uzyskać jak najlepszą widoczność.",
+      "description": "Pokaż ocenę w gwiazdkach, która budzi zaufanie. Wyświetlaj opinie i oceny Trusted Shops w witrynie za pomocą widgetów, które możesz dopasować do swojej marki.",
       "extension": {
         "description": "Link odsyłający widgetu pojawia się pod nazwą produktu i umożliwia użytkownikom automatyczne przewinięcie w dół do widgetu pełnej listy opinii.",
         "title": "Rozszerzenie widgetu odsyłającego (opcjonalne):"
@@ -202,11 +337,11 @@
       "noWidgets": "Obecnie nie posiadasz żadnych widżetów dla tego kanału, wybierz inny kanał lub stwórz nowy widżet.",
       "popup": {
         "submit": {
-          "text": "Przejdź do eTrusted",
+          "text": "Przejdź do Centrum Kontrolnego",
           "url_1": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library"
         },
-        "text": "- Kliknij \"Przejdź do eTrusted\" i przejdź do Centrum Kontrolnego.\n\n- Zaloguj się i wybierz widget z biblioteki.\n\n- Kliknij \"Konfiguruj\", a następnie przycisk „Zakończ tworzenie widgetu”.\n\n- Aby umieścić widget w swoim sklepie, wróć do konfiguracji wtyczki.",
-        "title": "Czy chcesz zintegrować widget ze swoim sklepem?"
+        "text": "Dokończ konfigurację widgetów w Bibliotece Widgetów w Centrum Kontrolnym Trusted Shops. Wybierz „Konfiguruj” przy wybranych widgecie, a potem wróć na tę stronę, aby go umieścić.",
+        "title": "Prawie gotowe! Umieść widgety w witrynie sklepu."
       },
       "position": {
         "custom": "Manualne ulokowanie",
@@ -234,7 +369,7 @@
         },
         "title": "Aktualne widgety dla {{ channel }}:"
       },
-      "title": "Widgety – pokaż swoje gwiazdki, wzbudź zaufanie"
+      "title": "Widgety"
     }
   },
   "authentication": {
@@ -244,18 +379,21 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Połącz swój sklep"
+        "title": "Połącz swój sklep z #trstd"
       },
       "help": {
         "button": {
-          "text": "Wygeneruj Client ID i Client Secret",
+          "text": "Znajdź swój identyfikator klienta i sekretny znak w [%s]Centrum Kontrolnym Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Aby połączyć swój sklep, potrzebujesz ID klienta i Client Secret.\n\nIdentyfikator klienta i Client Secret nie są takie same jak Twoje dane logowania do eTrusted.\n\nDlatego musisz złożyć wniosek.",
+        "text": "Różnią się one od danych logowania do Trusted Shops",
         "title": "Jesteś tu nowy?"
       }
     },
     "error": "Błąd: upewnij się, że używasz prawidłowych danych uwierzytelniających Client Credentials.",
+    "integrationGuide": {
+      "text": "Wyświetl przewodnik po integracji"
+    },
     "salesLink": {
       "text": "[%s]Nie jesteś jeszcze naszym klientem?[%s]",
       "url_1": "https://checkout.trustedshops.com"
@@ -269,8 +407,8 @@
   },
   "channelSelect": {
     "info": "Uwaga: wybór można w każdej chwili zmienić w ustawieniach",
-    "submit": "Zapisz",
-    "titel": "Zacznij już teraz, od dopasowania kanału",
+    "submit": "Potwierdź mapowanie kanału",
+    "titel": "Zmapuj swoje kanały do #trstd",
     "title": {
       "etrusted": "Kanały eTrusted",
       "shopsystem": "Kanały [%]shopsystem[%]"

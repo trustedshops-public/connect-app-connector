@@ -315,7 +315,7 @@
     },
     "widgets": {
       "about": {
-        "description": "Widgets werden im Trusted Shops Kontrollzentrum erstellt und bearbeitet. Sobald du ein Widget erstellt hast, wird es automatisch mit deiner {{shopSystemName}}-Installation \nsynchronisiert und kann auf deiner Website platziert werden. ",
+        "description": "Widgets werden im Trusted Shops Kontrollzentrum erstellt und bearbeitet. Sobald du ein Widget erstellt hast, wird es automatisch mit deiner {{shopSystemName}}-Installation synchronisiert und kann auf deiner Website platziert werden. ",
         "learnMore": "Zum Trusted Shops Kontrollzentrum",
         "learnMore_url": "https://app.etrusted.[STAGE]/etrusted/marketing/widget-library",
         "title": "Über Widgets"
