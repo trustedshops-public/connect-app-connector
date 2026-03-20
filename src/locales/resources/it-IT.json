@@ -207,7 +207,7 @@
     "settings": {
       "channel": {
         "caution": "Tieni presente che la configurazione creata per il tuo negozio viene cancellata una volta selezionato un canale eTrusted diverso dal menù a discesa.\n",
-        "description": "Associa ogni canale del [%]tuo negozio[%] al canale Trusted Shop corrispondente in modo da garantire che le recensioni siano raccolte correttamente.",
+        "description": "Associa ogni canale del [%]shopsystem[%] al canale Trusted Shop corrispondente in modo da garantire che le recensioni siano raccolte correttamente.",
         "title": "Mappatura canali",
         "warning": {
           "description": "L’aggiornamento della mappatura dei canali sovrascrive eventuali configurazioni precedenti di tali canali.",
