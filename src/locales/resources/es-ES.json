@@ -383,7 +383,7 @@
       },
       "help": {
         "button": {
-          "text": "Consulta tu ID y tu secreto de cliente en el [%s]Centro de Control de Trusted Shops[%s]",
+          "text": "Consulta tu Client ID y tu Client Secret en el [%s]Centro de Control de Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
         "text": "Son diferentes a tus credenciales de inicio de sesión de Trusted Shops.",

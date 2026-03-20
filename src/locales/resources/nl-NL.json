@@ -383,7 +383,7 @@
       },
       "help": {
         "button": {
-          "text": "Zoek je client-ID en secret in het [%s]Trusted Shops-controlecentrum[%s]",
+          "text": "Zoek je Client ID en Client Secret in het [%s]Trusted Shops-controlecentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
         "text": "Deze gegevens zijn niet hetzelfde als je Trusted Shops-aanmeldingsgegevens.",

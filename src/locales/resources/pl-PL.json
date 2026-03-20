@@ -207,7 +207,7 @@
     "settings": {
       "channel": {
         "caution": "Pamiętaj, że po wybraniu innego kanału eTrusted z listy rozwijanej konfiguracja Twojego sklepu zostanie usunięta.",
-        "description": "Połącz każdy kanał [%]systemu sklepu[%] z odpowiednim kanałem Trusted Shops, aby zapewnić prawidłowe zbieranie opinii.",
+        "description": "Połącz każdy kanał [%]shopsystem[%] z odpowiednim kanałem Trusted Shops, aby zapewnić prawidłowe zbieranie opinii.",
         "title": "Mapowanie kanału",
         "warning": {
           "description": "Aktualizacja mapowania kanału powoduje nadpisanie dotychczasowej konfiguracji kanału.",
@@ -383,7 +383,7 @@
       },
       "help": {
         "button": {
-          "text": "Znajdź swój identyfikator klienta i sekretny znak w [%s]Centrum Kontrolnym Trusted Shops[%s]",
+          "text": "Znajdź swój Client ID i Client Secret w [%s]Centrum Kontrolnym Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
         "text": "Różnią się one od danych logowania do Trusted Shops",
