@@ -1,5 +1,6 @@
 import { Fragment, h } from 'preact'
 import { FC, Suspense, useEffect, useState } from 'preact/compat'
+import { useRef } from 'preact/hooks'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 // Logo removed from dashboard header
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -22,6 +23,7 @@ import {
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
 // BackgroundCard removed from dashboard
 import ChannelSelectModal from './channelSelectModal'
+import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
@@ -36,6 +38,9 @@ const DashboardPageModule: FC<{
   const [openTab, setOpenTab] = useState<number>(0)
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showSettings, setShowSettings] = useState<boolean>(false)
+  const [showTrustbadgeActivation, setShowTrustbadgeActivation] = useState(false)
+  const isFirstTimeSelectionRef = useRef(false)
+  const prevShowModalRef = useRef(false)
 
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
@@ -277,9 +282,18 @@ const DashboardPageModule: FC<{
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
         setShowModal(true)
+        isFirstTimeSelectionRef.current = true
       }
     }
   }, [channelsFromTSC, shopChannels])
+
+  useEffect(() => {
+    if (prevShowModalRef.current && !showModal && isFirstTimeSelectionRef.current) {
+      isFirstTimeSelectionRef.current = false
+      setShowTrustbadgeActivation(true)
+    }
+    prevShowModalRef.current = showModal
+  }, [showModal])
 
   const handleNavigateToTab = (tabId: number) => {
     setShowSettings(false)
@@ -463,6 +477,11 @@ const DashboardPageModule: FC<{
             phrasesByKey={phrasesByKey}
             showModal={showModal}
             setShowModal={setShowModal}
+          />
+          <TrustSignalsActivationModal
+          phrasesByKey={phrasesByKey}
+            showModal={showTrustbadgeActivation}
+            onClose={() => setShowTrustbadgeActivation(false)}
           />
         </Suspense>
       </>
