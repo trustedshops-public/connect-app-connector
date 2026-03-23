@@ -1,3 +1,18 @@
+## [1.20.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.1...1.20.0) (2026-03-23)
+
+
+### Features
+
+* add new localization keys for dashboard routes ([c2b89ee](https://github.com/trustedshops-public/connect-app-connector/commit/c2b89ee4c1f6540af66a30f6b4c11c83e376e771))
+* enhance UI components and add new features ([d755640](https://github.com/trustedshops-public/connect-app-connector/commit/d7556400d892699462367b8ddb046c45059411ea))
+
+
+### Bug Fixes
+
+* standardize property naming for support login across modules ([c410b31](https://github.com/trustedshops-public/connect-app-connector/commit/c410b31bdf3563c08c3b1eed0ddb6dd5a8a357c4))
+* update localization for settings label in dashboard ([68f8e88](https://github.com/trustedshops-public/connect-app-connector/commit/68f8e88cca1720d3ea7805cbf212a27291f7b4dc))
+* update widget description localization for dynamic system name ([799f04c](https://github.com/trustedshops-public/connect-app-connector/commit/799f04c756f369ed7ae2df30720fa6fd808bad1d))
+
 ## [1.19.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.0...1.19.1) (2026-01-05)
 
 

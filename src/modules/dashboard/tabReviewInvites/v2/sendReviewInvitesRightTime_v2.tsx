@@ -77,15 +77,14 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   }, [])
 
   return (
-    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
-        {phrasesByKey.application_invites_sendbyos_title}
+        {phrasesByKey.application_invites_v3_rightTime_title}
       </h3>
       <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-        {phrasesByKey.application_invites_sendbyos_description}
+        {phrasesByKey.application_invites_v3_rightTime_description}
       </p>
 
-      {/* Divider */}
       <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
 
       {/* Service reviews */}
@@ -94,16 +93,16 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           ref={servicelabelRef}
           className="ts-text-default ts-font-bold ts-text-sm ts-mb-2 ts-block"
         >
-          {phrasesByKey.application_invites_sendbyos_type_serviceReviews}
+          {phrasesByKey.application_invites_v3_rightTime_serviceReviews}
         </label>
         <Select
           testId={'channelSelection'}
           id={'channelSelection'}
-          placeholder="Choose an option"
+          placeholder={phrasesByKey.application_invites_v3_rightTime_placeholder}
           defaultValue={
             defaulServicetValue.charAt(0).toUpperCase() + defaulServicetValue.slice(1)
           }
-          className="ts-w-[280px] ts-capitalize"
+          className="ts-w-[300px] ts-capitalize"
           disabled={!selectedShopChannels.eTrustedChannelRef}
         >
           {availableOrderStatusesAction.map(item => (
@@ -137,42 +136,53 @@ const SendReviewInvitesRightTime: FC<Props> = ({
             ref={productlabelRef}
             className="ts-text-default ts-font-bold ts-text-sm ts-mb-2 ts-block"
           >
-            {phrasesByKey.application_invites_sendbyos_type_productReviews}
+            {phrasesByKey.application_invites_v3_rightTime_productReviews}
           </label>
-          <Select
-            testId={'channelSelection'}
-            id={'channelSelection'}
-            placeholder="Choose an option"
-            defaultValue={
-              defaulProductValue.charAt(0).toUpperCase() + defaulProductValue.slice(1)
-            }
-            className="ts-w-[280px] ts-capitalize"
-            disabled={!selectedShopChannels.eTrustedChannelRef}
-          >
-            {availableOrderStatusesAction.map(item => (
-              <Option
-                testId={`channel`}
-                id={`channel`}
-                key={item.ID}
-                selected={item?.ID?.toString() === selectedReviews?.product?.ID?.toString()}
-                value={'ID'}
-                disabled={
-                  item?.ID?.toString() !== selectedReviews?.service?.ID?.toString() &&
-                  item?.ID?.toString() !== CHECKOUT_TYPE &&
-                  selectedReviews?.service?.ID?.toString() !== CHECKOUT_TYPE
-                }
-                changeSelectedOption={() => setSelectedReviews({ product: item })}
-              >
-                <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
-                  {item.name}
-                </p>
-              </Option>
-            ))}
-          </Select>
+          <div className="ts-flex ts-items-center ts-gap-4">
+            <Select
+              testId={'channelSelection'}
+              id={'channelSelection'}
+              placeholder="Choose an option"
+              defaultValue={
+                defaulProductValue.charAt(0).toUpperCase() + defaulProductValue.slice(1)
+              }
+              className="ts-w-[300px] ts-capitalize"
+              disabled={!selectedShopChannels.eTrustedChannelRef}
+            >
+              {availableOrderStatusesAction.map(item => (
+                <Option
+                  testId={`channel`}
+                  id={`channel`}
+                  key={item.ID}
+                  selected={item?.ID?.toString() === selectedReviews?.product?.ID?.toString()}
+                  value={'ID'}
+                  disabled={
+                    item?.ID?.toString() !== selectedReviews?.service?.ID?.toString() &&
+                    item?.ID?.toString() !== CHECKOUT_TYPE &&
+                    selectedReviews?.service?.ID?.toString() !== CHECKOUT_TYPE
+                  }
+                  changeSelectedOption={() => setSelectedReviews({ product: item })}
+                >
+                  <p className="ts-m-2 ts-text-default ts-font-normal ts-text-sm ts-capitalize">
+                    {item.name}
+                  </p>
+                </Option>
+              ))}
+            </Select>
+            <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
+                <TextWithLink
+                id={'productUpgrade'}
+                url={phrasesByKey.application_invites_v3_rightTime_productUpgrade_url}
+                text={phrasesByKey.application_invites_v3_rightTime_productUpgrade_text}
+                textStyle="ts-text-sm"
+                linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
+              />
+            </p>
+          </div>
         </div>
       )}
 
-      {/* Warning box */}
+      {/* Warning box for non-checkout touchpoints */}
       {isSelectedReviewCheckout && (
         <div
           className="ts-flex ts-items-start ts-gap-3 ts-p-4 ts-mb-6"
@@ -197,6 +207,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
               ]}
               text={phrasesByKey.application_invites_sendbyos_orderstatus_warning_text}
               textStyle="ts-text-sm ts-italic"
+              linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
             />
           </div>
         </div>
@@ -215,15 +226,13 @@ const SendReviewInvitesRightTime: FC<Props> = ({
         <div>
           <TextWithLink
             id={'Control Centre'}
-            url={phrasesByKey.application_invites_sendbyos_success_delay_url_1}
-            text={phrasesByKey.application_invites_sendbyos_success_delay_text}
+            url={[phrasesByKey.application_invites_v3_rightTime_help_url]}
+            text={phrasesByKey.application_invites_v3_rightTime_help_text}
             textStyle="ts-text-sm"
+            linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
           />
         </div>
       </div>
-
-      {/* Divider */}
-      <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
 
       {/* Save button */}
       <div className="ts-flex ts-justify-end">

@@ -1,5 +1,6 @@
 import { Fragment, h } from 'preact'
 import { FC, Suspense, useEffect, useState } from 'preact/compat'
+import { useRef } from 'preact/hooks'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 // Logo removed from dashboard header
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -22,6 +23,7 @@ import {
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
 // BackgroundCard removed from dashboard
 import ChannelSelectModal from './channelSelectModal'
+import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
@@ -36,6 +38,9 @@ const DashboardPageModule: FC<{
   const [openTab, setOpenTab] = useState<number>(0)
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showSettings, setShowSettings] = useState<boolean>(false)
+  const [showTrustbadgeActivation, setShowTrustbadgeActivation] = useState(false)
+  const isFirstTimeSelectionRef = useRef(false)
+  const prevShowModalRef = useRef(false)
 
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
@@ -287,9 +292,18 @@ const DashboardPageModule: FC<{
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
         setShowModal(true)
+        isFirstTimeSelectionRef.current = true
       }
     }
   }, [channelsFromTSC, shopChannels])
+
+  useEffect(() => {
+    if (prevShowModalRef.current && !showModal && isFirstTimeSelectionRef.current) {
+      isFirstTimeSelectionRef.current = false
+      setShowTrustbadgeActivation(true)
+    }
+    prevShowModalRef.current = showModal
+  }, [showModal])
 
   const handleNavigateToTab = (tabId: number) => {
     setShowSettings(false)
@@ -302,14 +316,14 @@ const DashboardPageModule: FC<{
     const tabs: ITabsConfig[] = [
       {
         id: 0,
-        name: 'Overview',
+        name: phrasesByKey.application_routes_overview,
         component: (
           <OverviewTab phrasesByKey={phrasesByKey} onNavigateToTab={handleNavigateToTab} />
         ),
       },
       {
         id: 1,
-        name: '#trstd login',
+        name: phrasesByKey.application_routes_trstd_login,
         component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
         isAvailable: allowsSupportTrstdLogin,
       },
@@ -370,13 +384,6 @@ const DashboardPageModule: FC<{
                   <div className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-max-w-backgroundCard ts-mx-auto ts-px-4 sm:ts-px-8">
                     {!showSettings && (
                       <div className="ts-flex ts-items-center ts-gap-2 ts-min-w-0">
-                        <label
-                          className={`${
-                            !mappedChannels.length ? 'ts-text-secondary' : 'ts-text-darkLabel'
-                          } ts-font-normal ts-text-sm`}
-                        >
-                          Channel
-                        </label>
                         <Select
                           testId={'channelSelection'}
                           id={'channelSelection'}
@@ -408,15 +415,15 @@ const DashboardPageModule: FC<{
                       data-testid="button_channelMapping"
                       type="button"
                       onClick={() => setShowSettings(true)}
-                      className="ts-flex ts-items-center ts-gap-1 ts-cursor-pointer ts-bg-transparent ts-px-4 ts-py-2 ts-rounded-full"
+                      className="ts-flex ts-items-center ts-gap-1 ts-cursor-pointer ts-bg-transparent ts-px-4 ts-py-2 ts-rounded-[8px]"
                       style={{
                         color: '#024DF0',
-                        border: showSettings ? '1.5px solid #024DF0' : '1.5px solid transparent',
+                        border: showSettings ? '2px solid #024DF0' : '2px solid transparent',
                       }}
                     >
                       <GearIcon />
                       <span className="ts-text-sm ts-font-normal">
-                        Channel mapping
+                        {phrasesByKey.application_routes_settings}
                       </span>
                     </button>
                   </div>
@@ -480,6 +487,11 @@ const DashboardPageModule: FC<{
             phrasesByKey={phrasesByKey}
             showModal={showModal}
             setShowModal={setShowModal}
+          />
+          <TrustSignalsActivationModal
+          phrasesByKey={phrasesByKey}
+            showModal={showTrustbadgeActivation}
+            onClose={() => setShowTrustbadgeActivation(false)}
           />
         </Suspense>
       </>

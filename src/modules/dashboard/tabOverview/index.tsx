@@ -8,7 +8,7 @@ import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
 import ReviewInvitesOverview from '@/assets/review-invites-overview.svg'
 import StyledButton from '@/components/controls/styledButton'
-import { ActiveStatusIcon } from '@/components/layouts/icons/ActiveStatusIcon'
+import TextWithLink from '@/components/layouts/textWithLink'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 
@@ -34,44 +34,39 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
     ...(allowsSupportTrstdLogin ? [{
       id: 'trstd-login',
       tabId: 1,
-      title: '#trstd login',
-      description:
-        'Lorem ipsum dolor sit amet consectetur. Sociis vestibulum dui eros nec sed ipsum et pellentesque. Pulvinar dolor bibendum arcu ut erat ac viverra donec.',
+      title: phrasesByKey.overview_trstd_login_title,
+      description: phrasesByKey.overview_trstd_login_description,
       illustration: TrstdLoginOverview,
-      isActive: isTrstdLoginActive,
-      buttonLabel: 'Configure',
-      buttonVariant: 'outlined' as const,
+      hasStatus: isTrstdLoginActive,
+      statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
+      buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
     {
       id: 'trustbadge',
       tabId: 2,
-      title: 'Trustbadge',
-      description:
-        'Lorem ipsum dolor sit amet consectetur. Sociis vestibulum dui eros nec sed ipsum et pellentesque. Pulvinar dolor bibendum arcu ut erat ac viverra donec.',
+      title: phrasesByKey.overview_trustbadge_title,
+      description: phrasesByKey.overview_trustbadge_description,
       illustration: TrustbadgeOverview,
+      hasStatus: true,
+      statusLabel: isTrustbadgeActive ? phrasesByKey.overview_trustbadge_status_enabled : phrasesByKey.overview_trustbadge_status_inactive,
       isActive: isTrustbadgeActive,
-      buttonLabel: 'Configure',
-      buttonVariant: 'outlined' as const,
+      buttonLabel: phrasesByKey.overview_trustbadge_button_configure,
     },
     {
       id: 'widgets',
       tabId: 3,
-      title: 'Widgets',
-      description:
-        'Lorem ipsum dolor sit amet consectetur. Sociis vestibulum dui eros nec sed ipsum et pellentesque. Pulvinar dolor bibendum arcu ut erat ac viverra donec.',
+      title: phrasesByKey.overview_widgets_title,
+      description: phrasesByKey.overview_widgets_description,
       illustration: WidgetsOverview,
-      buttonLabel: 'Manage',
-      buttonVariant: 'filled' as const,
+      buttonLabel: phrasesByKey.overview_widgets_button_manage,
     },
     {
       id: 'review-invites',
       tabId: 4,
-      title: 'Review Invites',
-      description:
-        'Lorem ipsum dolor sit amet consectetur. Sociis vestibulum dui eros nec sed ipsum et pellentesque. Pulvinar dolor bibendum arcu ut erat ac viverra donec.',
+      title: phrasesByKey.overview_invites_title,
+      description: phrasesByKey.overview_invites_description,
       illustration: ReviewInvitesOverview,
-      buttonLabel: 'Manage',
-      buttonVariant: 'filled' as const,
+      buttonLabel: phrasesByKey.overview_invites_button_manage,
     },
   ]
 
@@ -88,22 +83,28 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         {featureCards.map(card => (
           <div
             key={card.id}
-            className="ts-bg-white ts-rounded-[17.4px] ts-flex ts-flex-col sm:ts-flex-row"
+            className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-flex ts-flex-col sm:ts-flex-row"
             style={{
               overflow: 'hidden',
             }}
           >
             <div
-              className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
               style={{
-                padding: '3px',
-                alignSelf: 'stretch',
+                backgroundColor: '#E6EDFE',
+                width: '180px',
+                minHeight: '160px',
+                borderRadius: '14px 0 0 14px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                padding: '12px',
               }}
             >
               <img
                 src={card.illustration}
                 alt={card.title}
-                style={{ height: '100%', width: 'auto', objectFit: 'contain' }}
+                style={{ maxWidth: '100%', maxHeight: '140px', objectFit: 'contain' }}
               />
             </div>
 
@@ -115,42 +116,40 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
                 >
                   {card.title}
                 </h3>
-                {'isActive' in card && (
+                {'hasStatus' in card && (
                   <div
                     className="ts-flex ts-items-center ts-gap-1.5 ts-flex-shrink-0 ts-ml-2"
                     style={{
-                      backgroundColor: card.isActive ? '#E0FAF0' : '#F3F4F6',
-                      borderRadius: '33554400px',
-                      padding: '4px 10px',
+                      backgroundColor: ('isActive' in card && !card.isActive) ? '#F3F4F6' : '#E0FAF0',
+                      borderRadius: '9999px',
+                      padding: '3px 10px',
                     }}
                   >
-                    {card.isActive && <ActiveStatusIcon />}
                     <span
                       style={{
-                        color: card.isActive ? '#106446' : '#6B7280',
-                        fontSize: '13px',
-                        fontStyle: 'normal',
+                        color: ('isActive' in card && !card.isActive) ? '#6B7280' : '#106446',
+                        fontSize: '10px',
                         fontWeight: 600,
-                        lineHeight: '19.5px',
+                        lineHeight: '14px',
                         whiteSpace: 'nowrap',
                       }}
                     >
-                      {card.isActive ? 'Active on website' : 'Inactive'}
+                      {card.statusLabel}
                     </span>
                   </div>
                 )}
               </div>
 
               <p
-                className="ts-text-sm ts-font-normal ts-mb-4"
-                style={{ color: '#6b7280', lineHeight: '20px' }}
+                className="ts-text-xs ts-font-normal ts-mb-4"
+                style={{ color: '#6b7280', lineHeight: '18px' }}
               >
                 {card.description}
               </p>
 
               <div className="ts-mt-auto">
                 <StyledButton
-                  variant={card.buttonVariant === 'filled' ? 'primary' : 'outlined'}
+                  variant="primary"
                   onClick={() => onNavigateToTab(card.tabId)}
                 >
                   {card.buttonLabel}
@@ -169,39 +168,16 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
         }
       `}</style>
 
-      <div
-        className="ts-rounded-[14px] ts-p-6 sm:ts-p-8 ts-shadow-md"
-        style={{
-          background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
-          border: '1px solid #E5E7EB',
-        }}
-      >
-        <div className="ts-flex ts-items-start ts-gap-4">
-          <div
-            className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
-            style={{ width: '40px', height: '40px', backgroundColor: '#DBEAFE' }}
-          >
-            <HelpCircleIcon customClass="ts-text-blue-600" />
-          </div>
-          <div>
-            <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
-              Need help with setup or configuration?
-            </p>
-            <p className="ts-text-sm ts-font-normal ts-mb-3" style={{ color: '#6b7280' }}>
-              Learn how to connect and configure your Trusted Shops products step by step.
-            </p>
-            <a
-              href={phrasesByKey.global_help_link_url_1}
-              className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
-              style={{ color: '#2563EB' }}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Open integration guide
-              <ExternalLinkIcon />
-            </a>
-          </div>
-        </div>
+      <div className="ts-flex ts-items-center ts-gap-2 ts-py-3">
+        <HelpCircleIcon customClass="ts-text-[#155DFC] ts-flex-shrink-0" />
+        <TextWithLink
+          id="overview_help"
+          text={phrasesByKey.overview_help_text}
+          url={phrasesByKey.overview_help_url}
+          textStyle="ts-text-sm ts-font-normal ts-m-0 ts-text-[#374151]"
+          linkStyle="ts-inline-flex ts-items-center ts-gap-1 ts-underline !ts-text-[#155DFC]"
+          linkSuffix={<ExternalLinkIcon />}
+        />
       </div>
     </div>
   )

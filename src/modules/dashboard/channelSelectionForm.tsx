@@ -24,20 +24,17 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
           <p
             id={'shopsystem_title'}
             className="ts-font-bold ts-text-left"
-            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#101828' }}
           >
-            {phrasesByKey?.channelSelect_title_shopsystem.replace(
-              '[%]shopsystem[%]',
-              infoOfSystem.nameOfSystem,
-            )}
+          {infoOfSystem.nameOfSystem}
           </p>
         </div>
         <div className="ts-w-1/2">
           <p
             className="ts-font-bold ts-text-left"
-            style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+            style={{ fontSize: '11px', letterSpacing: '0.05em', color: '#101828' }}
           >
-            {phrasesByKey?.channelSelect_title_etrusted}
+            #trstd
           </p>
         </div>
       </div>
@@ -47,7 +44,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
         <div
           id={`mapping_row_${elem.id}`}
           key={elem.id}
-          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-4 ts-border-t ts-border-gray-100 ts-gap-3 sm:ts-gap-0"
+          className="ts-flex ts-flex-col sm:ts-flex-row sm:ts-items-center ts-py-3 ts-gap-3 sm:ts-gap-0"
         >
           <div className="sm:ts-w-1/2">
             <p

@@ -14,6 +14,7 @@ import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
+import { RefreshIcon } from '@/components/layouts/icons/RefreshIcon'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 import StyledButton from '@/components/controls/styledButton'
 
@@ -31,7 +32,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
   const { selectedShopChannels } = useStore(selectorChannels)
 
-  const { setisWidgetLoading, addInToastList } = useStore()
+  const { setisWidgetLoading, addInToastList, getWidgetsFromAPI, setIsLoading } = useStore()
   const {
     isLoading,
     widgets,
@@ -56,6 +57,19 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
     const isEqualRB = isEqual(widgetsChildrenFiltred, widgetsFromBL.children[0].children)
     setIsButtonDisabled(isEqualRB)
   }, [widgetsChildren, widgetsFromBL])
+
+  const onReloadList = async () => {
+    await setIsLoading(true)
+    await getWidgetsFromAPI()
+    dispatchAction({
+      action: EVENTS.GET_WIDGET_PROVIDED,
+      payload: {
+        id: selectedShopChannels.eTrustedChannelRef,
+        salesChannelRef: selectedShopChannels.salesChannelRef,
+        eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+      },
+    })
+  }
 
   useEffect(() => {
     const products = availableProductIds.length
@@ -112,7 +126,7 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
       ) : (
         <>
           {/* Widgets header - no card */}
-          <div className="ts-pb-2">
+          <div className="ts-pb-1">
             <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
               {phrasesByKey.application_widgets_title}
             </h2>
@@ -130,25 +144,25 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
             >
               <p
                 className="ts-text-left ts-font-bold ts-w-th1"
-                style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
               >
                 {phrasesByKey.application_widgets_table_header_1}
               </p>
               <p
                 className="ts-text-left ts-font-bold ts-w-th2"
-                style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
               >
                 {phrasesByKey.application_widgets_table_header_2}
               </p>
               <p
                 className="ts-text-left ts-font-bold ts-w-th3"
-                style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
               >
                 {phrasesByKey.application_widgets_table_header_3}
               </p>
               <p
                 className="ts-text-left ts-font-bold ts-w-th4"
-                style={{ fontSize: '11px', letterSpacing: '0.05em', textTransform: 'uppercase', color: '#6b7280' }}
+                style={{ fontSize: '12px', letterSpacing: '0.05em', textTransform: 'capitalize', color: '#364153' }}
               >
                 {phrasesByKey.application_widgets_table_header_4}
               </p>
@@ -182,8 +196,8 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
                 />
               ))}
 
-            {/* Create new widget + Save */}
-            <div className="ts-flex ts-flex-col sm:ts-flex-row ts-items-start sm:ts-items-center ts-justify-between ts-gap-3 sm:ts-gap-0 ts-px-4 sm:ts-px-6 ts-py-4">
+            {/* Create new widget + Reload list */}
+            <div className="ts-flex ts-flex-col sm:ts-flex-row ts-items-start sm:ts-items-center ts-justify-between ts-gap-3 ts-px-4 sm:ts-px-6 ts-py-4">
               <button
                 id="button_openPopupCreateWidget"
                 data-testid="button_openPopupCreateWidget"
@@ -195,16 +209,34 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
               >
                 {phrasesByKey.application_widgets_create}
               </button>
-
-              <StyledButton id="saveWidgetsChanges" variant="primary" disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled} onClick={handleSaveChanges}>
-                {phrasesByKey.global_button_submit}
-              </StyledButton>
+              <button
+                type="button"
+                onClick={onReloadList}
+                disabled={!selectedShopChannels.eTrustedChannelRef || isLoading}
+                className="ts-flex ts-items-center ts-gap-2 ts-text-sm ts-font-normal ts-bg-transparent ts-border-0 ts-cursor-pointer disabled:ts-opacity-50 disabled:ts-cursor-not-allowed"
+                style={{ color: '#155DFC' }}
+              >
+                <RefreshIcon customClass="ts-h-4 ts-w-4 ts-flex-shrink-0" />
+                {phrasesByKey.application_widgets_reload}
+              </button>
             </div>
+          </div>
+
+          {/* Save changes - outside the card */}
+          <div className="ts-flex ts-justify-end">
+            <StyledButton
+              id="saveWidgetsChanges"
+              variant="primary"
+              disabled={!selectedShopChannels.eTrustedChannelRef || isButtonDisabled}
+              onClick={handleSaveChanges}
+            >
+              {phrasesByKey.global_button_submit}
+            </StyledButton>
           </div>
 
           {/* Card 3: About Widgets */}
           <div
-            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8"
+            className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6"
             style={{
               background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
               border: '1px solid #E5E7EB',
@@ -219,19 +251,19 @@ const WidgetsTab: FC<TabProps> = ({ phrasesByKey }) => {
               </div>
               <div>
                 <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
-                  About Widgets
+                  {phrasesByKey.application_widgets_about_title}
                 </p>
                 <p className="ts-text-sm ts-font-normal ts-mb-3" style={{ color: '#6b7280' }}>
-                  Widgets are created and managed in the eTrusted Control Centre. Once created, they automatically sync to your {infoOfSystem.nameOfSystem} installation and can be placed across your website.
+                  {phrasesByKey.application_widgets_about_description.replace('{{shopSystemName}}', infoOfSystem?.nameOfSystem.charAt(0).toUpperCase() + infoOfSystem?.nameOfSystem.slice(1))}
                 </p>
                 <a
-                  href={phrasesByKey.application_widgets_popup_submit_url_1}
+                  href={phrasesByKey.application_widgets_about_learnMore_url}
                   className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
                   style={{ color: '#2563EB' }}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Open eTrusted Control Centre
+                  {phrasesByKey.application_widgets_about_learnMore}
                   <ExternalLinkIcon />
                 </a>
               </div>

@@ -14,8 +14,9 @@ import {
   handleEtrustedInteraction,
 } from '@/utils/configurationDataHandler'
 import { WarningTriangleIcon } from '@/components/layouts/icons/WarningTriangleIcon'
-import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import { getStringWithUrlFromPhrases } from '@/helpers'
 import { GearIcon } from '@/components/layouts/icons/GearIcon'
+import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
 import StyledButton from '@/components/controls/styledButton'
 
 const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
@@ -93,7 +94,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       {(isLoadingSave || isDisconnectLoading) && <ScrinSpinner />}
 
       {/* Channel mapping header - no card */}
-      <div className="ts-pb-2">
+      <div className="ts-pb-1">
         <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
           {phrasesByKey.application_settings_channel_title}
         </h2>
@@ -106,21 +107,21 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       </div>
 
       {/* Card: Warning + Channel mapping + Save */}
-      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8">
+      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6">
         {/* Important warning box */}
         <div
-          className="ts-flex ts-items-start ts-gap-3 ts-p-4 ts-mb-8"
+          className="ts-flex ts-items-start ts-gap-3 ts-p-4 ts-mb-6"
           style={{
             backgroundColor: '#FFFBEB',
             border: '1px solid #FDE68A',
             borderRadius: '10px',
           }}
-        >
-          <WarningTriangleIcon customClass="ts-flex-shrink-0 ts-mt-0.5" />
+        > 
+          <WarningTriangleIcon customClass="ts-flex-shrink-0 ts-mt-0.5 ts-text-[#E17100]" />
           <div>
-            <p className="ts-text-sm ts-font-bold ts-mb-1" style={{ color: '#92400E' }}>Important</p>
+            <p className="ts-text-sm ts-font-bold ts-mb-1" style={{ color: '#92400E' }}>{phrasesByKey.application_settings_channel_warning_title}</p>
             <p className="ts-text-sm ts-font-normal" style={{ color: '#B45309' }}>
-              {phrasesByKey.application_settings_channel_caution}
+            {phrasesByKey.application_settings_channel_warning_description}
             </p>
           </div>
         </div>
@@ -140,7 +141,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
       </div>
 
       {/* Card 2: Disconnect integration */}
-      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8">
+      <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6">
         <h2 className="ts-text-default ts-text-lg ts-font-bold ts-mb-2">
           {phrasesByKey.application_settings_disconnect_title}
         </h2>
@@ -159,7 +160,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
         >
           <div>
             <p className="ts-text-sm ts-font-bold ts-mb-1" style={{ color: '#991B1B' }}>
-              This action cannot be undone
+              {phrasesByKey.application_settings_disconnect_warning_title}
             </p>
             <p className="ts-text-sm ts-font-normal" style={{ color: '#B91C1C' }}>
               {phrasesByKey.application_settings_disconnect_warning}
@@ -173,7 +174,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
 
       {/* Card 3: Need help */}
       <div
-        className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-8 mb-8"
+        className="ts-rounded-[14px] ts-shadow-md ts-p-4 sm:ts-p-6 ts-mb-6"
         style={{
           background: 'linear-gradient(135deg, #EFF6FF 0%, #EEF2FF 100%)',
           border: '1px solid #E5E7EB',
@@ -188,21 +189,30 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
           </div>
           <div>
             <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
-              Need help with integration?
+              {phrasesByKey.application_settings_help_title}
             </p>
-            <p className="ts-text-sm ts-font-normal ts-mb-3" style={{ color: '#6b7280' }}>
-              Learn more about channel mapping, multi-channel setup, and troubleshooting in our Help Center.
+            <p className="ts-text-sm ts-font-normal ts-whitespace-pre-wrap" style={{ color: '#6b7280' }}>
+              {getStringWithUrlFromPhrases(
+                phrasesByKey.application_settings_help_text,
+                phrasesByKey.application_settings_help_url,
+              ).map((item, index) =>
+                item.url ? (
+                  <a
+                    key={index}
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ts-inline-flex ts-items-center ts-gap-1 ts-cursor-pointer"
+                    style={{ color: '#155DFC' }}
+                  >
+                    {item.text}
+                    <ChevronRightSmallIcon color="#155DFC" />
+                  </a>
+                ) : (
+                  item.text
+                ),
+              )}
             </p>
-            <a
-              href={phrasesByKey.application_settings_disconnect_help_url_1}
-              className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
-              style={{ color: '#2563EB' }}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Contact us
-              <ChevronRightSmallIcon />
-            </a>
           </div>
         </div>
       </div>

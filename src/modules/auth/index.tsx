@@ -68,99 +68,112 @@ const LoginPageModule: FC<{
         ) : (
           <>
             <div className="ts-w-full sm:ts-w-1/2 ts-flex ts-flex-col ts-min-h-screen sm:ts-h-screen sm:ts-overflow-y-auto">
-              <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-5 sm:ts-px-20">
-                <div className="ts-w-full" style={{ maxWidth: '400px' }}>
-                  <h1 className="ts-text-xl ts-font-bold ts-text-default ts-mb-8">
+              <div className="ts-flex-1 ts-flex ts-items-center ts-justify-center ts-px-5 sm:ts-px-16">
+                <div className="ts-w-full" style={{ maxWidth: '380px' }}>
+                  <h1 className="ts-font-bold ts-text-default ts-mb-3" style={{ fontSize: '22px', lineHeight: '1.3' }}>
                     {phrasesByKey.authentication_credentials_connect_title}
                   </h1>
 
+                  {phrasesByKey && (
+                    <div style={{ color: '#374151' }}>
+                      <TextWithLink
+                        id="credentialsRequest"
+                        text={phrasesByKey.authentication_credentials_help_button_text}
+                        url={phrasesByKey.authentication_credentials_help_button_url.concat(
+                          `?plugin=${nameOfSystem}`,
+                        )}
+                        textStyle="ts-text-sm ts-font-normal ts-mb-8"
+                        linkStyle="ts-underline ts-cursor-pointer ts-text-[#024DF0]"
+                      />
+                    </div>
+                  )}
+
                   <form className="ts-flex ts-flex-col" onSubmit={handleSubmit(onSubmit)}>
-                    <div className="ts-flex ts-flex-col ts-gap-5 ts-mb-6">
+                    <div className="ts-flex ts-flex-col ts-gap-4 ts-mb-4">
                       <div>
                         <InputH
                           id={'clientId'}
-                          label={phrasesByKey.authentication_client}
                           registerName="clientId"
                           register={register}
                           isError={!!errors.clientId || !!clientIdError}
-                          placeholder="Enter your Trusted Shops Client ID"
-                          customClass="!ts-h-[44px] !ts-p-3 !ts-shadow-none !ts-border !ts-border-gray-100 !ts-rounded-[4px]"
+                          placeholder={phrasesByKey.authentication_client}
+                          customClass="!ts-h-[46px] !ts-px-4 !ts-py-3 !ts-shadow-none !ts-border !ts-border-[#D1D5DC] !ts-rounded-lg !ts-text-sm"
                           required
                         />
                       </div>
                       <div>
                         <InputH
                           id={'clientSecret'}
-                          label={phrasesByKey.authentication_secret}
                           registerName="clientSecret"
                           register={register}
-                          placeholder='*************'   
+                          placeholder={phrasesByKey.authentication_secret}
                           type="password"
                           isError={!!errors.clientSecret || !!clientSecretError}
-                          customClass="!ts-h-[44px] !ts-p-3 !ts-shadow-none !ts-border !ts-border-gray-100 !ts-rounded-[4px]"
+                          customClass="!ts-h-[46px] !ts-px-4 !ts-py-3 !ts-shadow-none !ts-border !ts-border-[#D1D5DC] !ts-rounded-lg !ts-text-sm"
                           required
                         />
                       </div>
                     </div>
 
                     {isAuthFailed && (
-                      <p className="ts-text-sm ts-text-error ts-mb-4">
+                      <p className="ts-text-sm ts-text-error ts-mb-3">
                         {phrasesByKey.authentication_error}
                       </p>
                     )}
 
-                    <p className="ts-text-sm ts-text-default ts-mb-1">
+                    <p className="ts-text-sm ts-font-normal ts-mb-5" style={{ color: '#6B7280' }}>
                       {phrasesByKey.authentication_credentials_help_text}
                     </p>
-                    <a
-                      id="link_credentialsRequest"
-                      href={phrasesByKey.authentication_credentials_help_button_url.concat(
-                        `?plugin=${nameOfSystem}`
-                      )}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="ts-text-sm ts-font-normal ts-cursor-pointer ts-inline-flex ts-items-center ts-gap-1 ts-mb-8 ts-underline"
-                      style={{ color: '#024DF0' }}
-                    >
-                      {phrasesByKey.authentication_credentials_help_button_text} &rarr;
-                    </a>
 
-                    <StyledButton id="credentialsSubmit" variant="primary" type="submit" fullWidth height={48} className="ts-mb-8">
+                    <StyledButton id="credentialsSubmit" variant="primary" type="submit" fullWidth height={46} className="ts-mb-0">
                       {phrasesByKey.authentication_button_submit}
                     </StyledButton>
                   </form>
-
-                  <p className="ts-text-sm ts-text-default ts-mb-1">
-                    {phrasesByKey.global_help_text}
-                  </p>
-                  <a
-                    id="link_integrationGuide"
-                    href={phrasesByKey.global_help_link_url_1}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="ts-text-sm ts-cursor-pointer ts-inline-flex ts-items-center ts-gap-1"
-                    style={{ color: '#024DF0' }}
-                  >
-                    {phrasesByKey.global_help_link_text}
-                    <ExternalLinkIcon color="#155DFC" />
-                  </a>
                 </div>
               </div>
 
-              <div className="ts-px-5 sm:ts-px-20 ts-py-6 ts-text-center">
+              <div className="ts-px-5 sm:ts-px-16 ts-pb-6 ts-flex ts-flex-col ts-items-center ts-gap-2">
+                <a
+                  id="link_integrationGuide"
+                  href={phrasesByKey.authentication_integration_guide_url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ts-text-sm ts-font-normal ts-cursor-pointer ts-inline-flex ts-items-center ts-gap-1"
+                  style={{ color: '#2563EB' }}
+                >
+                  {phrasesByKey.authentication_integration_guide_text}
+                  <ExternalLinkIcon color="#2563EB" />
+                </a>
                 {phrasesByKey && (
                   <TextWithLink
                     id={'copyright'}
                     text={phrasesByKey.global_copyright_text}
                     url={phrasesByKey.global_copyright_url_1}
-                    textStyle="ts-text-secondary ts-font-normal ts-text-sm ts-text-center"
-                    linkStyle="!ts-text-[#024DF0]"
+                    textStyle="ts-font-normal ts-text-xs ts-text-center"
+                    linkStyle="!ts-text-default !ts-underline"
                   />
                 )}
               </div>
             </div>
-       
-            <div className="ts-hidden sm:ts-block ts-w-1/2 sm:ts-h-screen">
+
+            <div className="ts-hidden sm:ts-flex ts-flex-col ts-w-1/2 sm:ts-h-screen" style={{ position: 'relative' }}>
+              <div
+                className="ts-flex ts-justify-center ts-px-8 ts-py-5"
+                style={{ position: 'absolute', bottom: 0, left: 0, right: 0, zIndex: 1, color: '#667085' }}
+              >
+                {phrasesByKey && (
+                  <TextWithLink
+                    id="salesLink"
+                    text={phrasesByKey.authentication_salesLink_text}
+                    url={phrasesByKey.authentication_salesLink_url_1.concat(
+                      `?a_aid=${nameOfSystem}`,
+                    )}
+                    textStyle="ts-text-default ts-font-normal ts-text-sm"
+                    
+                    linkStyle="ts-underline ts-cursor-pointer ts-text-[#667085]"
+                  />
+                )}
+              </div>
               <img
                 src={LoginIllustration}
                 alt="Trusted Shops Integration"

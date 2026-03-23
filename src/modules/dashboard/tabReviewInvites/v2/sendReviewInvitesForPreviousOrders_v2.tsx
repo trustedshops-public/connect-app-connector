@@ -1,13 +1,11 @@
 import { h } from 'preact'
 import { FC } from 'preact/compat'
 
-import TextWithLink from '@/components/layouts/textWithLink'
-import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
-import { InfoCircleFilledIcon } from '@/components/layouts/icons/InfoCircleFilledIcon'
+import { ArrowRightLineIcon } from '@/components/layouts/icons/ArrowRightLineIcon'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { IMappedChannel } from '@/baseLayers/types'
 import useStore from '@/store/useStore'
-import { selectAllState, selectorAuth } from '@/store/selector'
+import { selectAllState, selectorAuth, selectorInfoOfSystem } from '@/store/selector'
 import { ActionTypes, postEtrustedInteractions } from '@/api/api'
 import { handleEtrustedInteraction } from '@/utils/configurationDataHandler'
 
@@ -32,32 +30,33 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
 }) => {
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+
+  const shopSystemName = infoOfSystem.nameOfSystem || 'Shopsystem'
 
   return (
-    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-8" style={{ border: '1px solid #E5E7EB' }}>
+    <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
       <h3 className="ts-text-default ts-font-bold ts-mb-2" style={{ fontSize: '15px' }}>
-        {phrasesByKey.application_invites_send_export_title}
+        {phrasesByKey.application_invites_v3_previousOrders_title}
       </h3>
       <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280', maxWidth: '80%' }}>
-        {phrasesByKey.application_invites_send_export_description}
+        {phrasesByKey.application_invites_v3_previousOrders_description}
       </p>
 
-      {/* Divider */}
       <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
 
       {/* Step 1 */}
       <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-3">
-        Step 1: Export orders
+        {phrasesByKey.application_invites_v3_previousOrders_step1_title.replace('{{shopSystemName}}', shopSystemName.charAt(0).toUpperCase() + shopSystemName.slice(1))}
       </p>
 
       <p className="ts-text-default ts-text-sm ts-mb-3">
-        Export orders made in the past
+        {phrasesByKey.application_invites_v3_previousOrders_step1_exportLabel}
       </p>
 
-      {/* Number input on its own row */}
       <div className="ts-flex ts-items-center ts-gap-3 ts-mb-5">
         <div
-          className="ts-flex ts-items-center"
+          className="ts-flex ts-items-center ts-hide-number-spin"
           style={{
             border: '1px solid #D1D5DB',
             borderRadius: '8px',
@@ -66,6 +65,19 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
             width: '130px',
           }}
         >
+          <style>{`
+            .ts-hide-number-spin input[type=number]::-webkit-inner-spin-button,
+            .ts-hide-number-spin input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none !important;
+              appearance: none !important;
+              display: none !important;
+              margin: 0 !important;
+            }
+            .ts-hide-number-spin input[type=number] {
+              -moz-appearance: textfield !important;
+              appearance: textfield !important;
+            }
+          `}</style>
           <input
             id="number_numberOfDays"
             type="number"
@@ -81,9 +93,6 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
               height: '100%',
               padding: '0 10px',
               outline: 'none',
-              appearance: 'textfield',
-              MozAppearance: 'textfield',
-              WebkitAppearance: 'none',
               backgroundColor: '#FFFFFF',
             }}
           />
@@ -111,7 +120,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
             </button>
           </div>
         </div>
-        <p className="ts-text-default ts-text-sm" style={{ color: '#6b7280' }}>days</p>
+        <p className="ts-text-default ts-text-sm" style={{ color: '#6b7280' }}>{phrasesByKey.application_invites_v3_previousOrders_step1_days}</p>
       </div>
 
       {/* Include product data toggle */}
@@ -161,7 +170,7 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
         </button>
       </div>
 
-      {/* Export button - blue text, gray background */}
+      {/* Export button */}
       <button
         id="exportCSV"
         data-testid="exportCSV"
@@ -192,61 +201,34 @@ const SendReviewInvitesForPreviousOrders: FC<Props> = ({
         {phrasesByKey.application_invites_send_export_button}
       </button>
 
-      {/* Divider */}
       <div className="ts-w-full ts-mb-6" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
 
       {/* Step 2 */}
       <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-3">
-        Step 2: Upload orders
+        {phrasesByKey.application_invites_v3_previousOrders_step2_title}
       </p>
 
-      <div className="ts-mb-3">
-        <TextWithLink
-          id={'send_export_description'}
-          url={[
-            phrasesByKey.application_invites_send_export_step_2_description_url_1,
-            phrasesByKey.application_invites_send_export_step_2_description_url_2,
-          ]}
-          text={phrasesByKey.application_invites_send_export_step_2_description_text}
-          textStyle="ts-text-default ts-text-sm"
-        />
-      </div>
+      <p className="ts-text-sm ts-font-normal ts-mb-4" style={{ color: '#6b7280' }}>
+        {phrasesByKey.application_invites_v3_previousOrders_step2_description}
+      </p>
 
-      {/* Send manual invites link - smaller, blue with arrow */}
       <a
-        href={phrasesByKey.application_invites_send_export_step_2_description_url_2}
+        href={phrasesByKey.application_invites_v3_previousOrders_step2_url}
         target="_blank"
         rel="noopener noreferrer"
-        className="ts-inline-flex ts-items-center ts-gap-1 ts-font-normal ts-mb-6"
-        style={{ color: '#2563EB', textDecoration: 'none', fontSize: '13px' }}
-      >
-        Send manual invites
-        <ChevronRightSmallIcon />
-      </a>
-
-      {/* Info box - dark filled circle icon, underlined link */}
-      <div
-        className="ts-flex ts-items-start ts-gap-3 ts-p-4"
+        className="ts-inline-flex ts-items-center ts-gap-2 ts-text-sm ts-font-medium"
         style={{
-          backgroundColor: '#F9FAFB',
-          border: '1px solid #E5E7EB',
-          borderRadius: '10px',
+          color: '#005AA0',
+          border: '1px solid #CCC',
+          borderRadius: '4px',
+          padding: '6px 14px',
+          textDecoration: 'none',
+          background: 'linear-gradient(180deg, #F7F7F7 0%, #F5F5F5 8.85%, #E8E8E8 100%)',
         }}
       >
-        {/* Filled dark info icon */}
-        <InfoCircleFilledIcon customClass="ts-flex-shrink-0 ts-mt-0.5" />
-        <p className="ts-text-sm ts-font-normal" style={{ color: '#4B5563' }}>
-          If you do not want to collect reviews automated or if you want to manually invite customers to submit reviews in addition to the automated dispatch of invites, you can use the{' '}
-          <a
-            href={phrasesByKey.application_invites_send_export_help_url_1}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#2563EB', textDecoration: 'underline' }}
-          >
-            Review Collector
-          </a>.
-        </p>
-      </div>
+        {phrasesByKey.application_invites_v3_previousOrders_step2_buttonLabel}
+        <ArrowRightLineIcon />
+      </a>
     </div>
   )
 }

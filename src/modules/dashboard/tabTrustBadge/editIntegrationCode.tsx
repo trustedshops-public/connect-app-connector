@@ -1,10 +1,8 @@
 import { FC } from 'preact/compat'
-import { h, Fragment } from 'preact'
+import { h } from 'preact'
 import { getParsedTrustbadgeDataStrToObj } from './parseTrustbadgeData'
 import { isEqual } from '@/utils'
-import TextWithLink from '@/components/layouts/textWithLink'
 import { DASHBOARD_KEYS } from '@/locales/types'
-import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 
 interface Props {
@@ -18,7 +16,6 @@ interface Props {
 }
 
 const EditIntegrationCodeProps: FC<Props> = ({
-  phrasesByKey,
   isDisabled,
   textStr,
   onChangeScript,
@@ -27,60 +24,42 @@ const EditIntegrationCodeProps: FC<Props> = ({
   initialTrustbadgeDataChild,
 }) => {
   return (
-    <>
-      <h2 className={`ts-text-default ts-text-sm ts-font-bold ts-mb-1 ${isDisabled && 'ts-opacity-25'}`}>
-        Integration code
-      </h2>
-      <p className={`ts-text-sm ts-font-normal ts-mb-4 ${isDisabled && 'ts-opacity-25'}`} style={{ color: '#6b7280' }}>
-        Paste or edit your Trustbadge integration code below.
-      </p>
-      <div className="ts-mb-6">
-        <textarea
-          disabled={isDisabled}
-          value={textStr}
-          className={`ts-w-full ts-p-4 ts-text-sm ts-border-0 ts-outline-none ts-resize-y ${isDisabled ? 'ts-opacity-50' : ''}`}
-          style={{
-            height: '280px',
-            backgroundColor: '#F9FAFB',
-            borderRadius: '10px',
-            border: '1px solid #E5E7EB',
-            fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
-            fontSize: '13px',
-            lineHeight: '1.6',
-            color: '#374151',
-          }}
-          onBlur={e => {
-            onChangeScript((e.target as HTMLInputElement).value)
-          }}
-          onChange={e => {
-            setTextStr((e.target as HTMLInputElement).value)
-            setIsButtonDisabled(
-              isEqual(
-                getParsedTrustbadgeDataStrToObj((e.target as HTMLInputElement).value),
-                initialTrustbadgeDataChild
-              )
-            )
-          }}
-        />
+    <div className="ts-mt-6">
+      <div style={{ borderBottom: '1px solid #E5E7EB', margin: '0 0 30px 0' }} />
+      <div className="ts-flex ts-items-center ts-justify-between ts-mb-2">
+        <span className="ts-text-sm ts-font-normal ts-text-default ts-mb-2"
+          style={{ color: '#364153' }}
+        >
+          Integration Code
+        </span>
       </div>
-      <div
-        className="ts-flex ts-items-start ts-gap-3 ts-p-4"
+      <textarea
+        disabled={isDisabled}
+        value={textStr}
+        className={`ts-w-full ts-p-4 ts-text-sm ts-border-0 ts-outline-none ts-resize-y ${isDisabled ? 'ts-opacity-50' : ''}`}
         style={{
-          backgroundColor: '#EFF6FF',
-          border: '1px solid #DBEAFE',
+          height: '427px',
+          backgroundColor: '#1F2937',
           borderRadius: '10px',
+          fontFamily: 'ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace',
+          fontSize: '13px',
+          lineHeight: '1.6',
+          color: '#E5E7EB',
         }}
-      >
-        <InfoCircleOutlinedIcon customClass="ts-flex-shrink-0 ts-mt-0.5" />
-        <TextWithLink
-          id={'trustbadge_expert_help'}
-          url={phrasesByKey.application_trustbadge_expert_help_url_1}
-          text={phrasesByKey.application_trustbadge_expert_help_text}
-          textStyle="ts-text-sm"
-          linkStyle="!ts-text-[#2563EB]"
-        />
-      </div>
-    </>
+        onBlur={e => {
+          onChangeScript((e.target as HTMLInputElement).value)
+        }}
+        onChange={e => {
+          setTextStr((e.target as HTMLInputElement).value)
+          setIsButtonDisabled(
+            isEqual(
+              getParsedTrustbadgeDataStrToObj((e.target as HTMLInputElement).value),
+              initialTrustbadgeDataChild
+            )
+          )
+        }}
+      />
+    </div>
   )
 }
 

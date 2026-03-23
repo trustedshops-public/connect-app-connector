@@ -99,8 +99,13 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                   >
                     {phrasesByKey?.channelSelect_titel}
                   </h2>
-                  <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
-                    Assigning a channel to each shop in your shop system ensures reviews are collected for the right URL.
+                  <p
+                    className="ts-text-sm ts-font-normal ts-mb-6 ts-whitespace-pre-line"
+                    style={{ color: '#6b7280' }}
+                  >
+                    {(phrasesByKey?.channelSelect_info ?? '')
+                      .replace(/\.\s+/g, '.\n')
+                      .replace(/\.(?=[A-Z])/g, '.\n')}
                   </p>
 
                   <ChannelSelectionForm phrasesByKey={phrasesByKey} />
@@ -116,13 +121,6 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                   >
                     {phrasesByKey?.channelSelect_submit}
                   </StyledButton>
-
-                  <p
-                    className="ts-text-sm ts-font-normal ts-mt-4 ts-text-center"
-                    style={{ color: '#9CA3AF' }}
-                  >
-                    {phrasesByKey?.channelSelect_info}
-                  </p>
                 </div>
               </div>
             </div>
