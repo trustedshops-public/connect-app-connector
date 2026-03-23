@@ -22,7 +22,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { allowsSupportTrstdLogin } = infoOfSystem
 
-  const isTrstdLoginActive = !!trstdLoginData?.configuration?.integration?.trstdLoginEnabled
+  const isTrstdLoginActive = trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -37,7 +37,8 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       title: phrasesByKey.overview_trstd_login_title,
       description: phrasesByKey.overview_trstd_login_description,
       illustration: TrstdLoginOverview,
-      hasStatus: isTrstdLoginActive,
+      hasStatus: true,
+      isActive: isTrstdLoginActive,
       statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
       buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
