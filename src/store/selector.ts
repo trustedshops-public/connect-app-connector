@@ -4,6 +4,7 @@ import { IChannelState } from './channel/types'
 import { ITrustbadgeState } from './trustbadge/types'
 import { INotificationState } from './notification/types'
 import { IReviewInvitesState } from './reviewInvites/types'
+import { ITrstdLoginState } from './trstdLogin/types'
 import { AppStore } from '@/store/useStore'
 
 export const selectState = <T>(store: { state: T }): T => store.state
@@ -25,6 +26,10 @@ export const selectorNotificationStore = (store: {
   notificationState: INotificationState
 }): INotificationState => store.notificationState
 
+export const selectorTrstdLogin = (store: {
+  trstdLoginState: ITrstdLoginState
+}): ITrstdLoginState => store.trstdLoginState
+
 export const selectAllState = (store: AppStore) => {
   /* eslint-disable*/
   const { auth, ...restTrustbadgeState } = store.trustbadgeState as any
@@ -36,5 +41,6 @@ export const selectAllState = (store: AppStore) => {
     notificationState: store.notificationState,
     reviewInvitesState: store.reviewInvitesState,
     widgetState: store.widgetState,
+    trstdLoginState: store.trstdLoginState,
   }
 }

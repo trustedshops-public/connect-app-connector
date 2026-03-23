@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
+import { selectorInfoOfSystem, selectorTrstdLogin, selectorTrustbadgeState } from '@/store/selector'
 import TrstdLoginOverview from '@/assets/trstd-login-overview.svg'
 import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
@@ -18,8 +18,11 @@ interface OverviewTabProps extends TabProps {
 
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
+  const { trstdLoginData } = useStore(selectorTrstdLogin)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { allowsSupportTrstdLogin } = infoOfSystem
+
+  const isTrstdLoginActive = !!trstdLoginData?.configuration?.integration?.trstdLoginEnabled
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -34,7 +37,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       title: phrasesByKey.overview_trstd_login_title,
       description: phrasesByKey.overview_trstd_login_description,
       illustration: TrstdLoginOverview,
-      hasStatus: true,
+      hasStatus: isTrstdLoginActive,
       statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
       buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),

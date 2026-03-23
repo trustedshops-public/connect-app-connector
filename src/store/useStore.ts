@@ -19,6 +19,8 @@ import {
 } from './reviewInvites/types'
 import { reviewInvitesActionsStore } from './reviewInvites/reviewInvitesSendActions'
 import { reviewInvitesActionsStore_v2 } from './reviewInvites/reviewInvitesSendActions_v2'
+import { trstdLoginStore } from './trstdLogin'
+import { ITrstdLoginStore } from './trstdLogin/types'
 export type AppStore = ITbStore &
   InfoStore &
   IAuthStore &
@@ -27,7 +29,8 @@ export type AppStore = ITbStore &
   INotificationStore &
   IReviewInvitesStore &
   ReviewInvitesActionsStore &
-  ReviewInvitesActionsStore_2
+  ReviewInvitesActionsStore_2 &
+  ITrstdLoginStore
 
 const useStore = create<AppStore>((set, get) => ({
   ...authStore(set, get),
@@ -39,6 +42,7 @@ const useStore = create<AppStore>((set, get) => ({
   ...reviewInvitesStore(set, get),
   ...reviewInvitesActionsStore(set, get),
   ...reviewInvitesActionsStore_v2(set, get),
+  ...trstdLoginStore(set, get),
 }))
 
 export default useStore

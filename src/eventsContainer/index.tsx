@@ -7,6 +7,7 @@ import { IAuthRequest } from '@/store/auth/types'
 import { IWidgetLocation } from '@/store/widgets/types'
 import { IUserInfo } from '@/store/info/types'
 import { ITrustbadge, IWidgets } from '@/baseLayers/types'
+import { ITrstdLogin, ITrstdLoginLocation } from '@/store/trstdLogin/types'
 import useStore from '@/store/useStore'
 import { route } from 'preact-router'
 import { AvilableOrderStatusesType, PayloadUsedOrders } from '@/store/reviewInvites/types'
@@ -33,6 +34,9 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     setUseEventsByOrderStatusShipped,
     setAvailableOrderStatuses,
     setUsedOrderStatuses,
+    getTrstdLoginData,
+    setTrstdLoginLocations,
+    setTrstdLoginLoadingBL,
   } = useStore()
 
   useEffect(() => {
@@ -68,6 +72,15 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
         getWidgetLocation(event.payload),
       [EVENTS.SET_AVAILABLE_PRODUCT_IDENTIFIERS]: (event: { payload: IWidgetLocation[] }) =>
         setAvailableProductIds(event.payload),
+
+      // TRSTD LOGIN
+
+      [EVENTS.SET_TRSTDLOGIN_CONFIGURATION_PROVIDED]: (event: { payload: ITrstdLogin }) =>
+        getTrstdLoginData(event.payload),
+
+      [EVENTS.SET_LOCATION_FOR_TRSTDLOGIN]: (event: { payload: ITrstdLoginLocation[] }) =>
+        setTrstdLoginLocations(event.payload),
+
 
       [EVENTS.SET_PRODUCT_REVIEW_FOR_CHANNEL]: (event: { payload: Nullable<IMappedChannel> }) =>
         setInvitesForProducts(event.payload),
@@ -141,6 +154,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     setIsDisconnectLoading(false)
     setIsLoadingInvitesForProducts(false)
     setIsAuthLoading(false)
+    setTrstdLoginLoadingBL(false)
   }
 
   return children
