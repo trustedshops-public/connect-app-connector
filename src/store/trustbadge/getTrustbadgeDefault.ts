@@ -48,7 +48,7 @@ export const getTrustbadgeDefault = (id: string): ITrustbadge => {
             attributeName: 'data-disable-mobile',
           },
           'data-disable-trustbadge': {
-            value: false,
+            value: true,
             attributeName: 'data-disable-trustbadge',
           },
           'data-mobile-custom-width': {
