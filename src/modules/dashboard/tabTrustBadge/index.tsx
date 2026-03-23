@@ -94,36 +94,62 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       setShowModal(true)
       return
     }
-    updateTrustbadgeData({
-      'data-disable-trustbadge': {
-        value: !isDisabled,
-        attributeName: 'data-disable-trustbadge',
-      },
-    })
-  }
-
-  const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
     setIsLoadingBL(true)
+    const enabledChild = {
+      tag: trustbadgeDataChild.tag,
+      attributes: {
+        ...trustbadgeDataChild.attributes,
+        'data-disable-trustbadge': {
+          value: false,
+          attributeName: 'data-disable-trustbadge',
+        },
+      },
+    }
+    updateTrustbadgeDataFromTextaria(enabledChild)
     dispatchAction({
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload: {
         id: trustbadgeId,
         eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
         salesChannelRef: selectedShopChannels.salesChannelRef,
-        children: [
-          data || {
-            tag: trustbadgeDataChild.tag,
-            attributes: {
-              ...trustbadgeDataChild.attributes,
-              'data-disable-trustbadge': {
-                value: true,
-                attributeName: 'data-disable-trustbadge',
-              },
-            },
-          },
-        ],
+        children: [enabledChild],
       },
     })
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      'trustbadge',
+      putEtrustedConfiguration,
+    )
+  }
+
+  const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
+    setIsLoadingBL(true)
+    const disabledChild = data || {
+      tag: trustbadgeDataChild.tag,
+      attributes: {
+        ...trustbadgeDataChild.attributes,
+        'data-disable-trustbadge': {
+          value: true,
+          attributeName: 'data-disable-trustbadge',
+        },
+      },
+    }
+    dispatchAction({
+      action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
+      payload: {
+        id: trustbadgeId,
+        eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+        salesChannelRef: selectedShopChannels.salesChannelRef,
+        children: [disabledChild],
+      },
+    })
+    handleEtrustedConfiguration(
+      user?.access_token,
+      allState,
+      'trustbadge',
+      putEtrustedConfiguration,
+    )
     setTrustbadgeDataCache(null)
     setShowModal(false)
   }
