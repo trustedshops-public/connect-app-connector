@@ -39,7 +39,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       illustration: TrstdLoginOverview,
       hasStatus: true,
       isActive: isTrstdLoginActive,
-      statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
+      statusLabel: isTrstdLoginActive ? phrasesByKey.overview_trstd_login_status_enabled : phrasesByKey.overview_trstd_login_status_inactive,
       buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
     {
