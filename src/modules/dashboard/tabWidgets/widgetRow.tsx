@@ -120,12 +120,15 @@ const WidgetRow: FC<Props> = ({
   }, [widgetLocation, widget])
 
   useEffect(() => {
-    if (!widget) return
+    if (!widget || !widgetsFromAPI) return
+    const isDeleted = widgetsFromAPI.some(item => item.id === widget.widgetId)
+
 
     setStatusIntegrated(
       !!(
         widget.widgetLocation &&
         widget.widgetLocation.id &&
+        isDeleted &&
         (isProductReviewsWidget ? !!defaultAttributeName : true)
       )
     )
