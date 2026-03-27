@@ -41,10 +41,11 @@ export const trstdLoginStore = (
   },
 
   getTrstdLoginConfiguration: (channel: IMappedChannel) => {
+    get().setIsLoadingBL(true)
     set(store => ({
       trstdLoginState: {
         ...store.trstdLoginState,
-        isLoadingBL: true,
+        isLoadingBL: false,
       },
     }))
 
