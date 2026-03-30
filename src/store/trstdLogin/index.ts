@@ -113,32 +113,37 @@ export const trstdLoginStore = (
     }))
 
     try {
-      const response = await postTrstdLoginConfiguration(info, token as string, [
-        {
-          channelId: selectedShopChannels.eTrustedChannelRef,
-          trstdLoginEnabled: enabled,
-        },
-      ])
+      let integrationId = ''
+      let trstdLoginEnabled = enabled
 
-      if (response.error) {
-        get().addInToastList({
-          event: 'TRSTD_LOGIN_CONFIGURATION',
-          text: response.error,
-          status: 'error',
-          errorText: response.error,
-          type: 'save',
-        })
-        set(store => ({
-          trstdLoginState: {
-            ...store.trstdLoginState,
-            isLoadingBL: false,
+      if (enabled) {
+        const response = await postTrstdLoginConfiguration(info, token as string, [
+          {
+            channelId: selectedShopChannels.eTrustedChannelRef,
+            trstdLoginEnabled: enabled,
           },
-        }))
-        return
-      }
+        ])
 
-      const trstdLoginEnabled = response.trstdLoginEnabled ?? enabled
-      const integrationId = response.integrationId || ''
+        if (response.error) {
+          get().addInToastList({
+            event: 'TRSTD_LOGIN_CONFIGURATION',
+            text: response.error,
+            status: 'error',
+            errorText: response.error,
+            type: 'save',
+          })
+          set(store => ({
+            trstdLoginState: {
+              ...store.trstdLoginState,
+              isLoadingBL: false,
+            },
+          }))
+          return
+        }
+
+        trstdLoginEnabled = response.trstdLoginEnabled ?? enabled
+        integrationId = response.integrationId || ''
+      }
 
       const currentData = get().trstdLoginState.trstdLoginData
       const currentConfig = currentData.configuration
