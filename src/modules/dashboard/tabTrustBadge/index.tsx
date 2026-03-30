@@ -4,7 +4,7 @@ import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSm
 import { MobilePhoneIcon } from '@/components/layouts/icons/MobilePhoneIcon'
 import { DesktopMonitorIcon } from '@/components/layouts/icons/DesktopMonitorIcon'
 import StyledButton from '@/components/controls/styledButton'
-import { FC, useState, useEffect } from 'preact/compat'
+import { FC, Fragment, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
 import ApproveDisableModal from './approveDisableModal'
 import { dispatchAction, EVENTS } from '@/eventsLib'
@@ -14,7 +14,6 @@ import {
 } from '@/modules/dashboard/tabTrustBadge/parseTrustbadgeData'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import {
-  selectAllState,
   selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
@@ -60,8 +59,6 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { isLoadingSave, selectedShopChannels } = useStore(selectorChannels)
-  const allState = useStore(selectAllState)
-
   const isActive = !isDisabled
 
   useEffect(() => {
@@ -87,6 +84,20 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       return
     }
     updateTrustbadgeDataFromTextaria(parsedData)
+  }
+
+  const getFreshAllState = () => {
+    const store = useStore.getState()
+    const { auth: _auth, ...restTrustbadgeState } = store.trustbadgeState as any
+    return {
+      infoState: store.infoState,
+      channelState: store.channelState,
+      trustbadgeState: restTrustbadgeState,
+      notificationState: store.notificationState,
+      reviewInvitesState: store.reviewInvitesState,
+      widgetState: store.widgetState,
+      trstdLoginState: store.trstdLoginState,
+    }
   }
 
   const handleSwitch = () => {
@@ -117,7 +128,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     })
     handleEtrustedConfiguration(
       user?.access_token,
-      allState,
+      getFreshAllState(),
       'trustbadge',
       putEtrustedConfiguration,
     )
@@ -135,6 +146,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         },
       },
     }
+    updateTrustbadgeDataFromTextaria(disabledChild)
     dispatchAction({
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload: {
@@ -146,7 +158,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     })
     handleEtrustedConfiguration(
       user?.access_token,
-      allState,
+      getFreshAllState(),
       'trustbadge',
       putEtrustedConfiguration,
     )
@@ -183,7 +195,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     })
     handleEtrustedConfiguration(
       user?.access_token,
-      allState,
+      getFreshAllState(),
       'trustbadge',
       putEtrustedConfiguration,
     )
