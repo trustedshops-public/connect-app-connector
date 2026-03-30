@@ -40,43 +40,46 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
 
     for (const channel of mappedChannels) {
       try {
-        const response = await getEtrustedID(channel, infoOfSystem, token)
-        const defaultTrustbadge = getTrustbadgeDefault(response.tsId)
-
-        const enabledChild = {
-          ...defaultTrustbadge.children[0],
-          attributes: {
-            ...defaultTrustbadge.children[0].attributes,
-            'data-disable-trustbadge': {
-              value: false,
-              attributeName: 'data-disable-trustbadge',
-            },
-          },
-        }
-
-        dispatchAction({
-          action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
-          payload: {
-            ...defaultTrustbadge,
-            children: [enabledChild],
-            eTrustedChannelRef: channel.eTrustedChannelRef,
-            salesChannelRef: channel.salesChannelRef,
-          },
-        })
-
-        const channelAllState = {
+        const channelAllState: Record<string, unknown> = {
           ...allState,
-          trustbadgeState: {
-            ...allState.trustbadgeState,
-            trustbadgeId: response.tsId,
-            trustbadgeDataChild: enabledChild,
-            initialTrustbadgeDataChild: enabledChild,
-          },
           channelState: {
             ...allState.channelState,
             selectedShopChannels: channel,
             selectedeTrustedChannelRef: channel.eTrustedChannelRef,
           },
+        }
+
+        if (isChecked) {
+          const response = await getEtrustedID(channel, infoOfSystem, token)
+          const defaultTrustbadge = getTrustbadgeDefault(response.tsId)
+
+          const enabledChild = {
+            ...defaultTrustbadge.children[0],
+            attributes: {
+              ...defaultTrustbadge.children[0].attributes,
+              'data-disable-trustbadge': {
+                value: false,
+                attributeName: 'data-disable-trustbadge',
+              },
+            },
+          }
+
+          dispatchAction({
+            action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
+            payload: {
+              ...defaultTrustbadge,
+              children: [enabledChild],
+              eTrustedChannelRef: channel.eTrustedChannelRef,
+              salesChannelRef: channel.salesChannelRef,
+            },
+          })
+
+          channelAllState.trustbadgeState = {
+            ...allState.trustbadgeState,
+            trustbadgeId: response.tsId,
+            trustbadgeDataChild: enabledChild,
+            initialTrustbadgeDataChild: enabledChild,
+          }
         }
 
         await handleEtrustedConfiguration(
@@ -86,7 +89,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
           putEtrustedConfiguration,
         )
       } catch (error) {
-        console.error(`Error activating trustbadge for channel ${channel.eTrustedChannelRef}:`, error)
+        console.error(`Error activating trust signals for channel ${channel.eTrustedChannelRef}:`, error)
       }
     }
 
