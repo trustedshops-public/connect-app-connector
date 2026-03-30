@@ -40,8 +40,9 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
 
     for (const channel of mappedChannels) {
       try {
+        const { trstdLoginState: _trstdLoginState, ...stateWithoutTrstdLogin } = allState
         const channelAllState: Record<string, unknown> = {
-          ...allState,
+          ...stateWithoutTrstdLogin,
           channelState: {
             ...allState.channelState,
             selectedShopChannels: channel,
