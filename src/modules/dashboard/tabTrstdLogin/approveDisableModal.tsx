@@ -74,12 +74,11 @@ const ApproveDisableModal: FC<Props> = ({
                   </div>
 
                   <div className="ts-pt-5 ts-pb-6">
-                    <p
+                    <div
                       className="ts-font-normal"
                       style={{ fontSize: '14px', lineHeight: '21px', color: '#4B5563', whiteSpace: 'pre-line' }}
-                    >
-                      {phrasesByKey?.application_trstd_login_popup_text}
-                    </p>
+                      dangerouslySetInnerHTML={{ __html: phrasesByKey?.application_trstd_login_popup_text ?? '' }}>
+                    </div>
                   </div>
 
                   <div className="ts-flex ts-flex-col-reverse sm:ts-flex-row ts-gap-3">
