@@ -103,6 +103,9 @@ const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
   application_trstd_login_about_description: 'application.trstd_login.about.description',
   application_trstd_login_about_learnMore: 'application.trstd_login.about.learnMore',
   application_trstd_login_about_learnMore_url: 'application.trstd_login.about.learnMore_url',
+  application_trstd_login_popup_title: 'application.trstd_login.popup.title',
+  application_trstd_login_popup_text: 'application.trstd_login.popup.text',
+  application_trstd_login_popup_submit: 'application.trstd_login.popup.submit',
 }
 const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: 'application.trustbadge.integrationmode',

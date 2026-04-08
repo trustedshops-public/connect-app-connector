@@ -11,9 +11,11 @@ import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOut
 import trstdLoginMobile from '@/assets/trstdlogin-mobile.svg'
 import trstdLoginDesktop from '@/assets/trstdlogin-desktop.svg'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import ApproveDisableModal from './approveDisableModal'
 
 const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [previewTab, setPreviewTab] = useState<'mobile' | 'desktop'>('mobile')
+  const [showModal, setShowModal] = useState(false)
 
   const { updateTrstdLoginEnabled } = useStore()
   const { trstdLoginData, isLoadingBL } = useStore(selectorTrstdLogin)
@@ -28,7 +30,16 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   const showActionRequired = isEnabled && ['shopify', 'shoper'].includes(shopSystemName.toLowerCase())
 
   const handleToggle = () => {
-    updateTrstdLoginEnabled(!isEnabled)
+    if (isEnabled) {
+      setShowModal(true)
+      return
+    }
+    updateTrstdLoginEnabled(true)
+  }
+
+  const handleDeactivate = () => {
+    updateTrstdLoginEnabled(false)
+    setShowModal(false)
   }
 
   return (
@@ -186,6 +197,12 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
           </div>
         </div>
       </div>
+      <ApproveDisableModal
+        phrasesByKey={phrasesByKey}
+        showModal={showModal}
+        handleCancel={() => setShowModal(false)}
+        handleDeactivate={handleDeactivate}
+      />
     </div>
     )
   )

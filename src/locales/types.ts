@@ -410,6 +410,9 @@ export type ITRSTD_LOGIN_KEYS = {
   application_trstd_login_about_description: string
   application_trstd_login_about_learnMore: string
   application_trstd_login_about_learnMore_url: string
+  application_trstd_login_popup_title: string
+  application_trstd_login_popup_text: string
+  application_trstd_login_popup_submit: string
 }
 
 export type ITRUSTBADGE_KEYS = {
