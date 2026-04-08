@@ -36,8 +36,7 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
           {phrasesByKey.application_trstd_login_header_title}
         </h2>
         <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
-            {phrasesByKey.application_trstd_login_header_description}
-        Offer your customers an extra layer of security by adding the #trstd login to your website navigation.        
+            {phrasesByKey.application_trstd_login_header_description} 
         </p>
       </div>
 
