@@ -276,7 +276,7 @@
       },
       "popup": {
         "submit": "Deactivate",
-        "text": "Only the automatically placed #trstd login will be removed.\\nAll manual integration settings will remain active.",
+        "text": "Only the automatically placed #trstd login will be removed. </br>All manual integration settings will remain active.",
         "title": "Deactivate the automatic placement?"
       },
       "toggle": {
