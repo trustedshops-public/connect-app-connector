@@ -256,6 +256,27 @@
       },
       "title": "Channel mapping"
     },
+    "trstd_login": {
+      "about": {
+        "description": "The #trstd login makes your shop even more trustworthy. By verifying that you're a Trusted Shops member in real time, it protects your customers from fakes.",
+        "learnMore": "Find out more",
+        "learnMore_url": "https://help.etrusted.com/hc/en-gb/articles/18665498498076-trstd-login-How-to-protect-your-customers-from-fake-shops",
+        "title": "About the #trstd login"
+      },
+      "automatic_placement": {
+        "description": "The #trstd login is placed prominently in your main header, near account and cart, the symbols of personal data and money. These are prime targets of fake sites. So, exactly the right place to prove your site's authenticity.",
+        "desktop": "Desktop",
+        "mobile": "Mobile",
+        "title": "Automatic Placement"
+      },
+      "header": {
+        "description": "Offer your customers an extra layer of security by adding the #trstd login to your website navigation.",
+        "title": "#trstd login"
+      },
+      "toggle": {
+        "label": "Display on this channel"
+      }
+    },
     "trustbadge": {
       "about": {
         "description": "The Trustbadge displays your Trusted Shops certification, star rating, and provides access to Buyer Protection. It automatically updates with your latest reviews and rating.",
@@ -494,6 +515,11 @@
           "url_1": "https://help.etrusted.com/hc/en-gb/articles/23970822885010-Using-Trusted-Shops-with-Shopify"
         }
       }
+    }
+  },
+  "test": {
+    "connector": {
+      "tms": "This is a connector test another test 2"
     }
   }
 }
