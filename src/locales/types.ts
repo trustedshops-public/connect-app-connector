@@ -397,6 +397,19 @@ export type AUTH_KEYS = {
     overview_invites_button_manage: string
   }
 
+export type ITRSTD_LOGIN_KEYS = { 
+  application_trstd_login_header_title: string
+  application_trstd_login_header_description: string
+  application_trstd_login_toggle_label: string
+  application_trstd_login_automatic_placement_title: string
+  application_trstd_login_automatic_placement_description: string
+  application_trstd_login_automatic_placement_mobile: string
+  application_trstd_login_automatic_placement_desktop: string
+  application_trstd_login_about_title: string
+  application_trstd_login_about_description: string
+  application_trstd_login_about_learnMore: string
+  application_trstd_login_about_learnMore_url: string
+}
 
 export type ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: string
@@ -607,6 +620,7 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   SETTINGS_KEYS &
   INVITES_KEYS &
   IWIDGETS_KEYS &
+  ITRSTD_LOGIN_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS &
   OVERVIEW_KEYS
