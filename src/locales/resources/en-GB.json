@@ -274,6 +274,11 @@
         "description": "Offer your customers an extra layer of security by adding the #trstd login to your website navigation.",
         "title": "#trstd login"
       },
+      "popup": {
+        "submit": "Deactivate",
+        "text": "Only the automatically placed #trstd login will be removed.\\nAll manual integration settings will remain active.",
+        "title": "Deactivate the automatic placement?"
+      },
       "toggle": {
         "label": "Display on this channel"
       }
