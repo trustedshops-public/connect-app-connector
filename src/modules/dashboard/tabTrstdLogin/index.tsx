@@ -3,10 +3,11 @@ import { FC, useState } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import useStore from '@/store/useStore'
-import { selectorTrstdLogin, selectorChannels } from '@/store/selector'
+import { selectorTrstdLogin, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
 import { MobileIcon } from '@/components/layouts/icons/MobileIcon'
 import { DesktopIcon } from '@/components/layouts/icons/DesktopIcon'
 import { HelpCircleIcon } from '@/components/layouts/icons/HelpCircleIcon'
+import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
 import trstdLoginMobile from '@/assets/trstdlogin-mobile.svg'
 import trstdLoginDesktop from '@/assets/trstdlogin-desktop.svg'
 import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
@@ -17,9 +18,14 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   const { updateTrstdLoginEnabled } = useStore()
   const { trstdLoginData, isLoadingBL } = useStore(selectorTrstdLogin)
   const { selectedShopChannels } = useStore(selectorChannels)
+  const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
   const config = trstdLoginData.configuration
   const isEnabled = config?.integration?.trstdLoginEnabled ?? false
+
+  const shopSystemName = infoOfSystem?.nameOfSystem ?? ''
+  const capitalizedShopName = shopSystemName.charAt(0).toUpperCase() + shopSystemName.slice(1)
+  const showActionRequired = isEnabled && ['shopify', 'shoper'].includes(shopSystemName.toLowerCase())
 
   const handleToggle = () => {
     updateTrstdLoginEnabled(!isEnabled)
@@ -77,6 +83,18 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
             />
           </button>
         </div>
+
+        {showActionRequired && (
+          <div
+            className="ts-flex ts-items-center ts-gap-3 ts-rounded-lg ts-p-4 ts-mt-5"
+            style={{ backgroundColor: '#FEF3C6', border: '1px solid #DBD0A1' }}
+          >
+            <InfoCircleOutlinedIcon size={16} customClass="ts-flex-shrink-0 ts-text-[#973C00]" />
+            <p className="ts-text-sm ts-font-normal" style={{ color: '#973C00' }} dangerouslySetInnerHTML={{ __html: phrasesByKey.application_trstd_login_action_required.replace('{{shopSystemName}}', capitalizedShopName) }}> 
+
+            </p>
+          </div>
+        )}
 
         {/* Divider */}
         <div className="ts-w-full ts-my-5" style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
