@@ -10,6 +10,7 @@ import {
   ROUTES_KEYS,
   SETTINGS_KEYS,
   SHOPIFY_GLOBAL_KEYS,
+  ITRSTD_LOGIN_KEYS,
 } from './types'
 
 export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
@@ -87,6 +88,20 @@ const PHRASES_OVERVIEW_KEYS: OVERVIEW_KEYS = {
   overview_invites_status_enabled: 'application.overview.invites.status.enabled',
   overview_invites_status_inactive: 'application.overview.invites.status.inactive',
   overview_invites_button_manage: 'application.overview.invites.button.manage',
+}
+
+const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
+  application_trstd_login_header_title: 'application.trstd_login.header.title',
+  application_trstd_login_header_description: 'application.trstd_login.header.description',
+  application_trstd_login_toggle_label: 'application.trstd_login.toggle.label',
+  application_trstd_login_automatic_placement_title: 'application.trstd_login.automatic_placement.title',
+  application_trstd_login_automatic_placement_description: 'application.trstd_login.automatic_placement.description',
+  application_trstd_login_automatic_placement_mobile: 'application.trstd_login.automatic_placement.mobile',
+  application_trstd_login_automatic_placement_desktop: 'application.trstd_login.automatic_placement.desktop',
+  application_trstd_login_about_title: 'application.trstd_login.about.title',
+  application_trstd_login_about_description: 'application.trstd_login.about.description',
+  application_trstd_login_about_learnMore: 'application.trstd_login.about.learnMore',
+  application_trstd_login_about_learnMore_url: 'application.trstd_login.about.learnMore_url',
 }
 const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: 'application.trustbadge.integrationmode',
@@ -324,6 +339,7 @@ const PHRASES_ROUTES_KEYS: ROUTES_KEYS = {
 }
 
 export const PHRASES_DASHBOARD_KEYS: DASHBOARD_KEYS = {
+  ...PHRASES_TRSTD_LOGIN_KEYS,
   ...PHRASES_TRUSTBADGE_KEYS,
   ...PHRASES_WIDGETS_KEYS,
   ...PHRASES_INVITES_KEYS,
