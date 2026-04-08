@@ -222,7 +222,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           borderRadius: '10px',
         }}
       >
-        <InfoCircleOutlinedIcon size={20} customClass="ts-flex-shrink-0" />
+        <InfoCircleOutlinedIcon size={20} customClass="ts-flex-shrink-0 ts-text-blue-500" />
         <div>
           <TextWithLink
             id={'Control Centre'}
