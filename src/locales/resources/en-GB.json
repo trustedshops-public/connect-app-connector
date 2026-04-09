@@ -265,7 +265,7 @@
       },
       "action_required": "<strong>Action required:</strong> To complete setting up the #trstd login, go to your {{shopSystemName}} theme editor and add the #trstd login section.",
       "automatic_placement": {
-        "description": "The #trstd login is placed prominently in your main header, near account and cart, the symbols of personal data and money. These are prime targets of fake sites. So, exactly the right place to prove your site's authenticity.",
+        "description": "Display the #trstd login prominently in your main header, near account and cart, the symbols of personal data and money.\nThese are prime targets of fake sites. So, exactly the right place to prove your site’s authenticity.",
         "desktop": "Desktop",
         "mobile": "Mobile",
         "title": "Automatic Placement"
@@ -276,8 +276,8 @@
       },
       "popup": {
         "submit": "Deactivate",
-        "text": "Only the automatically placed #trstd login will be removed. </br>All manual integration settings will remain active.",
-        "title": "Deactivate the automatic placement?"
+        "text": "Only #trstd login placed via the plugin will be removed. </br>All manual integration settings will remain active.",
+        "title": "Deactivate the #trstd login?"
       },
       "toggle": {
         "label": "Display on this channel"
