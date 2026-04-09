@@ -114,10 +114,7 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
         <div
           className="ts-p-6 sm:ts-p-8"
         >
-          <h3 className="ts-text-default ts-font-bold ts-text-center ts-mb-2" style={{ fontSize: '15px' }}>
-            {phrasesByKey.application_trstd_login_automatic_placement_title}
-          </h3>
-          <p className="ts-text-sm ts-font-normal ts-text-center ts-mb-6 ts-max-w-[720px] ts-mx-auto" style={{ color: '#6b7280', margin: '0 auto 24px' }}>
+          <p className="ts-text-sm ts-font-normal ts-text-center ts-mb-6 ts-max-w-[780px] ts-mx-auto" style={{ color: '#6b7280', margin: '0 auto 24px' }}>
             {phrasesByKey.application_trstd_login_automatic_placement_description}
           </p>
 
