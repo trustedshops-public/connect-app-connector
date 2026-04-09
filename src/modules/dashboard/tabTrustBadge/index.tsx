@@ -257,15 +257,8 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
           </div>
 
           <div style={{ borderBottom: '1px solid #E5E7EB', margin: '20px 0' }} />
-
-          <h2
-            className="ts-text-default ts-font-bold ts-text-center ts-mb-2"
-            style={{ fontSize: '16px' }}
-          >
-            {phrasesByKey.application_trustbadge_automaticPlacement_title}
-          </h2>
           <p
-            className="ts-text-sm ts-font-normal ts-text-center ts-mb-6"
+            className="ts-text-sm ts-font-normal ts-text-center ts-mb-6 ts-p-6 sm:ts-p-8 ts-max-w-[780px] ts-mx-auto"
             style={{ color: '#6b7280' }}
           >
             {phrasesByKey.application_trustbadge_automaticPlacement_description}
