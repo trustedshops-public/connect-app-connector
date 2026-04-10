@@ -34,7 +34,7 @@ const ChannelSelectionForm: FC<{ phrasesByKey: Nullable<DASHBOARD_KEYS> }> = ({ 
             className="ts-font-bold ts-text-left"
             style={{ fontSize: '11px', letterSpacing: '0.05em', color: '#101828' }}
           >
-            #trstd
+            {phrasesByKey?.channelSelect_title_etrusted}
           </p>
         </div>
       </div>

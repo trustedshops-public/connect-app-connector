@@ -395,6 +395,10 @@ export type AUTH_KEYS = {
     overview_invites_status_enabled: string
     overview_invites_status_inactive: string
     overview_invites_button_manage: string
+    activation_modal_title: string
+    activation_modal_description: string
+    activation_modal_button_customize: string
+    activation_modal_button_goLive: string
   }
 
 export type ITRSTD_LOGIN_KEYS = { 
