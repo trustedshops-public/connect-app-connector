@@ -88,6 +88,10 @@ const PHRASES_OVERVIEW_KEYS: OVERVIEW_KEYS = {
   overview_invites_status_enabled: 'application.overview.invites.status.enabled',
   overview_invites_status_inactive: 'application.overview.invites.status.inactive',
   overview_invites_button_manage: 'application.overview.invites.button.manage',
+  activation_modal_title: 'application.activation_modal.title',
+  activation_modal_description: 'application.activation_modal.description',
+  activation_modal_button_customize: 'application.activation_modal.button.customize',
+  activation_modal_button_goLive: 'application.activation_modal.button.goLive',
 }
 
 const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {

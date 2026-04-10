@@ -19,7 +19,7 @@ interface Props {
 
 const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByKey }) => {
   const modalRef = useRef<HTMLDivElement>(null)
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(true)
 
   const { user } = useStore(selectorAuth)
   const allState = useStore(selectAllState)
@@ -124,13 +124,13 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                     className="ts-text-default ts-font-bold ts-mb-2"
                     style={{ fontSize: '20px', lineHeight: '28px' }}
                   >
-                    Display trust signals for all mapped channels
+                    {phrasesByKey?.activation_modal_title}
                   </h2>
                   <p
                     className="ts-text-sm ts-font-normal ts-mb-6"
                     style={{ color: '#6b7280' }}
                   >
-                    You can customise per channel anytime.
+                    {phrasesByKey?.activation_modal_description}
                   </p>
 
                   <div
@@ -210,7 +210,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                       height={44}
                       onClick={onClose}
                     >
-                      Customize per channel
+                      {phrasesByKey?.activation_modal_button_customize}
                     </StyledButton>
                     <StyledButton
                       id="trustSignalsActivationGoLive"
@@ -220,7 +220,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                       disabled={!isChecked}
                       onClick={handleGoLive}
                     >
-                      Go live on mapped channels
+                      {phrasesByKey?.activation_modal_button_goLive}
                     </StyledButton>
                   </div>
                 </div>
