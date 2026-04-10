@@ -55,7 +55,7 @@ const StyledButton: FC<Props> = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={`ts-text-sm ts-font-bold ts-cursor-pointer ts-flex ts-items-center ts-justify-center ts-gap-2 disabled:ts-opacity-50 disabled:ts-cursor-not-allowed ${fullWidth ? 'ts-w-full' : ''} ${flex1 ? 'ts-flex-1' : ''} ${className}`}
+      className={`ts-text-sm ts-font-bold ts-cursor-pointer ts-flex ts-items-center ts-justify-center ts-gap-2 disabled:ts-opacity-50 disabled:ts-cursor-not-allowed active:ts-scale-[0.97] active:ts-brightness-90 ${fullWidth ? 'ts-w-full' : ''} ${flex1 ? 'ts-flex-1' : ''} ${className}`}
       style={{
         height: `${height}px`,
         borderRadius: '4px',
@@ -63,6 +63,7 @@ const StyledButton: FC<Props> = ({
         color: styles.color,
         border: styles.border,
         padding: '8px 24px',
+        transition: 'transform 0.1s ease, filter 0.1s ease',
       }}
     >
       {children}
