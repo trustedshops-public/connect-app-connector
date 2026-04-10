@@ -20,6 +20,7 @@ interface Props {
 const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByKey }) => {
   const modalRef = useRef<HTMLDivElement>(null)
   const [isChecked, setIsChecked] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
 
   const { user } = useStore(selectorAuth)
   const allState = useStore(selectAllState)
@@ -33,10 +34,12 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
   }, [showModal])
 
   const handleGoLive = async () => {
-    if (!isChecked) return
+    if (!isChecked || isLoading) return
 
     const token = user?.access_token
     if (!token) return
+
+    setIsLoading(true)
 
     for (const channel of mappedChannels) {
       try {
@@ -94,6 +97,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
       }
     }
 
+    setIsLoading(false)
     onClose()
   }
 
@@ -134,7 +138,10 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                   </p>
 
                   <div
-                    className="ts-flex ts-cursor-pointer"
+                    role="checkbox"
+                    aria-checked={isChecked}
+                    tabIndex={0}
+                    className="ts-flex ts-cursor-pointer focus:ts-outline-none focus-visible:ts-ring-2 focus-visible:ts-ring-blue-400 focus-visible:ts-ring-offset-2"
                     style={{
                       borderRadius: '12px',
                       border: isChecked ? '2px solid #155DFC' : '1.5px solid #E5E7EB',
@@ -142,6 +149,12 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                       overflow: 'hidden',
                     }}
                     onClick={() => setIsChecked(!isChecked)}
+                    onKeyDown={(e: KeyboardEvent) => {
+                      if (e.key === ' ' || e.key === 'Enter') {
+                        e.preventDefault()
+                        setIsChecked(!isChecked)
+                      }
+                    }}
                   >
                     <div
                       className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center"
@@ -217,7 +230,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
                       variant="primary"
                       flex1
                       height={44}
-                      disabled={!isChecked}
+                      disabled={!isChecked || isLoading}
                       onClick={handleGoLive}
                     >
                       {phrasesByKey?.activation_modal_button_goLive}
