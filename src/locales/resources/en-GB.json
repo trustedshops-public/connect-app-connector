@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Customize per channel",
+        "goLive": "Go live on mapped channels"
+      },
+      "description": "You can customise per channel anytime.",
+      "title": "Display trust signals for all mapped channels"
+    },
     "invites": {
       "product": {
         "description": {
@@ -461,7 +469,7 @@
     "submit": "Confirm channel mapping",
     "titel": "Map your channels to #trstd",
     "title": {
-      "etrusted": "eTrusted channels",
+      "etrusted": "Trusted Shops",
       "shopsystem": "[%]shopsystem[%] channels"
     }
   },
