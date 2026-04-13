@@ -119,6 +119,8 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
                 </h3>
                 {'hasStatus' in card && (
                   <div
+                    data-testid={`overview_status_${card.id}`}
+                    id={`overview_status_${card.id}`}
                     className="ts-flex ts-items-center ts-gap-1.5 ts-flex-shrink-0 ts-ml-2"
                     style={{
                       backgroundColor: ('isActive' in card && !card.isActive) ? '#F3F4F6' : '#E0FAF0',
@@ -150,6 +152,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
 
               <div className="ts-mt-auto">
                 <StyledButton
+                  id={`overview_${card.id}`}
                   variant="primary"
                   onClick={() => onNavigateToTab(card.tabId)}
                 >
