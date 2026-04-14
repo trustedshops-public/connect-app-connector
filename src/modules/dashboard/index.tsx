@@ -39,8 +39,10 @@ const DashboardPageModule: FC<{
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showSettings, setShowSettings] = useState<boolean>(false)
   const [showTrustbadgeActivation, setShowTrustbadgeActivation] = useState(false)
+  const [isPostMappingLoading, setIsPostMappingLoading] = useState(false)
   const isFirstTimeSelectionRef = useRef(false)
   const prevShowModalRef = useRef(false)
+  const pendingActivationModalRef = useRef(false)
 
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
@@ -258,6 +260,12 @@ const DashboardPageModule: FC<{
           await getEventTypesFromApi_v2()
         }
       }
+
+      if (pendingActivationModalRef.current) {
+        pendingActivationModalRef.current = false
+        setIsPostMappingLoading(false)
+        setShowTrustbadgeActivation(true)
+      }
     }
     fetchData()
   }, [selectedShopChannels])
@@ -300,7 +308,8 @@ const DashboardPageModule: FC<{
   useEffect(() => {
     if (prevShowModalRef.current && !showModal && isFirstTimeSelectionRef.current) {
       isFirstTimeSelectionRef.current = false
-      setShowTrustbadgeActivation(true)
+      pendingActivationModalRef.current = true
+      setIsPostMappingLoading(true)
     }
     prevShowModalRef.current = showModal
   }, [showModal])
@@ -488,8 +497,16 @@ const DashboardPageModule: FC<{
             showModal={showModal}
             setShowModal={setShowModal}
           />
+          {isPostMappingLoading && (
+            <Fragment>
+              <div className="ts-justify-center ts-items-center ts-flex ts-fixed ts-inset-0 ts-z-50">
+                <Spinner />
+              </div>
+              <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+            </Fragment>
+          )}
           <TrustSignalsActivationModal
-          phrasesByKey={phrasesByKey}
+            phrasesByKey={phrasesByKey}
             showModal={showTrustbadgeActivation}
             onClose={() => setShowTrustbadgeActivation(false)}
           />
