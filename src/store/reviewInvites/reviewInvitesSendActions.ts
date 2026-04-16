@@ -134,7 +134,6 @@ export const reviewInvitesActionsStore = (
     const inveteSettingByOrderShipped = inviteSettingsByChannel.find(
       item => item.eventTypeId === orderShippedEventTypeId
     )
-    const isEnableInveteSettingByOrderShipped = inveteSettingByOrderShipped?.enabled
     const isServiceInviteConfiguration =
       inveteSettingByOrderShipped?.serviceInviteConfiguration?.enabled
     const isProductInviteConfiguration =
@@ -143,7 +142,6 @@ export const reviewInvitesActionsStore = (
     if (
       info.allowsEventsByOrderStatus &&
       typesReviewInvites.isEventsByOrderStatusShipped &&
-      !isEnableInveteSettingByOrderShipped &&
       !isServiceInviteConfiguration &&
       !isProductInviteConfiguration
     ) {
@@ -194,7 +192,6 @@ export const reviewInvitesActionsStore = (
             token as string,
             invite.id as string,
             {
-              enabled: true,
               serviceInviteConfiguration: {
                 enabled: isCheckoutType,
               },
@@ -221,7 +218,6 @@ export const reviewInvitesActionsStore = (
               token as string,
               invite.id as string,
               {
-                enabled: true,
                 serviceInviteConfiguration: {
                   enabled: isOrderShippedEventType,
                 },
@@ -240,7 +236,6 @@ export const reviewInvitesActionsStore = (
           const body = {
             serviceInviteConfiguration: { sendingDelayInDays: 3, enabled: false },
             productInviteConfiguration: { sendingDelayInDays: 3, enabled: false },
-            enabled: false,
           }
 
           let delay = 1000
@@ -267,7 +262,6 @@ export const reviewInvitesActionsStore = (
                             token as string,
                             invite.id as string,
                             {
-                              enabled: true,
                               serviceInviteConfiguration: {
                                 enabled: isEventsByOrderStatusShipped,
                               },
@@ -313,7 +307,6 @@ export const reviewInvitesActionsStore = (
             token as string,
             invite.id as string,
             {
-              enabled: true,
               serviceInviteConfiguration: {
                 enabled: isCheckoutType,
               },
