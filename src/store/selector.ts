@@ -41,6 +41,8 @@ export const selectAllState = (store: AppStore) => {
     notificationState: store.notificationState,
     reviewInvitesState: store.reviewInvitesState,
     widgetState: store.widgetState,
-    trstdLoginState: store.trstdLoginState,
+    ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
+      trstdLoginState: store.trstdLoginState,
+    }),
   }
 }
