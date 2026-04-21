@@ -240,6 +240,31 @@
       },
       "title": "Kanaaltoewijzing"
     },
+    "trstd_login": {
+      "about": {
+        "description": "#trstd login maakt je webshop nog betrouwbaarder. Door in realtime te verifiëren dat je lid bent van Trusted Shops, beschermt het je klanten tegen malafide webshops.",
+        "learnMore": "Meer informatie",
+        "title": "Over #trstd login"
+      },
+      "action_required": "<strong>Actie vereist:</strong> Om de installatie van #trstd login te voltooien, ga je naar de thema-editor van {{shopSystemName}} en voeg je de #trstd login-sectie toe.",
+      "automatic_placement": {
+        "description": "Geef #trstd login prominent weer in je hoofdheader, naast het account en de winkelwagen – de symbolen van persoonlijke gegevens en geld. Dit zijn de belangrijkste doelwitten van malafide webshops. Daarom is dit precies de juiste plek om de echtheid van je site te bewijzen.",
+        "desktop": "Desktop",
+        "mobile": "Mobiel"
+      },
+      "header": {
+        "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
+        "title": "#trstd login"
+      },
+      "popup": {
+        "submit": "Deactiveren",
+        "text": "Alleen de #trstd login die via de plug-in is geplaatst, wordt verwijderd. ",
+        "title": "#trstd login deactiveren?"
+      },
+      "toggle": {
+        "label": "Weergeven op dit kanaal"
+      }
+    },
     "trustbadge": {
       "about": {
         "description": "De Trustbadge geeft je Trusted Shops-certificering met je beoordelingssterren weer en geeft toegang tot kopersbescherming. De badge wordt automatisch bijgewerkt met je meest recente beoordelingen en sterren.",

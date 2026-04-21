@@ -240,6 +240,31 @@
       },
       "title": "Mappatura canali"
     },
+    "trstd_login": {
+      "about": {
+        "description": "Il #trstd login rende il tuo negozio ancora più affidabile. Verificando in tempo reale che sei un membro Trusted Shops, protegge i tuoi clienti dai siti non autentici.",
+        "learnMore": "Scopri di più",
+        "title": "Informazioni sul #trstd login"
+      },
+      "action_required": "<strong>Azione richiesta:</strong> Per completare la configurazione del #trstd login, accedi all'editor del tema {{shopSystemName}} e aggiungi la sezione #trstd login.",
+      "automatic_placement": {
+        "description": "Metti in evidenza il #trstd login nell'intestazione principale, accanto all'account e al carrello, simboli rispettivamente dei dati personali e del denaro. Questi sono i bersagli principali dei siti non autentici. Di conseguenza, questo è il posto giusto per dimostrare l'autenticità del tuo sito.",
+        "desktop": "Desktop",
+        "mobile": "Mobile"
+      },
+      "header": {
+        "description": "Offri ai tuoi clienti un ulteriore livello di sicurezza aggiungendo il #trstd login alla navigazione del tuo sito web.",
+        "title": "#trstd login"
+      },
+      "popup": {
+        "submit": "Disattiva",
+        "text": "Verrà rimosso solo il #trstd login installato tramite il plugin. ",
+        "title": "Disattivare il #trstd login?"
+      },
+      "toggle": {
+        "label": "Mostra su questo canale"
+      }
+    },
     "trustbadge": {
       "about": {
         "description": "Il Trustbadge mostra la tua certificazione Trusted Shops e la valutazione a stelle, oltre a consentire l’accesso alla Protezione Acquirenti. Si aggiorna automaticamente con le ultime recensioni e valutazioni.",
