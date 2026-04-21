@@ -240,6 +240,31 @@
       },
       "title": "Mapeamento de canais"
     },
+    "trstd_login": {
+      "about": {
+        "description": "#trstd login torna a sua loja online ainda mais fiável. Ao verificar em tempo real que é membro da Trusted Shops, protege os seus clientes contra lojas online fraudulentas.",
+        "learnMore": "Mais informações",
+        "title": "Sobre o #trstd login"
+      },
+      "action_required": "<strong>Ação necessária:</strong> Para concluir a instalação do #trstd login, aceda ao editor de temas do {{shopSystemName}} e adicione a secção #trstd login.",
+      "automatic_placement": {
+        "description": "Apresente o #trstd login de forma proeminente no cabeçalho principal, junto à conta e ao carrinho – os símbolos de dados pessoais e de dinheiro. Estes são os principais alvos das lojas online fraudulentas. Por isso, este é exatamente o local certo para provar a autenticidade do seu site.",
+        "desktop": "Desktop",
+        "mobile": "Telemóvel"
+      },
+      "header": {
+        "description": "Ofereça aos seus clientes uma camada adicional de segurança ao adicionar o #trstd login à navegação do seu site.",
+        "title": "#trstd login"
+      },
+      "popup": {
+        "submit": "Desativar",
+        "text": "Apenas o #trstd login que foi colocado através do plug-in será removido.",
+        "title": "Desativar o #trstd login?"
+      },
+      "toggle": {
+        "label": ">Mostrar neste canal"
+      }
+    },
     "trustbadge": {
       "about": {
         "description": "O Trustbadge apresenta a sua certificação Trusted Shops, a classificação por estrelas e fornece acesso à Garantia. O Trustbadge é atualizado automaticamente com as opiniões e avaliações mais recentes.",
