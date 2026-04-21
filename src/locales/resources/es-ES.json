@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Personalizar por canal",
+        "goLive": "Publicar en los canales asociados"
+      },
+      "description": "Puedes personalizar por canal en cualquier momento.",
+      "title": "Mostrar señales de confianza en todos los canales asociados"
+    },
     "invites": {
       "product": {
         "description": {
@@ -239,6 +247,31 @@
         "titel": "¿Estás seguro de que quieres desconectar Trusted Shops de tu plataforma de ecommerce?"
       },
       "title": "Asignación de canales"
+    },
+    "trstd_login": {
+      "about": {
+        "description": "El inicio de sesión con #trstd hace que tu tienda sea aún más fiable. Al verificar en tiempo real que eres miembro de Trusted Shops, protege a tus clientes de tiendas fraudulentas.",
+        "learnMore": "Más información",
+        "title": "Acerca del inicio de sesión con #trstd"
+      },
+      "action_required": "<strong>Acción requerida:</strong> Para completar la configuración del inicio de sesión con #trstd, ve al editor de temas de {{shopSystemName}} y añade la sección del inicio de sesión con #trstd.",
+      "automatic_placement": {
+        "description": "Muestra el inicio de sesión con #trstd de forma destacada en tu encabezado principal, cerca de la cuenta y del carrito, los símbolos de los datos personales y el dinero. Son los principales objetivos de los sitios fraudulentos. Por tanto, son el lugar idóneo para demostrar la autenticidad de tu tienda.",
+        "desktop": "Escritorio",
+        "mobile": "Móvil"
+      },
+      "header": {
+        "description": "Ofrece a tus clientes una capa adicional de seguridad añadiendo el inicio de sesión con #trstd a la navegación de tu sitio web.",
+        "title": "Inicio de sesión con #trstd"
+      },
+      "popup": {
+        "submit": "Desactivar",
+        "text": "Solo se eliminará el inicio de sesión con #trstd instalado mediante el plugin. ",
+        "title": "¿Desactivar el inicio de sesión con #trstd?"
+      },
+      "toggle": {
+        "label": "Mostrar en este canal"
+      }
     },
     "trustbadge": {
       "about": {

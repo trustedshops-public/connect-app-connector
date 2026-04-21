@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Dostosuj dla każdego kanału",
+        "goLive": "Opublikuj na zmapowanych kanałach"
+      },
+      "description": "W dowolnym momencie możesz zmienić ustawienia dla każdego kanału.",
+      "title": "Wyświetl sygnały zaufania dla wszystkich zmapowanych kanałów"
+    },
     "invites": {
       "product": {
         "description": {
@@ -239,6 +247,31 @@
         "titel": "Czy na pewno chcesz odłączyć Trusted Shops od swojego systemu sklepowego?"
       },
       "title": "Mapowanie kanału"
+    },
+    "trstd_login": {
+      "about": {
+        "description": "#trstd login sprawia, że Twój sklep internetowy jest jeszcze bardziej godny zaufania. Weryfikując w czasie rzeczywistym, że jesteś członkiem Trusted Shops, chroni Twoich klientów przed fałszywymi sklepami.",
+        "learnMore": "Dowiedz się więcej",
+        "title": "O #trstd login"
+      },
+      "action_required": "<strong>Wymagane działanie:</strong> Aby dokończyć konfigurację #trstd login, przejdź do edytora motywu {{shopSystemName}} i dodaj sekcję #trstd login.",
+      "automatic_placement": {
+        "description": "Wyświetl #trstd login w widocznym miejscu w głównym nagłówku, obok konta i koszyka – symboli danych osobowych i pieniędzy. To główne cele fałszywych sklepów. Dlatego to właściwe miejsce, aby udowodnić autentyczność Twojej strony.",
+        "desktop": "Desktop",
+        "mobile": "Mobile"
+      },
+      "header": {
+        "description": "Zaoferuj swoim klientom dodatkową warstwę bezpieczeństwa, dodając #trstd login do nawigacji swojej strony internetowej.",
+        "title": "#trstd login"
+      },
+      "popup": {
+        "submit": "Dezaktywuj",
+        "text": "Zostanie usunięty tylko #trstd login dodany przez wtyczkę. ",
+        "title": "Dezaktywować #trstd login?"
+      },
+      "toggle": {
+        "label": "Wyświetl na tym kanale"
+      }
     },
     "trustbadge": {
       "about": {
