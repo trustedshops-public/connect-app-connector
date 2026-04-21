@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Personnaliser par canal",
+        "goLive": "Mettre en ligne sur les canaux associés"
+      },
+      "description": "Vous pouvez opter pour une personnalisation par canal à tout moment.",
+      "title": "Afficher les signaux de confiance pour tous les canaux associés"
+    },
     "invites": {
       "product": {
         "description": {

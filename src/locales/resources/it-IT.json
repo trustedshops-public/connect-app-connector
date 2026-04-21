@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Personalizza per canale",
+        "goLive": "Manda online sui canali mappati"
+      },
+      "description": "Puoi personalizzare per canale in qualsiasi momento.",
+      "title": "Mostra i segnali di fiducia per tutti i canali mappati"
+    },
     "invites": {
       "product": {
         "description": {

@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Dostosuj dla każdego kanału",
+        "goLive": "Opublikuj na zmapowanych kanałach"
+      },
+      "description": "W dowolnym momencie możesz zmienić ustawienia dla każdego kanału.",
+      "title": "Wyświetl sygnały zaufania dla wszystkich zmapowanych kanałów"
+    },
     "invites": {
       "product": {
         "description": {

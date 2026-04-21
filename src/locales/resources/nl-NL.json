@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Aanpassen per kanaal",
+        "goLive": "Live gaan op toegewezen kanalen"
+      },
+      "description": "Je kunt de weergave per kanaal op elk moment aanpassen.",
+      "title": "Vertrouwenssignalen weergeven voor alle toegewezen kanalen"
+    },
     "invites": {
       "product": {
         "description": {

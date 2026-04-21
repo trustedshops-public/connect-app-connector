@@ -1,5 +1,13 @@
 {
   "application": {
+    "activation_modal": {
+      "button": {
+        "customize": "Personalizar por canal",
+        "goLive": "Ativar nos canais atribuídos"
+      },
+      "description": "Pode ajustar a apresentação por canal a qualquer momento.",
+      "title": "Apresentar sinais de confiança em todos os canais atribuídos"
+    },
     "invites": {
       "product": {
         "description": {
