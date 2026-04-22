@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.0...1.20.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* revert invite settings changes before release ([ce7674b](https://github.com/trustedshops-public/connect-app-connector/commit/ce7674b49fa45716e949a334c7226e720bbfd41f))
+
 ## [1.20.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.1...1.20.0) (2026-03-23)
 
 
