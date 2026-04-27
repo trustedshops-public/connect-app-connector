@@ -103,6 +103,7 @@ const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
   application_trstd_login_automatic_placement_mobile: 'application.trstd_login.automatic_placement.mobile',
   application_trstd_login_automatic_placement_desktop: 'application.trstd_login.automatic_placement.desktop',
   application_trstd_login_action_required: 'application.trstd_login.action_required',
+  application_trstd_login_action_required_shoper: 'application.trstd_login.action_required_shoper',
   application_trstd_login_about_title: 'application.trstd_login.about.title',
   application_trstd_login_about_description: 'application.trstd_login.about.description',
   application_trstd_login_about_learnMore: 'application.trstd_login.about.learnMore',
@@ -119,8 +120,7 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_subtitel: 'application.trustbadge.subtitel',
   application_trustbadge_description: 'application.trustbadge.description',
   application_trustbadge_placement_desktop: 'application.trustbadge.placement.desktop',
-  application_trustbadge_placement_inputDescription:
-    'application.trustbadge.placement.inputDescription',
+  application_trustbadge_placement_inputDescription: 'application.trustbadge.placement.inputDescription',
   application_trustbadge_placement_pixels: 'application.trustbadge.placement.pixels',
   application_trustbadge_placement_mobile: 'application.trustbadge.placement.mobile',
   application_trustbadge_placement_center: 'application.trustbadge.placement.center',

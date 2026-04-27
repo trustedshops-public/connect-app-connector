@@ -101,8 +101,10 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
             style={{ backgroundColor: '#FEF3C6', border: '1px solid #DBD0A1' }}
           >
             <InfoCircleOutlinedIcon size={16} customClass="ts-flex-shrink-0 ts-text-[#973C00]" />
-            <p className="ts-text-sm ts-font-normal" style={{ color: '#973C00' }} dangerouslySetInnerHTML={{ __html: phrasesByKey.application_trstd_login_action_required.replace('{{shopSystemName}}', capitalizedShopName) }}> 
-
+            <p className="ts-text-sm ts-font-normal" style={{ color: '#973C00' }} dangerouslySetInnerHTML={{ __html: (shopSystemName.toLowerCase() === 'shoper'
+              ? phrasesByKey.application_trstd_login_action_required_shoper
+              : phrasesByKey.application_trstd_login_action_required
+            ).replace('{{shopSystemName}}', capitalizedShopName) }}>
             </p>
           </div>
         )}
