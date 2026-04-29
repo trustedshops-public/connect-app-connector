@@ -57,6 +57,12 @@ export const WIDGET_LOCATIONS: IWidgetLocation[] = [
     availableForType: [TypeReview.service, TypeReview.product],
   },
   {
+    id: 'wd-loc-ccp',
+    name: 'Checkout confirmation',
+    key: 'application_widgets_position_checkout_confirmation',
+    availableForType: [TypeReview.checkout],
+  },
+  {
     id: 'wdg-loc-cst',
     name: 'Custom',
     key: 'application_widgets_position_custom',

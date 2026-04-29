@@ -183,6 +183,7 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_position_header: 'application.widgets.position.header',
   application_widgets_position_footer: 'application.widgets.position.footer',
   application_widgets_position_custom: 'application.widgets.position.custom',
+  application_widgets_position_checkout_confirmation: 'application.widgets.position.checkoutConfirmation',
   application_widgets_position_productname: 'application.widgets.position.productname',
   application_widgets_position_productdescription:
     'application.widgets.position.productdescription',

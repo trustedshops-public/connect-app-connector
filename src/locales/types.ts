@@ -493,6 +493,7 @@ export type IWIDGETS_KEYS = {
   application_widgets_position_productlistings: string
   application_widgets_position_productname: string
   application_widgets_position_custom: string
+  application_widgets_position_checkout_confirmation: string
   application_widgets_name_MiniStars: string
   application_widgets_name_FullReviewList: string
   application_widgets_name_ReviewCarousel: string
