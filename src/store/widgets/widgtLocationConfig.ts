@@ -60,7 +60,7 @@ export const WIDGET_LOCATIONS: IWidgetLocation[] = [
     id: 'wd-loc-ccp',
     name: 'Checkout confirmation',
     key: 'application_widgets_position_checkout_confirmation',
-    availableForType: [TypeReview.checkout],
+    availableForType: [TypeReview.service, TypeReview.checkout],
   },
   {
     id: 'wdg-loc-cst',
