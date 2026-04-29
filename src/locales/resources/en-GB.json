@@ -401,6 +401,7 @@
         "title": "Almost there! Integrate a widget on your website."
       },
       "position": {
+        "checkoutConfirmation": "Checkout Confirmation",
         "custom": "Manual placement",
         "footer": "Footer",
         "header": "Header",
