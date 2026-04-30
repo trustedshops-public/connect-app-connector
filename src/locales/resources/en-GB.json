@@ -271,7 +271,7 @@
         "learnMore_url": "https://help.etrusted.com/hc/en-gb/articles/18665498498076-trstd-login-How-to-protect-your-customers-from-fake-shops",
         "title": "About the #trstd login"
       },
-      "action_required": "<strong>Action required:</strong> To complete setting up the #trstd login, go to your {{shopSystemName}} theme editor and add the #trstd login section.",
+      "action_required": "<strong>Action required:</strong> To complete setting up the #trstd login, go to the App embeds section in your {{shopSystemName}} theme editor.",
       "action_required_shoper": "<strong>Action required:</strong> To complete setting up the #trstd login, go to your {{shopSystemName}} theme editor and add to the header section.",
       "automatic_placement": {
         "description": "Display the #trstd login prominently in your main header, near account and cart, the symbols of personal data and money.\nThese are prime targets of fake sites. So, exactly the right place to prove your site’s authenticity.",
