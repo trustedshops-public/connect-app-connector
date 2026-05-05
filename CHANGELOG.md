@@ -1,3 +1,18 @@
+## [1.21.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.1...1.21.0) (2026-05-05)
+
+
+### Features
+
+* add checkout confirmation widget position ([61fb29c](https://github.com/trustedshops-public/connect-app-connector/commit/61fb29c0e5f8c80d0757e1063110d7c610823841))
+* add support for Shoper-specific login action phrase ([efaf774](https://github.com/trustedshops-public/connect-app-connector/commit/efaf774c0b341a9a730068950fd9c4d05a73f34c))
+* release trustedcheckout shopware changes ([5d017af](https://github.com/trustedshops-public/connect-app-connector/commit/5d017af23dd7ca612beeb7f9307281401c3d8b89))
+* TPSCON-4313 Adapt connect-layer-app to accept new position for confirmation page (shopware) ([dec303f](https://github.com/trustedshops-public/connect-app-connector/commit/dec303fffb07fb5217ac3e2c6bc783a14962731a))
+
+
+### Bug Fixes
+
+* update availableForType for checkout confirmation widget ([aba2d81](https://github.com/trustedshops-public/connect-app-connector/commit/aba2d81f1fad62d7f7f5019a9cbf12588af97c5a))
+
 ## [1.20.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.0...1.20.1) (2026-04-22)
 
 
