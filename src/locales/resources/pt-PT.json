@@ -377,6 +377,7 @@
         "title": "Está quase! Integre um widget no seu site."
       },
       "position": {
+        "checkoutConfirmation": "Confirmação de encomenda",
         "custom": "Colocação manual",
         "footer": "Rodapé",
         "header": "Cabeçalho",

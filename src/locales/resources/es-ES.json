@@ -377,6 +377,7 @@
         "title": "¡Ya casi has acabado! Integra un widget en tu sitio web."
       },
       "position": {
+        "checkoutConfirmation": "Confirmación de compra",
         "custom": "Colocación manual",
         "footer": "Pie de página",
         "header": "Cabecera",

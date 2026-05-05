@@ -377,6 +377,7 @@
         "title": "Prawie gotowe! Umieść widgety w witrynie sklepu."
       },
       "position": {
+        "checkoutConfirmation": "Potwierdzenie zamówienia",
         "custom": "Manualne ulokowanie",
         "footer": "Stopka",
         "header": "Nagłówek",

@@ -377,6 +377,7 @@
         "title": "Ci sei quasi! Inserisci un widget nel tuo sito web."
       },
       "position": {
+        "checkoutConfirmation": "Conferma dell'ordine",
         "custom": "Posizionamento manuale",
         "footer": "Footer",
         "header": "Header",

@@ -377,6 +377,7 @@
         "title": "Vous avez bientôt terminé ! Ajoutez un widget à votre site Web."
       },
       "position": {
+        "checkoutConfirmation": "Confirmation de commande",
         "custom": "Positionnement manuel ",
         "footer": "Footer",
         "header": "Header",
