@@ -377,6 +377,7 @@
         "title": "Je bent er bijna! Integreer een widget op je website."
       },
       "position": {
+        "checkoutConfirmation": "Bestelbevestiging",
         "custom": "Positie selecteren",
         "footer": "Footer",
         "header": "Header",

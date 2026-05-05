@@ -350,6 +350,7 @@
         "title": "Fast geschafft! So integrierst du ein Widget auf deiner Website."
       },
       "position": {
+        "checkoutConfirmation": "Bestellbestätigung",
         "custom": "Manuelle Platzierung",
         "footer": "Fußzeile",
         "header": "Kopfzeile",
