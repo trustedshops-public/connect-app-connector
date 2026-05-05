@@ -190,7 +190,7 @@ const DashboardPageModule: FC<{
       }
 
       if (displayReviewTab && !isVersionTwo) {
-        // call EventTypes for v1
+        // call EventTypes for v1 
         if (
           Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
           infoOfSystem.allowsSendReviewInvitesForProduct
