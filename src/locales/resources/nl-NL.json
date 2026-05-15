@@ -16,6 +16,7 @@
         },
         "help": {
           "text": "Productbeoordelingen helpen klanten om, op basis van de ervaringen van anderen, hun eigen mening te vormen over de producten waarin ze geïnteresseerd zijn. Zo geef je jouw klanten waardevol advies voordat ze iets kopen. Dit heeft een positief effect op de performance van je webshop. Hier lees je meer over [%s]productbeoordelingen[%s].",
+          "url": "https://help.etrusted.com/hc/nl/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
         },
         "title": "Beoordelingsverzoeken voor producten versturen"
@@ -28,6 +29,7 @@
           "description": "Om beoordelingsverzoeken naar je bestaande klanten te verzenden, dien je een CSV-bestand met hun gegevens te exporteren. Houd er rekening mee dat je de toestemming van je klanten nodig hebt om hun e-mailadressen met Trusted Shops te mogen delen.",
           "help": {
             "text": "Als je beoordelingen niet automatisch wil verzamelen of als je naast de automatische beoordelingsverzoeken ook handmatige beoordelingsverzoeken naar je klanten wil verzenden, kun je de [%s]Review Collector[%s] gebruiken.",
+            "url": "https://help.etrusted.com/hc/nl/articles/23970823597458-Wat-is-de-Review-Collector",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025038111-Wat-is-de-Review-Collector-"
           },
           "step": {
@@ -48,6 +50,7 @@
         },
         "help": {
           "text": "Het tijdstip dat je een beoordelingsverzoek naar je klant stuurt, kan cruciaal zijn voor een goede respons.\nLees meer over [%s]het optimale tijdstip voor het verzenden van beoordelingsverzoeken[%s].\n",
+          "url": "https://help.etrusted.com/hc/nl/articles/23970885730834-Hoe-gebruik-ik-de-activeringsdatum-voor-geplande-beoordelingsverzoeken",
           "url_1": "https://help.etrusted.com/hc/nl/articles/360055245931-Wanneer-is-het-handig-om-een-activeringsdatum-voor-de-verzendtermijn-te-gebruiken-"
         },
         "radioButton": {
@@ -102,6 +105,7 @@
         "orderstatus": {
           "warning": {
             "text": "Voor contactpunten buiten de afrekenpagina moet je ervoor zorgen dat alle ontvangers toestemming hebben gegeven voor het doorsturen van hun e-mailadres aan Trusted Shops, zodat ze een herinnering voor het geven van een beoordeling kunnen krijgen. Ga voor meer informatie naar het [%s]Trusted Shops Helpcenter[%s].",
+            "url": "https://help.etrusted.com/hc/nl/articles/23970875438226-Toestemming-voor-beoordelingsverzoeken",
             "url_1": "https://help.etrusted.com/hc/nl/articles/360025759231-Toestemming-voor-beoordelingsverzoeken"
           }
         },
@@ -133,14 +137,16 @@
           "step2": {
             "buttonLabel": "Stuur handmatige beoordelingsverzoeken",
             "description": "Nadat je de bestellingen hebt geëxporteerd, kan je het CSV-bestand uploaden in je eTrusted-account om beoordelingsverzoeken te versturen.",
-            "title": "Stap 2: Upload bestellingen in het controlecentrum"
+            "title": "Stap 2: Upload bestellingen in het controlecentrum",
+            "url": "https://help.etrusted.com/hc/nl/articles/23970823597458"
           },
           "title": "Stuur beoordelingsverzoeken voor bestellingen uit het verleden"
         },
         "rightTime": {
           "description": "Kies wanneer je klanten een beoordelingsverzoek ontvangen door een contactpunt in je webwinkel te selecteren.",
           "help": {
-            "text": "Het meest gebruikte contactpunt voor het sturen van beoordelingen is de afrekenpagina. Om ervoor te zorgen dat klanten de beoordelingsverzoeken op het juiste moment ontvangen, hanteren we een standaardwachttijd van 5 dagen voordat we het verzoek sturen. Je kan deze wachttijd aanpassen in het [%s]Trusted Shops controlecentrum[%s]."
+            "text": "Het meest gebruikte contactpunt voor het sturen van beoordelingen is de afrekenpagina. Om ervoor te zorgen dat klanten de beoordelingsverzoeken op het juiste moment ontvangen, hanteren we een standaardwachttijd van 5 dagen voordat we het verzoek sturen. Je kan deze wachttijd aanpassen in het [%s]Trusted Shops controlecentrum[%s].",
+            "url": "https://help.etrusted.com/hc/nl/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
           },
           "placeholder": "Kies een optie",
           "productReviews": "Productbeoordelingen",
@@ -155,7 +161,8 @@
     },
     "overview": {
       "help": {
-        "text": "Hulp nodig met de instellingen of de configuratie? [%s]Open de integratiehandleiding[%s]"
+        "text": "Hulp nodig met de instellingen of de configuratie? [%s]Open de integratiehandleiding[%s]",
+        "url": "https://help.etrusted.com/hc/nl/articles/4905016318237"
       },
       "invites": {
         "button": {
@@ -228,6 +235,7 @@
         "description": "Als je de koppeling tussen Trusted Shops en je shopsysteem verbreekt, worden je configuratie-instellingen gewist.",
         "help": {
           "text": "Ga naar het [%s]Helpcenter[%s] voor meer informatie over kanaaltoewijzing, configuraties met meerdere kanalen en probleemoplossing.",
+          "url": "https://help.etrusted.com/hc/nl",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Trusted Shops verbreken",
@@ -252,13 +260,16 @@
       "about": {
         "description": "#trstd login maakt je webshop nog betrouwbaarder. Door in realtime te verifiëren dat je lid bent van Trusted Shops, beschermt het je klanten tegen malafide webshops.",
         "learnMore": "Meer informatie",
+        "learnMore_url": "https://www.trstd.com/",
         "title": "Over #trstd login"
       },
       "action_required": "<strong>Actie vereist:</strong> Om de installatie van #trstd login te voltooien, ga je naar de thema-editor van {{shopSystemName}} en voeg je de #trstd login-sectie toe.",
+      "action_required_shoper": "<strong>Actie vereist:</strong> Om de installatie van de #trstd login te voltooien, gaat u naar uw {{shopSystemName}} theme editor en voegt u deze toe aan de header-sectie.",
       "automatic_placement": {
         "description": "Geef #trstd login prominent weer in je hoofdheader, naast het account en de winkelwagen – de symbolen van persoonlijke gegevens en geld. Dit zijn de belangrijkste doelwitten van malafide webshops. Daarom is dit precies de juiste plek om de echtheid van je site te bewijzen.",
         "desktop": "Desktop",
-        "mobile": "Mobiel"
+        "mobile": "Mobiel",
+        "title": "Automatische plaatsing"
       },
       "header": {
         "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
@@ -277,6 +288,7 @@
       "about": {
         "description": "De Trustbadge geeft je Trusted Shops-certificering met je beoordelingssterren weer en geeft toegang tot kopersbescherming. De badge wordt automatisch bijgewerkt met je meest recente beoordelingen en sterren.",
         "learnMore": "Lees meer over de Trustbadge",
+        "learnMore_url": "https://help.etrusted.com/hc/nl/articles/360047497311",
         "title": "Over de Trustbadge"
       },
       "automaticPlacement": {
@@ -290,6 +302,7 @@
       "expert": {
         "help": {
           "text": "Ga naar het overzicht van [%s]Trustbadge parameters[%s].",
+          "url": "https://help.etrusted.com/hc/nl/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/nl/articles/360047497311"
         }
       },
@@ -308,6 +321,7 @@
         "right": "Rechts"
       },
       "placementSection": {
+        "center": "Center",
         "desktopLabel": "Desktop",
         "left": "Links",
         "mobileLabel": "Mobiel",
@@ -426,7 +440,8 @@
     },
     "error": "Foutmelding: zorg ervoor dat je de juiste Client Credentials gebruikt.",
     "integrationGuide": {
-      "text": "Integratiehandleiding bekijken"
+      "text": "Integratiehandleiding bekijken",
+      "url": "https://help.etrusted.com/hc/nl/articles/4905016318237"
     },
     "salesLink": {
       "text": "[%s]Ben je nog lid?[%s]",
@@ -461,6 +476,7 @@
     "help": {
       "link": {
         "text": "Stap-voor-stap-integratiehandleiding openen",
+        "url": "https://help.etrusted.com/hc/nl/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/nl/articles/4905016318237"
       },
       "text": "Ontdek hoe je jouw webshop aan Trusted Shops koppelt.",
@@ -468,9 +484,13 @@
     },
     "jointcontrollership": {
       "text": "[%s]Rechten van de betrokkenen volgens de overeenkomst van gezamenlijk beheer[%s]",
+      "url": "https://help.etrusted.com/hc/nl/articles/23970801822098",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
+      "cacheclear": {
+        "save": "Wijzigingen succesvol opgeslagen! Wis de cache van uw shop om de nieuwste updates in de storefront te zien."
+      },
       "error": {
         "exportTimeout": "Verminder het aantal dagen dat je voor de export wilt selecteren. Ons systeem kan slechts een bepaald aantal bestellingen verwerken.",
         "productIdUnselected": "Selecteer een product-ID voordat je de wijzigingen opslaat",
@@ -494,6 +514,7 @@
     "global": {
       "help": {
         "link": {
+          "url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Using-Trusted-Shops-with-Shopify",
           "url_1": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
         }
       }

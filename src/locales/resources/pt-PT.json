@@ -16,6 +16,7 @@
         },
         "help": {
           "text": "As avaliações de produtos ajudam os seus clientes a formar uma opinião própria sobre os produtos em que estão interessados, com base nas experiências de outras pessoas. Desta forma, está a fornecer orientações úteis aos seus clientes ainda antes da compra, o que tem um efeito positivo no desempenho da sua loja. Leia mais sobre as [%s]avaliações de produtos.[%s]",
+          "url": "https://help.etrusted.com/hc/pt/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
         },
         "title": "Envie convites de avaliação relativamente a produtos"
@@ -28,6 +29,7 @@
           "description": "Para enviar convites de avaliação aos seus clientes existentes, exporte um ficheiro CSV com os respetivos dados. Tenha em conta que precisa do consentimento dos clientes para reencaminhar os seus endereços de e-mail para a Trusted Shops.",
           "help": {
             "text": "Se não quiser juntar as avaliações automaticamente ou se quiser pedir aos clientes que, para além do envio automático de convites, procedam à entrega manual de avaliações, pode utilizar o [%s]*Recompilador de Revisões[%s]*.",
+            "url": "https://help.etrusted.com/hc/pt/articles/23970823597458-O-que-%C3%A9-o-Review-Collector",
             "url_1": "https://help.etrusted.com/hc/pt/articles/360025038111-O-que-%C3%A9-o-Review-Collector-"
           },
           "step": {
@@ -48,6 +50,7 @@
         },
         "help": {
           "text": "O momento ideal para enviar o seu convite de avaliação pode ser decisivo para garantir uma boa taxa de feedback.\nLeia mais sobre [%s]*O momento ideal para o envio de convites de avaliação.[%s]*",
+          "url": "https://help.etrusted.com/hc/pt",
           "url_1": "https://help.etrusted.com/hc/en-gb/articles/360055245931-How-can-I-benefit-from-the-activation-date-of-sending-delay-"
         },
         "radioButton": {
@@ -102,6 +105,7 @@
         "orderstatus": {
           "warning": {
             "text": "Para pontos de contacto que não sejam o momento de «check-out», tem de garantir que todos os destinatários autorizaram efetivamente o envio do respetivo endereço de e-mail para a Trusted Shops com o intuito de receberem um lembrete para enviar uma avaliação. Pode encontrar mais informações na [%s]Central de Ajuda da Trusted Shops[%s].",
+            "url": "https://help.etrusted.com/hc/pt/articles/23970875438226-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online",
             "url_1": "https://help.etrusted.com/hc/pt/articles/360025759231-Consentimento-para-Recordat%C3%B3rio-de-Avalia%C3%A7%C3%A3o-online"
           }
         },
@@ -133,7 +137,8 @@
           "step2": {
             "buttonLabel": "Enviar convites manuais",
             "description": "Após exportar os pedidos, carregue o ficheiro CSV para a sua conta eTrusted para enviar convites de avaliação.",
-            "title": "Passo 2: Carregar pedidos para o centro de controlo"
+            "title": "Passo 2: Carregar pedidos para o centro de controlo",
+            "url": "https://help.etrusted.com/hc/pt/articles/23970823597458"
           },
           "title": "Enviar convites de avaliação para pedidos antigos"
         },
@@ -155,7 +160,8 @@
     },
     "overview": {
       "help": {
-        "text": "Precisa de ajuda com a configuração? [%s]Abrir guia de integração[%s]"
+        "text": "Precisa de ajuda com a configuração? [%s]Abrir guia de integração[%s]",
+        "url": "https://help.etrusted.com/hc/pt/articles/4905016318237"
       },
       "invites": {
         "button": {
@@ -228,6 +234,7 @@
         "description": "Se desligar a ligação entre a Trusted Shops e o seu sistema de lojas, os ajustes de configuração são apagados.",
         "help": {
           "text": "Saiba mais sobre o mapeamento de canais, configuração multicanais e resolução de problemas na nossa [%s]Central de Ajuda[%s].",
+          "url": "https://help.etrusted.com/hc/pt",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Separar Trusted Shops",
@@ -252,13 +259,16 @@
       "about": {
         "description": "#trstd login torna a sua loja online ainda mais fiável. Ao verificar em tempo real que é membro da Trusted Shops, protege os seus clientes contra lojas online fraudulentas.",
         "learnMore": "Mais informações",
+        "learnMore_url": "https://www.trstd.com/",
         "title": "Sobre o #trstd login"
       },
       "action_required": "<strong>Ação necessária:</strong> Para concluir a instalação do #trstd login, aceda ao editor de temas do {{shopSystemName}} e adicione a secção #trstd login.",
+      "action_required_shoper": "<strong>Ação necessária:</strong> Para concluir a configuração do #trstd login, vá ao editor de temas do {{shopSystemName}} e adicione à secção do cabeçalho (header).",
       "automatic_placement": {
         "description": "Apresente o #trstd login de forma proeminente no cabeçalho principal, junto à conta e ao carrinho – os símbolos de dados pessoais e de dinheiro. Estes são os principais alvos das lojas online fraudulentas. Por isso, este é exatamente o local certo para provar a autenticidade do seu site.",
         "desktop": "Desktop",
-        "mobile": "Telemóvel"
+        "mobile": "Telemóvel",
+        "title": "Posicionamento automático"
       },
       "header": {
         "description": "Ofereça aos seus clientes uma camada adicional de segurança ao adicionar o #trstd login à navegação do seu site.",
@@ -277,6 +287,7 @@
       "about": {
         "description": "O Trustbadge apresenta a sua certificação Trusted Shops, a classificação por estrelas e fornece acesso à Garantia. O Trustbadge é atualizado automaticamente com as opiniões e avaliações mais recentes.",
         "learnMore": "Saiba mais sobre o Trustbadge",
+        "learnMore_url": "https://help.etrusted.com/hc/pt/articles/360047497311",
         "title": "Sobre o Trustbadge"
       },
       "automaticPlacement": {
@@ -290,6 +301,7 @@
       "expert": {
         "help": {
           "text": "Vá até à vista geral dos [%s]*parâmetros do Trustbadge.[%s]*",
+          "url": "https://help.etrusted.com/hc/pt/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/pt/articles/360047497311"
         }
       },
@@ -308,6 +320,7 @@
         "right": "Direita"
       },
       "placementSection": {
+        "center": "Center",
         "desktopLabel": "Computador",
         "left": "Esquerda",
         "mobileLabel": "Telemóvel",
@@ -426,7 +439,8 @@
     },
     "error": "Erro: certifique-se de que utiliza as Client Credentials corretas.",
     "integrationGuide": {
-      "text": "Ver guia de integração"
+      "text": "Ver guia de integração",
+      "url": "https://help.etrusted.com/hc/pt/articles/4905016318237"
     },
     "salesLink": {
       "text": "[%s]Ainda não é cliente?[%s]",
@@ -461,6 +475,7 @@
     "help": {
       "link": {
         "text": "Abrir as instruções passo-a-passo para a integração",
+        "url": "https://help.etrusted.com/hc/pt/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/pt/articles/4905016318237"
       },
       "text": "Descubra como pode interligar a sua loja com a Trusted Shops.",
@@ -468,11 +483,12 @@
     },
     "jointcontrollership": {
       "text": "[%s]Direitos do titular dos dados ao abrigo do acordo de corresponsabilidade pelo tratamento[%s]",
+      "url": "https://help.etrusted.com/hc/pt/articles/23970801822098",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
       "cacheclear": {
-        "save": "Alterações guardadas com sucesso! Limpe a cache da sua loja para ver as últimas actualizações na montra."
+        "save": "Alterações guardadas com sucesso! Limpe a cache da sua loja para ver as últimas actualizações na montra.Alterações guardadas com sucesso! Por favor, limpe a cache da sua loja para ver as atualizações mais recentes na montra (storefront)."
       },
       "error": {
         "exportTimeout": "Reduza o número de dias exportados. O nosso sistema apenas consegue processar uma determinada quantidade de pedidos.",
@@ -497,6 +513,7 @@
     "global": {
       "help": {
         "link": {
+          "url": "https://help.etrusted.com/hc/pt/articles/23970822885010-Using-Trusted-Shops-with-Shopify",
           "url_1": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify"
         }
       }

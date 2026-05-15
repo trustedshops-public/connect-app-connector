@@ -16,6 +16,7 @@
         },
         "help": {
           "text": "Opinie o produktach pomagają Twoim klientom wyrobić sobie własne zdanie na temat interesujących ich produktów na podstawie doświadczeń innych osób. W ten sposób jeszcze przed zakupem oferujesz swoim klientom cenne i pomocne wskazówki, co pozytywnie wpływa na wyniki Twojego sklepu. Przeczytaj więcej na temat [%s]opinii o produktach[%s].",
+          "url": "https://help.etrusted.com/hc/pl/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/en-gb/sections/360008367812-Product-Reviews"
         },
         "title": "Wysyłaj zaproszenia do wystawienia opinii o produktach"
@@ -28,6 +29,7 @@
           "description": "Aby wysłać zaproszenia do wystawienia opinii do istniejących klientów, wyeksportuj plik CSV z ich danymi. Pamiętaj, że potrzebujesz zgody klientów na przekazanie ich adresu e-mail do Trusted Shops.",
           "help": {
             "text": "Jeśli nie chcesz zbierać opinii automatycznie, lub jeśli oprócz automatycznej wysyłki zaproszeń chcesz ręcznie poprosić klientów o podzielenie się opinią, możesz skorzystać z interfejsu [%s]Review Collector[%s].",
+            "url": "https://help.etrusted.com/hc/pl/articles/23970823597458-Co-to-jest-Review-Collector",
             "url_1": "https://help.etrusted.com/hc/pl/articles/360025038111-Co-to-jest-Review-Collector-"
           },
           "step": {
@@ -48,6 +50,7 @@
         },
         "help": {
           "text": "Optymalny czas wysłania zaproszenia do oceny może mieć kluczowe znaczenie dla zapewnienia dobrego wskaźnika odpowiedzi.\nPrzeczytaj więcej na temat [%s]Optymalnego momentu wysyłki zaproszeń do wystawienia opinii[%s].",
+          "url": "https://help.etrusted.com/hc/pl/articles/23970885730834-Jak-u%C5%BCywa%C4%87-daty-aktywacji-dla-zaplanowanych-zaprosze%C5%84-do-wystawienia-opinii",
           "url_1": "https://help.etrusted.com/hc/pl/articles/360055245931-Dlaczego-korzystne-jest-wprowadzenie-daty-aktywacji-op%C3%B3%C5%BAnienia-wysy%C5%82ki-"
         },
         "radioButton": {
@@ -102,6 +105,7 @@
         "orderstatus": {
           "warning": {
             "text": "W przypadku etapów sprzedaży innych niż „kasa” musisz upewnić się, że wszyscy odbiorcy wyrazili zgodę na przesłanie ich adresów e-mail do Trusted Shops w celu przypomnienia o wystawieniu opinii. Więcej informacji znajdziesz w [%s]Centrum pomocy Trusted Shops[%s].",
+            "url": "https://help.etrusted.com/hc/pl/articles/23970875438226-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii",
             "url_1": "https://help.etrusted.com/hc/pl/articles/360025759231-Zgody-na-otrzymywanie-maili-z-pro%C5%9Bb%C4%85-o-wystawienie-opinii"
           }
         },
@@ -133,14 +137,16 @@
           "step2": {
             "buttonLabel": "Wyślij zaproszenia ręczne",
             "description": "Po wyeksportowaniu zamówień prześlij plik CSV na swoje konto eTrusted, aby wysłać zaproszenia do wystawienia opinii.",
-            "title": "Krok 2: Prześlij zamówienia do Centrum Kontrolnego"
+            "title": "Krok 2: Prześlij zamówienia do Centrum Kontrolnego",
+            "url": "https://help.etrusted.com/hc/pl/articles/23970823597458"
           },
           "title": "Wyślij zaproszenia do wystawienia opinii za zrealizowane zamówienia"
         },
         "rightTime": {
           "description": "Wybierz, w jakim momencie procesu sprzedaży klienci mają otrzymać zaproszenia do wystawienia opinii.",
           "help": {
-            "text": "Najczęściej wybierany moment to realizacja płatności (kasa). Aby upewnić się, że klient otrzyma zaproszenie do wystawienia opinii we właściwym momencie, dodajemy standardowe opóźnienie wysyłki wynoszące 5 dni. Możesz to zmienić w [%s]Centrum Kontrolnym Trusted Shops[%s]."
+            "text": "Najczęściej wybierany moment to realizacja płatności (kasa). Aby upewnić się, że klient otrzyma zaproszenie do wystawienia opinii we właściwym momencie, dodajemy standardowe opóźnienie wysyłki wynoszące 5 dni. Możesz to zmienić w [%s]Centrum Kontrolnym Trusted Shops[%s].",
+            "url": "https://help.etrusted.com/hc/pl/articles/23970885730834"
           },
           "placeholder": "Wybierz opcję",
           "productReviews": "Opinie o produkcie",
@@ -155,7 +161,8 @@
     },
     "overview": {
       "help": {
-        "text": "Nie radzisz sobie z konfiguracją? [%s]Otwórz przewodnik po integracji[%s]"
+        "text": "Nie radzisz sobie z konfiguracją? [%s]Otwórz przewodnik po integracji[%s]",
+        "url": "https://help.etrusted.com/hc/pl/articles/4905016318237"
       },
       "invites": {
         "button": {
@@ -228,6 +235,7 @@
         "description": "Jeśli rozłączysz połączenie między Trusted Shops a swoim systemem sklepowym, Twoje ustawienia konfiguracyjne zostaną usunięte.",
         "help": {
           "text": "Dowiedz się więcej o mapowaniu kanału, konfiguracji wielu kanałów oraz rozwiązywaniu problemów w [%s]Centrum pomocy[%s].",
+          "url": "https://help.etrusted.com/hc/pl",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Rozłącz się z Trusted Shops",
@@ -252,13 +260,16 @@
       "about": {
         "description": "#trstd login sprawia, że Twój sklep internetowy jest jeszcze bardziej godny zaufania. Weryfikując w czasie rzeczywistym, że jesteś członkiem Trusted Shops, chroni Twoich klientów przed fałszywymi sklepami.",
         "learnMore": "Dowiedz się więcej",
+        "learnMore_url": "https://www.trstd.com/",
         "title": "O #trstd login"
       },
       "action_required": "<strong>Wymagane działanie:</strong> Aby dokończyć konfigurację #trstd login, przejdź do edytora motywu {{shopSystemName}} i dodaj sekcję #trstd login.",
+      "action_required_shoper": "<strong>Wymagane działanie:</strong> Aby dokończyć konfigurację logowania #trstd, przejdź do edytora szablonu {{shopSystemName}} i dodaj go do sekcji nagłówka (header).",
       "automatic_placement": {
         "description": "Wyświetl #trstd login w widocznym miejscu w głównym nagłówku, obok konta i koszyka – symboli danych osobowych i pieniędzy. To główne cele fałszywych sklepów. Dlatego to właściwe miejsce, aby udowodnić autentyczność Twojej strony.",
         "desktop": "Desktop",
-        "mobile": "Mobile"
+        "mobile": "Mobile",
+        "title": "Automatyczne rozmieszczenie"
       },
       "header": {
         "description": "Zaoferuj swoim klientom dodatkową warstwę bezpieczeństwa, dodając #trstd login do nawigacji swojej strony internetowej.",
@@ -277,6 +288,7 @@
       "about": {
         "description": "Trustbadge wyświetla certyfikację Trusted Shops oraz ocenę w gwiazdkach i umożliwia dostęp do Ochrony kupującego. Automatycznie aktualizuje najnowsze opinie i oceny.",
         "learnMore": "Dowiedz się więcej o Trustbadge",
+        "learnMore_url": "https://help.etrusted.com/hc/pl/articles/360047497311",
         "title": "Informacje o Trustbadge"
       },
       "automaticPlacement": {
@@ -290,6 +302,7 @@
       "expert": {
         "help": {
           "text": "Przejdź do przeglądu [%s]parametrów Trustbadge[%s].",
+          "url": "https://help.etrusted.com/hc/pl/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/pl/articles/360047497311"
         }
       },
@@ -308,6 +321,7 @@
         "right": "Po prawej"
       },
       "placementSection": {
+        "center": "Center",
         "desktopLabel": "Aplikacja na komputer",
         "left": "Po lewej",
         "mobileLabel": "Aplikacja mobilna",
@@ -426,7 +440,8 @@
     },
     "error": "Błąd: upewnij się, że używasz prawidłowych danych uwierzytelniających Client Credentials.",
     "integrationGuide": {
-      "text": "Wyświetl przewodnik po integracji"
+      "text": "Wyświetl przewodnik po integracji",
+      "url": "https://help.etrusted.com/hc/pl/articles/4905016318237"
     },
     "salesLink": {
       "text": "[%s]Nie jesteś jeszcze naszym klientem?[%s]",
@@ -461,6 +476,7 @@
     "help": {
       "link": {
         "text": "Instrukcja krok po kroku dotycząca integracji",
+        "url": "https://help.etrusted.com/hc/pl/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/pl/articles/4905016318237"
       },
       "text": "Dowiedz się, jak możesz połączyć swój sklep z Trusted Shops.",
@@ -468,9 +484,13 @@
     },
     "jointcontrollership": {
       "text": "[%s]Prawa osób, których dane dotyczą, zgodnie z umową o wspólnym nadzorze[%s]",
+      "url": "https://help.etrusted.com/hc/pl/articles/23970801822098",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
+      "cacheclear": {
+        "save": "Zmiany zostały zapisane pomyślnie! Prosimy o wyczyszczenie pamięci podręcznej (cache) sklepu, aby zobaczyć najnowsze aktualizacje w witrynie sklepowej."
+      },
       "error": {
         "exportTimeout": "Zmniejsz liczbę wyeksportowanych dni. Nasz system obsługuje tylko określoną liczbę zamówień.",
         "productIdUnselected": "Wybierz identyfikator produktu przed zapisaniem zmian",
@@ -494,6 +514,7 @@
     "global": {
       "help": {
         "link": {
+          "url": "https://help.etrusted.com/hc/pl/articles/23970822885010-Using-Trusted-Shops-with-Shopify",
           "url_1": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify"
         }
       }

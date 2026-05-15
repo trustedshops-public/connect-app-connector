@@ -16,6 +16,7 @@
         },
         "help": {
           "text": "Le recensioni prodotto aiutano i e le clienti a farsi un’idea dei prodotti che destano il loro interesse sulla base di esperienze autentiche. In questo modo, già prima dell’acquisto è possibile fornire ai e alle clienti un prezioso aiuto per orientarsi, migliorando le performance e aumentando la fiducia. Leggi altro su [%s]Recensioni di prodotto[%s].",
+          "url": "https://help.etrusted.com/hc/it/sections/360008367812-Product-Reviews",
           "url_1": "https://help.etrusted.com/hc/it/sections/360008367812-Recensioni-dei-prodotti"
         },
         "title": "Invia degli inviti di recensione per i prodotti"
@@ -28,6 +29,7 @@
           "description": "Per inviare inviti di recensione ai e alle clienti attuali, esporta un file CSV con i relativi dati. Tieni a mente che è necessaria l’approvazione dei e delle clienti per inoltrare il loro indirizzo e-mail a Trusted Shops.",
           "help": {
             "text": "Se non desideri raccogliere automaticamente le recensioni o se vuoi chiedere ai e alle clienti di inviare manualmente le recensioni, oltre a inviare automaticamente gli inviti, puoi usare [%s]Review Collector[%s].",
+            "url": "https://help.etrusted.com/hc/it/articles/23970823597458-Cos-%C3%A8-la-raccolta-manuale",
             "url_1": "https://help.etrusted.com/hc/it/articles/360025038111-Cos-%C3%A8-la-raccolta-manuale-"
           },
           "step": {
@@ -48,6 +50,7 @@
         },
         "help": {
           "text": "Individuare il momento ottimale per inviare l’invito di recensione può essere decisivo per garantire un buon tasso di risposta.\nLeggi altro su [%s]Il momento migliore per un invito di recensione[%s].",
+          "url": "https://help.etrusted.com/hc/it/articles/23970885730834-Come-utilizzo-la-data-di-attivazione-per-gli-inviti-di-recensione-pianificati",
           "url_1": "https://help.etrusted.com/hc/it/articles/360055245931--Quali-vantaggi-offre-la-data-di-attivazione-del-ritardo-di-consegna-"
         },
         "radioButton": {
@@ -102,6 +105,7 @@
         "orderstatus": {
           "warning": {
             "text": "Per i touchpoint al di fuori della fase di “checkout”, devi assicurarti che tutti i destinatari abbiano effettivamente acconsentito alla trasmissione del proprio indirizzo e-mail a Trusted Shops, in modo da poter inviare loro un promemoria a lasciare una recensione. Per ulteriori informazioni, ti invitiamo a consultare il [%s]Centro Assistenza Trusted Shops[%s].",
+            "url": "https://help.etrusted.com/hc/it/articles/23970875438226-Consenso-per-l-invio-degli-inviti-di-recensione",
             "url_1": "https://help.etrusted.com/hc/it/articles/360025759231-Consenso-per-l-invio-degli-inviti-di-recensione"
           }
         },
@@ -133,14 +137,16 @@
           "step2": {
             "buttonLabel": "Invia Inviti Manuali",
             "description": "Dopo aver esportato i tuoi ordini, carica il file CSV sul tuo account eTrusted per inviare gli inviti di recensione.",
-            "title": "Passaggio 2: Carica gli ordini nel Centro di Controllo"
+            "title": "Passaggio 2: Carica gli ordini nel Centro di Controllo",
+            "url": "https://help.etrusted.com/hc/it/articles/23970823597458"
           },
           "title": "Invia inviti di recensioni per ordini già effettuati"
         },
         "rightTime": {
           "description": "Seleziona un touchpoint del negozio per stabilire quando inviare gli inviti di recensione ai clienti.",
           "help": {
-            "text": "Il touchpoint solitamente più utilizzato per questo scopo è il checkout. Per garantire che i clienti ricevano gli inviti a lasciare una recensione al momento giusto, attendiamo in media 5 giorni prima dell’invio. Puoi modificare questa impostazione tramite il [%s]Centro di Controllo Trusted Shops[%s]."
+            "text": "Il touchpoint solitamente più utilizzato per questo scopo è il checkout. Per garantire che i clienti ricevano gli inviti a lasciare una recensione al momento giusto, attendiamo in media 5 giorni prima dell’invio. Puoi modificare questa impostazione tramite il [%s]Centro di Controllo Trusted Shops[%s].",
+            "url": "https://help.etrusted.com/hc/it/articles/23970885730834"
           },
           "placeholder": "Seleziona un’opzione",
           "productReviews": "Recensioni prodotto",
@@ -155,7 +161,8 @@
     },
     "overview": {
       "help": {
-        "text": "Hai bisogno di aiuto per l’installazione o la configurazione? [%s]Apri la guida all’integrazione[%s]"
+        "text": "Hai bisogno di aiuto per l’installazione o la configurazione? [%s]Apri la guida all’integrazione[%s]",
+        "url": "https://help.etrusted.com/hc/it/articles/4905016318237"
       },
       "invites": {
         "button": {
@@ -228,6 +235,7 @@
         "description": "Se disconnetti il collegamento tra Trusted Shops e il sistema del tuo negozio, le tue impostazioni di configurazione verranno eliminate.",
         "help": {
           "text": "Per maggiori informazioni su mappatura dei canali, configurazione multicanale e risoluzione dei problemi, consulta il [%s]Centro Assistenza[%s].",
+          "url": "https://help.etrusted.com/hc/it",
           "url_1": "mailto:members@trustedshops.com"
         },
         "title": "Scollega Trusted Shops",
@@ -252,13 +260,16 @@
       "about": {
         "description": "Il #trstd login rende il tuo negozio ancora più affidabile. Verificando in tempo reale che sei un membro Trusted Shops, protegge i tuoi clienti dai siti non autentici.",
         "learnMore": "Scopri di più",
+        "learnMore_url": "https://www.trstd.com/",
         "title": "Informazioni sul #trstd login"
       },
       "action_required": "<strong>Azione richiesta:</strong> Per completare la configurazione del #trstd login, accedi all'editor del tema {{shopSystemName}} e aggiungi la sezione #trstd login.",
+      "action_required_shoper": "<strong>Azione richiesta:</strong> Per completare la configurazione del #trstd login, vai all'editor del tema di {{shopSystemName}} e aggiungilo alla sezione header.",
       "automatic_placement": {
         "description": "Metti in evidenza il #trstd login nell'intestazione principale, accanto all'account e al carrello, simboli rispettivamente dei dati personali e del denaro. Questi sono i bersagli principali dei siti non autentici. Di conseguenza, questo è il posto giusto per dimostrare l'autenticità del tuo sito.",
         "desktop": "Desktop",
-        "mobile": "Mobile"
+        "mobile": "Mobile",
+        "title": "Posizionamento automatico"
       },
       "header": {
         "description": "Offri ai tuoi clienti un ulteriore livello di sicurezza aggiungendo il #trstd login alla navigazione del tuo sito web.",
@@ -277,6 +288,7 @@
       "about": {
         "description": "Il Trustbadge mostra la tua certificazione Trusted Shops e la valutazione a stelle, oltre a consentire l’accesso alla Protezione Acquirenti. Si aggiorna automaticamente con le ultime recensioni e valutazioni.",
         "learnMore": "Maggiori informazioni sul Trustbadge",
+        "learnMore_url": "https://help.etrusted.com/hc/it/articles/360047497311",
         "title": "Scopri di più sul Trustbadge"
       },
       "automaticPlacement": {
@@ -290,6 +302,7 @@
       "expert": {
         "help": {
           "text": "Alla panoramica dei [%s]Parametri Trustbadge[%s].",
+          "url": "https://help.etrusted.com/hc/it/articles/360047497311",
           "url_1": "https://help.etrusted.com/hc/it/articles/360047497311"
         }
       },
@@ -308,6 +321,7 @@
         "right": "Destra"
       },
       "placementSection": {
+        "center": "Center",
         "desktopLabel": "Desktop",
         "left": "Sinistra",
         "mobileLabel": "Mobile",
@@ -426,7 +440,8 @@
     },
     "error": "Errore: stai utilizzando le credenziali cliente corrette?",
     "integrationGuide": {
-      "text": "Consulta la guida all’integrazione"
+      "text": "Consulta la guida all’integrazione",
+      "url": "https://help.etrusted.com/hc/it/articles/4905016318237"
     },
     "salesLink": {
       "text": "[%s]Non sei ancora cliente?[%s]",
@@ -461,6 +476,7 @@
     "help": {
       "link": {
         "text": "Apri le istruzioni passo-passo per l’integrazione",
+        "url": "https://help.etrusted.com/hc/it/articles/4905016318237",
         "url_1": "https://help.etrusted.com/hc/it/articles/4905016318237"
       },
       "text": "Scopri come collegare il tuo negozio a Trusted Shops.",
@@ -468,9 +484,13 @@
     },
     "jointcontrollership": {
       "text": "[%s]Diritti dell'interessato ai sensi dell’accordo di contitolarità[%s]",
+      "url": "https://help.etrusted.com/hc/it/articles/23970801822098-Data-subject-rights-under-the-joint-controllership-agreement",
       "url_1": "https://help.etrusted.com/hc/en-gb/articles/13208959054877-Data-subject-rights-under-the-joint-controllership-agreement"
     },
     "notification": {
+      "cacheclear": {
+        "save": "Modifiche salvate con successo! Per favore, svuota la cache del tuo negozio per vedere gli ultimi aggiornamenti nello storefront."
+      },
       "error": {
         "exportTimeout": "Riduci il numero di giorni esportati. Il nostro sistema è in grado di gestire solo una certa quantità di ordini.",
         "productIdUnselected": "Seleziona un ID prodotto prima di salvare le modifiche",
@@ -494,6 +514,7 @@
     "global": {
       "help": {
         "link": {
+          "url": "https://help.etrusted.com/hc/it/articles/23970822885010-Using-Trusted-Shops-with-Shopify",
           "url_1": "https://help.etrusted.com/hc/it/articles/23970822885010-Utilizzo-di-Trusted-Shops-con-Shopify"
         }
       }
