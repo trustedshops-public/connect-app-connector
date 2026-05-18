@@ -410,7 +410,8 @@
         "productdescription": "Product page (description)",
         "productlistings": "Product listings",
         "productname": "Product page (Title)",
-        "productpage": "Product page (Trusted Shops reviews) "
+        "productpage": "Product page (Trusted Shops reviews) ",
+        "ministarsEverywhere": "Everywhere in the store"
       },
       "productID": "Product id",
       "reload": "Reload list",

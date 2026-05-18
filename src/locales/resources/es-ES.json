@@ -400,7 +400,8 @@
         "productdescription": "Ficha de producto (descripción)",
         "productlistings": "Lista de productos",
         "productname": "Ficha de producto (título)",
-        "productpage": "Ficha de producto (Valoraciones de Trusted Shops)"
+        "productpage": "Ficha de producto (Valoraciones de Trusted Shops)",
+        "ministarsEverywhere": "En toda la tienda"
       },
       "productID": "ID de producto",
       "reload": "Actualizar lista",

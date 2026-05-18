@@ -187,6 +187,8 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_position_productname: 'application.widgets.position.productname',
   application_widgets_position_productdescription:
     'application.widgets.position.productdescription',
+  application_widgets_position_ministarseverywhere:
+    'application.widgets.position.ministarsEverywhere',
   application_widgets_name_MiniStars: 'application.widgets.name.MiniStars',
   application_widgets_name_FullReviewList: 'application.widgets.name.FullReviewList',
   application_widgets_name_ReviewCarousel: 'application.widgets.name.ReviewCarousel',

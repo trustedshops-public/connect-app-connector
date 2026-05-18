@@ -399,7 +399,8 @@
         "productdescription": "Ficha de produto (descrição)",
         "productlistings": "Listagens de produtos",
         "productname": "Ficha de produto (título)",
-        "productpage": "Ficha de produto (avaliações de Trusted Shops)"
+        "productpage": "Ficha de produto (avaliações de Trusted Shops)",
+        "ministarsEverywhere": "Em toda a loja"
       },
       "productID": "ID do produto",
       "reload": "Recarregar a lista",

@@ -400,7 +400,8 @@
         "productdescription": "Strona produktu (opis)",
         "productlistings": "Listy produktów",
         "productname": "Strona produktu (tytuł)",
-        "productpage": "Strona produktu (opinie Trusted Shops)"
+        "productpage": "Strona produktu (opinie Trusted Shops)",
+        "ministarsEverywhere": "W całym sklepie"
       },
       "productID": "ID produktu",
       "reload": "Wczytaj listę ponownie",
