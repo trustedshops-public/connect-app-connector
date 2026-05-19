@@ -401,7 +401,7 @@
         "productlistings": "Lista de productos",
         "productname": "Ficha de producto (título)",
         "productpage": "Ficha de producto (Valoraciones de Trusted Shops)",
-        "ministarsEverywhere": "En toda la tienda"
+        "productCard": "Tarjeta de producto"
       },
       "productID": "ID de producto",
       "reload": "Actualizar lista",

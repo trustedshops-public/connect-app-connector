@@ -69,9 +69,9 @@ export const WIDGET_LOCATIONS: IWidgetLocation[] = [
     availableForType: [TypeReview.service, TypeReview.product, TypeReview.checkout],
   },
   {
-    id: 'wdg-loc-mini',
-    name: 'Everywhere in the store',
-    key: 'application_widgets_position_ministarseverywhere',
+    id: 'wdg-loc-product-card',
+    name: 'Product card',
+    key: 'application_widgets_position_product_card',
     availableForType: [TypeReview.service],
   },
 ]
