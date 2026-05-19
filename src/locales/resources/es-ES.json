@@ -260,7 +260,7 @@
       "about": {
         "description": "El inicio de sesión con #trstd hace que tu tienda sea aún más fiable. Al verificar en tiempo real que eres miembro de Trusted Shops, protege a tus clientes de tiendas fraudulentas.",
         "learnMore": "Más información",
-        "learnMore_url": "https://www.trstd.com/",
+        "learnMore_url": "https://www.trstd.com/businesses#business-trstd-login",
         "title": "Acerca del inicio de sesión con #trstd"
       },
       "action_required": "<strong>Acción requerida:</strong> Para completar la configuración del inicio de sesión con #trstd, ve al editor de temas de {{shopSystemName}} y añade la sección del inicio de sesión con #trstd.",

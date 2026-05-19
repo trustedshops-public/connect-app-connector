@@ -259,7 +259,7 @@
       "about": {
         "description": "#trstd login torna a sua loja online ainda mais fiável. Ao verificar em tempo real que é membro da Trusted Shops, protege os seus clientes contra lojas online fraudulentas.",
         "learnMore": "Mais informações",
-        "learnMore_url": "https://www.trstd.com/",
+        "learnMore_url": "https://www.trstd.com/businesses#business-trstd-login",
         "title": "Sobre o #trstd login"
       },
       "action_required": "<strong>Ação necessária:</strong> Para concluir a instalação do #trstd login, aceda ao editor de temas do {{shopSystemName}} e adicione a secção #trstd login.",
