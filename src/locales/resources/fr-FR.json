@@ -260,7 +260,7 @@
       "about": {
         "description": "Avec Le #trstd login, votre boutique en ligne devient encore plus fiable. En vérifiant en temps réel que vous êtes membre de Trusted Shops, il protège vos clients des sites frauduleux.",
         "learnMore": "En savoir plus",
-        "learnMore_url": "https://www.trstd.com/",
+        "learnMore_url": "https://www.trstd.com/businesses#business-trstd-login",
         "title": "À propos de #trstd login"
       },
       "action_required": "<strong>Action requise :</strong> Pour finaliser la configuration de #trstd login, accédez à l’éditeur de thème {{shopSystemName}} et ajoutez la section #trstd login.",

@@ -268,7 +268,7 @@
       "about": {
         "description": "The #trstd login makes your shop even more trustworthy. By verifying that you're a Trusted Shops member in real time, it protects your customers from fakes.",
         "learnMore": "Find out more",
-        "learnMore_url": "https://www.trstd.com/",
+        "learnMore_url": "https://www.trstd.com/businesses#business-trstd-login",
         "title": "About the #trstd login"
       },
       "action_required": "<strong>Action required:</strong> To complete setting up the #trstd login, go to the App embeds section in your {{shopSystemName}} theme editor.",

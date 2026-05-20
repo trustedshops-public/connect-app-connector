@@ -260,7 +260,7 @@
       "about": {
         "description": "#trstd login maakt je webshop nog betrouwbaarder. Door in realtime te verifiëren dat je lid bent van Trusted Shops, beschermt het je klanten tegen malafide webshops.",
         "learnMore": "Meer informatie",
-        "learnMore_url": "https://www.trstd.com/",
+        "learnMore_url": "https://www.trstd.com/businesses#business-trstd-login",
         "title": "Over #trstd login"
       },
       "action_required": "<strong>Actie vereist:</strong> Om de installatie van #trstd login te voltooien, ga je naar de thema-editor van {{shopSystemName}} en voeg je de #trstd login-sectie toe.",
