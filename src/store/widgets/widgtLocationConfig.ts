@@ -72,6 +72,6 @@ export const WIDGET_LOCATIONS: IWidgetLocation[] = [
     id: 'wdg-loc-product-card',
     name: 'Product card',
     key: 'application_widgets_position_product_card',
-    availableForType: [TypeReview.service],
+    availableForType: [TypeReview.product],
   },
 ]
