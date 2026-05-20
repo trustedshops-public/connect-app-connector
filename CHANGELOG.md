@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.0...1.21.1) (2026-05-20)
+
+
+### Bug Fixes
+
+* Updated translations from Phrase ([#252](https://github.com/trustedshops-public/connect-app-connector/issues/252)) ([9c0d1da](https://github.com/trustedshops-public/connect-app-connector/commit/9c0d1dab1b66f9bc53ad3a811339b90a652fbe92))
+
 ## [1.21.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.1...1.21.0) (2026-05-05)
 
 
