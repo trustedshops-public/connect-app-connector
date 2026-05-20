@@ -4,7 +4,7 @@ import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSm
 import { MobilePhoneIcon } from '@/components/layouts/icons/MobilePhoneIcon'
 import { DesktopMonitorIcon } from '@/components/layouts/icons/DesktopMonitorIcon'
 import StyledButton from '@/components/controls/styledButton'
-import { FC, useState, useEffect } from 'preact/compat'
+import { FC, Fragment, useState, useEffect } from 'preact/compat'
 import { isEqual } from '@/utils'
 import ApproveDisableModal from './approveDisableModal'
 import { dispatchAction, EVENTS } from '@/eventsLib'
@@ -14,7 +14,6 @@ import {
 } from '@/modules/dashboard/tabTrustBadge/parseTrustbadgeData'
 import { ScrinSpinner } from '@/components/layouts/spinner'
 import {
-  selectAllState,
   selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
@@ -60,8 +59,6 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { isLoadingSave, selectedShopChannels } = useStore(selectorChannels)
-  const allState = useStore(selectAllState)
-
   const isActive = !isDisabled
 
   useEffect(() => {
@@ -89,41 +86,84 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     updateTrustbadgeDataFromTextaria(parsedData)
   }
 
+  const getFreshAllState = () => {
+    const store = useStore.getState()
+    const { auth: _auth, ...restTrustbadgeState } = store.trustbadgeState as any
+    return {
+      infoState: store.infoState,
+      channelState: store.channelState,
+      trustbadgeState: restTrustbadgeState,
+      notificationState: store.notificationState,
+      reviewInvitesState: store.reviewInvitesState,
+      widgetState: store.widgetState,
+      ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
+        trstdLoginState: store.trstdLoginState,
+      }),
+    }
+  }
+
   const handleSwitch = () => {
     if (!isDisabled) {
       setShowModal(true)
       return
     }
-    updateTrustbadgeData({
-      'data-disable-trustbadge': {
-        value: !isDisabled,
-        attributeName: 'data-disable-trustbadge',
-      },
-    })
-  }
-
-  const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
     setIsLoadingBL(true)
+    const enabledChild = {
+      tag: trustbadgeDataChild.tag,
+      attributes: {
+        ...trustbadgeDataChild.attributes,
+        'data-disable-trustbadge': {
+          value: false,
+          attributeName: 'data-disable-trustbadge',
+        },
+      },
+    }
+    updateTrustbadgeDataFromTextaria(enabledChild)
     dispatchAction({
       action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
       payload: {
         id: trustbadgeId,
         eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
         salesChannelRef: selectedShopChannels.salesChannelRef,
-        children: [
-          data || {
-            tag: trustbadgeDataChild.tag,
-            attributes: {
-              ...trustbadgeDataChild.attributes,
-              'data-disable-trustbadge': {
-                value: true,
-                attributeName: 'data-disable-trustbadge',
-              },
-            },
-          },
-        ],
+        children: [enabledChild],
       },
     })
+    handleEtrustedConfiguration(
+      user?.access_token,
+      getFreshAllState(),
+      'trustbadge',
+      putEtrustedConfiguration,
+    )
+  }
+
+  const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
+    setIsLoadingBL(true)
+    const disabledChild = data || {
+      tag: trustbadgeDataChild.tag,
+      attributes: {
+        ...trustbadgeDataChild.attributes,
+        'data-disable-trustbadge': {
+          value: true,
+          attributeName: 'data-disable-trustbadge',
+        },
+      },
+    }
+    updateTrustbadgeDataFromTextaria(disabledChild)
+    dispatchAction({
+      action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
+      payload: {
+        id: trustbadgeId,
+        eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+        salesChannelRef: selectedShopChannels.salesChannelRef,
+        children: [disabledChild],
+      },
+    })
+    handleEtrustedConfiguration(
+      user?.access_token,
+      getFreshAllState(),
+      'trustbadge',
+      putEtrustedConfiguration,
+    )
     setTrustbadgeDataCache(null)
     setShowModal(false)
   }
@@ -157,7 +197,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     })
     handleEtrustedConfiguration(
       user?.access_token,
-      allState,
+      getFreshAllState(),
       'trustbadge',
       putEtrustedConfiguration,
     )
@@ -219,15 +259,8 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
           </div>
 
           <div style={{ borderBottom: '1px solid #E5E7EB', margin: '20px 0' }} />
-
-          <h2
-            className="ts-text-default ts-font-bold ts-text-center ts-mb-2"
-            style={{ fontSize: '16px' }}
-          >
-            {phrasesByKey.application_trustbadge_automaticPlacement_title}
-          </h2>
           <p
-            className="ts-text-sm ts-font-normal ts-text-center ts-mb-6"
+            className="ts-text-sm ts-font-normal ts-text-center ts-p-6 sm:ts-p-8 ts-max-w-[780px] ts-mx-auto"
             style={{ color: '#6b7280' }}
           >
             {phrasesByKey.application_trustbadge_automaticPlacement_description}

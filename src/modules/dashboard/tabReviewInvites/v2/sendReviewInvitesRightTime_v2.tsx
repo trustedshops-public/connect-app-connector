@@ -172,7 +172,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
             <p className="ts-text-sm ts-font-normal" style={{ color: '#6b7280' }}>
                 <TextWithLink
                 id={'productUpgrade'}
-                url={phrasesByKey.application_invites_v3_rightTime_productUpgrade_url_1}
+                url={phrasesByKey.application_invites_v3_rightTime_productUpgrade_url}
                 text={phrasesByKey.application_invites_v3_rightTime_productUpgrade_text}
                 textStyle="ts-text-sm"
                 linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'
@@ -222,11 +222,11 @@ const SendReviewInvitesRightTime: FC<Props> = ({
           borderRadius: '10px',
         }}
       >
-        <InfoCircleOutlinedIcon size={20} customClass="ts-flex-shrink-0" />
+        <InfoCircleOutlinedIcon size={20} customClass="ts-flex-shrink-0 ts-text-blue-500" />
         <div>
           <TextWithLink
             id={'Control Centre'}
-            url={[phrasesByKey.application_invites_v3_rightTime_help_url_1]}
+            url={[phrasesByKey.application_invites_v3_rightTime_help_url]}
             text={phrasesByKey.application_invites_v3_rightTime_help_text}
             textStyle="ts-text-sm"
             linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'

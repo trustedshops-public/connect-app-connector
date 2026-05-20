@@ -1,3 +1,40 @@
+## [1.21.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.1...1.21.0) (2026-05-05)
+
+
+### Features
+
+* add checkout confirmation widget position ([61fb29c](https://github.com/trustedshops-public/connect-app-connector/commit/61fb29c0e5f8c80d0757e1063110d7c610823841))
+* add support for Shoper-specific login action phrase ([efaf774](https://github.com/trustedshops-public/connect-app-connector/commit/efaf774c0b341a9a730068950fd9c4d05a73f34c))
+* release trustedcheckout shopware changes ([5d017af](https://github.com/trustedshops-public/connect-app-connector/commit/5d017af23dd7ca612beeb7f9307281401c3d8b89))
+* TPSCON-4313 Adapt connect-layer-app to accept new position for confirmation page (shopware) ([dec303f](https://github.com/trustedshops-public/connect-app-connector/commit/dec303fffb07fb5217ac3e2c6bc783a14962731a))
+
+
+### Bug Fixes
+
+* update availableForType for checkout confirmation widget ([aba2d81](https://github.com/trustedshops-public/connect-app-connector/commit/aba2d81f1fad62d7f7f5019a9cbf12588af97c5a))
+
+## [1.20.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.0...1.20.1) (2026-04-22)
+
+
+### Bug Fixes
+
+* revert invite settings changes before release ([ce7674b](https://github.com/trustedshops-public/connect-app-connector/commit/ce7674b49fa45716e949a334c7226e720bbfd41f))
+
+## [1.20.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.1...1.20.0) (2026-03-23)
+
+
+### Features
+
+* add new localization keys for dashboard routes ([c2b89ee](https://github.com/trustedshops-public/connect-app-connector/commit/c2b89ee4c1f6540af66a30f6b4c11c83e376e771))
+* enhance UI components and add new features ([d755640](https://github.com/trustedshops-public/connect-app-connector/commit/d7556400d892699462367b8ddb046c45059411ea))
+
+
+### Bug Fixes
+
+* standardize property naming for support login across modules ([c410b31](https://github.com/trustedshops-public/connect-app-connector/commit/c410b31bdf3563c08c3b1eed0ddb6dd5a8a357c4))
+* update localization for settings label in dashboard ([68f8e88](https://github.com/trustedshops-public/connect-app-connector/commit/68f8e88cca1720d3ea7805cbf212a27291f7b4dc))
+* update widget description localization for dynamic system name ([799f04c](https://github.com/trustedshops-public/connect-app-connector/commit/799f04c756f369ed7ae2df30720fa6fd808bad1d))
+
 ## [1.19.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.19.0...1.19.1) (2026-01-05)
 
 

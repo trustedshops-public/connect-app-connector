@@ -1,5 +1,6 @@
 import { Fragment, h } from 'preact'
 import { FC, Suspense, useEffect, useState } from 'preact/compat'
+import { useRef } from 'preact/hooks'
 import Tabs, { ITabsConfig } from '@/components/layouts/tabs'
 // Logo removed from dashboard header
 import { DASHBOARD_KEYS } from '@/locales/types'
@@ -22,6 +23,7 @@ import {
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
 // BackgroundCard removed from dashboard
 import ChannelSelectModal from './channelSelectModal'
+import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
@@ -36,6 +38,11 @@ const DashboardPageModule: FC<{
   const [openTab, setOpenTab] = useState<number>(0)
   const [showModal, setShowModal] = useState<boolean>(false)
   const [showSettings, setShowSettings] = useState<boolean>(false)
+  const [showTrustbadgeActivation, setShowTrustbadgeActivation] = useState(false)
+  const [isPostMappingLoading, setIsPostMappingLoading] = useState(false)
+  const isFirstTimeSelectionRef = useRef(false)
+  const prevShowModalRef = useRef(false)
+  const pendingActivationModalRef = useRef(false)
 
   const [tabConfig, setTabConfig] = useState<Nullable<ITabsConfig[]>>(null)
 
@@ -114,6 +121,8 @@ const DashboardPageModule: FC<{
     getEventTypesFromApi,
     getEventTypesFromApi_v2,
     setInitialOrderStatusByMapping,
+    getTrstdLoginConfiguration,
+    clearTrstdLoginState,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -133,6 +142,14 @@ const DashboardPageModule: FC<{
       }
       getTrustbadge(selectedShopChannels)
       clearWidgetData()
+      clearTrstdLoginState()
+
+      if (
+        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportTrstdLogin') &&
+        infoOfSystem.allowsSupportTrstdLogin
+      ) {
+        getTrstdLoginConfiguration(selectedShopChannels)
+      }
 
       setIsLoading(true)
       setETrustedChannelRef({
@@ -173,7 +190,7 @@ const DashboardPageModule: FC<{
       }
 
       if (displayReviewTab && !isVersionTwo) {
-        // call EventTypes for v1
+        // call EventTypes for v1 
         if (
           Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
           infoOfSystem.allowsSendReviewInvitesForProduct
@@ -243,6 +260,12 @@ const DashboardPageModule: FC<{
           await getEventTypesFromApi_v2()
         }
       }
+
+      if (pendingActivationModalRef.current) {
+        pendingActivationModalRef.current = false
+        setIsPostMappingLoading(false)
+        setShowTrustbadgeActivation(true)
+      }
     }
     fetchData()
   }, [selectedShopChannels])
@@ -277,9 +300,19 @@ const DashboardPageModule: FC<{
         setSelectedChannels(mappedChannelsResult)
         setIsChannelsLoading(false)
         setShowModal(true)
+        isFirstTimeSelectionRef.current = true
       }
     }
   }, [channelsFromTSC, shopChannels])
+
+  useEffect(() => {
+    if (prevShowModalRef.current && !showModal && isFirstTimeSelectionRef.current) {
+      isFirstTimeSelectionRef.current = false
+      pendingActivationModalRef.current = true
+      setIsPostMappingLoading(true)
+    }
+    prevShowModalRef.current = showModal
+  }, [showModal])
 
   const handleNavigateToTab = (tabId: number) => {
     setShowSettings(false)
@@ -463,6 +496,19 @@ const DashboardPageModule: FC<{
             phrasesByKey={phrasesByKey}
             showModal={showModal}
             setShowModal={setShowModal}
+          />
+          {isPostMappingLoading && (
+            <Fragment>
+              <div className="ts-justify-center ts-items-center ts-flex ts-fixed ts-inset-0 ts-z-50">
+                <Spinner />
+              </div>
+              <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+            </Fragment>
+          )}
+          <TrustSignalsActivationModal
+            phrasesByKey={phrasesByKey}
+            showModal={showTrustbadgeActivation}
+            onClose={() => setShowTrustbadgeActivation(false)}
           />
         </Suspense>
       </>

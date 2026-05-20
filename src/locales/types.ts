@@ -395,8 +395,30 @@ export type AUTH_KEYS = {
     overview_invites_status_enabled: string
     overview_invites_status_inactive: string
     overview_invites_button_manage: string
+    activation_modal_title: string
+    activation_modal_description: string
+    activation_modal_button_customize: string
+    activation_modal_button_goLive: string
   }
 
+export type ITRSTD_LOGIN_KEYS = { 
+  application_trstd_login_header_title: string
+  application_trstd_login_header_description: string
+  application_trstd_login_toggle_label: string
+  application_trstd_login_automatic_placement_title: string
+  application_trstd_login_automatic_placement_description: string
+  application_trstd_login_automatic_placement_mobile: string
+  application_trstd_login_automatic_placement_desktop: string
+  application_trstd_login_action_required: string
+  application_trstd_login_action_required_shoper: string
+  application_trstd_login_about_title: string
+  application_trstd_login_about_description: string
+  application_trstd_login_about_learnMore: string
+  application_trstd_login_about_learnMore_url: string
+  application_trstd_login_popup_title: string
+  application_trstd_login_popup_text: string
+  application_trstd_login_popup_submit: string
+}
 
 export type ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: string
@@ -471,6 +493,7 @@ export type IWIDGETS_KEYS = {
   application_widgets_position_productlistings: string
   application_widgets_position_productname: string
   application_widgets_position_custom: string
+  application_widgets_position_checkout_confirmation: string
   application_widgets_name_MiniStars: string
   application_widgets_name_FullReviewList: string
   application_widgets_name_ReviewCarousel: string
@@ -545,7 +568,7 @@ export type INVITES_KEYS = {
   application_invites_v3_rightTime_productReviews: string
   application_invites_v3_rightTime_placeholder: string
   application_invites_v3_rightTime_productUpgrade_text: string
-  application_invites_v3_rightTime_productUpgrade_url_1: string
+  application_invites_v3_rightTime_productUpgrade_url: string
   application_invites_v3_previousOrders_title: string
   application_invites_v3_previousOrders_description: string
   application_invites_v3_previousOrders_step1_title: string
@@ -554,9 +577,9 @@ export type INVITES_KEYS = {
   application_invites_v3_previousOrders_step2_title: string
   application_invites_v3_previousOrders_step2_description: string
   application_invites_v3_previousOrders_step2_buttonLabel: string
-  application_invites_v3_previousOrders_step2_url_1: string
+  application_invites_v3_previousOrders_step2_url: string
   application_invites_v3_rightTime_help_text: string
-  application_invites_v3_rightTime_help_url_1: string
+  application_invites_v3_rightTime_help_url: string
 }
 
 export type SETTINGS_KEYS = {
@@ -581,7 +604,7 @@ export type SETTINGS_KEYS = {
   application_settings_disconnect_warning_title: string
   application_settings_help_title: string
   application_settings_help_text: string
-  application_settings_help_url_1: string
+  application_settings_help_url: string
 }
 
 export type CHANNEL_KEYS = {
@@ -607,8 +630,9 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   SETTINGS_KEYS &
   INVITES_KEYS &
   IWIDGETS_KEYS &
+  ITRSTD_LOGIN_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS &
   OVERVIEW_KEYS
 
-export type SelectedTab = '' | 'channelSelector' | 'invites' | 'settings' | 'trustbadge' | 'widgets'
+export type SelectedTab = '' | 'channelSelector'| 'initialConfiguration' | 'trstdLogin' | 'invites' | 'settings' | 'trustbadge' | 'widgets'

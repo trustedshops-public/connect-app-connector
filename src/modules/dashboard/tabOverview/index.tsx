@@ -2,7 +2,7 @@ import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorTrustbadgeState } from '@/store/selector'
+import { selectorInfoOfSystem, selectorTrstdLogin, selectorTrustbadgeState } from '@/store/selector'
 import TrstdLoginOverview from '@/assets/trstd-login-overview.svg'
 import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
@@ -18,8 +18,11 @@ interface OverviewTabProps extends TabProps {
 
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
+  const { trstdLoginData } = useStore(selectorTrstdLogin)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { allowsSupportTrstdLogin } = infoOfSystem
+
+  const isTrstdLoginActive = trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
 
   const isTrustbadgeActive =
     trustbadgeDataChild.attributes &&
@@ -35,7 +38,8 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       description: phrasesByKey.overview_trstd_login_description,
       illustration: TrstdLoginOverview,
       hasStatus: true,
-      statusLabel: phrasesByKey.overview_trstd_login_status_enabled,
+      isActive: isTrstdLoginActive,
+      statusLabel: isTrstdLoginActive ? phrasesByKey.overview_trstd_login_status_enabled : phrasesByKey.overview_trstd_login_status_inactive,
       buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
     {
@@ -115,6 +119,8 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
                 </h3>
                 {'hasStatus' in card && (
                   <div
+                    data-testid={`overview_status_${card.id}`}
+                    id={`overview_status_${card.id}`}
                     className="ts-flex ts-items-center ts-gap-1.5 ts-flex-shrink-0 ts-ml-2"
                     style={{
                       backgroundColor: ('isActive' in card && !card.isActive) ? '#F3F4F6' : '#E0FAF0',
@@ -146,6 +152,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
 
               <div className="ts-mt-auto">
                 <StyledButton
+                  id={`overview_${card.id}`}
                   variant="primary"
                   onClick={() => onNavigateToTab(card.tabId)}
                 >

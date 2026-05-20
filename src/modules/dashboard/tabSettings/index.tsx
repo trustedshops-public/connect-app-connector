@@ -194,7 +194,7 @@ const SettingsTab: FC<TabProps> = ({ phrasesByKey }) => {
             <p className="ts-text-sm ts-font-normal ts-whitespace-pre-wrap" style={{ color: '#6b7280' }}>
               {getStringWithUrlFromPhrases(
                 phrasesByKey.application_settings_help_text,
-                phrasesByKey.application_settings_help_url_1,
+                phrasesByKey.application_settings_help_url,
               ).map((item, index) =>
                 item.url ? (
                   <a

@@ -10,6 +10,7 @@ import {
   ROUTES_KEYS,
   SETTINGS_KEYS,
   SHOPIFY_GLOBAL_KEYS,
+  ITRSTD_LOGIN_KEYS,
 } from './types'
 
 export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
@@ -87,6 +88,29 @@ const PHRASES_OVERVIEW_KEYS: OVERVIEW_KEYS = {
   overview_invites_status_enabled: 'application.overview.invites.status.enabled',
   overview_invites_status_inactive: 'application.overview.invites.status.inactive',
   overview_invites_button_manage: 'application.overview.invites.button.manage',
+  activation_modal_title: 'application.activation_modal.title',
+  activation_modal_description: 'application.activation_modal.description',
+  activation_modal_button_customize: 'application.activation_modal.button.customize',
+  activation_modal_button_goLive: 'application.activation_modal.button.goLive',
+}
+
+const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
+  application_trstd_login_header_title: 'application.trstd_login.header.title',
+  application_trstd_login_header_description: 'application.trstd_login.header.description',
+  application_trstd_login_toggle_label: 'application.trstd_login.toggle.label',
+  application_trstd_login_automatic_placement_title: 'application.trstd_login.automatic_placement.title',
+  application_trstd_login_automatic_placement_description: 'application.trstd_login.automatic_placement.description',
+  application_trstd_login_automatic_placement_mobile: 'application.trstd_login.automatic_placement.mobile',
+  application_trstd_login_automatic_placement_desktop: 'application.trstd_login.automatic_placement.desktop',
+  application_trstd_login_action_required: 'application.trstd_login.action_required',
+  application_trstd_login_action_required_shoper: 'application.trstd_login.action_required_shoper',
+  application_trstd_login_about_title: 'application.trstd_login.about.title',
+  application_trstd_login_about_description: 'application.trstd_login.about.description',
+  application_trstd_login_about_learnMore: 'application.trstd_login.about.learnMore',
+  application_trstd_login_about_learnMore_url: 'application.trstd_login.about.learnMore_url',
+  application_trstd_login_popup_title: 'application.trstd_login.popup.title',
+  application_trstd_login_popup_text: 'application.trstd_login.popup.text',
+  application_trstd_login_popup_submit: 'application.trstd_login.popup.submit',
 }
 const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: 'application.trustbadge.integrationmode',
@@ -96,8 +120,7 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_subtitel: 'application.trustbadge.subtitel',
   application_trustbadge_description: 'application.trustbadge.description',
   application_trustbadge_placement_desktop: 'application.trustbadge.placement.desktop',
-  application_trustbadge_placement_inputDescription:
-    'application.trustbadge.placement.inputDescription',
+  application_trustbadge_placement_inputDescription: 'application.trustbadge.placement.inputDescription',
   application_trustbadge_placement_pixels: 'application.trustbadge.placement.pixels',
   application_trustbadge_placement_mobile: 'application.trustbadge.placement.mobile',
   application_trustbadge_placement_center: 'application.trustbadge.placement.center',
@@ -160,6 +183,7 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_position_header: 'application.widgets.position.header',
   application_widgets_position_footer: 'application.widgets.position.footer',
   application_widgets_position_custom: 'application.widgets.position.custom',
+  application_widgets_position_checkout_confirmation: 'application.widgets.position.checkoutConfirmation',
   application_widgets_position_productname: 'application.widgets.position.productname',
   application_widgets_position_productdescription:
     'application.widgets.position.productdescription',
@@ -266,7 +290,7 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
   application_invites_v3_rightTime_productReviews: 'application.invites.v3.rightTime.productReviews',
   application_invites_v3_rightTime_placeholder: 'application.invites.v3.rightTime.placeholder',
   application_invites_v3_rightTime_productUpgrade_text: 'application.invites.v3.rightTime.productUpgrade.text',
-  application_invites_v3_rightTime_productUpgrade_url_1: 'application.invites.v3.rightTime.productUpgrade.url_1',
+  application_invites_v3_rightTime_productUpgrade_url: 'application.invites.v3.rightTime.productUpgrade.url',
   application_invites_v3_previousOrders_title: 'application.invites.v3.previousOrders.title',
   application_invites_v3_previousOrders_description: 'application.invites.v3.previousOrders.description',
   application_invites_v3_previousOrders_step1_title: 'application.invites.v3.previousOrders.step1.title',
@@ -275,9 +299,9 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
   application_invites_v3_previousOrders_step2_title: 'application.invites.v3.previousOrders.step2.title',
   application_invites_v3_previousOrders_step2_description: 'application.invites.v3.previousOrders.step2.description',
   application_invites_v3_previousOrders_step2_buttonLabel: 'application.invites.v3.previousOrders.step2.buttonLabel',
-  application_invites_v3_previousOrders_step2_url_1: 'application.invites.v3.previousOrders.step2.url_1',
+  application_invites_v3_previousOrders_step2_url: 'application.invites.v3.previousOrders.step2.url',
   application_invites_v3_rightTime_help_text: 'application.invites.v3.rightTime.help.text',
-  application_invites_v3_rightTime_help_url_1: 'application.invites.v3.rightTime.help.url_1',
+  application_invites_v3_rightTime_help_url: 'application.invites.v3.rightTime.help.url',
 }
 
 export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
@@ -302,7 +326,7 @@ export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
   application_settings_disconnect_warning_title: 'application.settings.disconnect.warningTitle',
   application_settings_help_title: 'application.settings.help.title',
   application_settings_help_text: 'application.settings.help.text',
-  application_settings_help_url_1: 'application.settings.help.url_1',
+  application_settings_help_url: 'application.settings.help.url',
 }
 
 const PHRASES_CHANNEL_KEYS: CHANNEL_KEYS = {
@@ -324,6 +348,7 @@ const PHRASES_ROUTES_KEYS: ROUTES_KEYS = {
 }
 
 export const PHRASES_DASHBOARD_KEYS: DASHBOARD_KEYS = {
+  ...PHRASES_TRSTD_LOGIN_KEYS,
   ...PHRASES_TRUSTBADGE_KEYS,
   ...PHRASES_WIDGETS_KEYS,
   ...PHRASES_INVITES_KEYS,

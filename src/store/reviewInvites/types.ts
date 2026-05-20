@@ -44,7 +44,6 @@ export interface InviteSettingsByChannelType {
   createdAt?: string
   eventTypeId?: string
   id?: string
-  enabled?: boolean
   productInviteConfiguration?: InviteConfiguration
   serviceInviteConfiguration?: InviteConfiguration
 }

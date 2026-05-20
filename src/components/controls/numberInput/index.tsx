@@ -40,7 +40,20 @@ const NumberInput: FC<Props> = ({ value = '', min, max, disabled, onChange, id }
   }
 
   return (
-    <div className={`ts-relative ts-w-full`}>
+    <div className={`ts-relative ts-w-full ts-hide-number-spin`}>
+      <style>{`
+        .ts-hide-number-spin input[type=number]::-webkit-inner-spin-button,
+        .ts-hide-number-spin input[type=number]::-webkit-outer-spin-button {
+          -webkit-appearance: none !important;
+          appearance: none !important;
+          display: none !important;
+          margin: 0 !important;
+        }
+        .ts-hide-number-spin input[type=number] {
+          -moz-appearance: textfield !important;
+          appearance: textfield !important;
+        }
+      `}</style>
       <Input
         id={`number_${id}`}
         type="number"

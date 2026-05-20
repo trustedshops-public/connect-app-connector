@@ -6,6 +6,7 @@ import { EventType, InviteSettingsByChannelType } from '@/store/reviewInvites/ty
 
 const PROXY_API_URL = process.env.VITE_PROXY_API_URL || ''
 const CONFIGURATION_API_URL = process.env.VITE_CONFIGURATION_API_URL || ''
+const MIDDLEWARE_API_URL = process.env.VITE_MIDDLEWARE_API_URL || ''
 
 const VERSION_NUMBER_OF_APP = process.env.VITE_VERSION_NUMBER_OF_APP || ''
 const NAME_OF_APP = process.env.VITE_NAME_OF_APP || ''
@@ -271,6 +272,43 @@ await post<object, object>(
     },
     body,
   )
+}
+
+export interface ITrstdLoginRequest {
+  channelId: string
+  trstdLoginEnabled: boolean
+}
+
+export interface ITrstdLoginResponse {
+  channelId: string
+  integrationId?: string
+  trstdLoginEnabled?: boolean
+  error?: string
+}
+
+export const postTrstdLoginConfiguration = async (
+  infoOfSystem: IUserInfo,
+  token: string,
+  body: ITrstdLoginRequest[],
+): Promise<ITrstdLoginResponse> => {
+  const response = await post<ITrstdLoginResponse | ITrstdLoginResponse[], ITrstdLoginRequest[]>(
+    MIDDLEWARE_API_URL,
+    '/trstd-login-configuration',
+    {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      params: {
+        'Trustedshops-ConnectorModule': NAME_OF_APP,
+        'Trustedshops-ConnectorModuleVersion': VERSION_NUMBER_OF_APP,
+        'Trustedshops-ClientSystem': infoOfSystem.nameOfSystem || '',
+        'Trustedshops-ClientSystemVersion': infoOfSystem.versionNumberOfSystem || '',
+      },
+    },
+    body,
+  )
+  return Array.isArray(response) ? response[0] : response
 }
 
 export enum ActionTypes {
