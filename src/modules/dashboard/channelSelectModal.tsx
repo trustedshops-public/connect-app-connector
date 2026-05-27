@@ -122,7 +122,10 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                   boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
                 }}
               >
-                <div className="ts-p-5 sm:ts-p-10">
+                <div
+                  className="ts-p-5 sm:ts-p-10 ts-flex ts-flex-col"
+                  style={{ maxHeight: 'calc(100vh - 2rem)', minHeight: 0 }}
+                >
                   <h2
                     className="ts-text-default ts-font-bold ts-mb-2"
                     style={{ fontSize: '20px', lineHeight: '28px' }}
@@ -138,7 +141,12 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
                       .replace(/\.(?=[A-Z])/g, '.\n')}
                   </p>
 
-                  <ChannelSelectionForm phrasesByKey={phrasesByKey} />
+                  <div
+                    className="ts-overflow-y-auto"
+                    style={{ flex: '1 1 auto', minHeight: 0 }}
+                  >
+                    <ChannelSelectionForm phrasesByKey={phrasesByKey} />
+                  </div>
 
                   <StyledButton
                     id="saveChannelsModal"
