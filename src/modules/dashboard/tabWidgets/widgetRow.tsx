@@ -200,7 +200,7 @@ const WidgetRow: FC<Props> = ({
 
         <div
           id={`widget_content_${widget.widgetId}`}
-          className="ts-text-left ts-w-th3"
+          className="ts-text-left ts-w-th3 ts-pr-2"
         >
           <Tag
             label={phrasesByKey[ContentTranslate[widget.applicationType]]}

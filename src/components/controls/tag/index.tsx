@@ -75,11 +75,11 @@ const Tag: FC<Props> = ({ label, isWarning, variant = 'status' }: Props) => {
 
   return (
     <div
-      className="ts-px-2.5 ts-py-1 ts-flex ts-items-center ts-gap-1 ts-w-max ts-rounded-full ts-truncate"
+      className="ts-px-2.5 ts-py-1 ts-flex ts-items-center ts-gap-1 ts-w-max ts-max-w-full ts-rounded-full ts-truncate"
       style={{ backgroundColor: styles.bg, color: styles.color, fontSize: '12px' }}
     >
-      {styles.icon}
-      <span title={label} className="ts-truncate ts-font-normal" style={{ lineHeight: '16px' }}>
+      <span className="ts-flex-shrink-0 ts-flex">{styles.icon}</span>
+      <span title={label} className="ts-truncate ts-font-normal ts-min-w-0" style={{ lineHeight: '16px' }}>
         {label}
       </span>
     </div>
