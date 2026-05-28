@@ -1,3 +1,10 @@
+## [1.21.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.1...1.21.2) (2026-05-28)
+
+
+### Bug Fixes
+
+* Update styles and structure in Tag and ChannelSelectModal components, Optimise Trustbadge code regex ([9675936](https://github.com/trustedshops-public/connect-app-connector/commit/9675936442fe5f611dca42dc3b2499e4f505692f))
+
 ## [1.21.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.0...1.21.1) (2026-05-20)
 
 
