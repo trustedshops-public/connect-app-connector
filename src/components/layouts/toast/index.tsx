@@ -14,6 +14,10 @@ export enum Statuses {
   cacheclear = 'cacheclear',
 }
 
+const BACKEND_ERROR_KEY_MAP: Record<string, keyof DASHBOARD_KEYS> = {
+  TRSTD_LOGIN_CONFIGURATION_UPDATE_ERROR: 'global_notification_error_save',
+}
+
 interface IProps<T> {
   list: Array<T>
   item: T
@@ -23,6 +27,8 @@ interface IProps<T> {
 
 const Toast: FC<IProps<IToastList>> = ({ item, deleteToast, phrasesByKey }) => {
   const isError = item.status === Statuses.error
+  const mappedErrorKey = item.errorText ? BACKEND_ERROR_KEY_MAP[item.errorText] : undefined
+  const errorTextToDisplay = mappedErrorKey ? phrasesByKey[mappedErrorKey] : item.errorText
 
   return (
     <div
@@ -79,7 +85,7 @@ const Toast: FC<IProps<IToastList>> = ({ item, deleteToast, phrasesByKey }) => {
         <div className="ts-flex-1" style={{ paddingTop: '1px' }}>
           {item.errorText ? (
             <p className="ts-text-sm ts-font-bold" style={{ color: isError ? '#991B1B' : '#166534', lineHeight: '20px' }}>
-              {item.errorText}
+              {errorTextToDisplay}
             </p>
           ) : (
             <p id="status_popup" className="ts-text-sm ts-font-bold" style={{ color: isError ? '#991B1B' : '#166534', lineHeight: '20px' }}>
