@@ -20,7 +20,13 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
   const { trstdLoginData } = useStore(selectorTrstdLogin)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
-  const { allowsSupportTrstdLogin } = infoOfSystem
+  const { allowsSupportTrstdLogin, allowsEstimatedDeliveryDate, allowsEventsByOrderStatus, allowsSendReviewInvitesForPreviousOrders, allowsSendReviewInvitesForProduct } = infoOfSystem
+
+  const displayReviewCard =
+    allowsEstimatedDeliveryDate ||
+    allowsEventsByOrderStatus ||
+    allowsSendReviewInvitesForPreviousOrders ||
+    allowsSendReviewInvitesForProduct
 
   const isTrstdLoginActive = trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
 
@@ -61,14 +67,14 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       illustration: WidgetsOverview,
       buttonLabel: phrasesByKey.overview_widgets_button_manage,
     },
-    {
+    ...(displayReviewCard ? [{
       id: 'review-invites',
       tabId: 4,
       title: phrasesByKey.overview_invites_title,
       description: phrasesByKey.overview_invites_description,
       illustration: ReviewInvitesOverview,
       buttonLabel: phrasesByKey.overview_invites_button_manage,
-    },
+    }] : []),
   ]
 
   return (
