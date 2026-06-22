@@ -1,3 +1,11 @@
+## [1.21.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.2...1.21.3) (2026-06-22)
+
+
+### Bug Fixes
+
+* Conditionally render review invites overview card based on system support ([c261b7d](https://github.com/trustedshops-public/connect-app-connector/commit/c261b7da9b04d66ad9d2cb2ca1032d523cf79067))
+* Trusted login error mapped to general error ([c52fa1d](https://github.com/trustedshops-public/connect-app-connector/commit/c52fa1d7c3568c968fa04e49e748b9302dd3f0de))
+
 ## [1.21.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.1...1.21.2) (2026-05-28)
 
 
