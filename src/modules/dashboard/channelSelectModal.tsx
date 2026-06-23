@@ -102,6 +102,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
         }
       }
     } finally {
+      await new Promise(resolve => setTimeout(resolve, 3000))
       setIsSavingChannelDefaults(false)
     }
   }

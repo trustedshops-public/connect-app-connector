@@ -2,6 +2,7 @@ import { h, Fragment } from 'preact'
 import { FC, useState } from 'preact/compat'
 import { useEffect, useRef } from 'preact/hooks'
 import StyledButton from '@/components/controls/styledButton'
+import { ScrinSpinner } from '@/components/layouts/spinner'
 import useStore from '@/store/useStore'
 import { selectAllState, selectorAuth, selectorChannels, selectorInfoOfSystem } from '@/store/selector'
 import { getEtrustedID, putEtrustedConfiguration } from '@/api/api'
@@ -119,6 +120,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
 
   return (
     <Fragment>
+      {isLoading && <ScrinSpinner />}
       {showModal && (
         <Fragment>
           <div
