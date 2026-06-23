@@ -57,7 +57,6 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
     setIsLoading(true)
 
     await waitForChannelDefaultsToSave()
-    await new Promise(resolve => setTimeout(resolve, 1500))
 
     for (const channel of mappedChannels) {
       try {
