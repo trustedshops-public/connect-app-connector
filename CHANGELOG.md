@@ -1,3 +1,10 @@
+## [1.21.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.3...1.21.4) (2026-06-23)
+
+
+### Bug Fixes
+
+* Wait for channel mapping defaults to finish before Go Live trustbadge save ([eca9a56](https://github.com/trustedshops-public/connect-app-connector/commit/eca9a56d4b1536333293729144dee677d2d7196a))
+
 ## [1.21.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.2...1.21.3) (2026-06-22)
 
 
