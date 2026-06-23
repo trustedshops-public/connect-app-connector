@@ -26,10 +26,10 @@ const Spinner: FC = () => {
 export const ScrinSpinner: FC = () => {
   return (
     <>
-      <div className="ts-justify-center ts-items-center ts-flex ts-overflow-x-hidden ts-overflow-y-auto ts-fixed ts-inset-0 ts-z-50 ts-outline-none focus:ts-outline-none">
+      <div className="ts-justify-center ts-items-center ts-flex ts-overflow-x-hidden ts-overflow-y-auto ts-fixed ts-inset-0 ts-z-[70] ts-outline-none focus:ts-outline-none">
         <Spinner />
       </div>
-      <div className="ts-opacity-20 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+      <div className="ts-opacity-20 ts-fixed ts-inset-0 ts-z-[60] ts-bg-black" />
     </>
   )
 }
