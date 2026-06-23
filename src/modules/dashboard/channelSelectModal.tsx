@@ -23,6 +23,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
   const modalRef = useRef<HTMLDivElement>(null)
   const {
     setIsLoadingSave,
+    setIsSavingChannelDefaults,
     setInitialOrderStatusByMapping,
   } = useStore()
   const { selectedChannels, initialSelectedChannels } = useStore(selectorChannels)
@@ -52,51 +53,56 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
     setShowModal(false)
 
     const token = user?.access_token
-    for (const channel of selectedChannels) {
-      const isExisting = initialSelectedChannels.some(
-        item =>
-          item.eTrustedChannelRef === channel.eTrustedChannelRef &&
-          item.salesChannelRef === channel.salesChannelRef,
-      )
-      if (isExisting) continue
-
-      try {
-        const response = await getEtrustedID(channel, infoOfSystem, token as string)
-        const defaultTrustbadge = getTrustbadgeDefault(response.tsId)
-
-        dispatchAction({
-          action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
-          payload: {
-            ...defaultTrustbadge,
-            eTrustedChannelRef: channel.eTrustedChannelRef,
-            salesChannelRef: channel.salesChannelRef,
-          },
-        })
-
-        const channelAllState = {
-          ...allState,
-          trustbadgeState: {
-            ...allState.trustbadgeState,
-            trustbadgeId: response.tsId,
-            trustbadgeDataChild: defaultTrustbadge.children[0],
-            initialTrustbadgeDataChild: defaultTrustbadge.children[0],
-          },
-          channelState: {
-            ...allState.channelState,
-            selectedShopChannels: channel,
-            selectedeTrustedChannelRef: channel.eTrustedChannelRef,
-          },
-        }
-
-        await handleEtrustedConfiguration(
-          token,
-          channelAllState,
-          'channelSelector',
-          putEtrustedConfiguration,
+    setIsSavingChannelDefaults(true)
+    try {
+      for (const channel of selectedChannels) {
+        const isExisting = initialSelectedChannels.some(
+          item =>
+            item.eTrustedChannelRef === channel.eTrustedChannelRef &&
+            item.salesChannelRef === channel.salesChannelRef,
         )
-      } catch (error) {
-        console.error(`Error saving trustbadge for channel ${channel.eTrustedChannelRef}:`, error)
+        if (isExisting) continue
+
+        try {
+          const response = await getEtrustedID(channel, infoOfSystem, token as string)
+          const defaultTrustbadge = getTrustbadgeDefault(response.tsId)
+
+          dispatchAction({
+            action: EVENTS.SAVE_TRUSTBADGE_CONFIGURATION,
+            payload: {
+              ...defaultTrustbadge,
+              eTrustedChannelRef: channel.eTrustedChannelRef,
+              salesChannelRef: channel.salesChannelRef,
+            },
+          })
+
+          const channelAllState = {
+            ...allState,
+            trustbadgeState: {
+              ...allState.trustbadgeState,
+              trustbadgeId: response.tsId,
+              trustbadgeDataChild: defaultTrustbadge.children[0],
+              initialTrustbadgeDataChild: defaultTrustbadge.children[0],
+            },
+            channelState: {
+              ...allState.channelState,
+              selectedShopChannels: channel,
+              selectedeTrustedChannelRef: channel.eTrustedChannelRef,
+            },
+          }
+
+          await handleEtrustedConfiguration(
+            token,
+            channelAllState,
+            'channelSelector',
+            putEtrustedConfiguration,
+          )
+        } catch (error) {
+          console.error(`Error saving trustbadge for channel ${channel.eTrustedChannelRef}:`, error)
+        }
       }
+    } finally {
+      setIsSavingChannelDefaults(false)
     }
   }
 

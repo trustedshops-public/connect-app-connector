@@ -16,6 +16,7 @@ const onChangeSelectedShopChennel = (
 const initialState: IChannelState = {
   isChannelsLoading: false,
   isLoadingSave: false,
+  isSavingChannelDefaults: false,
   isDisconnectLoading: false,
   showChannelModal: true,
   shopChannels: [] as Array<IChannelTS>,
@@ -57,6 +58,14 @@ export const channelStore = (set: SetState<AppStore>, get: GetState<AppStore>): 
       channelState: {
         ...store.channelState,
         isLoadingSave: value,
+      },
+    }))
+  },
+  setIsSavingChannelDefaults: (value: boolean) => {
+    set(store => ({
+      channelState: {
+        ...store.channelState,
+        isSavingChannelDefaults: value,
       },
     }))
   },

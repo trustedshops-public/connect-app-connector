@@ -33,6 +33,20 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
     }
   }, [showModal])
 
+  const waitForChannelDefaultsToSave = (): Promise<void> =>
+    new Promise(resolve => {
+      if (!useStore.getState().channelState.isSavingChannelDefaults) {
+        resolve()
+        return
+      }
+      const unsubscribe = useStore.subscribe(state => {
+        if (!state.channelState.isSavingChannelDefaults) {
+          unsubscribe()
+          resolve()
+        }
+      })
+    })
+
   const handleGoLive = async () => {
     if (!isChecked || isLoading) return
 
@@ -40,6 +54,8 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
     if (!token) return
 
     setIsLoading(true)
+
+    await waitForChannelDefaultsToSave()
 
     for (const channel of mappedChannels) {
       try {
