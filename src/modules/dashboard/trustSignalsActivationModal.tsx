@@ -120,7 +120,6 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
 
   return (
     <Fragment>
-      {isLoading && <ScrinSpinner />}
       {showModal && (
         <Fragment>
           <div
@@ -261,6 +260,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
           <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
         </Fragment>
       )}
+      {isLoading && <ScrinSpinner />}
     </Fragment>
   )
 }
