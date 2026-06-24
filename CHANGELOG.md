@@ -1,3 +1,14 @@
+## [1.21.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.4...1.21.5) (2026-06-24)
+
+
+### Bug Fixes
+
+* added delay to prevent showing the trustsignals before finalising channel mapping ([184a079](https://github.com/trustedshops-public/connect-app-connector/commit/184a0792d23988adf794d46fa462e98be46aae22))
+* added delay to solve concurrency issues ([399c854](https://github.com/trustedshops-public/connect-app-connector/commit/399c8542b3f0c27f58d1bc1ccd68cca948fd4b95))
+* make loader visible on top of modal ([66ed761](https://github.com/trustedshops-public/connect-app-connector/commit/66ed7615b7aa3cc0739d02ce5ec6aaf7a04c3450))
+* remove timeout ([437f787](https://github.com/trustedshops-public/connect-app-connector/commit/437f787355487382f2cf01441cd4c6678c9c1100))
+* remove unnecesary delay ([12e1b53](https://github.com/trustedshops-public/connect-app-connector/commit/12e1b534904c02ff5f99d60875115e499c29ae26))
+
 ## [1.21.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.3...1.21.4) (2026-06-23)
 
 
