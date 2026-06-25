@@ -27,7 +27,8 @@ const LoginPageModule: FC<{
 
   const { signIn } = useStore()
   const { isAuthFailed, isAuthLoading } = useStore(selectorAuth)
-  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const { infoOfSystem, language } = useStore(selectorInfoOfSystem)
+  const shortLocale = (language || '').split('-')[0].toLowerCase()
 
   const [nameOfSystem, setNameOfSystem] = useState('')
   const [clientIdError, setClientIdError] = useState<string | null>(null)
@@ -166,7 +167,7 @@ const LoginPageModule: FC<{
                     id="salesLink"
                     text={phrasesByKey.authentication_salesLink_text}
                     url={phrasesByKey.authentication_salesLink_url_1.concat(
-                      `?a_aid=${nameOfSystem}`,
+                      `/${shortLocale}`,
                     )}
                     textStyle="ts-text-default ts-font-normal ts-text-sm"
                     
