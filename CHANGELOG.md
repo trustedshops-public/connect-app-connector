@@ -1,3 +1,10 @@
+## [1.21.8](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.7...1.21.8) (2026-06-25)
+
+
+### Bug Fixes
+
+* Split also for - ([d122f85](https://github.com/trustedshops-public/connect-app-connector/commit/d122f85faa9357b502ef1a745972a312155bd031))
+
 ## [1.21.7](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.6...1.21.7) (2026-06-25)
 
 
