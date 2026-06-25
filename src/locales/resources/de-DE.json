@@ -447,7 +447,7 @@
     },
     "salesLink": {
       "text": "[%s]Neu bei Trusted Shops?[%s]",
-      "url_1": "https://checkout.trustedshops.com"
+      "url_1": "https://booking.trustedshops.com"
     },
     "secret": "Client Secret",
     "supporthelp": {
