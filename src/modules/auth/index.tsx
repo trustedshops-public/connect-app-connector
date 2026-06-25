@@ -29,7 +29,7 @@ const LoginPageModule: FC<{
   const { isAuthFailed, isAuthLoading } = useStore(selectorAuth)
   const { infoOfSystem, language } = useStore(selectorInfoOfSystem)
   
-  const shortLocale = (language || '').split('_')[0].toLowerCase()
+  const shortLocale = (language || '').split(/[-_]/)[0].toLowerCase()
 
   const [nameOfSystem, setNameOfSystem] = useState('')
   const [clientIdError, setClientIdError] = useState<string | null>(null)
