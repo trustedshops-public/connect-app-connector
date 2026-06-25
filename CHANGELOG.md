@@ -1,3 +1,10 @@
+## [1.21.7](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.6...1.21.7) (2026-06-25)
+
+
+### Bug Fixes
+
+* push small change to invoke release Tag for prod with phrase changes ([c627c83](https://github.com/trustedshops-public/connect-app-connector/commit/c627c83666c8da33f88c0157c34ad8e97d7782bd))
+
 ## [1.21.6](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.5...1.21.6) (2026-06-25)
 
 
