@@ -1,3 +1,11 @@
+## [1.21.6](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.5...1.21.6) (2026-06-25)
+
+
+### Bug Fixes
+
+* Append locale to sales link URL instead of a_aid query param ([7bc82a0](https://github.com/trustedshops-public/connect-app-connector/commit/7bc82a0776567743004f76b01ea8180829dfd20d))
+* correction from - to _ on locale split ([316e98a](https://github.com/trustedshops-public/connect-app-connector/commit/316e98a1399534a556d85a0e216ff0f63dd97c41))
+
 ## [1.21.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.4...1.21.5) (2026-06-24)
 
 
