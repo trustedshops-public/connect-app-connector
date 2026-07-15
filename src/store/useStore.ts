@@ -21,6 +21,8 @@ import { reviewInvitesActionsStore } from './reviewInvites/reviewInvitesSendActi
 import { reviewInvitesActionsStore_v2 } from './reviewInvites/reviewInvitesSendActions_v2'
 import { trstdLoginStore } from './trstdLogin'
 import { ITrstdLoginStore } from './trstdLogin/types'
+import { structuredMarkupStore } from './structuredMarkup'
+import { IStructuredMarkupStore } from './structuredMarkup/types'
 export type AppStore = ITbStore &
   InfoStore &
   IAuthStore &
@@ -30,7 +32,8 @@ export type AppStore = ITbStore &
   IReviewInvitesStore &
   ReviewInvitesActionsStore &
   ReviewInvitesActionsStore_2 &
-  ITrstdLoginStore
+  ITrstdLoginStore &
+  IStructuredMarkupStore
 
 const useStore = create<AppStore>((set, get) => ({
   ...authStore(set, get),
@@ -43,6 +46,7 @@ const useStore = create<AppStore>((set, get) => ({
   ...reviewInvitesActionsStore(set, get),
   ...reviewInvitesActionsStore_v2(set, get),
   ...trstdLoginStore(set, get),
+  ...structuredMarkupStore(set, get),
 }))
 
 export default useStore

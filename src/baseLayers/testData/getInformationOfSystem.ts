@@ -16,6 +16,7 @@ export const getInformationOfSystem = (
         allowsEditIntegrationCode: true,
         allowsSupportWidgets: true,
         useVersionNumberOfConnector: '2.0',
+        allowsSupportStructuredMarkup: true,
       }
     case TEST: //value for 'test'
       return {
@@ -27,6 +28,7 @@ export const getInformationOfSystem = (
         allowsSendReviewInvitesForPreviousOrders: true,
         useVersionNumberOfConnector: '2.0',
         allowsSupportTrstdLogin: true,
+        allowsSupportStructuredMarkup: true,
       }
     case 'no_value':
       return {}

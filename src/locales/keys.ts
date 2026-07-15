@@ -152,7 +152,10 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_about_title: 'application.trustbadge.about.title',
   application_trustbadge_about_description: 'application.trustbadge.about.description',
   application_trustbadge_about_learnMore: 'application.trustbadge.about.learnMore',
-  application_trustbadge_about_learnMore_url: 'application.trustbadge.about.learnMore_url'
+  application_trustbadge_about_learnMore_url: 'application.trustbadge.about.learnMore_url',
+  application_trustbadge_structuredMarkup_title: 'application.trustbadge.structuredMarkup.title',
+  application_trustbadge_structuredMarkup_description: 'application.trustbadge.structuredMarkup.description',
+  application_trustbadge_structuredMarkup_toggle_label: 'application.trustbadge.structuredMarkup.toggle.label',
 }
 
 export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {

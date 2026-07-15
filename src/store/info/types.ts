@@ -11,6 +11,7 @@ export interface IUserInfo {
   useVersionNumberOfConnector?: string
   allowsTrustedCheckoutWidget?: boolean
   allowsSupportTrstdLogin?: boolean
+  allowsSupportStructuredMarkup?: boolean
 }
 
 export interface InfoState {
