@@ -20,18 +20,6 @@ import { getUsedOrderStaruses } from './testData/getUsedOrderStatuses'
 export const DEV = 'development'
 export const TEST = 'test'
 
-// Simulate the upcoming events-lib entries for structured data markup so the
-// mock baselayer can register/handle them before they exist in eventsLib.js
-if (Boolean(Number(process.env.VITE_USE_MOCK_BASELAYER))) {
-  EVENTS.GET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED =
-    EVENTS.GET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED ||
-    'TS_GET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED'
-  EVENTS.SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED =
-    EVENTS.SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED ||
-    'TS_SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED'
-  EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION =
-    EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION || 'TS_SAVE_STRUCTURED_MARKUP_CONFIGURATION'
-}
 
 const credentials = {
   clientId: import.meta.env.VITE_CLIENT_ID || '',
@@ -267,6 +255,7 @@ export const baseLayerDev = (): void => {
             )
           }, 400)
         } catch (error) {
+          console.error('SAVE_STRUCTURED_MARKUP_CONFIGURATION_BaseLayer failed', error)
           setTimeout(() => {
             sendingNotification(
               EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION,

@@ -155,7 +155,7 @@ const DashboardPageModule: FC<{
       }
 
       if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportStructuredMarkup') &&
+        Object.hasOwn(infoOfSystem, 'allowsSupportStructuredMarkup') &&
         infoOfSystem.allowsSupportStructuredMarkup
       ) {
         getStructuredMarkupConfiguration(selectedShopChannels)

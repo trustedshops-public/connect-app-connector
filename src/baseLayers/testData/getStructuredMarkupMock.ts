@@ -1,18 +1,14 @@
-import { DEV, TEST } from '../baseLayerDev'
+import { TEST } from '../baseLayerDev'
 
 export const getStructuredMarkupConfiguration = (
   defaultEnv?: string
 ): { structuredMarkupEnabled: boolean } => {
   switch (process.env.infoSystem || defaultEnv) {
-    case DEV: // value for 'development'
-      return {
-        structuredMarkupEnabled: false,
-      }
     case TEST: //value for 'test'
       return {
         structuredMarkupEnabled: true,
       }
-    default:
+    default: // 'development' and everything else defaults to disabled
       return {
         structuredMarkupEnabled: false,
       }
