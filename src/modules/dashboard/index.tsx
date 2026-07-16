@@ -123,6 +123,8 @@ const DashboardPageModule: FC<{
     setInitialOrderStatusByMapping,
     getTrstdLoginConfiguration,
     clearTrstdLoginState,
+    getStructuredMarkupConfiguration,
+    clearStructuredMarkupState,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -143,12 +145,20 @@ const DashboardPageModule: FC<{
       getTrustbadge(selectedShopChannels)
       clearWidgetData()
       clearTrstdLoginState()
+      clearStructuredMarkupState()
 
       if (
         Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportTrstdLogin') &&
         infoOfSystem.allowsSupportTrstdLogin
       ) {
         getTrstdLoginConfiguration(selectedShopChannels)
+      }
+
+      if (
+        Object.hasOwn(infoOfSystem, 'allowsSupportStructuredMarkup') &&
+        infoOfSystem.allowsSupportStructuredMarkup
+      ) {
+        getStructuredMarkupConfiguration(selectedShopChannels)
       }
 
       setIsLoading(true)

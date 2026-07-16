@@ -459,8 +459,11 @@ export type ITRUSTBADGE_KEYS = {
   application_trustbadge_placementSection_right: string
   application_trustbadge_about_title: string
   application_trustbadge_about_description: string
-  application_trustbadge_about_learnMore: string  
+  application_trustbadge_about_learnMore: string
   application_trustbadge_about_learnMore_url: string
+  application_trustbadge_structuredMarkup_title: string
+  application_trustbadge_structuredMarkup_description: string
+  application_trustbadge_structuredMarkup_toggle_label: string
 }
 
 export type IWIDGETS_KEYS = {

@@ -37,6 +37,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     getTrstdLoginData,
     setTrstdLoginLocations,
     setTrstdLoginLoadingBL,
+    setStructuredMarkupEnabled,
   } = useStore()
 
   useEffect(() => {
@@ -80,6 +81,12 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
 
       [EVENTS.SET_LOCATION_FOR_TRSTDLOGIN]: (event: { payload: ITrstdLoginLocation[] }) =>
         setTrstdLoginLocations(event.payload),
+
+      // STRUCTURED MARKUP
+
+      [EVENTS.SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED]: (event: {
+        payload: Nullable<{ structuredMarkupEnabled?: boolean }>
+      }) => setStructuredMarkupEnabled(event.payload?.structuredMarkupEnabled ?? false),
 
 
       [EVENTS.SET_PRODUCT_REVIEW_FOR_CHANNEL]: (event: { payload: Nullable<IMappedChannel> }) =>
