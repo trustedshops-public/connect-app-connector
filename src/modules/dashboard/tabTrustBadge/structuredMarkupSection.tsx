@@ -1,8 +1,14 @@
-import { h } from 'preact'
+import { h, Fragment } from 'preact'
 import { FC } from 'preact/compat'
+import { ChevronRightSmallIcon } from '@/components/layouts/icons/ChevronRightSmallIcon'
+import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
+import NewFeatureBadge from '@/components/controls/newFeatureBadge'
 import { selectorStructuredMarkup } from '@/store/selector'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import useStore from '@/store/useStore'
+
+// The "New feature" badge hides itself automatically after this date
+const NEW_FEATURE_BADGE_VISIBLE_UNTIL = new Date('2026-09-15')
 
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
@@ -23,16 +29,47 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
     updateStructuredMarkupEnabled(!structuredMarkupEnabled)
   }
 
+  const scrollToTrustbadgeToggle = () => {
+    document
+      .getElementById('switch_button_trustBadge')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+
+  const hintText =
+    phrasesByKey.application_trustbadge_structuredMarkup_hint_text ||
+    'In order to be able to activate this feature please [%s]enable the Trustbadge[%s] on your channel.'
+  const [hintBefore, hintLink, hintAfter] = hintText.split('[%s]')
+
   return (
     <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
-      <h2 className="ts-text-default ts-font-bold ts-mb-1" style={{ fontSize: '16px' }}>
-        {phrasesByKey.application_trustbadge_structuredMarkup_title ||
-          'Structured data markup'}
-      </h2>
-      <p className="ts-text-sm ts-font-normal ts-mb-6" style={{ color: '#6b7280' }}>
+      <div className="ts-flex ts-items-start ts-justify-between ts-gap-3">
+        <h2 className="ts-text-default ts-font-bold ts-mb-1" style={{ fontSize: '16px' }}>
+          {phrasesByKey.application_trustbadge_structuredMarkup_title ||
+            'Structured data markup'}
+        </h2>
+        <NewFeatureBadge
+          id="badge_structuredMarkupNewFeature"
+          label={phrasesByKey.application_trustbadge_structuredMarkup_newFeature || 'New feature'}
+          visibleUntil={NEW_FEATURE_BADGE_VISIBLE_UNTIL}
+        />
+      </div>
+      <p className="ts-text-sm ts-font-normal ts-mb-4" style={{ color: '#6b7280' }}>
         {phrasesByKey.application_trustbadge_structuredMarkup_description ||
-          'Adds structured data markup (JSON-LD) with your Trusted Shops ratings to your shop pages. It is inserted into the head of your shop website and helps search engines display your star rating in search results.'}
+          "Adds your Trustbadge rating and certification data directly into your page's HTML source, so search engines and AI assistants can read it. This can improve how your shop appears in search results and AI-generated answers. Your data stays in sync automatically."}
       </p>
+
+      <a
+        id="link_structuredMarkupLearnMore"
+        href={phrasesByKey.application_trustbadge_structuredMarkup_learnMore_url || '#'}
+        target="_blank"
+        rel="noreferrer"
+        className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
+        style={{ color: '#2563EB' }}
+      >
+        {phrasesByKey.application_trustbadge_structuredMarkup_learnMore ||
+          'Learn more about machine-readable trust data'}
+        <ChevronRightSmallIcon />
+      </a>
 
       <div style={{ borderBottom: '1px solid #E5E7EB', margin: '20px 0' }} />
 
@@ -45,7 +82,7 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
           id="switch_button_structuredMarkup"
           type="button"
           onClick={handleSwitch}
-          className="ts-border-0 ts-p-0 ts-cursor-pointer ts-flex-shrink-0"
+          className="ts-border-0 ts-p-0 ts-flex-shrink-0"
           style={{
             width: '44px',
             height: '24px',
@@ -73,6 +110,53 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
         </button>
       </div>
 
+      {isTrustbadgeDisabled && (
+        <div
+          id="hint_structuredMarkupTrustbadgeDisabled"
+          className="ts-flex ts-items-start ts-gap-4 ts-mt-5"
+          style={{
+            backgroundColor: '#FFFBEB',
+            border: '1px solid #FDE68A',
+            borderRadius: '12px',
+            padding: '20px 24px',
+          }}
+        >
+          <div
+            className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center"
+            style={{
+              width: '40px',
+              height: '40px',
+              borderRadius: '10px',
+              backgroundColor: '#FEF3C7',
+              color: '#D97706',
+            }}
+          >
+            <InfoCircleOutlinedIcon size={20} />
+          </div>
+          <div>
+            <p className="ts-text-sm ts-font-bold ts-text-default ts-mb-1">
+              {phrasesByKey.application_trustbadge_structuredMarkup_hint_title ||
+                'Available once the Trustbadge is displayed on this channel.'}
+            </p>
+            <p className="ts-text-sm ts-font-normal" style={{ color: '#374151' }}>
+              {hintBefore}
+              {hintLink && (
+                <Fragment>
+                  <button
+                    type="button"
+                    onClick={scrollToTrustbadgeToggle}
+                    className="ts-border-0 ts-p-0 ts-bg-transparent ts-cursor-pointer ts-text-sm ts-font-normal"
+                    style={{ color: 'inherit' }}
+                  >
+                    {hintLink}
+                  </button>
+                  {hintAfter}
+                </Fragment>
+              )}
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
