@@ -156,6 +156,11 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_structuredMarkup_title: 'application.trustbadge.structuredMarkup.title',
   application_trustbadge_structuredMarkup_description: 'application.trustbadge.structuredMarkup.description',
   application_trustbadge_structuredMarkup_toggle_label: 'application.trustbadge.structuredMarkup.toggle.label',
+  application_trustbadge_structuredMarkup_newFeature: 'application.trustbadge.structuredMarkup.newFeature',
+  application_trustbadge_structuredMarkup_learnMore: 'application.trustbadge.structuredMarkup.learnMore',
+  application_trustbadge_structuredMarkup_learnMore_url: 'application.trustbadge.structuredMarkup.learnMore_url',
+  application_trustbadge_structuredMarkup_hint_title: 'application.trustbadge.structuredMarkup.hint.title',
+  application_trustbadge_structuredMarkup_hint_text: 'application.trustbadge.structuredMarkup.hint.text',
 }
 
 export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
