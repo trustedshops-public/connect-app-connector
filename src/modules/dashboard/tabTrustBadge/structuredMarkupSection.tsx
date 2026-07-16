@@ -35,39 +35,35 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
       ?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 
-  const hintText =
-    phrasesByKey.application_trustbadge_structuredMarkup_hint_text ||
-    'In order to be able to activate this feature please [%s]enable the Trustbadge[%s] on your channel.'
-  const [hintBefore, hintLink, hintAfter] = hintText.split('[%s]')
+  const [hintBefore, hintLink, hintAfter] = (
+    phrasesByKey.application_trustbadge_structuredMarkup_hint_text || ''
+  ).split('[%s]')
 
   return (
     <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
       <div className="ts-flex ts-items-start ts-justify-between ts-gap-3">
         <h2 className="ts-text-default ts-font-bold ts-mb-1" style={{ fontSize: '16px' }}>
-          {phrasesByKey.application_trustbadge_structuredMarkup_title ||
-            'Structured data markup'}
+          {phrasesByKey.application_trustbadge_structuredMarkup_title}
         </h2>
         <NewFeatureBadge
           id="badge_structuredMarkupNewFeature"
-          label={phrasesByKey.application_trustbadge_structuredMarkup_newFeature || 'New feature'}
+          label={phrasesByKey.application_trustbadge_structuredMarkup_newFeature}
           visibleUntil={NEW_FEATURE_BADGE_VISIBLE_UNTIL}
         />
       </div>
       <p className="ts-text-sm ts-font-normal ts-mb-4" style={{ color: '#6b7280' }}>
-        {phrasesByKey.application_trustbadge_structuredMarkup_description ||
-          "Adds your Trustbadge rating and certification data directly into your page's HTML source, so search engines and AI assistants can read it. This can improve how your shop appears in search results and AI-generated answers. Your data stays in sync automatically."}
+        {phrasesByKey.application_trustbadge_structuredMarkup_description}
       </p>
 
       <a
         id="link_structuredMarkupLearnMore"
-        href={phrasesByKey.application_trustbadge_structuredMarkup_learnMore_url || '#'}
+        href={phrasesByKey.application_trustbadge_structuredMarkup_learnMore_url}
         target="_blank"
         rel="noreferrer"
         className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
         style={{ color: '#2563EB' }}
       >
-        {phrasesByKey.application_trustbadge_structuredMarkup_learnMore ||
-          'Learn more about machine-readable trust data'}
+        {phrasesByKey.application_trustbadge_structuredMarkup_learnMore}
         <ChevronRightSmallIcon />
       </a>
 
@@ -75,8 +71,7 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
 
       <div className="ts-flex ts-items-center ts-justify-between">
         <span className="ts-text-sm ts-font-normal ts-text-default">
-          {phrasesByKey.application_trustbadge_structuredMarkup_toggle_label ||
-            'Enable structured data markup'}
+          {phrasesByKey.application_trustbadge_structuredMarkup_toggle_label}
         </span>
         <button
           id="switch_button_structuredMarkup"
@@ -135,8 +130,7 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
           </div>
           <div>
             <p className="ts-text-sm ts-font-bold ts-text-default ts-mb-1">
-              {phrasesByKey.application_trustbadge_structuredMarkup_hint_title ||
-                'Available once the Trustbadge is displayed on this channel.'}
+              {phrasesByKey.application_trustbadge_structuredMarkup_hint_title}
             </p>
             <p className="ts-text-sm ts-font-normal" style={{ color: '#374151' }}>
               {hintBefore}
