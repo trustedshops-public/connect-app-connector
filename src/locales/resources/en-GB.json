@@ -360,6 +360,20 @@
           "value": "Standard settings"
         }
       },
+      "structuredMarkup": {
+        "description": "Adds your Trustbadge rating and certification data directly into your page's HTML source, so search engines and AI assistants can read it. This can improve how your shop appears in search results and AI-generated answers. Your data stays in sync automatically.",
+        "hint": {
+          "text": "In order to be able to activate this feature please enable the Trustbadge on your channel.",
+          "title": "Available once the Trustbadge is displayed on this channel."
+        },
+        "learnMore": "Learn more about machine-readable trust data",
+        "learnMore_url": "https://help.etrusted.com/hc/en-gb",
+        "newFeature": "New feature",
+        "title": "Structured data markup",
+        "toggle": {
+          "label": "Enable structured data markup"
+        }
+      },
       "subtitel": "Get started with Trusted Shops most essential feature",
       "titel": "Trustbadge"
     },
