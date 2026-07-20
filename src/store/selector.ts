@@ -49,5 +49,8 @@ export const selectAllState = (store: AppStore) => {
     ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
       trstdLoginState: store.trstdLoginState,
     }),
+    ...(store.infoState.infoOfSystem.allowsSupportStructuredMarkup && {
+      structuredMarkupState: store.structuredMarkupState,
+    }),
   }
 }
