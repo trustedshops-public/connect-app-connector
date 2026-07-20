@@ -109,6 +109,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
         trstdLoginState: store.trstdLoginState,
       }),
+      ...(store.infoState.infoOfSystem.allowsSupportStructuredMarkup && {
+        structuredMarkupState: store.structuredMarkupState,
+      }),
     }
   }
 
@@ -149,7 +152,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
     setIsLoadingBL(true)
     if (infoOfSystem.allowsSupportStructuredMarkup && structuredMarkupEnabled) {
-      updateStructuredMarkupEnabled(false)
+      updateStructuredMarkupEnabled(false, { skipConfigurationCall: true })
     }
     const disabledChild = data || {
       tag: trustbadgeDataChild.tag,

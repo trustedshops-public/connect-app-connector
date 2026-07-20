@@ -1,5 +1,8 @@
 import { GetState, SetState } from 'zustand'
 import { dispatchAction, EVENTS } from '@/eventsLib'
+import { putEtrustedConfiguration } from '@/api/api'
+import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { selectAllState } from '../selector'
 import { AppStore } from '../useStore'
 import { IStructuredMarkupState, IStructuredMarkupStore } from './types'
 import { IMappedChannel } from '../channel/types'
@@ -54,10 +57,14 @@ export const structuredMarkupStore = (
     }
   },
 
-  updateStructuredMarkupEnabled: (enabled: boolean) => {
+  updateStructuredMarkupEnabled: (
+    enabled: boolean,
+    options?: { skipConfigurationCall?: boolean },
+  ) => {
     const state = get()
     const { selectedShopChannels } = state.channelState
     const { trustbadgeId } = state.trustbadgeState
+    const token = state.auth.user?.access_token
 
     if (EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION) {
       dispatchAction({
@@ -77,6 +84,18 @@ export const structuredMarkupStore = (
         structuredMarkupEnabled: enabled,
       },
     }))
+
+    // skipped when the caller sends its own configuration call afterwards,
+    // e.g. trustbadge deactivation which already includes the updated
+    // structuredMarkupState in its payload
+    if (!options?.skipConfigurationCall) {
+      handleEtrustedConfiguration(
+        token,
+        selectAllState(get()),
+        'trustbadge',
+        putEtrustedConfiguration,
+      )
+    }
   },
 
   clearStructuredMarkupState: () => {
