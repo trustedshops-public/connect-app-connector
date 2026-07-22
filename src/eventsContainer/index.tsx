@@ -38,6 +38,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     setTrstdLoginLocations,
     setTrstdLoginLoadingBL,
     setStructuredMarkupEnabled,
+    setStructuredMarkupLoading,
   } = useStore()
 
   useEffect(() => {
@@ -162,6 +163,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
     setIsLoadingInvitesForProducts(false)
     setIsAuthLoading(false)
     setTrstdLoginLoadingBL(false)
+    setStructuredMarkupLoading(false)
   }
 
   return children
