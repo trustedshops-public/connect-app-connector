@@ -65,8 +65,19 @@ export const structuredMarkupStore = (
     const { selectedShopChannels } = state.channelState
     const { trustbadgeId } = state.trustbadgeState
     const token = state.auth.user?.access_token
+    const supportsStructuredMarkupEvents = !!EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION
 
-    if (EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION) {
+    // loading stays on until the shop system confirms the save via
+    // SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED (handled in eventsContainer)
+    set(store => ({
+      structuredMarkupState: {
+        ...store.structuredMarkupState,
+        structuredMarkupEnabled: enabled,
+        isLoadingStructuredMarkup: supportsStructuredMarkupEvents,
+      },
+    }))
+
+    if (supportsStructuredMarkupEvents) {
       dispatchAction({
         action: EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION,
         payload: {
@@ -77,13 +88,6 @@ export const structuredMarkupStore = (
         },
       })
     }
-
-    set(store => ({
-      structuredMarkupState: {
-        ...store.structuredMarkupState,
-        structuredMarkupEnabled: enabled,
-      },
-    }))
 
     // skipped when the caller sends its own configuration call afterwards,
     // e.g. trustbadge deactivation which already includes the updated
