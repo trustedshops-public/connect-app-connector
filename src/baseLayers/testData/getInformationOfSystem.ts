@@ -29,11 +29,6 @@ export const getInformationOfSystem = (
         useVersionNumberOfConnector: '2.0',
         allowsSupportTrstdLogin: true,
         allowsSupportStructuredMarkup: true,
-        allowsSupportTrstdLoginCustomization: true,
-        appEmbedDeepLink:
-          'https://admin.shopify.com/store/easyintegration5/themes/current/editor?context=apps&activateAppId=76225a13856974212ff3217b5b6ecb4d/trstd-login',
-        // Mock: embed not yet activated, so the activation banner is visible in dev:test.
-        appEmbedActivated: false,
       }
     case 'no_value':
       return {}

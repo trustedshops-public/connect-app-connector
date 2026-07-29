@@ -282,24 +282,6 @@
       },
       "toggle": {
         "label": "Afficher sur ce canal"
-      },
-      "custom_placement": {
-        "title": "Placement personnalisé",
-        "description": "Nécessaire uniquement si votre thème n'est pas pris en charge par le placement automatique. Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement — le réglage s'applique à tous vos thèmes. Si l'élément est introuvable, le placement automatique est utilisé.",
-        "desktop": {
-          "label": "Ordinateur — sélecteur CSS",
-          "placeholder": ".ma-classe ou #mon-id"
-        },
-        "mobile": {
-          "label": "Mobile — sélecteur CSS",
-          "placeholder": ".ma-classe-mobile ou #mon-id-mobile"
-        },
-        "position": {
-          "label": "Position",
-          "before": "Avant l'élément",
-          "after": "Après l'élément"
-        },
-        "save": "Enregistrer le placement"
       }
     },
     "trustbadge": {
@@ -536,10 +518,6 @@
           "url_1": "https://help.etrusted.com/hc/fr/articles/23970822885010-Utiliser-Trusted-Shops-avec-Shopify"
         }
       }
-    },
-    "app_embed_banner": {
-      "text": "<strong>Action requise :</strong> Pour afficher les fonctionnalités Trusted Shops dans votre boutique, activez l'app embed Trusted Shops dans l'éditeur de thème et cliquez sur <strong>Enregistrer</strong>.",
-      "button": "Activer dans l'éditeur de thème"
     }
   }
 }

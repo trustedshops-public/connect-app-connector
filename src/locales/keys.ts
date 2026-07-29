@@ -42,8 +42,6 @@ export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
 
 export const PHRASES_SHOPIFY_GLOBAL_KEYS: SHOPIFY_GLOBAL_KEYS = {
   shopify_global_help_link_url_1: 'shopify.global.help.link.url_1',
-  shopify_app_embed_banner_text: 'shopify.app_embed_banner.text',
-  shopify_app_embed_banner_button: 'shopify.app_embed_banner.button',
 }
 
 export const PHRASES_AUTH_KEYS: AUTH_KEYS = {
@@ -113,16 +111,6 @@ const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
   application_trstd_login_popup_title: 'application.trstd_login.popup.title',
   application_trstd_login_popup_text: 'application.trstd_login.popup.text',
   application_trstd_login_popup_submit: 'application.trstd_login.popup.submit',
-  application_trstd_login_custom_placement_title: 'application.trstd_login.custom_placement.title',
-  application_trstd_login_custom_placement_description: 'application.trstd_login.custom_placement.description',
-  application_trstd_login_custom_placement_desktop_label: 'application.trstd_login.custom_placement.desktop.label',
-  application_trstd_login_custom_placement_desktop_placeholder: 'application.trstd_login.custom_placement.desktop.placeholder',
-  application_trstd_login_custom_placement_mobile_label: 'application.trstd_login.custom_placement.mobile.label',
-  application_trstd_login_custom_placement_mobile_placeholder: 'application.trstd_login.custom_placement.mobile.placeholder',
-  application_trstd_login_custom_placement_position_label: 'application.trstd_login.custom_placement.position.label',
-  application_trstd_login_custom_placement_position_before: 'application.trstd_login.custom_placement.position.before',
-  application_trstd_login_custom_placement_position_after: 'application.trstd_login.custom_placement.position.after',
-  application_trstd_login_custom_placement_save: 'application.trstd_login.custom_placement.save',
 }
 const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_integrationmode: 'application.trustbadge.integrationmode',

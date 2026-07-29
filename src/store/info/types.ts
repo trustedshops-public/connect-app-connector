@@ -12,12 +12,6 @@ export interface IUserInfo {
   allowsTrustedCheckoutWidget?: boolean
   allowsSupportTrstdLogin?: boolean
   allowsSupportStructuredMarkup?: boolean
-  /** Placement customization (CSS selector + position) is configured in the connector instead of the shop's theme tooling. */
-  allowsSupportTrstdLoginCustomization?: boolean
-  /** Deep link that opens the shop's theme tooling with the app embed pre-activated (currently Shopify only). */
-  appEmbedDeepLink?: string
-  /** Detected activation state of the app embed on the published theme; undefined when unknown (currently Shopify only). */
-  appEmbedActivated?: boolean
 }
 
 export interface InfoState {
