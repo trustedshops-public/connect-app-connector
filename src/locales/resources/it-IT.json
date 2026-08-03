@@ -271,6 +271,24 @@
         "mobile": "Mobile",
         "title": "Posizionamento automatico"
       },
+      "custom_placement": {
+        "description": "Necessario solo se il tuo tema non è supportato dal posizionamento automatico. Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login: l’impostazione vale per tutti i tuoi temi. Se l’elemento non viene trovato, viene usato il posizionamento automatico.",
+        "desktop": {
+          "label": "Desktop — selettore CSS",
+          "placeholder": ".mia-classe o #mio-id"
+        },
+        "mobile": {
+          "label": "Mobile — selettore CSS",
+          "placeholder": ".mia-classe-mobile o #mio-id-mobile"
+        },
+        "position": {
+          "after": "Dopo l'elemento",
+          "before": "Prima dell'elemento",
+          "label": "Posizione"
+        },
+        "save": "Salva posizionamento",
+        "title": "Posizionamento personalizzato"
+      },
       "header": {
         "description": "Offri ai tuoi clienti un ulteriore livello di sicurezza aggiungendo il #trstd login alla navigazione del tuo sito web.",
         "title": "#trstd login"
@@ -351,6 +369,16 @@
           "description": "Mostra il Trustbadge standard su ogni pagina del tuo sito web e scegli dove posizionarlo.",
           "value": "Impostazioni standard"
         }
+      },
+      "structuredMarkup": {
+        "description": "Rendi i segnali di fiducia come la valutazione media e il numero di recensioni più facili da leggere per gli agenti IA e i motori di ricerca.  Questo aggiunge automaticamente uno snippet di dati strutturati al codice sorgente del tuo sito, che può migliorare la visibilità del tuo negozio.",
+        "hint": {
+          "title": "Puoi attivarlo dopo aver attivato il Trustbadge per questo canale."
+        },
+        "learnMore": "Scopri di più sulla visibilità IA del tuo sito",
+        "learnMore_url": "https://help.etrusted.com/hc/it/articles/36072848059282-In-che-modo-Trusted-Shops-fornisce-informazioni-sull-affidabilit%C3%A0-ai-sistemi-di-IA",
+        "newFeature": "Novità",
+        "title": "Aumenta la visibilità IA"
       },
       "subtitel": "Inizia con la funzionalità più importante di Trusted Shops",
       "titel": "Trustbadge"
@@ -511,6 +539,10 @@
     }
   },
   "shopify": {
+    "app_embed_banner": {
+      "button": "Attiva nell'editor del tema",
+      "text": "<strong>Azione richiesta:</strong> Per mostrare le funzionalità Trusted Shops nel tuo shop, attiva l'app embed Trusted Shops nell'editor del tema e fai clic su <strong>Salva</strong>."
+    },
     "global": {
       "help": {
         "link": {
