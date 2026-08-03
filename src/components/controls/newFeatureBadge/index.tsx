@@ -20,10 +20,9 @@ const NewFeatureBadge: FC<Props> = ({ label, id, visibleUntil }) => {
       className="ts-flex-shrink-0 ts-font-bold"
       style={{
         backgroundColor: '#DBEAFE',
-        color: '#1D4ED8',
+        color: '#0137AA',
         borderRadius: '9999px',
         padding: '4px 14px',
-        margin: '0 8px 16px 8px',
         fontSize: '13px',
         lineHeight: '20px',
         whiteSpace: 'nowrap',

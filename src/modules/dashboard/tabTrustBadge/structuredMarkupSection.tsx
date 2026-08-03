@@ -17,9 +17,7 @@ interface Props {
 
 const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled }) => {
   const { updateStructuredMarkupEnabled } = useStore()
-  const { structuredMarkupEnabled, isLoadingStructuredMarkup } = useStore(
-    selectorStructuredMarkup,
-  )
+  const { structuredMarkupEnabled, isLoadingStructuredMarkup } = useStore(selectorStructuredMarkup)
 
   const isSwitchBlocked =
     isLoadingStructuredMarkup || (isTrustbadgeDisabled && !structuredMarkupEnabled)
@@ -36,43 +34,39 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
   }
 
   const [hintBefore, hintLink, hintAfter] = (
-    phrasesByKey.application_trustbadge_structuredMarkup_hint_text || ''
+    phrasesByKey.application_trustbadge_structuredMarkup_hint_title || ''
   ).split('[%s]')
+
+  // One sentence per line, as in the design
+  const descriptionSentences = (
+    phrasesByKey.application_trustbadge_structuredMarkup_description || ''
+  )
+    .split('. ')
+    .map(sentence => sentence.trim())
+    .filter(Boolean)
+    .map((sentence, index, all) => (index < all.length - 1 ? `${sentence}.` : sentence))
 
   return (
     <div className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6">
-      <div className="ts-flex ts-items-start ts-justify-between ts-gap-3">
-        <h2 className="ts-text-default ts-font-bold ts-mb-1" style={{ fontSize: '16px' }}>
-          {phrasesByKey.application_trustbadge_structuredMarkup_title}
-        </h2>
-        <NewFeatureBadge
-          id="badge_structuredMarkupNewFeature"
-          label={phrasesByKey.application_trustbadge_structuredMarkup_newFeature}
-          visibleUntil={NEW_FEATURE_BADGE_VISIBLE_UNTIL}
-        />
-      </div>
-      <p className="ts-text-sm ts-font-normal ts-mb-4" style={{ color: '#6b7280' }}>
-        {phrasesByKey.application_trustbadge_structuredMarkup_description}
-      </p>
-
-      <a
-        id="link_structuredMarkupLearnMore"
-        href={phrasesByKey.application_trustbadge_structuredMarkup_learnMore_url}
-        target="_blank"
-        rel="noreferrer"
-        className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
-        style={{ color: '#2563EB' }}
-      >
-        {phrasesByKey.application_trustbadge_structuredMarkup_learnMore}
-        <ChevronRightSmallIcon />
-      </a>
-
-      <div style={{ borderBottom: '1px solid #E5E7EB', margin: '20px 0' }} />
-
-      <div className="ts-flex ts-items-center ts-justify-between">
-        <span className="ts-text-sm ts-font-normal ts-text-default">
-          {phrasesByKey.application_trustbadge_structuredMarkup_toggle_label}
-        </span>
+      <div className="ts-flex ts-items-center ts-justify-between ts-gap-3 ts-mb-2">
+        <div className="ts-flex ts-items-center ts-gap-2">
+          <h2
+            style={{
+              color: '#101828',
+              fontSize: '18px',
+              fontStyle: 'normal',
+              fontWeight: 600,
+              lineHeight: '28px',
+            }}
+          >
+            {phrasesByKey.application_trustbadge_structuredMarkup_title}
+          </h2>
+          <NewFeatureBadge
+            id="badge_structuredMarkupNewFeature"
+            label={phrasesByKey.application_trustbadge_structuredMarkup_newFeature}
+            visibleUntil={NEW_FEATURE_BADGE_VISIBLE_UNTIL}
+          />
+        </div>
         <button
           id="switch_button_structuredMarkup"
           type="button"
@@ -104,11 +98,41 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
           />
         </button>
       </div>
+      <p
+        className="ts-mb-4"
+        style={{
+          color: '#4A5565',
+          fontFamily: 'Inter, sans-serif',
+          fontSize: '14px',
+          fontStyle: 'normal',
+          fontWeight: 400,
+          lineHeight: '22.75px',
+          letterSpacing: '-0.15px',
+        }}
+      >
+        {descriptionSentences.map(sentence => (
+          <span key={sentence} className="ts-block">
+            {sentence}
+          </span>
+        ))}
+      </p>
+
+      <a
+        id="link_structuredMarkupLearnMore"
+        href={phrasesByKey.application_trustbadge_structuredMarkup_learnMore_url}
+        target="_blank"
+        rel="noreferrer"
+        className="ts-text-sm ts-font-normal ts-inline-flex ts-items-center ts-gap-1"
+        style={{ color: '#2563EB' }}
+      >
+        {phrasesByKey.application_trustbadge_structuredMarkup_learnMore}
+        <ChevronRightSmallIcon />
+      </a>
 
       {isTrustbadgeDisabled && (
         <div
           id="hint_structuredMarkupTrustbadgeDisabled"
-          className="ts-flex ts-items-start ts-gap-4 ts-mt-5"
+          className="ts-flex ts-items-center ts-gap-4 ts-mt-6"
           style={{
             backgroundColor: '#FFFBEB',
             border: '1px solid #FDE68A',
@@ -128,27 +152,35 @@ const StructuredMarkupSection: FC<Props> = ({ phrasesByKey, isTrustbadgeDisabled
           >
             <InfoCircleOutlinedIcon size={20} />
           </div>
-          <div>
-            <p className="ts-text-sm ts-font-bold ts-text-default ts-mb-1">
-              {phrasesByKey.application_trustbadge_structuredMarkup_hint_title}
-            </p>
-            <p className="ts-text-sm ts-font-normal" style={{ color: '#374151' }}>
-              {hintBefore}
-              {hintLink && (
-                <Fragment>
-                  <button
-                    type="button"
-                    onClick={scrollToTrustbadgeToggle}
-                    className="ts-border-0 ts-p-0 ts-bg-transparent ts-cursor-pointer ts-text-sm ts-font-normal"
-                    style={{ color: 'inherit' }}
-                  >
-                    {hintLink}
-                  </button>
-                  {hintAfter}
-                </Fragment>
-              )}
-            </p>
-          </div>
+          <p
+            style={{
+              color: '#101828',
+              fontSize: '14px',
+              fontStyle: 'normal',
+              fontWeight: 600,
+              lineHeight: '20px',
+              letterSpacing: '-0.15px',
+            }}
+          >
+            {hintBefore}
+            {hintLink && (
+              <Fragment>
+                <button
+                  type="button"
+                  onClick={scrollToTrustbadgeToggle}
+                  className="ts-border-0 ts-p-0 ts-bg-transparent ts-cursor-pointer ts-underline"
+                  style={{
+                    color: 'inherit',
+                    font: 'inherit',
+                    letterSpacing: 'inherit',
+                  }}
+                >
+                  {hintLink}
+                </button>
+                {hintAfter}
+              </Fragment>
+            )}
+          </p>
         </div>
       )}
     </div>
