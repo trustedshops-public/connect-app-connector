@@ -271,6 +271,24 @@
         "mobile": "Mobiel",
         "title": "Automatische plaatsing"
       },
+      "custom_placement": {
+        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
+        "desktop": {
+          "label": "Desktop — CSS-selector",
+          "placeholder": ".mijn-class of #mijn-id"
+        },
+        "mobile": {
+          "label": "Mobiel — CSS-selector",
+          "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
+        },
+        "position": {
+          "after": "Na het element",
+          "before": "Vóór het element",
+          "label": "Positie"
+        },
+        "save": "Plaatsing opslaan",
+        "title": "Aangepaste plaatsing"
+      },
       "header": {
         "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
         "title": "#trstd login"
@@ -351,6 +369,16 @@
           "description": "Geef de standaard Trustbadge weer op alle pagina's van je website en pas de positie van de badge aan.",
           "value": "Standaardinstellingen"
         }
+      },
+      "structuredMarkup": {
+        "description": "Maak vertrouwenssignalen zoals de gemiddelde beoordeling en het aantal reviews beter leesbaar voor AI-agents en zoekmachines. \nDit voegt automatisch een fragment met gestructureerde data toe aan de broncode van je website, wat de zichtbaarheid van je winkel kan verbeteren.",
+        "hint": {
+          "title": "Je kunt dit activeren zodra je het Trustbadge voor dit kanaal hebt ingeschakeld."
+        },
+        "learnMore": "Lees meer over de AI-zichtbaarheid van je website",
+        "learnMore_url": "https://help.etrusted.com/hc/nl/articles/36072848059282-Hoe-levert-Trusted-Shops-vertrouwensinformatie-aan-AI-systemen",
+        "newFeature": "Nieuw",
+        "title": "AI-zichtbaarheid verhogen"
       },
       "subtitel": "Begin met de belangrijkste feature van Trusted Shops",
       "titel": "Trustbadge"
@@ -511,6 +539,10 @@
     }
   },
   "shopify": {
+    "app_embed_banner": {
+      "button": "Activeren in thema-editor",
+      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, activeer je de Trusted Shops app embed in de thema-editor en klik je op <strong>Opslaan</strong>."
+    },
     "global": {
       "help": {
         "link": {
