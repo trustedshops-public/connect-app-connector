@@ -1,3 +1,19 @@
+## [1.22.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.8...1.22.0) (2026-08-04)
+
+
+### Features
+
+* Add structured data markup (JSON-LD) toggle to Trustbadge tab ([11f432a](https://github.com/trustedshops-public/connect-app-connector/commit/11f432a805d8653cd3245458880210c94c34d20a))
+* Improve structured data markup section based on design updates ([886a157](https://github.com/trustedshops-public/connect-app-connector/commit/886a157c8b7e682ec736e5e5970973f9ab92d2d0))
+* Include structured markup state in configuration calls ([d35273d](https://github.com/trustedshops-public/connect-app-connector/commit/d35273dd7fc2156f0d2e4fecdcbe4b62f1b050b0))
+* redesign improvements ([26d5c67](https://github.com/trustedshops-public/connect-app-connector/commit/26d5c676c7e2e9b1b483377be59882ebceb10403))
+* Show loader while structured markup save awaits shop system response ([ea02c88](https://github.com/trustedshops-public/connect-app-connector/commit/ea02c88d4cb7d52f8c885ff956e2ea63a1c1999a))
+
+
+### Bug Fixes
+
+* Remove static fallback texts from structured markup section ([a188914](https://github.com/trustedshops-public/connect-app-connector/commit/a188914e1f6d30407b8ea9e2612dafab5ef346b0))
+
 ## [1.21.8](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.7...1.21.8) (2026-06-25)
 
 
