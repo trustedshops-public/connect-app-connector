@@ -6,6 +6,11 @@
         "goLive": "Go live on mapped channels"
       },
       "description": "You can customise per channel anytime.",
+      "jsonLd": {
+        "description": "Make trust signals like rating and reviews easier to read for AI agents.",
+        "hint": "You can turn this on once the <b>Trustbadge is active</b>.",
+        "title": "AI visibility"
+      },
       "title": "Display trust signals for all mapped channels"
     },
     "invites": {
@@ -279,6 +284,24 @@
         "mobile": "Mobile",
         "title": "Automatic Placement"
       },
+      "custom_placement": {
+        "description": "Only needed if your theme is not supported by automatic placement. Enter a CSS class or ID to place the #trstd login manually — the setting applies to all your themes. If the element cannot be found, automatic placement is used instead.",
+        "desktop": {
+          "label": "Desktop — CSS selector",
+          "placeholder": ".my-class or #my-id"
+        },
+        "mobile": {
+          "label": "Mobile — CSS selector",
+          "placeholder": ".my-mobile-class or #my-mobile-id"
+        },
+        "position": {
+          "after": "After element",
+          "before": "Before element",
+          "label": "Position"
+        },
+        "save": "Save placement",
+        "title": "Custom placement"
+      },
       "header": {
         "description": "Offer your customers an extra layer of security by adding the #trstd login to your website navigation.",
         "title": "#trstd login"
@@ -361,15 +384,15 @@
         }
       },
       "structuredMarkup": {
-        "description": "Adds your Trustbadge rating and certification data directly into your page's HTML source, so search engines and AI assistants can read it. This can improve how your shop appears in search results and AI-generated answers. Your data stays in sync automatically.",
+        "description": "Make trust signals like average rating and number of reviews easier to read for AI agents and search engines.  This automatically adds a snippet of structured data to your website’s source code, which can improve the visibility of your shop.",
         "hint": {
           "text": "In order to be able to activate this feature please enable the Trustbadge on your channel.",
-          "title": "Available once the Trustbadge is displayed on this channel."
+          "title": "You can activate this once you’ve switched on the Trustbadge for this channel."
         },
-        "learnMore": "Learn more about machine-readable trust data",
-        "learnMore_url": "https://help.etrusted.com/hc/en-gb",
-        "newFeature": "New feature",
-        "title": "Structured data markup",
+        "learnMore": "Learn more about increasing your website’s AI visibility",
+        "learnMore_url": "https://help.etrusted.com/hc/en-gb/articles/36072848059282-How-does-Trusted-Shops-provide-trust-information-to-AI-systems",
+        "newFeature": "New",
+        "title": "Increase AI visibility",
         "toggle": {
           "label": "Enable structured data markup"
         }
@@ -538,6 +561,10 @@
     }
   },
   "shopify": {
+    "app_embed_banner": {
+      "button": "Activate in theme editor",
+      "text": "<strong>Action required:</strong> To display Trusted Shops features in your shop, activate the Trusted Shops app embed in your theme editor and click <strong>Save</strong>."
+    },
     "global": {
       "help": {
         "link": {

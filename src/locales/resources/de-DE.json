@@ -272,6 +272,24 @@
         "mobile": "Mobile",
         "title": "Automatische Platzierung"
       },
+      "custom_placement": {
+        "description": "Nur nötig, wenn dein Theme von der automatischen Platzierung nicht unterstützt wird. Gib eine CSS-Klasse oder -ID an, um den #trstd login manuell zu platzieren — die Einstellung gilt für alle deine Themes. Wird das Element nicht gefunden, greift die automatische Platzierung.",
+        "desktop": {
+          "label": "Desktop — CSS-Selektor",
+          "placeholder": ".meine-klasse oder #meine-id"
+        },
+        "mobile": {
+          "label": "Mobil — CSS-Selektor",
+          "placeholder": ".meine-mobile-klasse oder #meine-mobile-id"
+        },
+        "position": {
+          "after": "Nach dem Element",
+          "before": "Vor dem Element",
+          "label": "Position"
+        },
+        "save": "Platzierung speichern",
+        "title": "Benutzerdefinierte Platzierung"
+      },
       "header": {
         "description": "Bieten Sie Ihren Kunden zusätzliche Sicherheit, indem Sie den #trstd login in Ihre Website-Navigation integrieren.",
         "title": "#trstd login"
@@ -352,6 +370,16 @@
           "description": "Das Trustbadge wird als Standard-Variante auf allen Seiten deiner Website angezeigt, an einer Position deiner Wahl. ",
           "value": "Standard-Einstellungen"
         }
+      },
+      "structuredMarkup": {
+        "description": "Mach Vertrauenssignale wie die durchschnittliche Bewertung und die Anzahl der Bewertungen für KI-Agenten und Suchmaschinen leichter lesbar.  Das fügt automatisch ein Snippet mit strukturierten Daten in den Quellcode deiner Website ein und kann so die Sichtbarkeit deines Shops verbessern.",
+        "hint": {
+          "title": "Du kannst diese Funktion aktivieren, sobald du das Trustbadge für diesen Kanal eingeschaltet hast."
+        },
+        "learnMore": "Mehr zur KI-Sichtbarkeit deiner Website erfahren",
+        "learnMore_url": "https://help.etrusted.com/hc/de/articles/36072848059282-Wie-stellt-Trusted-Shops-Vertrauensinformationen-f%C3%BCr-KI-Systeme-bereit",
+        "newFeature": "Neu",
+        "title": "KI-Sichtbarkeit erhöhen"
       },
       "subtitel": "Starte mit dem wichtigsten Feature von Trusted Shops",
       "titel": "Trustbadge"
@@ -513,6 +541,10 @@
     }
   },
   "shopify": {
+    "app_embed_banner": {
+      "button": "Im Theme-Editor aktivieren",
+      "text": "<strong>Aktion erforderlich:</strong> Damit Trusted Shops Funktionen in deinem Shop angezeigt werden, aktiviere das Trusted Shops App-Embed im Theme-Editor und klicke auf <strong>Speichern</strong>."
+    },
     "global": {
       "help": {
         "link": {

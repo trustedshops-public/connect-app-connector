@@ -270,6 +270,24 @@
         "mobile": "Telemóvel",
         "title": "Posicionamento automático"
       },
+      "custom_placement": {
+        "description": "Necessário apenas se o seu tema não for suportado pelo posicionamento automático. Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente — a definição aplica-se a todos os seus temas. Se o elemento não for encontrado, é usado o posicionamento automático.",
+        "desktop": {
+          "label": "Desktop — seletor CSS",
+          "placeholder": ".minha-classe ou #meu-id"
+        },
+        "mobile": {
+          "label": "Telemóvel — seletor CSS",
+          "placeholder": ".minha-classe-mobile ou #meu-id-mobile"
+        },
+        "position": {
+          "after": "Depois do elemento",
+          "before": "Antes do elemento",
+          "label": "Posição"
+        },
+        "save": "Guardar posicionamento",
+        "title": "Posicionamento personalizado"
+      },
       "header": {
         "description": "Ofereça aos seus clientes uma camada adicional de segurança ao adicionar o #trstd login à navegação do seu site.",
         "title": "#trstd login"
@@ -350,6 +368,16 @@
           "description": "Exiba o Trustbadge padrão em todas as páginas do seu site e personalize onde aparece. ",
           "value": "Definições padrão"
         }
+      },
+      "structuredMarkup": {
+        "description": "Torne sinais de confiança, como a avaliação média e o número de avaliações, mais fáceis de ler para agentes de IA e motores de pesquisa.  Isto adiciona automaticamente um fragmento de dados estruturados ao código-fonte do seu site, o que pode melhorar a visibilidade da sua loja.",
+        "hint": {
+          "title": "Pode ativar isto depois de ativar o Trustbadge para este canal."
+        },
+        "learnMore": "Saiba mais sobre a visibilidade de IA do seu site",
+        "learnMore_url": "https://help.etrusted.com/hc/pt/articles/36072848059282",
+        "newFeature": "Novo",
+        "title": "Zwiększ widoczność AI"
       },
       "subtitel": "Comece pela funcionalidade mais importante da Trusted Shops",
       "titel": "Trustbadge"
@@ -510,6 +538,10 @@
     }
   },
   "shopify": {
+    "app_embed_banner": {
+      "button": "Ativar no editor de temas",
+      "text": "<strong>Ação necessária:</strong> Para mostrar as funcionalidades Trusted Shops na sua loja, ative o app embed da Trusted Shops no editor de temas e clique em <strong>Guardar</strong>."
+    },
     "global": {
       "help": {
         "link": {
