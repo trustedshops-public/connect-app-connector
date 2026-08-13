@@ -6,6 +6,11 @@
         "goLive": "Go live on mapped channels"
       },
       "description": "You can customise per channel anytime.",
+      "jsonLd": {
+        "description": "Make trust signals like rating and reviews easier to read for AI agents.",
+        "hint": "You can turn this on once the <b>Trustbadge is active</b>.",
+        "title": "AI visibility"
+      },
       "title": "Display trust signals for all mapped channels"
     },
     "invites": {
