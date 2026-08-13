@@ -92,16 +92,23 @@ const PHRASES_OVERVIEW_KEYS: OVERVIEW_KEYS = {
   activation_modal_description: 'application.activation_modal.description',
   activation_modal_button_customize: 'application.activation_modal.button.customize',
   activation_modal_button_goLive: 'application.activation_modal.button.goLive',
+  activation_modal_jsonLd_title: 'application.activation_modal.jsonLd.title',
+  activation_modal_jsonLd_description: 'application.activation_modal.jsonLd.description',
+  activation_modal_jsonLd_hint: 'application.activation_modal.jsonLd.hint',
 }
 
 const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
   application_trstd_login_header_title: 'application.trstd_login.header.title',
   application_trstd_login_header_description: 'application.trstd_login.header.description',
   application_trstd_login_toggle_label: 'application.trstd_login.toggle.label',
-  application_trstd_login_automatic_placement_title: 'application.trstd_login.automatic_placement.title',
-  application_trstd_login_automatic_placement_description: 'application.trstd_login.automatic_placement.description',
-  application_trstd_login_automatic_placement_mobile: 'application.trstd_login.automatic_placement.mobile',
-  application_trstd_login_automatic_placement_desktop: 'application.trstd_login.automatic_placement.desktop',
+  application_trstd_login_automatic_placement_title:
+    'application.trstd_login.automatic_placement.title',
+  application_trstd_login_automatic_placement_description:
+    'application.trstd_login.automatic_placement.description',
+  application_trstd_login_automatic_placement_mobile:
+    'application.trstd_login.automatic_placement.mobile',
+  application_trstd_login_automatic_placement_desktop:
+    'application.trstd_login.automatic_placement.desktop',
   application_trstd_login_action_required: 'application.trstd_login.action_required',
   application_trstd_login_action_required_shoper: 'application.trstd_login.action_required_shoper',
   application_trstd_login_about_title: 'application.trstd_login.about.title',
@@ -120,7 +127,8 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_subtitel: 'application.trustbadge.subtitel',
   application_trustbadge_description: 'application.trustbadge.description',
   application_trustbadge_placement_desktop: 'application.trustbadge.placement.desktop',
-  application_trustbadge_placement_inputDescription: 'application.trustbadge.placement.inputDescription',
+  application_trustbadge_placement_inputDescription:
+    'application.trustbadge.placement.inputDescription',
   application_trustbadge_placement_pixels: 'application.trustbadge.placement.pixels',
   application_trustbadge_placement_mobile: 'application.trustbadge.placement.mobile',
   application_trustbadge_placement_center: 'application.trustbadge.placement.center',
@@ -132,20 +140,30 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_popup_titel: 'application.trustbadge.popup.titel',
   application_trustbadge_popup_text: 'application.trustbadge.popup.text',
   application_trustbadge_displayToggle_label: 'application.trustbadge.displayToggle.label',
-  application_trustbadge_automaticPlacement_title: 'application.trustbadge.automaticPlacement.title',
-  application_trustbadge_automaticPlacement_description: 'application.trustbadge.automaticPlacement.description',
+  application_trustbadge_automaticPlacement_title:
+    'application.trustbadge.automaticPlacement.title',
+  application_trustbadge_automaticPlacement_description:
+    'application.trustbadge.automaticPlacement.description',
   application_trustbadge_preview_mobile: 'application.trustbadge.preview.mobile',
   application_trustbadge_preview_desktop: 'application.trustbadge.preview.desktop',
   application_trustbadge_integration_title: 'application.trustbadge.integration.title',
   application_trustbadge_integration_description: 'application.trustbadge.integration.description',
-  application_trustbadge_radioButtonOptions_standard_value: 'application.trustbadge.radioButtonOptions.standard.value',
-  application_trustbadge_radioButtonOptions_standard_description: 'application.trustbadge.radioButtonOptions.standard.description',
-  application_trustbadge_radioButtonOptions_expert_value: 'application.trustbadge.radioButtonOptions.expert.value',
-  application_trustbadge_radioButtonOptions_expert_description: 'application.trustbadge.radioButtonOptions.expert.description',
-  application_trustbadge_placementSection_desktopLabel: 'application.trustbadge.placementSection.desktopLabel',
-  application_trustbadge_placementSection_mobileLabel: 'application.trustbadge.placementSection.mobileLabel',
-  application_trustbadge_placementSection_positionLabel: 'application.trustbadge.placementSection.positionLabel',
-  application_trustbadge_placementSection_verticalOffsetLabel: 'application.trustbadge.placementSection.verticalOffsetLabel',
+  application_trustbadge_radioButtonOptions_standard_value:
+    'application.trustbadge.radioButtonOptions.standard.value',
+  application_trustbadge_radioButtonOptions_standard_description:
+    'application.trustbadge.radioButtonOptions.standard.description',
+  application_trustbadge_radioButtonOptions_expert_value:
+    'application.trustbadge.radioButtonOptions.expert.value',
+  application_trustbadge_radioButtonOptions_expert_description:
+    'application.trustbadge.radioButtonOptions.expert.description',
+  application_trustbadge_placementSection_desktopLabel:
+    'application.trustbadge.placementSection.desktopLabel',
+  application_trustbadge_placementSection_mobileLabel:
+    'application.trustbadge.placementSection.mobileLabel',
+  application_trustbadge_placementSection_positionLabel:
+    'application.trustbadge.placementSection.positionLabel',
+  application_trustbadge_placementSection_verticalOffsetLabel:
+    'application.trustbadge.placementSection.verticalOffsetLabel',
   application_trustbadge_placementSection_center: 'application.trustbadge.placementSection.center',
   application_trustbadge_placementSection_left: 'application.trustbadge.placementSection.left',
   application_trustbadge_placementSection_right: 'application.trustbadge.placementSection.right',
@@ -154,13 +172,20 @@ const PHRASES_TRUSTBADGE_KEYS: ITRUSTBADGE_KEYS = {
   application_trustbadge_about_learnMore: 'application.trustbadge.about.learnMore',
   application_trustbadge_about_learnMore_url: 'application.trustbadge.about.learnMore_url',
   application_trustbadge_structuredMarkup_title: 'application.trustbadge.structuredMarkup.title',
-  application_trustbadge_structuredMarkup_description: 'application.trustbadge.structuredMarkup.description',
-  application_trustbadge_structuredMarkup_toggle_label: 'application.trustbadge.structuredMarkup.toggle.label',
-  application_trustbadge_structuredMarkup_newFeature: 'application.trustbadge.structuredMarkup.newFeature',
-  application_trustbadge_structuredMarkup_learnMore: 'application.trustbadge.structuredMarkup.learnMore',
-  application_trustbadge_structuredMarkup_learnMore_url: 'application.trustbadge.structuredMarkup.learnMore_url',
-  application_trustbadge_structuredMarkup_hint_title: 'application.trustbadge.structuredMarkup.hint.title',
-  application_trustbadge_structuredMarkup_hint_text: 'application.trustbadge.structuredMarkup.hint.text',
+  application_trustbadge_structuredMarkup_description:
+    'application.trustbadge.structuredMarkup.description',
+  application_trustbadge_structuredMarkup_toggle_label:
+    'application.trustbadge.structuredMarkup.toggle.label',
+  application_trustbadge_structuredMarkup_newFeature:
+    'application.trustbadge.structuredMarkup.newFeature',
+  application_trustbadge_structuredMarkup_learnMore:
+    'application.trustbadge.structuredMarkup.learnMore',
+  application_trustbadge_structuredMarkup_learnMore_url:
+    'application.trustbadge.structuredMarkup.learnMore_url',
+  application_trustbadge_structuredMarkup_hint_title:
+    'application.trustbadge.structuredMarkup.hint.title',
+  application_trustbadge_structuredMarkup_hint_text:
+    'application.trustbadge.structuredMarkup.hint.text',
 }
 
 export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
@@ -191,7 +216,8 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_position_header: 'application.widgets.position.header',
   application_widgets_position_footer: 'application.widgets.position.footer',
   application_widgets_position_custom: 'application.widgets.position.custom',
-  application_widgets_position_checkout_confirmation: 'application.widgets.position.checkoutConfirmation',
+  application_widgets_position_checkout_confirmation:
+    'application.widgets.position.checkoutConfirmation',
   application_widgets_position_productname: 'application.widgets.position.productname',
   application_widgets_position_productdescription:
     'application.widgets.position.productdescription',
@@ -202,12 +228,13 @@ export const PHRASES_WIDGETS_KEYS: IWIDGETS_KEYS = {
   application_widgets_name_CustomerVoice: 'application.widgets.name.customervoice',
   application_widgets_name_TrustedCheckout: 'application.widgets.name.TrustedCheckout',
   application_widgets_contentType_productReviews: 'application.widgets.contentType.productReviews',
-  application_widgets_contentType_serviceReviews: 'application.widgets.contentType.serviceReviews', 
-  application_widgets_contentType_trustedCheckout: 'application.widgets.contentType.trustedCheckout', 
+  application_widgets_contentType_serviceReviews: 'application.widgets.contentType.serviceReviews',
+  application_widgets_contentType_trustedCheckout:
+    'application.widgets.contentType.trustedCheckout',
   application_widgets_about_title: 'application.widgets.about.title',
   application_widgets_about_description: 'application.widgets.about.description',
   application_widgets_about_learnMore: 'application.widgets.about.learnMore',
-  application_widgets_about_learnMore_url: 'application.widgets.about.learnMore_url'
+  application_widgets_about_learnMore_url: 'application.widgets.about.learnMore_url',
 }
 
 export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
@@ -294,20 +321,32 @@ export const PHRASES_INVITES_KEYS: INVITES_KEYS = {
   application_invites_v3_description: 'application.invites.v3.description',
   application_invites_v3_rightTime_title: 'application.invites.v3.rightTime.title',
   application_invites_v3_rightTime_description: 'application.invites.v3.rightTime.description',
-  application_invites_v3_rightTime_serviceReviews: 'application.invites.v3.rightTime.serviceReviews',
-  application_invites_v3_rightTime_productReviews: 'application.invites.v3.rightTime.productReviews',
+  application_invites_v3_rightTime_serviceReviews:
+    'application.invites.v3.rightTime.serviceReviews',
+  application_invites_v3_rightTime_productReviews:
+    'application.invites.v3.rightTime.productReviews',
   application_invites_v3_rightTime_placeholder: 'application.invites.v3.rightTime.placeholder',
-  application_invites_v3_rightTime_productUpgrade_text: 'application.invites.v3.rightTime.productUpgrade.text',
-  application_invites_v3_rightTime_productUpgrade_url: 'application.invites.v3.rightTime.productUpgrade.url',
+  application_invites_v3_rightTime_productUpgrade_text:
+    'application.invites.v3.rightTime.productUpgrade.text',
+  application_invites_v3_rightTime_productUpgrade_url:
+    'application.invites.v3.rightTime.productUpgrade.url',
   application_invites_v3_previousOrders_title: 'application.invites.v3.previousOrders.title',
-  application_invites_v3_previousOrders_description: 'application.invites.v3.previousOrders.description',
-  application_invites_v3_previousOrders_step1_title: 'application.invites.v3.previousOrders.step1.title',
-  application_invites_v3_previousOrders_step1_exportLabel: 'application.invites.v3.previousOrders.step1.exportLabel',
-  application_invites_v3_previousOrders_step1_days: 'application.invites.v3.previousOrders.step1.days',
-  application_invites_v3_previousOrders_step2_title: 'application.invites.v3.previousOrders.step2.title',
-  application_invites_v3_previousOrders_step2_description: 'application.invites.v3.previousOrders.step2.description',
-  application_invites_v3_previousOrders_step2_buttonLabel: 'application.invites.v3.previousOrders.step2.buttonLabel',
-  application_invites_v3_previousOrders_step2_url: 'application.invites.v3.previousOrders.step2.url',
+  application_invites_v3_previousOrders_description:
+    'application.invites.v3.previousOrders.description',
+  application_invites_v3_previousOrders_step1_title:
+    'application.invites.v3.previousOrders.step1.title',
+  application_invites_v3_previousOrders_step1_exportLabel:
+    'application.invites.v3.previousOrders.step1.exportLabel',
+  application_invites_v3_previousOrders_step1_days:
+    'application.invites.v3.previousOrders.step1.days',
+  application_invites_v3_previousOrders_step2_title:
+    'application.invites.v3.previousOrders.step2.title',
+  application_invites_v3_previousOrders_step2_description:
+    'application.invites.v3.previousOrders.step2.description',
+  application_invites_v3_previousOrders_step2_buttonLabel:
+    'application.invites.v3.previousOrders.step2.buttonLabel',
+  application_invites_v3_previousOrders_step2_url:
+    'application.invites.v3.previousOrders.step2.url',
   application_invites_v3_rightTime_help_text: 'application.invites.v3.rightTime.help.text',
   application_invites_v3_rightTime_help_url: 'application.invites.v3.rightTime.help.url',
 }
@@ -330,7 +369,8 @@ export const PHRASES_SETTINGS_KEYS: SETTINGS_KEYS = {
   application_settings_popup_description: 'application.settings.popup.description',
   application_settings_popup_body: 'application.settings.popup.body',
   application_settings_channel_warning_title: 'application.settings.channel.warning.title',
-  application_settings_channel_warning_description: 'application.settings.channel.warning.description',
+  application_settings_channel_warning_description:
+    'application.settings.channel.warning.description',
   application_settings_disconnect_warning_title: 'application.settings.disconnect.warningTitle',
   application_settings_help_title: 'application.settings.help.title',
   application_settings_help_text: 'application.settings.help.text',
