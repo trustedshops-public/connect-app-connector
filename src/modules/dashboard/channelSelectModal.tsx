@@ -150,7 +150,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
 
                   <div
                     className="ts-overflow-y-auto"
-                    style={{ flex: '1 1 auto', minHeight: 0 }}
+                    style={{ flex: '1 1 auto', minHeight: 0, scrollbarGutter: 'stable' }}
                   >
                     <ChannelSelectionForm phrasesByKey={phrasesByKey} />
                   </div>
