@@ -6,6 +6,11 @@
         "goLive": "Opublikuj na zmapowanych kanałach"
       },
       "description": "W dowolnym momencie możesz zmienić ustawienia dla każdego kanału.",
+      "jsonLd": {
+        "description": "Spraw, aby sygnały zaufania, takie jak oceny, były łatwiejsze do odczytania dla agentów AI.",
+        "hint": "Włącz to, gdy <b>Trustbadge będzie aktywny</b>",
+        "title": "Widoczność AI"
+      },
       "title": "Wyświetl sygnały zaufania dla wszystkich zmapowanych kanałów"
     },
     "invites": {

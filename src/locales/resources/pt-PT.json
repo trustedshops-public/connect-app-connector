@@ -6,6 +6,11 @@
         "goLive": "Ativar nos canais atribuídos"
       },
       "description": "Pode ajustar a apresentação por canal a qualquer momento.",
+      "jsonLd": {
+        "description": "Torne os sinais de confiança, como as avaliações, mais fáceis de ler para os agentes de IA.",
+        "hint": "Ative isto assim que <b>o Trustbadge estiver ativo</b>.",
+        "title": "Visibilidade de IA"
+      },
       "title": "Apresentar sinais de confiança em todos os canais atribuídos"
     },
     "invites": {

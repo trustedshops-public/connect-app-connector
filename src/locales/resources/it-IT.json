@@ -6,6 +6,11 @@
         "goLive": "Manda online sui canali mappati"
       },
       "description": "Puoi personalizzare per canale in qualsiasi momento.",
+      "jsonLd": {
+        "description": "Rendi i segnali di fiducia, come le recensioni, più facili da leggere per gli agenti IA.",
+        "hint": "Attiva questa funzione quando <b>il Trustbadge è attivo</b>.",
+        "title": "Visibilità IA"
+      },
       "title": "Mostra i segnali di fiducia per tutti i canali mappati"
     },
     "invites": {

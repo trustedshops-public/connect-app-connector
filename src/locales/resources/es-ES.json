@@ -6,6 +6,11 @@
         "goLive": "Publicar en los canales asociados"
       },
       "description": "Puedes personalizar por canal en cualquier momento.",
+      "jsonLd": {
+        "description": "Haz que las señales de confianza, como las valoraciones, sean más fáciles de leer para los agentes de IA.",
+        "hint": "Activa esto en cuanto <b>el Trustbadge esté activo</b>.",
+        "title": "Visibilidad de IA"
+      },
       "title": "Mostrar señales de confianza en todos los canales asociados"
     },
     "invites": {

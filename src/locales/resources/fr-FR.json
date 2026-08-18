@@ -6,6 +6,11 @@
         "goLive": "Mettre en ligne sur les canaux associés"
       },
       "description": "Vous pouvez opter pour une personnalisation par canal à tout moment.",
+      "jsonLd": {
+        "description": "Rendez les signaux de confiance, comme les avis, plus lisibles pour les agents IA.",
+        "hint": "Activez ceci dès que <b>le Trustbadge est actif</b>.",
+        "title": "Visibilité IA"
+      },
       "title": "Afficher les signaux de confiance pour tous les canaux associés"
     },
     "invites": {
