@@ -6,6 +6,11 @@
         "goLive": "Auf gemappten Kanälen live gehen"
       },
       "description": "Sie können die Einstellungen jederzeit pro Kanal anpassen.",
+      "jsonLd": {
+        "description": "Mach Vertrauenssignale wie Bewertungen für KI-Agenten leichter lesbar.",
+        "hint": "Aktiviere dies, sobald <b>das Trustbadge aktiv ist</b>.",
+        "title": "KI-Sichtbarkeit"
+      },
       "title": "Vertrauenselemente für alle gemappten Kanäle anzeigen"
     },
     "invites": {

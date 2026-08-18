@@ -6,6 +6,11 @@
         "goLive": "Live gaan op toegewezen kanalen"
       },
       "description": "Je kunt de weergave per kanaal op elk moment aanpassen.",
+      "jsonLd": {
+        "description": "Maak vertrouwenssignalen zoals beoordelingen makkelijker leesbaar voor AI-agents.",
+        "hint": "Zet dit aan zodra <b>de Trustbadge actief is</b>.",
+        "title": "AI-zichtbaarheid"
+      },
       "title": "Vertrouwenssignalen weergeven voor alle toegewezen kanalen"
     },
     "invites": {
