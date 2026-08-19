@@ -1,3 +1,10 @@
+## [1.23.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.22.0...1.23.0) (2026-08-19)
+
+
+### Features
+
+* Relaease Json LD activation Modal changes ([6b07b23](https://github.com/trustedshops-public/connect-app-connector/commit/6b07b2336aaa583a99c57b23b322eb5164562cf8))
+
 ## [1.22.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.8...1.22.0) (2026-08-04)
 
 
