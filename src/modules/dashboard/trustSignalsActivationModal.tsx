@@ -140,7 +140,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
         )
       } catch (error) {
         console.error(
-          `Error activating trust signals for channel ${channel.eTrustedChannelRef}:`,
+          `Error activating trust signals for channel ${channel.eTrustedChannelRef} :`,
           error,
         )
       }
