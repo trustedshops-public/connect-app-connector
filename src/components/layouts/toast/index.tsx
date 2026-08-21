@@ -30,70 +30,58 @@ const Toast: FC<IProps<IToastList>> = ({ item, deleteToast, phrasesByKey }) => {
   const mappedErrorKey = item.errorText ? BACKEND_ERROR_KEY_MAP[item.errorText] : undefined
   const errorTextToDisplay = mappedErrorKey ? phrasesByKey[mappedErrorKey] : item.errorText
 
+  const accentColor = isError ? '#DC2626' : '#16A34A'
+
   return (
     <div
       key={item.id}
-      className="ts-relative ts-mt-4"
+      className="ts-toast-item ts-flex ts-items-center ts-gap-3 ts-mt-3"
       style={{
-        maxWidth: '420px',
+        maxWidth: '400px',
         width: '100%',
         borderRadius: '12px',
-        backgroundColor: isError ? '#FEF2F2' : '#F0FDF4',
-        border: `1px solid ${isError ? '#FECACA' : '#BBF7D0'}`,
-        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.08)',
-        padding: '16px 20px',
+        backgroundColor: '#FFFFFF',
+        border: '1px solid #E5E7EB',
+        borderLeft: `4px solid ${accentColor}`,
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+        padding: '14px 16px',
       }}
     >
-      {/* Close X button - circle on top-left border edge */}
+      {/* Status icon */}
+      <div
+        className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
+        style={{
+          width: '22px',
+          height: '22px',
+          borderRadius: '50%',
+          backgroundColor: accentColor,
+        }}
+      >
+        {isError ? <ToastErrorIcon /> : <ToastSuccessIcon />}
+      </div>
+
+      {/* Text content */}
+      <p
+        id="status_popup"
+        className="ts-flex-1 ts-text-sm"
+        style={{ color: '#101828', fontWeight: 600, lineHeight: '20px' }}
+      >
+        {item.errorText
+          ? errorTextToDisplay
+          : phrasesByKey[`global_notification_${item.status}_${item.type}`]}
+      </p>
+
+      {/* Close button */}
       <button
         onClick={() => {
           item.id && deleteToast(item.id)
         }}
-        className="ts-border-0 ts-cursor-pointer ts-p-0 ts-flex ts-items-center ts-justify-center"
-        style={{
-          position: 'absolute',
-          top: '-8px',
-          left: '-8px',
-          width: '20px',
-          height: '20px',
-          borderRadius: '50%',
-          backgroundColor: isError ? '#FEE2E2' : '#DCFCE7',
-          border: `1px solid ${isError ? '#FECACA' : '#BBF7D0'}`,
-          color: isError ? '#DC2626' : '#16A34A',
-          lineHeight: 0,
-        }}
+        aria-label="Close notification"
+        className="ts-border-0 ts-bg-transparent ts-cursor-pointer ts-p-1 ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
+        style={{ color: '#9CA3AF', lineHeight: 0 }}
       >
         <ToastCloseIcon />
       </button>
-
-      {/* Content row: icon aligned with title */}
-      <div className="ts-flex ts-items-start ts-gap-3">
-        {/* Status icon - aligned with the title line */}
-        <div
-          className="ts-flex ts-items-center ts-justify-center ts-flex-shrink-0"
-          style={{
-            width: '22px',
-            height: '22px',
-            borderRadius: '50%',
-            backgroundColor: isError ? '#DC2626' : '#16A34A',
-          }}
-        >
-          {isError ? <ToastErrorIcon /> : <ToastSuccessIcon />}
-        </div>
-
-        {/* Text content */}
-        <div className="ts-flex-1" style={{ paddingTop: '1px' }}>
-          {item.errorText ? (
-            <p className="ts-text-sm ts-font-bold" style={{ color: isError ? '#991B1B' : '#166534', lineHeight: '20px' }}>
-              {errorTextToDisplay}
-            </p>
-          ) : (
-            <p id="status_popup" className="ts-text-sm ts-font-bold" style={{ color: isError ? '#991B1B' : '#166534', lineHeight: '20px' }}>
-              {phrasesByKey[`global_notification_${item.status}_${item.type}`]}
-            </p>
-          )}
-        </div>
-      </div>
     </div>
   )
 }
@@ -106,10 +94,17 @@ const ToastList: FC<{
 
   return (
     <div className="ts-fixed ts-z-[1202] ts-top-4 ts-left-4 ts-right-4 sm:ts-left-auto sm:ts-right-8">
+      <style>{`
+        @keyframes ts-toast-in {
+          from { opacity: 0; transform: translateY(-8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .ts-toast-item { animation: ts-toast-in 0.25s ease-out; }
+      `}</style>
       {toastList.map(item => (
         <Toast
           list={toastList}
-          key={item}
+          key={item.id}
           item={item}
           deleteToast={deleteToastItem}
           phrasesByKey={phrasesByKey}
