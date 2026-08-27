@@ -252,17 +252,22 @@ export const trstdLoginStore = (
       customization,
     }
 
+    const supportsSaveEvent = !!EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION
+
+    // loading stays on until the shop system confirms the save via
+    // SET_TRSTDLOGIN_CONFIGURATION_PROVIDED (handled in eventsContainer)
     set(store => ({
       trstdLoginState: {
         ...store.trstdLoginState,
         trstdLoginData: updatedData,
         initialTrstdLoginData: JSON.parse(JSON.stringify(updatedData)),
+        isLoadingBL: supportsSaveEvent,
       },
     }))
 
     // The base layer persists the customization shop-globally (all locales/themes)
     // alongside the login configuration of the selected channel.
-    if (EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION) {
+    if (supportsSaveEvent) {
       dispatchAction({
         action: EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION,
         payload: {
