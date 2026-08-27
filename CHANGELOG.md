@@ -1,3 +1,10 @@
+## [1.24.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.23.0...1.24.0) (2026-08-27)
+
+
+### Features
+
+* Redesign of Notification Toast ([1184d7e](https://github.com/trustedshops-public/connect-app-connector/commit/1184d7e8da4fcff24472901c51849e4ec55bfebe))
+
 ## [1.23.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.22.0...1.23.0) (2026-08-19)
 
 
