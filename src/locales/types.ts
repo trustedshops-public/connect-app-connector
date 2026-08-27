@@ -350,6 +350,8 @@ export type GLOBAL_KEYS = {
 
 export type SHOPIFY_GLOBAL_KEYS = {
   shopify_global_help_link_url_1: string
+  shopify_app_embed_banner_text: string
+  shopify_app_embed_banner_button: string
 }
 
 export type AUTH_KEYS = {
@@ -421,6 +423,16 @@ export type ITRSTD_LOGIN_KEYS = {
   application_trstd_login_popup_title: string
   application_trstd_login_popup_text: string
   application_trstd_login_popup_submit: string
+  application_trstd_login_custom_placement_title: string
+  application_trstd_login_custom_placement_description: string
+  application_trstd_login_custom_placement_desktop_label: string
+  application_trstd_login_custom_placement_desktop_placeholder: string
+  application_trstd_login_custom_placement_mobile_label: string
+  application_trstd_login_custom_placement_mobile_placeholder: string
+  application_trstd_login_custom_placement_position_label: string
+  application_trstd_login_custom_placement_position_before: string
+  application_trstd_login_custom_placement_position_after: string
+  application_trstd_login_custom_placement_save: string
 }
 
 export type ITRUSTBADGE_KEYS = {
@@ -644,6 +656,7 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   ITRSTD_LOGIN_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS &
+  SHOPIFY_GLOBAL_KEYS &
   OVERVIEW_KEYS
 
 export type SelectedTab =

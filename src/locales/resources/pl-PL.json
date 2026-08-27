@@ -305,6 +305,24 @@
       },
       "toggle": {
         "label": "Wyświetl na tym kanale"
+      },
+      "custom_placement": {
+        "title": "Niestandardowe umiejscowienie",
+        "description": "Potrzebne tylko wtedy, gdy Twój motyw nie jest obsługiwany przez automatyczne umiejscowienie. Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login — ustawienie dotyczy wszystkich Twoich motywów. Jeśli element nie zostanie znaleziony, użyte zostanie umiejscowienie automatyczne.",
+        "desktop": {
+          "label": "Komputer — selektor CSS",
+          "placeholder": ".moja-klasa lub #moje-id"
+        },
+        "mobile": {
+          "label": "Mobile — selektor CSS",
+          "placeholder": ".moja-klasa-mobilna lub #moje-id-mobilne"
+        },
+        "position": {
+          "label": "Pozycja",
+          "before": "Przed elementem",
+          "after": "Po elemencie"
+        },
+        "save": "Zapisz umiejscowienie"
       }
     },
     "trustbadge": {
@@ -555,6 +573,10 @@
           "url_1": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify"
         }
       }
+    },
+    "app_embed_banner": {
+      "text": "<strong>Wymagane działanie:</strong> Aby funkcje Trusted Shops były widoczne w Twoim sklepie, aktywuj app embed Trusted Shops w edytorze motywu i kliknij <strong>Zapisz</strong>.",
+      "button": "Aktywuj w edytorze motywu"
     }
   }
 }

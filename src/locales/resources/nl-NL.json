@@ -305,6 +305,24 @@
       },
       "toggle": {
         "label": "Weergeven op dit kanaal"
+      },
+      "custom_placement": {
+        "title": "Aangepaste plaatsing",
+        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
+        "desktop": {
+          "label": "Desktop — CSS-selector",
+          "placeholder": ".mijn-class of #mijn-id"
+        },
+        "mobile": {
+          "label": "Mobiel — CSS-selector",
+          "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
+        },
+        "position": {
+          "label": "Positie",
+          "before": "Vóór het element",
+          "after": "Na het element"
+        },
+        "save": "Plaatsing opslaan"
       }
     },
     "trustbadge": {
@@ -555,6 +573,10 @@
           "url_1": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
         }
       }
+    },
+    "app_embed_banner": {
+      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, activeer je de Trusted Shops app embed in de thema-editor en klik je op <strong>Opslaan</strong>.",
+      "button": "Activeren in thema-editor"
     }
   }
 }

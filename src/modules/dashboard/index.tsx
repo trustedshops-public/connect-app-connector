@@ -18,6 +18,8 @@ import {
   selectorChannels,
   selectorInfoOfSystem,
   selectorNotificationStore,
+  selectorStructuredMarkup,
+  selectorTrstdLogin,
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
@@ -48,6 +50,23 @@ const DashboardPageModule: FC<{
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { user } = useStore(selectorAuth)
+  const { trstdLoginData } = useStore(selectorTrstdLogin)
+  const { structuredMarkupEnabled } = useStore(selectorStructuredMarkup)
+
+  // Shopify only: the app embed must be activated once in the theme editor before
+  // #trstd login / structured data can render. Shown on every tab; the deep link opens
+  // the theme editor with the embed pre-activated (merchant just clicks Save).
+  // Detection-based: hidden once the base layer reports the embed as activated on the
+  // published theme (appEmbedActivated === true). When the status is unknown
+  // (undefined), the banner stays visible — better one banner too many than a merchant
+  // with an invisible integration.
+  const isTrstdLoginEnabled =
+    trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
+  const showAppEmbedBanner =
+    infoOfSystem.nameOfSystem?.toLowerCase() === 'shopify' &&
+    !!infoOfSystem.appEmbedDeepLink &&
+    infoOfSystem.appEmbedActivated !== true &&
+    (isTrstdLoginEnabled || structuredMarkupEnabled)
 
   const {
     allowsEstimatedDeliveryDate,
@@ -462,6 +481,33 @@ const DashboardPageModule: FC<{
                     />
                   </div>
                 </div>
+
+                {/* App embed activation banner (Shopify only) - visible on all tabs */}
+                {showAppEmbedBanner && (
+                  <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pt-6">
+                    <div
+                      className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-rounded-lg ts-p-4"
+                      style={{ backgroundColor: '#FEF3C6', border: '1px solid #DBD0A1' }}
+                    >
+                      <p
+                        className="ts-text-sm ts-font-normal ts-m-0 ts-flex-1"
+                        style={{ color: '#973C00', minWidth: '260px' }}
+                        dangerouslySetInnerHTML={{ __html: phrasesByKey.shopify_app_embed_banner_text }}
+                      />
+                      <a
+                        id="link_appEmbedDeepLink"
+                        data-testid="link_appEmbedDeepLink"
+                        href={infoOfSystem.appEmbedDeepLink}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="ts-text-sm ts-font-medium ts-rounded-lg ts-px-4 ts-py-2 ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0"
+                        style={{ backgroundColor: '#973C00', color: '#FFFFFF' }}
+                      >
+                        {phrasesByKey.shopify_app_embed_banner_button}
+                      </a>
+                    </div>
+                  </div>
+                )}
 
                 {/* Content area - centered */}
                 <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6" style={{ backgroundColor: '#F9FAFB', minHeight: '100%', flex: 1 }}>
