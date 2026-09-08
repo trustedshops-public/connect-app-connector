@@ -23,7 +23,7 @@ import {
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-// BackgroundCard removed from dashboard
+// BackgroundCard removed from dashboard 
 import ChannelSelectModal from './channelSelectModal'
 import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
