@@ -277,22 +277,22 @@
         "title": "Automatische plaatsing"
       },
       "custom_placement": {
-        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
+        "title": "Aangepaste plaatsing",
+        "description": "Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen. De instelling geldt voor al je thema’s.",
         "desktop": {
-          "label": "Desktop — CSS-selector",
+          "label": "CSS-selector",
           "placeholder": ".mijn-class of #mijn-id"
         },
         "mobile": {
-          "label": "Mobiel — CSS-selector",
+          "label": "CSS-selector",
           "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
         },
         "position": {
-          "after": "Na het element",
+          "label": "Positie",
           "before": "Vóór het element",
-          "label": "Positie"
+          "after": "Na het element"
         },
-        "save": "Plaatsing opslaan",
-        "title": "Aangepaste plaatsing"
+        "save": "Plaatsing opslaan"
       },
       "header": {
         "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
@@ -305,24 +305,6 @@
       },
       "toggle": {
         "label": "Weergeven op dit kanaal"
-      },
-      "custom_placement": {
-        "title": "Aangepaste plaatsing",
-        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
-        "desktop": {
-          "label": "Desktop — CSS-selector",
-          "placeholder": ".mijn-class of #mijn-id"
-        },
-        "mobile": {
-          "label": "Mobiel — CSS-selector",
-          "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
-        },
-        "position": {
-          "label": "Positie",
-          "before": "Vóór het element",
-          "after": "Na het element"
-        },
-        "save": "Plaatsing opslaan"
       }
     },
     "trustbadge": {
@@ -563,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "button": "Activeren in thema-editor",
-      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, activeer je de Trusted Shops app embed in de thema-editor en klik je op <strong>Opslaan</strong>."
+      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, schakel je de Trusted Shops app in de thema-editor in en kies je vervolgens <strong>Opslaan</strong>.",
+      "button": "Inschakelen in thema-editor"
     },
     "global": {
       "help": {
@@ -573,10 +555,6 @@
           "url_1": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
         }
       }
-    },
-    "app_embed_banner": {
-      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, activeer je de Trusted Shops app embed in de thema-editor en klik je op <strong>Opslaan</strong>.",
-      "button": "Activeren in thema-editor"
     }
   }
 }

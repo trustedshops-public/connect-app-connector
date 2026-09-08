@@ -57,7 +57,7 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   }
 
   const inputClass =
-    'ts-text-sm ts-text-default ts-bg-white ts-border ts-border-solid ts-border-gray-100 hover:ts-border-gray-200 ts-rounded-[8px] ts-h-[36px] ts-px-3 focus:ts-outline-none focus:ts-ring-2 focus:ts-ring-blue-800 focus:ts-border-transparent'
+    'ts-text-sm ts-text-default ts-bg-white ts-border ts-border-solid ts-border-gray-100 hover:ts-border-gray-200 ts-rounded-[8px] ts-h-[44px] ts-px-3 focus:ts-outline-none focus:ts-ring-2 focus:ts-ring-blue-800 focus:ts-border-transparent'
 
   const positionPhrase: { [key: string]: string } = {
     left: phrasesByKey?.application_trstd_login_custom_placement_position_before ?? '',
@@ -69,6 +69,7 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
       testId={`trstdLogin_${field}`}
       id={`trstdLogin_${field}`}
       defaultValue={positionPhrase[customization[field] ?? 'left']}
+      height={44}
     >
       {Object.keys(positionPhrase).map(value => (
         <Option
@@ -234,78 +235,125 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
         {/* Card: Custom placement (only when the base layer supports app-side placement, e.g. Shopify) */}
         {showCustomPlacement && (
           <div
-            className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-p-6 sm:ts-p-8"
+            className="ts-bg-white ts-rounded-[14px] ts-shadow-md ts-overflow-hidden"
             style={{ border: '1px solid #E5E7EB' }}
           >
-            <p className="ts-text-default ts-text-sm ts-font-bold ts-mb-1">
-              {phrasesByKey.application_trstd_login_custom_placement_title}
-            </p>
-            <p className="ts-text-sm ts-font-normal ts-mb-5" style={{ color: '#6b7280' }}>
-              {phrasesByKey.application_trstd_login_custom_placement_description}
-            </p>
-
-            <div className="ts-grid ts-gap-4 sm:ts-gap-x-6 sm:ts-grid-cols-2">
-              <div className="ts-flex ts-flex-col ts-gap-1">
-                <label className="ts-text-sm ts-text-default">
-                  {phrasesByKey.application_trstd_login_custom_placement_desktop_label}
-                </label>
-                <input
-                  id="input_trstdLogin_selector_desktop"
-                  data-testid="input_trstdLogin_selector_desktop"
-                  type="text"
-                  value={customization.target_selector ?? ''}
-                  placeholder={
-                    phrasesByKey.application_trstd_login_custom_placement_desktop_placeholder
-                  }
-                  onChange={(e): void =>
-                    setCustomizationField('target_selector')((e.target as HTMLInputElement).value)
-                  }
-                  className={inputClass}
-                />
-              </div>
-              <div className="ts-flex ts-flex-col ts-gap-1">
-                <label className="ts-text-sm ts-text-default">
-                  {phrasesByKey.application_trstd_login_custom_placement_position_label}
-                </label>
-                {renderPositionSelect('position_desktop')}
-              </div>
-              <div className="ts-flex ts-flex-col ts-gap-1">
-                <label className="ts-text-sm ts-text-default">
-                  {phrasesByKey.application_trstd_login_custom_placement_mobile_label}
-                </label>
-                <input
-                  id="input_trstdLogin_selector_mobile"
-                  data-testid="input_trstdLogin_selector_mobile"
-                  type="text"
-                  value={customization.target_selector_mobile ?? ''}
-                  placeholder={
-                    phrasesByKey.application_trstd_login_custom_placement_mobile_placeholder
-                  }
-                  onChange={(e): void =>
-                    setCustomizationField('target_selector_mobile')(
-                      (e.target as HTMLInputElement).value,
-                    )
-                  }
-                  className={inputClass}
-                />
-              </div>
-              <div className="ts-flex ts-flex-col ts-gap-1">
-                <label className="ts-text-sm ts-text-default">
-                  {phrasesByKey.application_trstd_login_custom_placement_position_label}
-                </label>
-                {renderPositionSelect('position_mobile')}
-              </div>
+            {/* Header */}
+            <div className="ts-px-6 sm:ts-px-8 ts-pt-6 sm:ts-pt-8 ts-pb-5">
+              <h3
+                className="ts-mb-2"
+                style={{
+                  color: '#101828',
+                  fontSize: '18px',
+                  fontStyle: 'normal',
+                  fontWeight: 600,
+                  lineHeight: '28px',
+                }}
+              >
+                {phrasesByKey.application_trstd_login_custom_placement_title}
+              </h3>
+              <p className="ts-text-sm ts-font-normal" style={{ color: '#4A5565' }}>
+                {phrasesByKey.application_trstd_login_custom_placement_description}
+              </p>
             </div>
 
-            <div className="ts-flex ts-justify-end ts-mt-6">
-              <StyledButton
-                id="trstdLogin_save_customization"
-                variant="primary"
-                height={40}
-                onClick={handleSaveCustomization}
-              >
-                {phrasesByKey.application_trstd_login_custom_placement_save}
-              </StyledButton>
+            {/* Divider */}
+            <div style={{ height: '1px', backgroundColor: '#E5E7EB' }} />
+
+            {/* Body */}
+            <div className="ts-p-6 sm:ts-p-8 ts-flex ts-flex-col ts-gap-6">
+              {/* Desktop section */}
+              <div>
+                <div
+                  className="ts-flex ts-items-center ts-gap-2 ts-mb-4"
+                  style={{ color: '#101828' }}
+                >
+                  <DesktopIcon />
+                  <span className="ts-text-sm ts-font-normal">
+                    {phrasesByKey.application_trstd_login_automatic_placement_desktop}
+                  </span>
+                </div>
+                <div className="ts-grid ts-gap-4 sm:ts-gap-x-6 sm:ts-grid-cols-2">
+                  <div className="ts-flex ts-flex-col ts-gap-1">
+                    <label className="ts-text-sm ts-text-default">
+                      {phrasesByKey.application_trstd_login_custom_placement_desktop_label}
+                    </label>
+                    <input
+                      id="input_trstdLogin_selector_desktop"
+                      data-testid="input_trstdLogin_selector_desktop"
+                      type="text"
+                      value={customization.target_selector ?? ''}
+                      placeholder={
+                        phrasesByKey.application_trstd_login_custom_placement_desktop_placeholder
+                      }
+                      onChange={(e): void =>
+                        setCustomizationField('target_selector')(
+                          (e.target as HTMLInputElement).value,
+                        )
+                      }
+                      className={inputClass}
+                    />
+                  </div>
+                  <div className="ts-flex ts-flex-col ts-gap-1">
+                    <label className="ts-text-sm ts-text-default">
+                      {phrasesByKey.application_trstd_login_custom_placement_position_label}
+                    </label>
+                    {renderPositionSelect('position_desktop')}
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile section */}
+              <div>
+                <div
+                  className="ts-flex ts-items-center ts-gap-2 ts-mb-4"
+                  style={{ color: '#101828' }}
+                >
+                  <MobileIcon />
+                  <span className="ts-text-sm ts-font-normal">
+                    {phrasesByKey.application_trstd_login_automatic_placement_mobile}
+                  </span>
+                </div>
+                <div className="ts-grid ts-gap-4 sm:ts-gap-x-6 sm:ts-grid-cols-2">
+                  <div className="ts-flex ts-flex-col ts-gap-1">
+                    <label className="ts-text-sm ts-text-default">
+                      {phrasesByKey.application_trstd_login_custom_placement_mobile_label}
+                    </label>
+                    <input
+                      id="input_trstdLogin_selector_mobile"
+                      data-testid="input_trstdLogin_selector_mobile"
+                      type="text"
+                      value={customization.target_selector_mobile ?? ''}
+                      placeholder={
+                        phrasesByKey.application_trstd_login_custom_placement_mobile_placeholder
+                      }
+                      onChange={(e): void =>
+                        setCustomizationField('target_selector_mobile')(
+                          (e.target as HTMLInputElement).value,
+                        )
+                      }
+                      className={inputClass}
+                    />
+                  </div>
+                  <div className="ts-flex ts-flex-col ts-gap-1">
+                    <label className="ts-text-sm ts-text-default">
+                      {phrasesByKey.application_trstd_login_custom_placement_position_label}
+                    </label>
+                    {renderPositionSelect('position_mobile')}
+                  </div>
+                </div>
+              </div>
+
+              <div className="ts-flex ts-justify-end">
+                <StyledButton
+                  id="trstdLogin_save_customization"
+                  variant="primary"
+                  height={40}
+                  onClick={handleSaveCustomization}
+                >
+                  {phrasesByKey.application_trstd_login_custom_placement_save}
+                </StyledButton>
+              </div>
             </div>
           </div>
         )}
