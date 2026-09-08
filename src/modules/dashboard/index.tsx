@@ -23,7 +23,7 @@ import {
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-// BackgroundCard removed from dashboard
+// BackgroundCard removed from dashboard 
 import ChannelSelectModal from './channelSelectModal'
 import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
@@ -32,6 +32,7 @@ import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import OverviewTab from './tabOverview/index'
 import { GearIcon } from '@/components/layouts/icons/GearIcon'
+import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -486,13 +487,30 @@ const DashboardPageModule: FC<{
                 {showAppEmbedBanner && (
                   <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pt-6">
                     <div
-                      className="ts-flex ts-flex-wrap ts-items-center ts-justify-between ts-gap-3 ts-rounded-lg ts-p-4"
-                      style={{ backgroundColor: '#FEF3C6', border: '1px solid #DBD0A1' }}
+                      className="ts-flex ts-flex-wrap ts-items-center ts-gap-4 ts-rounded-[12px]"
+                      style={{
+                        backgroundColor: '#FFFAEB',
+                        border: '1px solid #FAD98B',
+                        padding: '16px 20px',
+                      }}
                     >
+                      <div
+                        className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
+                        style={{
+                          width: '44px',
+                          height: '44px',
+                          backgroundColor: '#FEF3C7',
+                          color: '#DC6803',
+                        }}
+                      >
+                        <InfoCircleOutlinedIcon size={20} />
+                      </div>
                       <p
                         className="ts-text-sm ts-font-normal ts-m-0 ts-flex-1"
-                        style={{ color: '#973C00', minWidth: '260px' }}
-                        dangerouslySetInnerHTML={{ __html: phrasesByKey.shopify_app_embed_banner_text }}
+                        style={{ color: '#101828', minWidth: '260px', lineHeight: '20px' }}
+                        dangerouslySetInnerHTML={{
+                          __html: phrasesByKey.shopify_app_embed_banner_text,
+                        }}
                       />
                       <a
                         id="link_appEmbedDeepLink"
@@ -500,8 +518,15 @@ const DashboardPageModule: FC<{
                         href={infoOfSystem.appEmbedDeepLink}
                         target="_blank"
                         rel="noreferrer"
-                        className="ts-text-sm ts-font-medium ts-rounded-lg ts-px-4 ts-py-2 ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0"
-                        style={{ backgroundColor: '#973C00', color: '#FFFFFF' }}
+                        className="ts-text-sm ts-font-bold ts-rounded-[10px] ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0"
+                        style={{
+                          fontSize: '14px',
+                          fontWeight: '600',
+                          backgroundColor: '#FEDF89',
+                          color: '#93370D',
+                          padding: '10px 18px',
+                          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.12)',
+                        }}
                       >
                         {phrasesByKey.shopify_app_embed_banner_button}
                       </a>

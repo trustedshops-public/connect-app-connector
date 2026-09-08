@@ -276,22 +276,22 @@
         "title": "Posicionamento automático"
       },
       "custom_placement": {
-        "description": "Necessário apenas se o seu tema não for suportado pelo posicionamento automático. Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente — a definição aplica-se a todos os seus temas. Se o elemento não for encontrado, é usado o posicionamento automático.",
+        "title": "Posicionamento personalizado",
+        "description": "Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente. A definição aplica-se a todos os seus temas.",
         "desktop": {
-          "label": "Desktop — seletor CSS",
+          "label": "Seletor CSS",
           "placeholder": ".minha-classe ou #meu-id"
         },
         "mobile": {
-          "label": "Telemóvel — seletor CSS",
+          "label": "Seletor CSS",
           "placeholder": ".minha-classe-mobile ou #meu-id-mobile"
         },
         "position": {
-          "after": "Depois do elemento",
+          "label": "Posição",
           "before": "Antes do elemento",
-          "label": "Posição"
+          "after": "Depois do elemento"
         },
-        "save": "Guardar posicionamento",
-        "title": "Posicionamento personalizado"
+        "save": "Guardar posicionamento"
       },
       "header": {
         "description": "Ofereça aos seus clientes uma camada adicional de segurança ao adicionar o #trstd login à navegação do seu site.",
@@ -304,24 +304,6 @@
       },
       "toggle": {
         "label": ">Mostrar neste canal"
-      },
-      "custom_placement": {
-        "title": "Posicionamento personalizado",
-        "description": "Necessário apenas se o seu tema não for suportado pelo posicionamento automático. Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente — a definição aplica-se a todos os seus temas. Se o elemento não for encontrado, é usado o posicionamento automático.",
-        "desktop": {
-          "label": "Desktop — seletor CSS",
-          "placeholder": ".minha-classe ou #meu-id"
-        },
-        "mobile": {
-          "label": "Telemóvel — seletor CSS",
-          "placeholder": ".minha-classe-mobile ou #meu-id-mobile"
-        },
-        "position": {
-          "label": "Posição",
-          "before": "Antes do elemento",
-          "after": "Depois do elemento"
-        },
-        "save": "Guardar posicionamento"
       }
     },
     "trustbadge": {
@@ -562,8 +544,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "button": "Ativar no editor de temas",
-      "text": "<strong>Ação necessária:</strong> Para mostrar as funcionalidades Trusted Shops na sua loja, ative o app embed da Trusted Shops no editor de temas e clique em <strong>Guardar</strong>."
+      "text": "<strong>Ação necessária:</strong> Para mostrar as funcionalidades Trusted Shops na sua loja, ative a app Trusted Shops no editor de temas e, em seguida, selecione <strong>Guardar</strong>.",
+      "button": "Ativar no editor de temas"
     },
     "global": {
       "help": {
@@ -572,10 +554,6 @@
           "url_1": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify"
         }
       }
-    },
-    "app_embed_banner": {
-      "text": "<strong>Ação necessária:</strong> Para mostrar as funcionalidades Trusted Shops na sua loja, ative o app embed da Trusted Shops no editor de temas e clique em <strong>Guardar</strong>.",
-      "button": "Ativar no editor de temas"
     }
   }
 }
