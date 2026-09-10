@@ -277,22 +277,22 @@
         "title": "Ubicación automática"
       },
       "custom_placement": {
-        "title": "Colocación personalizada",
-        "description": "Introduce una clase o ID de CSS para colocar el #trstd login manualmente. El ajuste se aplica a todos tus temas.",
+        "description": "Solo es necesario si tu tema no es compatible con la colocación automática. Introduce una clase o ID de CSS para colocar el #trstd login manualmente; el ajuste se aplica a todos tus temas. Si no se encuentra el elemento, se usa la colocación automática.",
         "desktop": {
-          "label": "Selector CSS",
+          "label": "Escritorio — selector CSS",
           "placeholder": ".mi-clase o #mi-id"
         },
         "mobile": {
-          "label": "Selector CSS",
+          "label": "Móvil — selector CSS",
           "placeholder": ".mi-clase-movil o #mi-id-movil"
         },
         "position": {
-          "label": "Posición",
+          "after": "Después del elemento",
           "before": "Antes del elemento",
-          "after": "Después del elemento"
+          "label": "Posición"
         },
-        "save": "Guardar colocación"
+        "save": "Guardar colocación",
+        "title": "Colocación personalizada"
       },
       "header": {
         "description": "Ofrece a tus clientes una capa adicional de seguridad añadiendo el inicio de sesión con #trstd a la navegación de tu sitio web.",
@@ -545,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Acción necesaria:</strong> Para mostrar las funciones de Trusted Shops en tu tienda, activa la app de Trusted Shops en el editor de temas y, después, selecciona <strong>Guardar</strong>.",
-      "button": "Activar en el editor de temas"
+      "button": "Activar en el editor de temas",
+      "text": "<strong>Acción necesaria:</strong> Para mostrar las funciones de Trusted Shops en tu tienda, activa el app embed de Trusted Shops en el editor de temas y haz clic en <strong>Guardar</strong>."
     },
     "global": {
       "help": {

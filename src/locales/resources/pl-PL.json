@@ -277,22 +277,22 @@
         "title": "Automatyczne rozmieszczenie"
       },
       "custom_placement": {
-        "title": "Niestandardowe umiejscowienie",
-        "description": "Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login. Ustawienie dotyczy wszystkich Twoich motywów.",
+        "description": "Potrzebne tylko wtedy, gdy Twój motyw nie jest obsługiwany przez automatyczne umiejscowienie. Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login — ustawienie dotyczy wszystkich Twoich motywów. Jeśli element nie zostanie znaleziony, użyte zostanie umiejscowienie automatyczne.",
         "desktop": {
-          "label": "Selektor CSS",
+          "label": "Komputer — selektor CSS",
           "placeholder": ".moja-klasa lub #moje-id"
         },
         "mobile": {
-          "label": "Selektor CSS",
+          "label": "Mobile — selektor CSS",
           "placeholder": ".moja-klasa-mobilna lub #moje-id-mobilne"
         },
         "position": {
-          "label": "Pozycja",
+          "after": "Po elemencie",
           "before": "Przed elementem",
-          "after": "Po elemencie"
+          "label": "Pozycja"
         },
-        "save": "Zapisz umiejscowienie"
+        "save": "Zapisz umiejscowienie",
+        "title": "Niestandardowe umiejscowienie"
       },
       "header": {
         "description": "Zaoferuj swoim klientom dodatkową warstwę bezpieczeństwa, dodając #trstd login do nawigacji swojej strony internetowej.",
@@ -383,7 +383,7 @@
         "learnMore": "Dowiedz się więcej o widoczności AI swojej witryny",
         "learnMore_url": "https://help.etrusted.com/hc/pl/articles/36072848059282-W-jaki-spos%C3%B3b-Trusted-Shops-dostarcza-informacje-o-zaufaniu-do-system%C3%B3w-AI",
         "newFeature": "Nowość",
-        "title": "Aumentar a visibilidade de IA"
+        "title": "Zwiększ widoczność AI"
       },
       "subtitel": "Zacznij od najważniejszej funkcji Trusted Shops",
       "titel": "Trustbadge"
@@ -545,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Wymagane działanie:</strong> Aby funkcje Trusted Shops były widoczne w Twoim sklepie, włącz aplikację Trusted Shops w edytorze motywu, a następnie wybierz <strong>Zapisz</strong>.",
-      "button": "Włącz w edytorze motywu"
+      "button": "Aktywuj w edytorze motywu",
+      "text": "<strong>Wymagane działanie:</strong> Aby funkcje Trusted Shops były widoczne w Twoim sklepie, aktywuj app embed Trusted Shops w edytorze motywu i kliknij <strong>Zapisz</strong>."
     },
     "global": {
       "help": {

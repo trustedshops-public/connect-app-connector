@@ -277,22 +277,22 @@
         "title": "Automatische plaatsing"
       },
       "custom_placement": {
-        "title": "Aangepaste plaatsing",
-        "description": "Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen. De instelling geldt voor al je thema’s.",
+        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
         "desktop": {
-          "label": "CSS-selector",
+          "label": "Desktop — CSS-selector",
           "placeholder": ".mijn-class of #mijn-id"
         },
         "mobile": {
-          "label": "CSS-selector",
+          "label": "Mobiel — CSS-selector",
           "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
         },
         "position": {
-          "label": "Positie",
+          "after": "Na het element",
           "before": "Vóór het element",
-          "after": "Na het element"
+          "label": "Positie"
         },
-        "save": "Plaatsing opslaan"
+        "save": "Plaatsing opslaan",
+        "title": "Aangepaste plaatsing"
       },
       "header": {
         "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
@@ -545,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, schakel je de Trusted Shops app in de thema-editor in en kies je vervolgens <strong>Opslaan</strong>.",
-      "button": "Inschakelen in thema-editor"
+      "button": "Activeren in thema-editor",
+      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, activeer je de Trusted Shops app embed in de thema-editor en klik je op <strong>Opslaan</strong>."
     },
     "global": {
       "help": {

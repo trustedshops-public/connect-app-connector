@@ -278,22 +278,22 @@
         "title": "Automatische Platzierung"
       },
       "custom_placement": {
-        "title": "Benutzerdefinierte Platzierung",
-        "description": "Gib eine CSS-Klasse oder -ID an, um den #trstd login manuell zu platzieren. Die Einstellung gilt für alle deine Themes.",
+        "description": "Nur nötig, wenn dein Theme von der automatischen Platzierung nicht unterstützt wird. Gib eine CSS-Klasse oder -ID an, um den #trstd login manuell zu platzieren — die Einstellung gilt für alle deine Themes. Wird das Element nicht gefunden, greift die automatische Platzierung.",
         "desktop": {
-          "label": "CSS-Selektor",
+          "label": "Desktop — CSS-Selektor",
           "placeholder": ".meine-klasse oder #meine-id"
         },
         "mobile": {
-          "label": "CSS-Selektor",
+          "label": "Mobil — CSS-Selektor",
           "placeholder": ".meine-mobile-klasse oder #meine-mobile-id"
         },
         "position": {
-          "label": "Position",
+          "after": "Nach dem Element",
           "before": "Vor dem Element",
-          "after": "Nach dem Element"
+          "label": "Position"
         },
-        "save": "Platzierung speichern"
+        "save": "Platzierung speichern",
+        "title": "Benutzerdefinierte Platzierung"
       },
       "header": {
         "description": "Bieten Sie Ihren Kunden zusätzliche Sicherheit, indem Sie den #trstd login in Ihre Website-Navigation integrieren.",
@@ -547,8 +547,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Aktion erforderlich:</strong> Damit Trusted Shops Funktionen in deinem Shop angezeigt werden, schalte die Trusted Shops App im Theme-Editor ein und wähle dann <strong>Speichern</strong>.",
-      "button": "Im Theme-Editor einschalten"
+      "button": "Im Theme-Editor aktivieren",
+      "text": "<strong>Aktion erforderlich:</strong> Damit Trusted Shops Funktionen in deinem Shop angezeigt werden, aktiviere das Trusted Shops App-Embed im Theme-Editor und klicke auf <strong>Speichern</strong>."
     },
     "global": {
       "help": {
