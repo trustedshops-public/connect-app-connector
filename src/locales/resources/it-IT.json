@@ -277,22 +277,22 @@
         "title": "Posizionamento automatico"
       },
       "custom_placement": {
-        "title": "Posizionamento personalizzato",
-        "description": "Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login. L’impostazione vale per tutti i tuoi temi.",
+        "description": "Necessario solo se il tuo tema non è supportato dal posizionamento automatico. Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login: l’impostazione vale per tutti i tuoi temi. Se l’elemento non viene trovato, viene usato il posizionamento automatico.",
         "desktop": {
-          "label": "Selettore CSS",
+          "label": "Desktop — selettore CSS",
           "placeholder": ".mia-classe o #mio-id"
         },
         "mobile": {
-          "label": "Selettore CSS",
+          "label": "Mobile — selettore CSS",
           "placeholder": ".mia-classe-mobile o #mio-id-mobile"
         },
         "position": {
-          "label": "Posizione",
+          "after": "Dopo l'elemento",
           "before": "Prima dell'elemento",
-          "after": "Dopo l'elemento"
+          "label": "Posizione"
         },
-        "save": "Salva posizionamento"
+        "save": "Salva posizionamento",
+        "title": "Posizionamento personalizzato"
       },
       "header": {
         "description": "Offri ai tuoi clienti un ulteriore livello di sicurezza aggiungendo il #trstd login alla navigazione del tuo sito web.",
@@ -545,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Azione richiesta:</strong> Per mostrare le funzionalità Trusted Shops nel tuo shop, attiva l'app Trusted Shops nell'editor del tema, poi seleziona <strong>Salva</strong>.",
-      "button": "Attiva nell'editor del tema"
+      "button": "Attiva nell'editor del tema",
+      "text": "<strong>Azione richiesta:</strong> Per mostrare le funzionalità Trusted Shops nel tuo shop, attiva l'app embed Trusted Shops nell'editor del tema e fai clic su <strong>Salva</strong>."
     },
     "global": {
       "help": {

@@ -277,22 +277,22 @@
         "title": "Placement automatique"
       },
       "custom_placement": {
-        "title": "Placement personnalisé",
-        "description": "Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement. Le réglage s'applique à tous vos thèmes.",
+        "description": "Nécessaire uniquement si votre thème n'est pas pris en charge par le placement automatique. Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement — le réglage s'applique à tous vos thèmes. Si l'élément est introuvable, le placement automatique est utilisé.",
         "desktop": {
-          "label": "Sélecteur CSS",
+          "label": "Ordinateur — sélecteur CSS",
           "placeholder": ".ma-classe ou #mon-id"
         },
         "mobile": {
-          "label": "Sélecteur CSS",
+          "label": "Mobile — sélecteur CSS",
           "placeholder": ".ma-classe-mobile ou #mon-id-mobile"
         },
         "position": {
-          "label": "Position",
+          "after": "Après l'élément",
           "before": "Avant l'élément",
-          "after": "Après l'élément"
+          "label": "Position"
         },
-        "save": "Enregistrer le placement"
+        "save": "Enregistrer le placement",
+        "title": "Placement personnalisé"
       },
       "header": {
         "description": "Offrez à vos clients une couche de sécurité supplémentaire en ajoutant #trstd login à la navigation de votre site web.",
@@ -545,8 +545,8 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Action requise :</strong> Pour afficher les fonctionnalités Trusted Shops dans votre boutique, activez l'app Trusted Shops dans l'éditeur de thème, puis sélectionnez <strong>Enregistrer</strong>.",
-      "button": "Activer dans l'éditeur de thème"
+      "button": "Activer dans l'éditeur de thème",
+      "text": "<strong>Action requise :</strong> Pour afficher les fonctionnalités Trusted Shops dans votre boutique, activez l'app embed Trusted Shops dans l'éditeur de thème et cliquez sur <strong>Enregistrer</strong>."
     },
     "global": {
       "help": {
