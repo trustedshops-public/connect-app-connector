@@ -35,10 +35,12 @@ const Banner: FC<{
 }> = ({ variant, title, text, footer, action }) => {
   const colors = COLORS[variant]
 
+  // ts-relative lifts the banner above the content area that follows it: that area's
+  // opaque background paints later in document order and would clip the shadow's bottom.
   return (
-    <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pt-6">
+    <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pt-6 ts-relative">
       <div
-        className="ts-flex ts-flex-wrap ts-items-center ts-gap-4 ts-rounded-[12px]"
+        className="ts-flex ts-flex-wrap ts-items-center ts-gap-4 ts-rounded-[12px] ts-shadow-md"
         style={{
           backgroundColor: colors.background,
           border: `1px solid ${colors.border}`,
