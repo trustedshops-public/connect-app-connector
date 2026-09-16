@@ -32,8 +32,8 @@ export const getInformationOfSystem = (
         allowsSupportTrstdLoginCustomization: true,
         appEmbedDeepLink:
           'https://admin.shopify.com/store/easyintegration5/themes/current/editor?context=apps&activateAppId=76225a13856974212ff3217b5b6ecb4d/trstd-login',
-        // Mock: embed already activated, so the informational banner is visible in dev:test.
-        appEmbedActivated: true,
+        // Mock: embed not yet activated, so the action-required banner is visible in dev:test.
+        appEmbedActivated: false,
       }
     case 'no_value':
       return {}
