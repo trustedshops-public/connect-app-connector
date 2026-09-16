@@ -94,7 +94,7 @@ export const AppEmbedActivationBanner: FC<{
         href={deepLink}
         target="_blank"
         rel="noreferrer"
-        className="ts-text-sm ts-rounded-[10px] ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0"
+        className="ts-text-sm ts-rounded-[10px] ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0 ts-cursor-pointer hover:ts-brightness-95 active:ts-scale-[0.97] active:ts-brightness-90"
         style={{
           fontSize: '14px',
           fontWeight: '600',
@@ -102,6 +102,7 @@ export const AppEmbedActivationBanner: FC<{
           color: '#93370D',
           padding: '10px 18px',
           boxShadow: '0 1px 2px rgba(0, 0, 0, 0.12)',
+          transition: 'transform 0.1s ease, filter 0.1s ease',
         }}
       >
         {phrasesByKey.shopify_app_embed_banner_button}
@@ -123,8 +124,13 @@ export const AppEmbedActiveBanner: FC<{ phrasesByKey: DASHBOARD_KEYS }> = ({ phr
         href={phrasesByKey.shopify_app_embed_active_banner_link_url}
         target="_blank"
         rel="noreferrer"
-        className="ts-text-sm ts-no-underline ts-inline-flex ts-items-center ts-gap-1 ts-mt-1"
-        style={{ color: '#2563EB', fontWeight: '500', lineHeight: '20px' }}
+        className="ts-text-sm ts-no-underline ts-inline-flex ts-items-center ts-gap-1 ts-mt-1 ts-cursor-pointer hover:ts-underline active:ts-brightness-90"
+        style={{
+          color: '#2563EB',
+          fontWeight: '500',
+          lineHeight: '20px',
+          transition: 'filter 0.1s ease',
+        }}
       >
         {phrasesByKey.shopify_app_embed_active_banner_link_text}
         <ChevronRightSmallIcon />
