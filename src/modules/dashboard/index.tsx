@@ -32,7 +32,7 @@ import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import OverviewTab from './tabOverview/index'
 import { GearIcon } from '@/components/layouts/icons/GearIcon'
-import { InfoCircleOutlinedIcon } from '@/components/layouts/icons/InfoCircleOutlinedIcon'
+import { AppEmbedActivationBanner, AppEmbedActiveBanner } from './appEmbedBanner'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -57,17 +57,21 @@ const DashboardPageModule: FC<{
   // Shopify only: the app embed must be activated once in the theme editor before
   // #trstd login / structured data can render. Shown on every tab; the deep link opens
   // the theme editor with the embed pre-activated (merchant just clicks Save).
-  // Detection-based: hidden once the base layer reports the embed as activated on the
-  // published theme (appEmbedActivated === true). When the status is unknown
-  // (undefined), the banner stays visible — better one banner too many than a merchant
+  // Detection-based: the action-required banner is replaced by an informational one once
+  // the base layer reports the embed as activated on the published theme
+  // (appEmbedActivated === true). When the status is unknown (undefined), the
+  // action-required banner stays visible — better one banner too many than a merchant
   // with an invisible integration.
   const isTrstdLoginEnabled =
     trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
-  const showAppEmbedBanner =
+  const isAppEmbedRelevant =
     infoOfSystem.nameOfSystem?.toLowerCase() === 'shopify' &&
-    !!infoOfSystem.appEmbedDeepLink &&
-    infoOfSystem.appEmbedActivated !== true &&
     (isTrstdLoginEnabled || structuredMarkupEnabled)
+  const showAppEmbedBanner =
+    isAppEmbedRelevant && !!infoOfSystem.appEmbedDeepLink && infoOfSystem.appEmbedActivated !== true
+  // Once the embed is confirmed active the banner flips to a reminder to keep it
+  // turned on for every market the shop publishes.
+  const showAppEmbedActiveBanner = isAppEmbedRelevant && infoOfSystem.appEmbedActivated === true
 
   const {
     allowsEstimatedDeliveryDate,
@@ -483,56 +487,14 @@ const DashboardPageModule: FC<{
                   </div>
                 </div>
 
-                {/* App embed activation banner (Shopify only) - visible on all tabs */}
+                {/* App embed banners (Shopify only) - visible on all tabs */}
                 {showAppEmbedBanner && (
-                  <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-pt-6">
-                    <div
-                      className="ts-flex ts-flex-wrap ts-items-center ts-gap-4 ts-rounded-[12px]"
-                      style={{
-                        backgroundColor: '#FFFAEB',
-                        border: '1px solid #FAD98B',
-                        padding: '16px 20px',
-                      }}
-                    >
-                      <div
-                        className="ts-flex-shrink-0 ts-flex ts-items-center ts-justify-center ts-rounded-[12px]"
-                        style={{
-                          width: '44px',
-                          height: '44px',
-                          backgroundColor: '#FEF3C7',
-                          color: '#DC6803',
-                        }}
-                      >
-                        <InfoCircleOutlinedIcon size={20} />
-                      </div>
-                      <p
-                        className="ts-text-sm ts-font-normal ts-m-0 ts-flex-1"
-                        style={{ color: '#101828', minWidth: '260px', lineHeight: '20px' }}
-                        dangerouslySetInnerHTML={{
-                          __html: phrasesByKey.shopify_app_embed_banner_text,
-                        }}
-                      />
-                      <a
-                        id="link_appEmbedDeepLink"
-                        data-testid="link_appEmbedDeepLink"
-                        href={infoOfSystem.appEmbedDeepLink}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="ts-text-sm ts-font-bold ts-rounded-[10px] ts-no-underline ts-whitespace-nowrap ts-flex-shrink-0"
-                        style={{
-                          fontSize: '14px',
-                          fontWeight: '600',
-                          backgroundColor: '#FEDF89',
-                          color: '#93370D',
-                          padding: '10px 18px',
-                          boxShadow: '0 1px 2px rgba(0, 0, 0, 0.12)',
-                        }}
-                      >
-                        {phrasesByKey.shopify_app_embed_banner_button}
-                      </a>
-                    </div>
-                  </div>
+                  <AppEmbedActivationBanner
+                    phrasesByKey={phrasesByKey}
+                    deepLink={infoOfSystem.appEmbedDeepLink as string}
+                  />
                 )}
+                {showAppEmbedActiveBanner && <AppEmbedActiveBanner phrasesByKey={phrasesByKey} />}
 
                 {/* Content area - centered */}
                 <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6" style={{ backgroundColor: '#F9FAFB', minHeight: '100%', flex: 1 }}>

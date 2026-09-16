@@ -42,8 +42,13 @@ export const PHRASES_GLOBAL_KEYS: GLOBAL_KEYS = {
 
 export const PHRASES_SHOPIFY_GLOBAL_KEYS: SHOPIFY_GLOBAL_KEYS = {
   shopify_global_help_link_url_1: 'shopify.global.help.link.url_1',
+  shopify_app_embed_banner_title: 'shopify.app_embed_banner.title',
   shopify_app_embed_banner_text: 'shopify.app_embed_banner.text',
   shopify_app_embed_banner_button: 'shopify.app_embed_banner.button',
+  shopify_app_embed_active_banner_title: 'shopify.app_embed_banner.active.title',
+  shopify_app_embed_active_banner_text: 'shopify.app_embed_banner.active.text',
+  shopify_app_embed_active_banner_link_text: 'shopify.app_embed_banner.active.link_text',
+  shopify_app_embed_active_banner_link_url: 'shopify.app_embed_banner.active.link_url',
 }
 
 export const PHRASES_AUTH_KEYS: AUTH_KEYS = {

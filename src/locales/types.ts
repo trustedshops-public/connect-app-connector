@@ -350,8 +350,13 @@ export type GLOBAL_KEYS = {
 
 export type SHOPIFY_GLOBAL_KEYS = {
   shopify_global_help_link_url_1: string
+  shopify_app_embed_banner_title: string
   shopify_app_embed_banner_text: string
   shopify_app_embed_banner_button: string
+  shopify_app_embed_active_banner_title: string
+  shopify_app_embed_active_banner_text: string
+  shopify_app_embed_active_banner_link_text: string
+  shopify_app_embed_active_banner_link_url: string
 }
 
 export type AUTH_KEYS = {

@@ -545,8 +545,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "text": "<strong>Actie vereist:</strong> Om Trusted Shops functies in je shop te tonen, schakel je de Trusted Shops app in de thema-editor in en kies je vervolgens <strong>Opslaan</strong>.",
-      "button": "Inschakelen in thema-editor"
+      "title": "Actie vereist",
+      "text": "Schakel de app embed in je thema-editor in en kies vervolgens <strong>Opslaan</strong>, zodat alle Trusted Shops functies blijven werken.",
+      "button": "Inschakelen",
+      "active": {
+        "title": "Goed om te weten",
+        "text": "De app embed is ingeschakeld voor je shop. Houd deze instelling hetzelfde in alle markten, zodat de functies blijven werken.",
+        "link_text": "Over app embeds",
+        "link_url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
+      }
     },
     "global": {
       "help": {
