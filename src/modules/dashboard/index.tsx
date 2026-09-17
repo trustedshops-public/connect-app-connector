@@ -18,8 +18,6 @@ import {
   selectorChannels,
   selectorInfoOfSystem,
   selectorNotificationStore,
-  selectorStructuredMarkup,
-  selectorTrstdLogin,
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
@@ -51,22 +49,20 @@ const DashboardPageModule: FC<{
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { user } = useStore(selectorAuth)
-  const { trstdLoginData } = useStore(selectorTrstdLogin)
-  const { structuredMarkupEnabled } = useStore(selectorStructuredMarkup)
 
   // Shopify only: the app embed must be activated once in the theme editor before
   // #trstd login / structured data can render. Shown on every tab; the deep link opens
-  // the theme editor with the embed pre-activated (merchant just clicks Save).
+  // the App embeds panel without touching the toggle, so the merchant turns it on and
+  // saves it themselves.
   // Detection-based: the action-required banner is replaced by an informational one once
   // the base layer reports the embed as activated on the published theme
   // (appEmbedActivated === true). When the status is unknown (undefined), the
   // action-required banner stays visible — better one banner too many than a merchant
   // with an invisible integration.
-  const isTrstdLoginEnabled =
-    trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
-  const isAppEmbedRelevant =
-    infoOfSystem.nameOfSystem?.toLowerCase() === 'shopify' &&
-    (isTrstdLoginEnabled || structuredMarkupEnabled)
+  // Shop-level, with no feature condition: the embed is always listed in the theme
+  // editor, so the prompt is always actionable and does not depend on which channel the
+  // merchant happens to have selected.
+  const isAppEmbedRelevant = infoOfSystem.nameOfSystem?.toLowerCase() === 'shopify'
   const showAppEmbedBanner =
     isAppEmbedRelevant && !!infoOfSystem.appEmbedDeepLink && infoOfSystem.appEmbedActivated !== true
   // Once the embed is confirmed active the banner flips to a reminder to keep it
