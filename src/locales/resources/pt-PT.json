@@ -276,22 +276,22 @@
         "title": "Posicionamento automático"
       },
       "custom_placement": {
-        "title": "Posicionamento personalizado",
-        "description": "Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente. A definição aplica-se a todos os seus temas.",
+        "description": "Necessário apenas se o seu tema não for suportado pelo posicionamento automático. Introduza uma classe ou ID de CSS para posicionar o #trstd login manualmente — a definição aplica-se a todos os seus temas. Se o elemento não for encontrado, é usado o posicionamento automático.",
         "desktop": {
-          "label": "Seletor CSS",
+          "label": "Desktop — seletor CSS",
           "placeholder": ".minha-classe ou #meu-id"
         },
         "mobile": {
-          "label": "Seletor CSS",
+          "label": "Telemóvel — seletor CSS",
           "placeholder": ".minha-classe-mobile ou #meu-id-mobile"
         },
         "position": {
-          "label": "Posição",
+          "after": "Depois do elemento",
           "before": "Antes do elemento",
-          "after": "Depois do elemento"
+          "label": "Posição"
         },
-        "save": "Guardar posicionamento"
+        "save": "Guardar posicionamento",
+        "title": "Posicionamento personalizado"
       },
       "header": {
         "description": "Ofereça aos seus clientes uma camada adicional de segurança ao adicionar o #trstd login à navegação do seu site.",
@@ -382,7 +382,7 @@
         "learnMore": "Saiba mais sobre a visibilidade de IA do seu site",
         "learnMore_url": "https://help.etrusted.com/hc/pt/articles/36072848059282",
         "newFeature": "Novo",
-        "title": "Zwiększ widoczność AI"
+        "title": "Aumentar a visibilidade de IA"
       },
       "subtitel": "Comece pela funcionalidade mais importante da Trusted Shops",
       "titel": "Trustbadge"
@@ -544,15 +544,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "title": "Ação necessária",
-      "text": "Ative o app embed no seu editor de temas e, em seguida, selecione <strong>Guardar</strong>, para que todas as funcionalidades Trusted Shops continuem a funcionar corretamente.",
-      "button": "Ativar",
       "active": {
-        "title": "Bom saber",
-        "text": "O app embed está ativado na sua loja. Mantenha esta configuração igual em todos os mercados, para que as funcionalidades continuem a funcionar corretamente.",
         "link_text": "Sobre os app embeds",
-        "link_url": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify"
-      }
+        "link_url": "https://help.etrusted.com/hc/pt/articles/23970822885010-Utilizar-Trusted-Shops-com-Shopify",
+        "text": "O app embed está ativado na sua loja. Mantenha esta configuração igual em todos os mercados, para que as funcionalidades continuem a funcionar corretamente.",
+        "title": "Bom saber"
+      },
+      "button": "Ligar",
+      "text": "Ative o aplicativo incorporado no seu editor de temas, depois selecione <strong>Salvar</strong>, para que todos os recursos do Trusted Shops continuem funcionando corretamente.",
+      "title": "Ação necessária"
     },
     "global": {
       "help": {
