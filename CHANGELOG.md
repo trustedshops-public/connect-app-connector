@@ -1,3 +1,20 @@
+## [1.25.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.24.0...1.25.0) (2026-09-21)
+
+
+### Features
+
+* [JSON-LD in HTML] Shopify - Frontend: render JSON-LD into server-side HTML ([5dd8a08](https://github.com/trustedshops-public/connect-app-connector/commit/5dd8a08aa743c612932fa305ca80a5ca5e0e9d44))
+* TPSCON-4532 [JSON-LD in HTML] Shopify - app embed banner interaction states ([8be7684](https://github.com/trustedshops-public/connect-app-connector/commit/8be7684ff8496a112bb8eceafd596f1d366d77e5))
+* TPSCON-4532 [JSON-LD in HTML] Shopify - app embed banner shadow ([14f4822](https://github.com/trustedshops-public/connect-app-connector/commit/14f48227d36f73df9a0782db3575f553a387be7c))
+* TPSCON-4532 [JSON-LD in HTML] Shopify - app embed banners: new design, copy and activated state ([10d0683](https://github.com/trustedshops-public/connect-app-connector/commit/10d06835f0392cc42f8bbead707791b335110b55))
+* TPSCON-4532 [JSON-LD in HTML] Shopify - Design: app embed activation state ([37a1cb6](https://github.com/trustedshops-public/connect-app-connector/commit/37a1cb6f43aa13f287ad53eca17acf9f381b0dbf))
+
+
+### Bug Fixes
+
+* added loader on save placement ([1438960](https://github.com/trustedshops-public/connect-app-connector/commit/14389609d844a337bc10ba7020a8bbd2b477a70e))
+* app embed banner for shop level ([9a8edd5](https://github.com/trustedshops-public/connect-app-connector/commit/9a8edd5349a35bcf1ad9966fe1c5b5cd5d0fe084))
+
 ## [1.24.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.23.0...1.24.0) (2026-08-27)
 
 
