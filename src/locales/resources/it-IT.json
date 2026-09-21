@@ -277,8 +277,7 @@
         "title": "Posizionamento automatico"
       },
       "custom_placement": {
-        "title": "Posizionamento personalizzato",
-        "description": "Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login. L’impostazione vale per tutti i tuoi temi.",
+        "description": "Necessario solo se il tuo tema non è supportato dal posizionamento automatico. Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login: l’impostazione vale per tutti i tuoi temi. Se l’elemento non viene trovato, viene usato il posizionamento automatico.",
         "desktop": {
           "label": "Selettore CSS",
           "placeholder": ".mia-classe o #mio-id"
@@ -288,11 +287,12 @@
           "placeholder": ".mia-classe-mobile o #mio-id-mobile"
         },
         "position": {
-          "label": "Posizione",
+          "after": "Dopo l'elemento",
           "before": "Prima dell'elemento",
-          "after": "Dopo l'elemento"
+          "label": "Posizione"
         },
-        "save": "Salva posizionamento"
+        "save": "Salva posizionamento",
+        "title": "Posizionamento personalizzato"
       },
       "header": {
         "description": "Offri ai tuoi clienti un ulteriore livello di sicurezza aggiungendo il #trstd login alla navigazione del tuo sito web.",
@@ -545,15 +545,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "title": "Azione richiesta",
-      "text": "Attiva l'app embed nell'editor del tema, poi seleziona <strong>Salva</strong>, così tutte le funzionalità Trusted Shops continuano a funzionare correttamente.",
-      "button": "Attiva",
       "active": {
-        "title": "Buono a sapersi",
-        "text": "L'app embed è attivo per il tuo shop. Mantieni questa impostazione uguale in tutti i mercati, così le funzionalità continuano a funzionare correttamente.",
         "link_text": "Informazioni sugli app embed",
-        "link_url": "https://help.etrusted.com/hc/it/articles/23970822885010-Utilizzo-di-Trusted-Shops-con-Shopify"
-      }
+        "link_url": "https://help.etrusted.com/hc/it/articles/23970822885010-Utilizzo-di-Trusted-Shops-con-Shopify",
+        "text": "L'app embed è attivo per il tuo shop. Mantieni questa impostazione uguale in tutti i mercati, così le funzionalità continuano a funzionare correttamente.",
+        "title": "Buono a sapersi"
+      },
+      "button": "Accendi",
+      "text": "Attiva l'app incorporata nel tuo editor del tema, quindi seleziona <strong>Salva</strong>, in modo che tutte le funzionalità di Trusted Shops continuino a funzionare correttamente.",
+      "title": "Azione richiesta"
     },
     "global": {
       "help": {

@@ -277,8 +277,7 @@
         "title": "Automatische plaatsing"
       },
       "custom_placement": {
-        "title": "Aangepaste plaatsing",
-        "description": "Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen. De instelling geldt voor al je thema’s.",
+        "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
         "desktop": {
           "label": "CSS-selector",
           "placeholder": ".mijn-class of #mijn-id"
@@ -288,11 +287,12 @@
           "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
         },
         "position": {
-          "label": "Positie",
+          "after": "Na het element",
           "before": "Vóór het element",
-          "after": "Na het element"
+          "label": "Positie"
         },
-        "save": "Plaatsing opslaan"
+        "save": "Plaatsing opslaan",
+        "title": "Aangepaste plaatsing"
       },
       "header": {
         "description": "Bied je klanten een extra beveiligingslaag door #trstd login toe te voegen aan de navigatie van je website.",
@@ -425,7 +425,7 @@
       },
       "position": {
         "checkoutConfirmation": "Bestelbevestiging",
-        "custom": "Positie selecteren",
+        "custom": "Handmatige plaatsing",
         "footer": "Footer",
         "header": "Header",
         "homepage": "Startpagina",
@@ -535,7 +535,7 @@
     },
     "placeholder": {
       "channel": "Selecteer",
-      "location": "Selecteer een positie",
+      "location": "Selecteer een locatie",
       "productid": "Selecteer product-id"
     },
     "slider": {
@@ -545,15 +545,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "title": "Actie vereist",
-      "text": "Schakel de app embed in je thema-editor in en kies vervolgens <strong>Opslaan</strong>, zodat alle Trusted Shops functies blijven werken.",
-      "button": "Inschakelen",
       "active": {
-        "title": "Goed om te weten",
-        "text": "De app embed is ingeschakeld voor je shop. Houd deze instelling hetzelfde in alle markten, zodat de functies blijven werken.",
         "link_text": "Over app embeds",
-        "link_url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify"
-      }
+        "link_url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify",
+        "text": "De app embed is ingeschakeld voor je shop. Houd deze instelling hetzelfde in alle markten, zodat de functies blijven werken.",
+        "title": "Goed om te weten"
+      },
+      "button": "Aan",
+      "text": "Schakel de app in in je thema-editor, selecteer vervolgens <strong>Opslaan</strong>, zodat alle Trusted Shops functies correct blijven werken.",
+      "title": "Actie vereist"
     },
     "global": {
       "help": {

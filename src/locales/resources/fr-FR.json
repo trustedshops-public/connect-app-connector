@@ -277,8 +277,7 @@
         "title": "Placement automatique"
       },
       "custom_placement": {
-        "title": "Placement personnalisé",
-        "description": "Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement. Le réglage s'applique à tous vos thèmes.",
+        "description": "Nécessaire uniquement si votre thème n'est pas pris en charge par le placement automatique. Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement — le réglage s'applique à tous vos thèmes. Si l'élément est introuvable, le placement automatique est utilisé.",
         "desktop": {
           "label": "Sélecteur CSS",
           "placeholder": ".ma-classe ou #mon-id"
@@ -288,11 +287,12 @@
           "placeholder": ".ma-classe-mobile ou #mon-id-mobile"
         },
         "position": {
-          "label": "Position",
+          "after": "Après l'élément",
           "before": "Avant l'élément",
-          "after": "Après l'élément"
+          "label": "Position"
         },
-        "save": "Enregistrer le placement"
+        "save": "Enregistrer le placement",
+        "title": "Placement personnalisé"
       },
       "header": {
         "description": "Offrez à vos clients une couche de sécurité supplémentaire en ajoutant #trstd login à la navigation de votre site web.",
@@ -545,15 +545,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "title": "Action requise",
-      "text": "Activez l'app embed dans votre éditeur de thème, puis sélectionnez <strong>Enregistrer</strong>, afin que toutes les fonctionnalités Trusted Shops continuent de fonctionner correctement.",
-      "button": "Activer",
       "active": {
-        "title": "Bon à savoir",
-        "text": "L'app embed est activé pour votre boutique. Conservez ce réglage à l'identique sur tous les marchés, afin que les fonctionnalités continuent de fonctionner correctement.",
         "link_text": "À propos des app embeds",
-        "link_url": "https://help.etrusted.com/hc/fr/articles/23970822885010-Utiliser-Trusted-Shops-avec-Shopify"
-      }
+        "link_url": "https://help.etrusted.com/hc/fr/articles/23970822885010-Utiliser-Trusted-Shops-avec-Shopify",
+        "text": "L'app embed est activé pour votre boutique. Conservez ce réglage à l'identique sur tous les marchés, afin que les fonctionnalités continuent de fonctionner correctement.",
+        "title": "Bon à savoir"
+      },
+      "button": "Allumer",
+      "text": "Activez l'intégration de l'application dans votre éditeur de thème, puis sélectionnez <strong>Enregistrer</strong>, afin que toutes les fonctionnalités de Trusted Shops continuent de fonctionner correctement.",
+      "title": "Action requise"
     },
     "global": {
       "help": {
