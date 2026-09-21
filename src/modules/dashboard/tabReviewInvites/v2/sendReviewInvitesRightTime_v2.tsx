@@ -21,6 +21,10 @@ import { IMappedChannel } from '@/baseLayers/types'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import { putEtrustedConfiguration } from '@/api/api'
 
+// app.etrusted TLD per environment: koeln (integration), site (qa), com (production)
+const CONTROL_CENTER_STAGE = import.meta.env.VITE_CONTROL_CENTER_STAGE || 'site'
+const CONTROL_CENTER_OPTIMISE_URL = `https://app.etrusted.${CONTROL_CENTER_STAGE}/settings/channel-management/optimise-review-collection/service`
+
 interface Props {
   phrasesByKey: DASHBOARD_KEYS
   saveChanges: () => void
@@ -226,7 +230,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
         <div>
           <TextWithLink
             id={'Control Centre'}
-            url={[phrasesByKey.application_invites_v3_rightTime_help_url]}
+            url={[CONTROL_CENTER_OPTIMISE_URL]}
             text={phrasesByKey.application_invites_v3_rightTime_help_text}
             textStyle="ts-text-sm"
             linkStyle='!ts-text-[#024DF0] ts-cursor-pointer'

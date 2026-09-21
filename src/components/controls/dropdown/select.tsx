@@ -12,6 +12,8 @@ interface Props {
   id?: string
   className?: string
   testId?: string
+  /** Trigger button height in px (default 36) */
+  height?: number
 }
 
 type OptionChildProps = {
@@ -40,6 +42,7 @@ const Select: FC<Props> = ({
   id,
   className,
   testId,
+  height = 36,
 }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [activeIndex, setActiveIndex] = useState<number>(-1)
@@ -219,7 +222,7 @@ const Select: FC<Props> = ({
         onKeyDown={onButtonKeyDown}
         disabled={disabled}
         className={buttonClasses}
-        style={{ height: '36px', minWidth: '160px' }}
+        style={{ height: `${height}px`, minWidth: '160px' }}
       >
         <p
           id={`selectValue_${id}`}

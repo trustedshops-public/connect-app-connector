@@ -25,6 +25,7 @@ export interface IMappedChannel {
 
 export interface IChannelState {
   isLoadingSave: boolean
+  isSavingChannelDefaults: boolean
   shopChannels: Array<IChannelTS>
   selectedShopChannels: IMappedChannel
   mappedChannels: Array<IMappedChannel>
@@ -39,6 +40,7 @@ export interface IChannelState {
 export interface IChannelStore {
   channelState: IChannelState
   setIsLoadingSave: (value: boolean) => void
+  setIsSavingChannelDefaults: (value: boolean) => void
   getShopChannels: (channels: Array<IChannelTS>) => void
   setSelectedShopChennel: (value: string | number) => void
   getMappedChannels: (channels: Array<IMappedChannel>) => void

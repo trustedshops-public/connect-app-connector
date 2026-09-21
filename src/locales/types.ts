@@ -350,6 +350,13 @@ export type GLOBAL_KEYS = {
 
 export type SHOPIFY_GLOBAL_KEYS = {
   shopify_global_help_link_url_1: string
+  shopify_app_embed_banner_title: string
+  shopify_app_embed_banner_text: string
+  shopify_app_embed_banner_button: string
+  shopify_app_embed_active_banner_title: string
+  shopify_app_embed_active_banner_text: string
+  shopify_app_embed_active_banner_link_text: string
+  shopify_app_embed_active_banner_link_url: string
 }
 
 export type AUTH_KEYS = {
@@ -372,36 +379,39 @@ export type AUTH_KEYS = {
 } & GLOBAL_KEYS &
   SHOPIFY_GLOBAL_KEYS
 
-  export type OVERVIEW_KEYS = {
-    overview_help_text: string
-    overview_help_url: string 
-    overview_trstd_login_title: string
-    overview_trstd_login_description: string
-    overview_trstd_login_status_enabled: string
-    overview_trstd_login_status_inactive: string
-    overview_trstd_login_button_configure: string
-    overview_trustbadge_title: string
-    overview_trustbadge_description: string
-    overview_trustbadge_status_enabled: string
-    overview_trustbadge_status_inactive: string
-    overview_trustbadge_button_configure: string
-    overview_widgets_title: string
-    overview_widgets_description: string
-    overview_widgets_status_enabled: string
-    overview_widgets_status_inactive: string
-    overview_widgets_button_manage: string
-    overview_invites_title: string
-    overview_invites_description: string
-    overview_invites_status_enabled: string
-    overview_invites_status_inactive: string
-    overview_invites_button_manage: string
-    activation_modal_title: string
-    activation_modal_description: string
-    activation_modal_button_customize: string
-    activation_modal_button_goLive: string
-  }
+export type OVERVIEW_KEYS = {
+  overview_help_text: string
+  overview_help_url: string
+  overview_trstd_login_title: string
+  overview_trstd_login_description: string
+  overview_trstd_login_status_enabled: string
+  overview_trstd_login_status_inactive: string
+  overview_trstd_login_button_configure: string
+  overview_trustbadge_title: string
+  overview_trustbadge_description: string
+  overview_trustbadge_status_enabled: string
+  overview_trustbadge_status_inactive: string
+  overview_trustbadge_button_configure: string
+  overview_widgets_title: string
+  overview_widgets_description: string
+  overview_widgets_status_enabled: string
+  overview_widgets_status_inactive: string
+  overview_widgets_button_manage: string
+  overview_invites_title: string
+  overview_invites_description: string
+  overview_invites_status_enabled: string
+  overview_invites_status_inactive: string
+  overview_invites_button_manage: string
+  activation_modal_title: string
+  activation_modal_description: string
+  activation_modal_button_customize: string
+  activation_modal_button_goLive: string
+  activation_modal_jsonLd_title: string
+  activation_modal_jsonLd_description: string
+  activation_modal_jsonLd_hint: string
+}
 
-export type ITRSTD_LOGIN_KEYS = { 
+export type ITRSTD_LOGIN_KEYS = {
   application_trstd_login_header_title: string
   application_trstd_login_header_description: string
   application_trstd_login_toggle_label: string
@@ -418,6 +428,16 @@ export type ITRSTD_LOGIN_KEYS = {
   application_trstd_login_popup_title: string
   application_trstd_login_popup_text: string
   application_trstd_login_popup_submit: string
+  application_trstd_login_custom_placement_title: string
+  application_trstd_login_custom_placement_description: string
+  application_trstd_login_custom_placement_desktop_label: string
+  application_trstd_login_custom_placement_desktop_placeholder: string
+  application_trstd_login_custom_placement_mobile_label: string
+  application_trstd_login_custom_placement_mobile_placeholder: string
+  application_trstd_login_custom_placement_position_label: string
+  application_trstd_login_custom_placement_position_before: string
+  application_trstd_login_custom_placement_position_after: string
+  application_trstd_login_custom_placement_save: string
 }
 
 export type ITRUSTBADGE_KEYS = {
@@ -459,8 +479,16 @@ export type ITRUSTBADGE_KEYS = {
   application_trustbadge_placementSection_right: string
   application_trustbadge_about_title: string
   application_trustbadge_about_description: string
-  application_trustbadge_about_learnMore: string  
+  application_trustbadge_about_learnMore: string
   application_trustbadge_about_learnMore_url: string
+  application_trustbadge_structuredMarkup_title: string
+  application_trustbadge_structuredMarkup_description: string
+  application_trustbadge_structuredMarkup_toggle_label: string
+  application_trustbadge_structuredMarkup_newFeature: string
+  application_trustbadge_structuredMarkup_learnMore: string
+  application_trustbadge_structuredMarkup_learnMore_url: string
+  application_trustbadge_structuredMarkup_hint_title: string
+  application_trustbadge_structuredMarkup_hint_text: string
 }
 
 export type IWIDGETS_KEYS = {
@@ -633,6 +661,15 @@ export type DASHBOARD_KEYS = ROUTES_KEYS &
   ITRSTD_LOGIN_KEYS &
   ITRUSTBADGE_KEYS &
   GLOBAL_KEYS &
+  SHOPIFY_GLOBAL_KEYS &
   OVERVIEW_KEYS
 
-export type SelectedTab = '' | 'channelSelector'| 'initialConfiguration' | 'trstdLogin' | 'invites' | 'settings' | 'trustbadge' | 'widgets'
+export type SelectedTab =
+  | ''
+  | 'channelSelector'
+  | 'initialConfiguration'
+  | 'trstdLogin'
+  | 'invites'
+  | 'settings'
+  | 'trustbadge'
+  | 'widgets'

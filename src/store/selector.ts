@@ -5,6 +5,7 @@ import { ITrustbadgeState } from './trustbadge/types'
 import { INotificationState } from './notification/types'
 import { IReviewInvitesState } from './reviewInvites/types'
 import { ITrstdLoginState } from './trstdLogin/types'
+import { IStructuredMarkupState } from './structuredMarkup/types'
 import { AppStore } from '@/store/useStore'
 
 export const selectState = <T>(store: { state: T }): T => store.state
@@ -30,6 +31,10 @@ export const selectorTrstdLogin = (store: {
   trstdLoginState: ITrstdLoginState
 }): ITrstdLoginState => store.trstdLoginState
 
+export const selectorStructuredMarkup = (store: {
+  structuredMarkupState: IStructuredMarkupState
+}): IStructuredMarkupState => store.structuredMarkupState
+
 export const selectAllState = (store: AppStore) => {
   /* eslint-disable*/
   const { auth, ...restTrustbadgeState } = store.trustbadgeState as any
@@ -43,6 +48,9 @@ export const selectAllState = (store: AppStore) => {
     widgetState: store.widgetState,
     ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
       trstdLoginState: store.trstdLoginState,
+    }),
+    ...(store.infoState.infoOfSystem.allowsSupportStructuredMarkup && {
+      structuredMarkupState: store.structuredMarkupState,
     }),
   }
 }

@@ -17,8 +17,10 @@ import {
   selectorAuth,
   selectorChannels,
   selectorInfoOfSystem,
+  selectorStructuredMarkup,
   selectorTrustbadgeState,
 } from '@/store/selector'
+import StructuredMarkupSection from './structuredMarkupSection'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import useStore from '@/store/useStore'
 import EditIntegrationCodeProps from './editIntegrationCode'
@@ -48,7 +50,12 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
     useState<Nullable<ITrustbadgeChildren>>(null)
   const [previewTab, setPreviewTab] = useState<'desktop' | 'mobile'>('mobile')
 
-  const { updateTrustbadgeDataFromTextaria, updateTrustbadgeData, setIsLoadingBL } = useStore()
+  const {
+    updateTrustbadgeDataFromTextaria,
+    updateTrustbadgeData,
+    setIsLoadingBL,
+    updateStructuredMarkupEnabled,
+  } = useStore()
   const {
     trustbadgeId,
     trustbadgeDataChild,
@@ -59,6 +66,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { isLoadingSave, selectedShopChannels } = useStore(selectorChannels)
+  const { isLoadingStructuredMarkup, structuredMarkupEnabled } = useStore(
+    selectorStructuredMarkup,
+  )
   const isActive = !isDisabled
 
   useEffect(() => {
@@ -99,6 +109,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
       ...(store.infoState.infoOfSystem.allowsSupportTrstdLogin && {
         trstdLoginState: store.trstdLoginState,
       }),
+      ...(store.infoState.infoOfSystem.allowsSupportStructuredMarkup && {
+        structuredMarkupState: store.structuredMarkupState,
+      }),
     }
   }
 
@@ -138,6 +151,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
 
   const diactivateTB = (data: Nullable<ITrustbadgeChildren>): void => {
     setIsLoadingBL(true)
+    if (infoOfSystem.allowsSupportStructuredMarkup && structuredMarkupEnabled) {
+      updateStructuredMarkupEnabled(false, { skipConfigurationCall: true })
+    }
     const disabledChild = data || {
       tag: trustbadgeDataChild.tag,
       attributes: {
@@ -206,7 +222,9 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   return (
     phrasesByKey && (
       <div className="ts-flex ts-flex-col ts-gap-6">
-        {(isLoadingAPI || isLoadingBL || isLoadingSave) && <ScrinSpinner />}
+        {(isLoadingAPI || isLoadingBL || isLoadingSave || isLoadingStructuredMarkup) && (
+          <ScrinSpinner />
+        )}
 
         {/* Trustbadge header - no card */}
         <div className="ts-pb-1">
@@ -430,6 +448,14 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
             </StyledButton>
           </div>
         </div>
+
+        {/* Structured data markup */}
+        {infoOfSystem.allowsSupportStructuredMarkup && (
+          <StructuredMarkupSection
+            phrasesByKey={phrasesByKey}
+            isTrustbadgeDisabled={isDisabled}
+          />
+        )}
 
         {/* About the Trustbadge */}
         <div

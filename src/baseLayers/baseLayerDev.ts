@@ -13,11 +13,13 @@ import { getWidgetLocation } from './testData/getWidgetLocation'
 import { getWidgets } from './testData/getWidgets'
 import { getTrstdLoginConfiguration } from './testData/getTrstdLoginMock'
 import { getTrstdLoginLocation } from './testData/getTrstdLoginLocation'
+import { getStructuredMarkupConfiguration } from './testData/getStructuredMarkupMock'
 import { IMappedChannel, ITrstdLogin, IWidgets } from './types'
 import { getUsedOrderStaruses } from './testData/getUsedOrderStatuses'
 
 export const DEV = 'development'
 export const TEST = 'test'
+
 
 const credentials = {
   clientId: import.meta.env.VITE_CLIENT_ID || '',
@@ -215,6 +217,54 @@ export const baseLayerDev = (): void => {
             payload: getTrstdLoginLocation(DEFAULT_ENV),
           })
         }, 400)
+      },
+
+      [EVENTS.GET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED]: () => {
+        console.log('GET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED')
+        const saved = sessionStorage.getItem('structuredMarkup')
+        setTimeout(() => {
+          dispatchAction({
+            action: EVENTS.SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED,
+            payload: saved ? JSON.parse(saved) : getStructuredMarkupConfiguration(DEFAULT_ENV),
+          })
+        }, 400)
+      },
+
+      [EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION]: (event: {
+        payload: {
+          eTrustedChannelRef: string
+          salesChannelRef: string
+          tsId: string
+          enabled: boolean
+        }
+      }) => {
+        try {
+          console.log('SAVE_STRUCTURED_MARKUP_CONFIGURATION_BaseLayer', event.payload)
+          const config = { structuredMarkupEnabled: event.payload.enabled }
+          sessionStorage.setItem('structuredMarkup', JSON.stringify(config))
+          setTimeout(() => {
+            dispatchAction({
+              action: EVENTS.SET_STRUCTURED_MARKUP_CONFIGURATION_PROVIDED,
+              payload: config,
+            })
+            sendingNotification(
+              EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION,
+              'STRUCTURED MARKUP CONFIGURATION SAVED',
+              'success',
+              'save'
+            )
+          }, 400)
+        } catch (error) {
+          console.error('SAVE_STRUCTURED_MARKUP_CONFIGURATION_BaseLayer failed', error)
+          setTimeout(() => {
+            sendingNotification(
+              EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION,
+              'STRUCTURED MARKUP CONFIGURATION NOT SAVED',
+              'error',
+              'save'
+            )
+          }, 400)
+        }
       },
 
 

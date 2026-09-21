@@ -31,7 +31,27 @@ export const getParsedTrustbadgeDataStrToObj = (str: string): ITrustbadgeChildre
   let tag = ''
   let attributes = {}
   for (let index = 0; index < splitedStrings.length - 1; index++) {
-    const [attributeName, value] = splitedStrings[index].replace(/[\\" <>]/g, '').split('=')
+    let line = splitedStrings[index].trim()
+    if (line.startsWith('<')) line = line.substring(1)
+    if (line.endsWith('>')) line = line.substring(0, line.length - 1)
+    line = line.trim()
+    if (!line) continue
+
+    const equalsIdx = line.indexOf('=')
+    let attributeName: string
+    let value: string | undefined
+    if (equalsIdx === -1) {
+      attributeName = line
+      value = undefined
+    } else {
+      attributeName = line.substring(0, equalsIdx).trim()
+      let rawValue = line.substring(equalsIdx + 1).trim()
+      if (rawValue.startsWith('"') && rawValue.endsWith('"')) {
+        rawValue = rawValue.substring(1, rawValue.length - 1)
+      }
+      value = rawValue
+    }
+
     if (index === 0 && attributeName === 'script') {
       tag = attributeName
     } else if (!value) {

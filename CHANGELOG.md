@@ -1,3 +1,95 @@
+## [1.24.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.23.0...1.24.0) (2026-08-27)
+
+
+### Features
+
+* Redesign of Notification Toast ([1184d7e](https://github.com/trustedshops-public/connect-app-connector/commit/1184d7e8da4fcff24472901c51849e4ec55bfebe))
+
+## [1.23.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.22.0...1.23.0) (2026-08-19)
+
+
+### Features
+
+* Relaease Json LD activation Modal changes ([6b07b23](https://github.com/trustedshops-public/connect-app-connector/commit/6b07b2336aaa583a99c57b23b322eb5164562cf8))
+
+## [1.22.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.8...1.22.0) (2026-08-04)
+
+
+### Features
+
+* Add structured data markup (JSON-LD) toggle to Trustbadge tab ([11f432a](https://github.com/trustedshops-public/connect-app-connector/commit/11f432a805d8653cd3245458880210c94c34d20a))
+* Improve structured data markup section based on design updates ([886a157](https://github.com/trustedshops-public/connect-app-connector/commit/886a157c8b7e682ec736e5e5970973f9ab92d2d0))
+* Include structured markup state in configuration calls ([d35273d](https://github.com/trustedshops-public/connect-app-connector/commit/d35273dd7fc2156f0d2e4fecdcbe4b62f1b050b0))
+* redesign improvements ([26d5c67](https://github.com/trustedshops-public/connect-app-connector/commit/26d5c676c7e2e9b1b483377be59882ebceb10403))
+* Show loader while structured markup save awaits shop system response ([ea02c88](https://github.com/trustedshops-public/connect-app-connector/commit/ea02c88d4cb7d52f8c885ff956e2ea63a1c1999a))
+
+
+### Bug Fixes
+
+* Remove static fallback texts from structured markup section ([a188914](https://github.com/trustedshops-public/connect-app-connector/commit/a188914e1f6d30407b8ea9e2612dafab5ef346b0))
+
+## [1.21.8](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.7...1.21.8) (2026-06-25)
+
+
+### Bug Fixes
+
+* Split also for - ([d122f85](https://github.com/trustedshops-public/connect-app-connector/commit/d122f85faa9357b502ef1a745972a312155bd031))
+
+## [1.21.7](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.6...1.21.7) (2026-06-25)
+
+
+### Bug Fixes
+
+* push small change to invoke release Tag for prod with phrase changes ([c627c83](https://github.com/trustedshops-public/connect-app-connector/commit/c627c83666c8da33f88c0157c34ad8e97d7782bd))
+
+## [1.21.6](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.5...1.21.6) (2026-06-25)
+
+
+### Bug Fixes
+
+* Append locale to sales link URL instead of a_aid query param ([7bc82a0](https://github.com/trustedshops-public/connect-app-connector/commit/7bc82a0776567743004f76b01ea8180829dfd20d))
+* correction from - to _ on locale split ([316e98a](https://github.com/trustedshops-public/connect-app-connector/commit/316e98a1399534a556d85a0e216ff0f63dd97c41))
+
+## [1.21.5](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.4...1.21.5) (2026-06-24)
+
+
+### Bug Fixes
+
+* added delay to prevent showing the trustsignals before finalising channel mapping ([184a079](https://github.com/trustedshops-public/connect-app-connector/commit/184a0792d23988adf794d46fa462e98be46aae22))
+* added delay to solve concurrency issues ([399c854](https://github.com/trustedshops-public/connect-app-connector/commit/399c8542b3f0c27f58d1bc1ccd68cca948fd4b95))
+* make loader visible on top of modal ([66ed761](https://github.com/trustedshops-public/connect-app-connector/commit/66ed7615b7aa3cc0739d02ce5ec6aaf7a04c3450))
+* remove timeout ([437f787](https://github.com/trustedshops-public/connect-app-connector/commit/437f787355487382f2cf01441cd4c6678c9c1100))
+* remove unnecesary delay ([12e1b53](https://github.com/trustedshops-public/connect-app-connector/commit/12e1b534904c02ff5f99d60875115e499c29ae26))
+
+## [1.21.4](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.3...1.21.4) (2026-06-23)
+
+
+### Bug Fixes
+
+* Wait for channel mapping defaults to finish before Go Live trustbadge save ([eca9a56](https://github.com/trustedshops-public/connect-app-connector/commit/eca9a56d4b1536333293729144dee677d2d7196a))
+
+## [1.21.3](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.2...1.21.3) (2026-06-22)
+
+
+### Bug Fixes
+
+* Conditionally render review invites overview card based on system support ([c261b7d](https://github.com/trustedshops-public/connect-app-connector/commit/c261b7da9b04d66ad9d2cb2ca1032d523cf79067))
+* Trusted login error mapped to general error ([c52fa1d](https://github.com/trustedshops-public/connect-app-connector/commit/c52fa1d7c3568c968fa04e49e748b9302dd3f0de))
+
+## [1.21.2](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.1...1.21.2) (2026-05-28)
+
+
+### Bug Fixes
+
+* Update styles and structure in Tag and ChannelSelectModal components, Optimise Trustbadge code regex ([9675936](https://github.com/trustedshops-public/connect-app-connector/commit/9675936442fe5f611dca42dc3b2499e4f505692f))
+
+## [1.21.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.21.0...1.21.1) (2026-05-20)
+
+
+### Bug Fixes
+
+* Updated translations from Phrase ([#252](https://github.com/trustedshops-public/connect-app-connector/issues/252)) ([9c0d1da](https://github.com/trustedshops-public/connect-app-connector/commit/9c0d1dab1b66f9bc53ad3a811339b90a652fbe92))
+
 ## [1.21.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.20.1...1.21.0) (2026-05-05)
 
 

@@ -21,7 +21,7 @@ import {
   selectorTrustbadgeState,
 } from '@/store/selector'
 import { AVAILABLE_VERSIONS } from './tabReviewInvites/v2/available-versions'
-// BackgroundCard removed from dashboard
+// BackgroundCard removed from dashboard 
 import ChannelSelectModal from './channelSelectModal'
 import TrustSignalsActivationModal from './trustSignalsActivationModal'
 import { LazyLoading } from '@/utils/lazyLoading'
@@ -30,6 +30,7 @@ import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import OverviewTab from './tabOverview/index'
 import { GearIcon } from '@/components/layouts/icons/GearIcon'
+import { AppEmbedActivationBanner, AppEmbedActiveBanner } from './appEmbedBanner'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -48,6 +49,25 @@ const DashboardPageModule: FC<{
 
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
   const { user } = useStore(selectorAuth)
+
+  // Shopify only: the app embed must be activated once in the theme editor before
+  // #trstd login / structured data can render. Shown on every tab; the deep link opens
+  // the App embeds panel without touching the toggle, so the merchant turns it on and
+  // saves it themselves.
+  // Detection-based: the action-required banner is replaced by an informational one once
+  // the base layer reports the embed as activated on the published theme
+  // (appEmbedActivated === true). When the status is unknown (undefined), the
+  // action-required banner stays visible — better one banner too many than a merchant
+  // with an invisible integration.
+  // Shop-level, with no feature condition: the embed is always listed in the theme
+  // editor, so the prompt is always actionable and does not depend on which channel the
+  // merchant happens to have selected.
+  const isAppEmbedRelevant = infoOfSystem.nameOfSystem?.toLowerCase() === 'shopify'
+  const showAppEmbedBanner =
+    isAppEmbedRelevant && !!infoOfSystem.appEmbedDeepLink && infoOfSystem.appEmbedActivated !== true
+  // Once the embed is confirmed active the banner flips to a reminder to keep it
+  // turned on for every market the shop publishes.
+  const showAppEmbedActiveBanner = isAppEmbedRelevant && infoOfSystem.appEmbedActivated === true
 
   const {
     allowsEstimatedDeliveryDate,
@@ -123,6 +143,8 @@ const DashboardPageModule: FC<{
     setInitialOrderStatusByMapping,
     getTrstdLoginConfiguration,
     clearTrstdLoginState,
+    getStructuredMarkupConfiguration,
+    clearStructuredMarkupState,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -143,12 +165,20 @@ const DashboardPageModule: FC<{
       getTrustbadge(selectedShopChannels)
       clearWidgetData()
       clearTrstdLoginState()
+      clearStructuredMarkupState()
 
       if (
         Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportTrstdLogin') &&
         infoOfSystem.allowsSupportTrstdLogin
       ) {
         getTrstdLoginConfiguration(selectedShopChannels)
+      }
+
+      if (
+        Object.hasOwn(infoOfSystem, 'allowsSupportStructuredMarkup') &&
+        infoOfSystem.allowsSupportStructuredMarkup
+      ) {
+        getStructuredMarkupConfiguration(selectedShopChannels)
       }
 
       setIsLoading(true)
@@ -452,6 +482,15 @@ const DashboardPageModule: FC<{
                     />
                   </div>
                 </div>
+
+                {/* App embed banners (Shopify only) - visible on all tabs */}
+                {showAppEmbedBanner && (
+                  <AppEmbedActivationBanner
+                    phrasesByKey={phrasesByKey}
+                    deepLink={infoOfSystem.appEmbedDeepLink as string}
+                  />
+                )}
+                {showAppEmbedActiveBanner && <AppEmbedActiveBanner phrasesByKey={phrasesByKey} />}
 
                 {/* Content area - centered */}
                 <div className="ts-max-w-backgroundCard ts-mx-auto ts-w-full ts-px-4 sm:ts-px-8 ts-py-6" style={{ backgroundColor: '#F9FAFB', minHeight: '100%', flex: 1 }}>
