@@ -279,11 +279,11 @@
       "custom_placement": {
         "description": "Potrzebne tylko wtedy, gdy Twój motyw nie jest obsługiwany przez automatyczne umiejscowienie. Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login — ustawienie dotyczy wszystkich Twoich motywów. Jeśli element nie zostanie znaleziony, użyte zostanie umiejscowienie automatyczne.",
         "desktop": {
-          "label": "Komputer — selektor CSS",
+          "label": "Selektor CSS",
           "placeholder": ".moja-klasa lub #moje-id"
         },
         "mobile": {
-          "label": "Mobile — selektor CSS",
+          "label": "Selektor CSS",
           "placeholder": ".moja-klasa-mobilna lub #moje-id-mobilne"
         },
         "position": {

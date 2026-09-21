@@ -279,11 +279,11 @@
       "custom_placement": {
         "description": "Necessario solo se il tuo tema non è supportato dal posizionamento automatico. Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login: l’impostazione vale per tutti i tuoi temi. Se l’elemento non viene trovato, viene usato il posizionamento automatico.",
         "desktop": {
-          "label": "Desktop — selettore CSS",
+          "label": "Selettore CSS",
           "placeholder": ".mia-classe o #mio-id"
         },
         "mobile": {
-          "label": "Mobile — selettore CSS",
+          "label": "Selettore CSS",
           "placeholder": ".mia-classe-mobile o #mio-id-mobile"
         },
         "position": {

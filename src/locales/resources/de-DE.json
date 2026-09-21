@@ -280,11 +280,11 @@
       "custom_placement": {
         "description": "Nur nötig, wenn dein Theme von der automatischen Platzierung nicht unterstützt wird. Gib eine CSS-Klasse oder -ID an, um den #trstd login manuell zu platzieren — die Einstellung gilt für alle deine Themes. Wird das Element nicht gefunden, greift die automatische Platzierung.",
         "desktop": {
-          "label": "Desktop — CSS-Selektor",
+          "label": "CSS-Selektor",
           "placeholder": ".meine-klasse oder #meine-id"
         },
         "mobile": {
-          "label": "Mobil — CSS-Selektor",
+          "label": "CSS-Selektor",
           "placeholder": ".meine-mobile-klasse oder #meine-mobile-id"
         },
         "position": {
@@ -549,7 +549,7 @@
     "app_embed_banner": {
       "active": {
         "link_text": "Über App-Embeds",
-        "link_url": "https://help.etrusted.com/hc/de/articles/23970822885010-Trusted-Shops-nutzen-mit-Shopify",
+        "link_url": "https://help.etrusted.com/hc/en-gb/articles/23970822885010-Using-Trusted-Shops-with-Shopify#activate-the-trusted-shops-app-embed",
         "text": "Das App-Embed ist für deinen Shop eingeschaltet. Behalte diese Einstellung in allen Märkten gleich, damit die Funktionen weiterhin korrekt funktionieren.",
         "title": "Gut zu wissen"
       },

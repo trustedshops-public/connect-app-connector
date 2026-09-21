@@ -279,11 +279,11 @@
       "custom_placement": {
         "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
         "desktop": {
-          "label": "Desktop — CSS-selector",
+          "label": "CSS-selector",
           "placeholder": ".mijn-class of #mijn-id"
         },
         "mobile": {
-          "label": "Mobiel — CSS-selector",
+          "label": "CSS-selector",
           "placeholder": ".mijn-mobiele-class of #mijn-mobiele-id"
         },
         "position": {
