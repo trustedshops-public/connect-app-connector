@@ -562,8 +562,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "button": "Activate in theme editor",
-      "text": "<strong>Action required:</strong> To display Trusted Shops features in your shop, activate the Trusted Shops app embed in your theme editor and click <strong>Save</strong>."
+      "active": {
+        "link_text": "About app embeds",
+        "link_url": "https://help.etrusted.com/hc/en-gb/articles/23970822885010-Using-Trusted-Shops-with-Shopify",
+        "text": "The app embed is turned on for your shop. Keep this setting the same across all markets, so features keep working correctly.",
+        "title": "Good to know"
+      },
+      "button": "Turn On",
+      "text": "Turn on the app embed in your theme editor, then select <strong>Save</strong>, so all Trusted Shops features keep working correctly.",
+      "title": "Action required"
     },
     "global": {
       "help": {

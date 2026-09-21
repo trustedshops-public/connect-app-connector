@@ -545,8 +545,15 @@
   },
   "shopify": {
     "app_embed_banner": {
-      "button": "Aktywuj w edytorze motywu",
-      "text": "<strong>Wymagane działanie:</strong> Aby funkcje Trusted Shops były widoczne w Twoim sklepie, aktywuj app embed Trusted Shops w edytorze motywu i kliknij <strong>Zapisz</strong>."
+      "active": {
+        "link_text": "O app embeds",
+        "link_url": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify",
+        "text": "App embed jest włączony w Twoim sklepie. Zachowaj to samo ustawienie na wszystkich rynkach, aby funkcje działały poprawnie.",
+        "title": "Warto wiedzieć"
+      },
+      "button": "Włącz",
+      "text": "Włącz wbudowanie aplikacji w edytorze motywu, a następnie wybierz <strong>Zapisz</strong>, aby wszystkie funkcje Trusted Shops działały prawidłowo.",
+      "title": "Wymagane działanie"
     },
     "global": {
       "help": {
