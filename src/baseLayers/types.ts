@@ -55,10 +55,25 @@ export interface ITrstdLoginConfiguration {
   }
 }
 
+/**
+ * Placement overrides for the trstd-login element. They belong to a single sales
+ * channel, so a shop system that reports `allowsSupportTrstdLoginCustomization`
+ * has to store them per channel - the connector addresses every save to the
+ * channel being edited.
+ */
+export interface ITrstdLoginCustomization {
+  target_selector?: string
+  position_desktop?: string
+  target_selector_mobile?: string
+  position_mobile?: string
+}
+
 export interface ITrstdLogin {
   id: string
   salesChannelRef: string
+  eTrustedChannelRef?: string
   configuration?: ITrstdLoginConfiguration
+  customization?: ITrstdLoginCustomization
 }
 
 export interface IMappedChannel {

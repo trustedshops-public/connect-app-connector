@@ -26,6 +26,37 @@ const credentials = {
   clientSecret: import.meta.env.VITE_CLIENT_SECRET || '',
 }
 
+/**
+ * The #trstd login configuration - the enabled flag, the location and the custom
+ * placement - belongs to one sales channel, so the dev base layer keeps it per
+ * channel the way a shop system has to. Without that, editing one channel here
+ * would look like it changes the others and the per-channel behaviour could not
+ * be tested locally.
+ */
+const TRSTDLOGIN_STORAGE_KEY = 'trstdLogin'
+
+const readTrstdLoginStore = (): { [salesChannelRef: string]: ITrstdLogin } => {
+  try {
+    return JSON.parse(sessionStorage.getItem(TRSTDLOGIN_STORAGE_KEY) || '{}')
+  } catch {
+    return {}
+  }
+}
+
+const readTrstdLoginForChannel = (salesChannelRef: string): ITrstdLogin | undefined =>
+  salesChannelRef ? readTrstdLoginStore()[salesChannelRef] : undefined
+
+const writeTrstdLoginForChannel = (data: ITrstdLogin): void => {
+  if (!data?.salesChannelRef) {
+    console.warn('SAVE_TRSTDLOGIN_CONFIGURATION without salesChannelRef - not stored', data)
+    return
+  }
+  sessionStorage.setItem(
+    TRSTDLOGIN_STORAGE_KEY,
+    JSON.stringify({ ...readTrstdLoginStore(), [data.salesChannelRef]: data }),
+  )
+}
+
 const sendingNotification = (
   event: string,
   message: string,
@@ -170,12 +201,19 @@ export const baseLayerDev = (): void => {
     },
 
    
-      [EVENTS.GET_TRSTDLOGIN_CONFIGURATION_PROVIDED]: () => {
-        console.log('GET_TRSTDLOGIN_CONFIGURATION_PROVIDED')
+      [EVENTS.GET_TRSTDLOGIN_CONFIGURATION_PROVIDED]: (event: {
+        payload: { salesChannelRef?: string }
+      }) => {
+        console.log('GET_TRSTDLOGIN_CONFIGURATION_PROVIDED', event.payload)
+        const salesChannelRef = event.payload?.salesChannelRef || ''
+        const stored = readTrstdLoginForChannel(salesChannelRef)
+        const mock = getTrstdLoginConfiguration(DEFAULT_ENV)
         setTimeout(() => {
           dispatchAction({
             action: EVENTS.SET_TRSTDLOGIN_CONFIGURATION_PROVIDED,
-            payload: getTrstdLoginConfiguration(DEFAULT_ENV),
+            // the answer names the channel it was asked for, so the connector can
+            // tell a late answer for another channel apart from this one
+            payload: stored || (mock && { ...mock, salesChannelRef }),
           })
         }, 400)
       },
@@ -184,6 +222,7 @@ export const baseLayerDev = (): void => {
       [EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION]: (event: { payload: ITrstdLogin }) => {
         try {
           console.log('SAVE_TRSTDLOGIN_CONFIGURATION_BaseLayer', event.payload)
+          writeTrstdLoginForChannel(event.payload)
           setTimeout(() => {
             dispatchAction({
               action: EVENTS.SET_TRSTDLOGIN_CONFIGURATION_PROVIDED,
