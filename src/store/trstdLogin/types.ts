@@ -19,9 +19,12 @@ export interface ITrstdLoginConfiguration {
 }
 
 /**
- * Shop-global placement overrides for the trstd-login element. Only supported when the
- * base layer reports `allowsSupportTrstdLoginCustomization` (currently Shopify). Keys
- * mirror the shop system's placement setting ids.
+ * Placement overrides for the trstd-login element, saved for the selected channel:
+ * changing one channel must not move the element on the others, so the connector
+ * addresses every save to the channel being edited and the shop system is expected
+ * to store it per channel. Only supported when the base layer reports
+ * `allowsSupportTrstdLoginCustomization` (currently Shopify). Keys mirror the shop
+ * system's placement setting ids.
  */
 export interface ITrstdLoginCustomization {
   target_selector?: string

@@ -3,6 +3,7 @@ import { dispatchAction, EVENTS } from '@/eventsLib'
 import { postTrstdLoginConfiguration, putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import { getTrstdLoginDefault } from './getTrstdLoginDefault'
+import { selectAllState } from '../selector'
 import { AppStore } from '../useStore'
 import {
   ITrstdLoginState,
@@ -245,6 +246,7 @@ export const trstdLoginStore = (
   saveTrstdLoginCustomization: (customization: ITrstdLoginCustomization) => {
     const state = get()
     const { selectedShopChannels } = state.channelState
+    const token = state.auth.user?.access_token
     const currentData = state.trstdLoginState.trstdLoginData
 
     const updatedData: ITrstdLogin = {
@@ -265,19 +267,27 @@ export const trstdLoginStore = (
       },
     }))
 
-    // The base layer persists the customization shop-globally (all locales/themes)
-    // alongside the login configuration of the selected channel.
+    // Always addressed to the selected channel, like updateTrstdLoginEnabled does:
+    // the placement belongs to the channel being edited, not to whichever channel
+    // the currently loaded configuration was last read from.
     if (supportsSaveEvent) {
       dispatchAction({
         action: EVENTS.SAVE_TRSTDLOGIN_CONFIGURATION,
         payload: {
           ...updatedData,
           eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-          salesChannelRef:
-            updatedData.salesChannelRef || selectedShopChannels.salesChannelRef,
+          salesChannelRef: selectedShopChannels.salesChannelRef,
         },
       })
     }
+
+    // the placement is part of the saved configuration, like the enabled flag
+    handleEtrustedConfiguration(
+      token,
+      selectAllState(get()),
+      'trstdLogin',
+      putEtrustedConfiguration,
+    )
   },
 
   updateTrstdLoginLocation: (location: ITrstdLoginLocation) => {
