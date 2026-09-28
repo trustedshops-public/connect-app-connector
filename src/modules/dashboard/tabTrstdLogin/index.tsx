@@ -39,9 +39,11 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [customization, setCustomization] = useState<ITrstdLoginCustomization>({})
 
   // Prefill from the loaded configuration (arrives async via the base layer).
+  // Keyed on the channel as well, so unsaved edits never carry over to the next
+  // channel when its configuration happens to have no customization of its own.
   useEffect(() => {
     setCustomization(trstdLoginData.customization ?? {})
-  }, [trstdLoginData.customization])
+  }, [trstdLoginData.customization, selectedShopChannels.eTrustedChannelRef])
 
   const setCustomizationField = (field: keyof ITrstdLoginCustomization) => (value: string) => {
     setCustomization(current => ({ ...current, [field]: value }))
