@@ -1,3 +1,12 @@
+## [1.25.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.25.0...1.25.1) (2026-09-29)
+
+
+### Bug Fixes
+
+* bind the trstd login placement to the channel being edited ([0dd8a12](https://github.com/trustedshops-public/connect-app-connector/commit/0dd8a122834ddb6ddfaccb11771e8cc4d78472bd))
+* save trstd login placement to the configuration and per channel ([e1d8ba7](https://github.com/trustedshops-public/connect-app-connector/commit/e1d8ba7a84536979c48dd6ac8c8a43764576371b))
+* TPSCON-4650 [JSON-LD in HTML] never save structured markup as enabled while the Trustbadge is off ([96bf0f5](https://github.com/trustedshops-public/connect-app-connector/commit/96bf0f5f63a0db616cb8342a6b4bc4a34010e98c))
+
 ## [1.25.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.24.0...1.25.0) (2026-09-21)
 
 
