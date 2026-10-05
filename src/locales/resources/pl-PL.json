@@ -546,13 +546,13 @@
   "shopify": {
     "app_embed_banner": {
       "active": {
-        "link_text": "O app embeds",
+        "link_text": "Informacje o osadzeniu aplikacji",
         "link_url": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify",
-        "text": "App embed jest włączony w Twoim sklepie. Zachowaj to samo ustawienie na wszystkich rynkach, aby funkcje działały poprawnie.",
+        "text": "Osadzenie aplikacji jest włączone w Twoim sklepie. Zachowaj to samo ustawienie na wszystkich rynkach, aby funkcje nadal działały prawidłowo.",
         "title": "Warto wiedzieć"
       },
       "button": "Włącz",
-      "text": "Włącz wbudowanie aplikacji w edytorze motywu, a następnie wybierz <strong>Zapisz</strong>, aby wszystkie funkcje Trusted Shops działały prawidłowo.",
+      "text": "Włącz osadzenie aplikacji w edytorze motywu, a następnie wybierz &lt;strong&gt;Zapisz&lt;/strong&gt;, aby wszystkie funkcje Trusted Shops nadal działały prawidłowo.",
       "title": "Wymagane działanie"
     },
     "global": {
