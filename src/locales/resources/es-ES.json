@@ -546,13 +546,13 @@
   "shopify": {
     "app_embed_banner": {
       "active": {
-        "link_text": "Sobre los app embeds",
+        "link_text": "Acerca de las incrustaciones de aplicaciones",
         "link_url": "https://help.etrusted.com/hc/es/articles/23970822885010-Utiliza-Trusted-Shops-con-Shopify",
-        "text": "El app embed está activado en tu tienda. Mantén esta configuración igual en todos los mercados, para que las funciones sigan funcionando correctamente.",
+        "text": "La incrustación de la aplicación está activada para tu tienda. Mantén esta configuración igual en todos los mercados para que las funciones sigan funcionando correctamente.",
         "title": "Información útil"
       },
-      "button": "Encender",
-      "text": "Activa el complemento de la aplicación en tu editor de temas, luego selecciona <strong>Guardar</strong>, para que todas las funciones de Trusted Shops sigan funcionando correctamente.",
+      "button": "Activar",
+      "text": "Activa la incrustación de la aplicación en el editor de temas y, a continuación, selecciona &lt;strong&gt;Guardar&lt;/strong&gt; para que todas las funciones de Trusted Shops sigan funcionando correctamente.",
       "title": "Acción necesaria"
     },
     "global": {
