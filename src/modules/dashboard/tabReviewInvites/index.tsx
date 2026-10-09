@@ -6,7 +6,6 @@ import {
   selectAllState,
   selectorAuth,
   selectorChannels,
-  selectorInfoOfSystem,
   selectorReviewInvites,
 } from '@/store/selector'
 import SendReviewInvitesForProducts from './sendReviewInvitesForProducts'
@@ -16,10 +15,11 @@ import useStore from '@/store/useStore'
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
 
 const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(false)
-  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const features = useFeatureAvailability()
   const { selectedShopChannels } = useStore(selectorChannels)
   const {
     setIsLoadingInvitesForProducts,
@@ -81,7 +81,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
     <div className="ts-w-full ts-flex ts-flex-col ts-gap-6">
       {isLoading && <ScrinSpinner />}
 
-      {infoOfSystem.allowsSendReviewInvitesForProduct && (
+      {features.productReviews && (
         <SendReviewInvitesForProducts
           phrasesByKey={phrasesByKey}
           isToggle={isToggle}
@@ -90,7 +90,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
         />
       )}
 
-      {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
+      {features.orderStatusInvites && (
         <SendReviewInvitesRightTime
           phrasesByKey={phrasesByKey}
           saveChanges={saveChanges}
@@ -101,7 +101,7 @@ const ReviewInvitesTab: FC<TabProps> = ({ phrasesByKey }) => {
           isMappedTypesErorr={isMappedTypesErorr}
         />
       )}
-      {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (
+      {features.exportOrders && (
         <SendReviewInvitesForPreviousOrders
           phrasesByKey={phrasesByKey}
           selectedShopChannels={selectedShopChannels}

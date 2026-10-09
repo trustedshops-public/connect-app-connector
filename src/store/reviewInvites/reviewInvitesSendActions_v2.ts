@@ -18,6 +18,7 @@ import {
 import { EVENTS, dispatchAction } from '@/eventsLib'
 import { IMappedChannel } from '../channel/types'
 import { IUserInfo } from '../info/types'
+import { getFeatureAvailability } from '../bookedFeatures/featureAvailability'
 
 const defaultStatus = {
   name: CHECKOUT_TYPE,
@@ -231,6 +232,7 @@ export const reviewInvitesActionsStore_v2 = (
       const salesChannelRef = get().channelState.selectedShopChannels.salesChannelRef
       const selectedShopChannel = get().channelState.selectedShopChannels
       const info = get().infoState.infoOfSystem
+      const { productReviews } = getFeatureAvailability(get(), eTrustedChannelRef)
       const eventTypes = get().reviewInvitesState.eventTypes
       const inviteSettingsByChannel = get().reviewInvitesState.inviteSettingsByChannel
 
@@ -253,9 +255,7 @@ export const reviewInvitesActionsStore_v2 = (
             const eventType = (newEventType?.id ? [...eventTypes, newEventType] : eventTypes).find(
               event => event.id === invite.eventTypeId,
             )
-            const isEnableProduct =
-              eventType?.name === selectedReviewsProductType &&
-              info.allowsSendReviewInvitesForProduct
+            const isEnableProduct = eventType?.name === selectedReviewsProductType && productReviews
 
             const isEnableService = eventType?.name === selectedReviewsServiceType
 

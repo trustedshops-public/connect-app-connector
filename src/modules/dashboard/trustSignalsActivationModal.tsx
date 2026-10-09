@@ -7,9 +7,14 @@ import useStore from '@/store/useStore'
 import {
   selectAllState,
   selectorAuth,
+  selectorBookedFeatures,
   selectorChannels,
   selectorInfoOfSystem,
 } from '@/store/selector'
+import {
+  getBookedFeaturesOfChannel,
+  resolveFeatureAvailability,
+} from '@/store/bookedFeatures/featureAvailability'
 import { getEtrustedID, putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import { getTrustbadgeDefault } from '@/store/trustbadge/getTrustbadgeDefault'
@@ -35,7 +40,18 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
   const { mappedChannels } = useStore(selectorChannels)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
 
-  const supportsJsonLd = infoOfSystem?.allowsSupportStructuredMarkup ?? false
+  const { bookedFeaturesByChannel } = useStore(selectorBookedFeatures)
+
+  const getChannelFeatures = (channelRef: string) =>
+    resolveFeatureAvailability(
+      infoOfSystem,
+      getBookedFeaturesOfChannel(bookedFeaturesByChannel, channelRef),
+    )
+
+  // Offered as soon as one of the mapped channels has AI visibility
+  const supportsJsonLd = bookedFeaturesByChannel
+    ? mappedChannels.some(channel => getChannelFeatures(channel.eTrustedChannelRef).aiVisibility)
+    : (infoOfSystem?.allowsSupportStructuredMarkup ?? false)
 
   useEffect(() => {
     if (showModal && modalRef.current) {
@@ -68,6 +84,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
     await waitForChannelDefaultsToSave()
 
     for (const channel of mappedChannels) {
+      const channelFeatures = getChannelFeatures(channel.eTrustedChannelRef)
       try {
         const { trstdLoginState: _trstdLoginState, ...stateWithoutTrstdLogin } = allState
         const channelAllState: Record<string, unknown> = {
@@ -79,7 +96,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
           },
         }
 
-        if (isChecked) {
+        if (isChecked && channelFeatures.trustbadge) {
           const response = await getEtrustedID(channel, infoOfSystem, token)
           const defaultTrustbadge = getTrustbadgeDefault(response.tsId)
 
@@ -112,7 +129,7 @@ const TrustSignalsActivationModal: FC<Props> = ({ showModal, onClose, phrasesByK
           }
 
           // JSON-LD (structured markup) can only be live together with the trustbadge
-          if (supportsJsonLd) {
+          if (channelFeatures.aiVisibility) {
             if (EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION) {
               dispatchAction({
                 action: EVENTS.SAVE_STRUCTURED_MARKUP_CONFIGURATION,

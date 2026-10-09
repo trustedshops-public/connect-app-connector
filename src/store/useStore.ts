@@ -23,6 +23,8 @@ import { trstdLoginStore } from './trstdLogin'
 import { ITrstdLoginStore } from './trstdLogin/types'
 import { structuredMarkupStore } from './structuredMarkup'
 import { IStructuredMarkupStore } from './structuredMarkup/types'
+import { bookedFeaturesStore } from './bookedFeatures'
+import { IBookedFeaturesStore } from './bookedFeatures/types'
 export type AppStore = ITbStore &
   InfoStore &
   IAuthStore &
@@ -33,7 +35,8 @@ export type AppStore = ITbStore &
   ReviewInvitesActionsStore &
   ReviewInvitesActionsStore_2 &
   ITrstdLoginStore &
-  IStructuredMarkupStore
+  IStructuredMarkupStore &
+  IBookedFeaturesStore
 
 const useStore = create<AppStore>((set, get) => ({
   ...authStore(set, get),
@@ -47,6 +50,7 @@ const useStore = create<AppStore>((set, get) => ({
   ...reviewInvitesActionsStore_v2(set, get),
   ...trstdLoginStore(set, get),
   ...structuredMarkupStore(set, get),
+  ...bookedFeaturesStore(set, get),
 }))
 
 export default useStore

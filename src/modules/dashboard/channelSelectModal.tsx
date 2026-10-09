@@ -170,7 +170,7 @@ const ChannelSelectModal: FC<Props> = ({ phrasesByKey, showModal, setShowModal }
               </div>
             </div>
           </div>
-          <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+          <div className="ts-fixed ts-inset-0 ts-z-40 ts-bg-white/70 ts-backdrop-blur-3xl" />
         </Fragment>
       )}
     </Fragment>

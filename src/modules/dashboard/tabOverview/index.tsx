@@ -2,7 +2,9 @@ import { h } from 'preact'
 import { FC } from 'preact/compat'
 import { TabProps } from '@/modules/type'
 import useStore from '@/store/useStore'
-import { selectorInfoOfSystem, selectorTrstdLogin, selectorTrustbadgeState } from '@/store/selector'
+import { selectorTrstdLogin, selectorTrustbadgeState } from '@/store/selector'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
+import { BookedFeature } from '@/store/bookedFeatures/types'
 import TrstdLoginOverview from '@/assets/trstd-login-overview.svg'
 import TrustbadgeOverview from '@/assets/trustbadge-overview.svg'
 import WidgetsOverview from '@/assets/widgets-overview.svg'
@@ -19,14 +21,7 @@ interface OverviewTabProps extends TabProps {
 const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) => {
   const { trustbadgeDataChild } = useStore(selectorTrustbadgeState)
   const { trstdLoginData } = useStore(selectorTrstdLogin)
-  const { infoOfSystem } = useStore(selectorInfoOfSystem)
-  const { allowsSupportTrstdLogin, allowsEstimatedDeliveryDate, allowsEventsByOrderStatus, allowsSendReviewInvitesForPreviousOrders, allowsSendReviewInvitesForProduct } = infoOfSystem
-
-  const displayReviewCard =
-    allowsEstimatedDeliveryDate ||
-    allowsEventsByOrderStatus ||
-    allowsSendReviewInvitesForPreviousOrders ||
-    allowsSendReviewInvitesForProduct
+  const features = useFeatureAvailability()
 
   const isTrstdLoginActive = trstdLoginData?.configuration?.integration?.trstdLoginEnabled ?? false
 
@@ -37,7 +32,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       : false
 
   const featureCards = [
-    ...(allowsSupportTrstdLogin ? [{
+    ...(features.trstdLogin ? [{
       id: 'trstd-login',
       tabId: 1,
       title: phrasesByKey.overview_trstd_login_title,
@@ -48,7 +43,7 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       statusLabel: isTrstdLoginActive ? phrasesByKey.overview_trstd_login_status_enabled : phrasesByKey.overview_trstd_login_status_inactive,
       buttonLabel: phrasesByKey.overview_trstd_login_button_configure,
     }] : []),
-    {
+    ...(features.trustbadge ? [{
       id: 'trustbadge',
       tabId: 2,
       title: phrasesByKey.overview_trustbadge_title,
@@ -58,16 +53,16 @@ const OverviewTab: FC<OverviewTabProps> = ({ phrasesByKey, onNavigateToTab }) =>
       statusLabel: isTrustbadgeActive ? phrasesByKey.overview_trustbadge_status_enabled : phrasesByKey.overview_trustbadge_status_inactive,
       isActive: isTrustbadgeActive,
       buttonLabel: phrasesByKey.overview_trustbadge_button_configure,
-    },
-    {
+    }] : []),
+    ...(features.isBooked(BookedFeature.REVIEW_WIDGETS) ? [{
       id: 'widgets',
       tabId: 3,
       title: phrasesByKey.overview_widgets_title,
       description: phrasesByKey.overview_widgets_description,
       illustration: WidgetsOverview,
       buttonLabel: phrasesByKey.overview_widgets_button_manage,
-    },
-    ...(displayReviewCard ? [{
+    }] : []),
+    ...(features.reviewInvites ? [{
       id: 'review-invites',
       tabId: 4,
       title: phrasesByKey.overview_invites_title,

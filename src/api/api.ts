@@ -3,6 +3,7 @@ import { IChannelTS, IMappedChannel } from '@/store/channel/types'
 import { IWidgetApi } from '@/store/widgets/types'
 import { IUserInfo } from '@/store/info/types'
 import { EventType, InviteSettingsByChannelType } from '@/store/reviewInvites/types'
+import { IBookedFeaturesResponseItem } from '@/store/bookedFeatures/types'
 
 const PROXY_API_URL = process.env.VITE_PROXY_API_URL || ''
 const CONFIGURATION_API_URL = process.env.VITE_CONFIGURATION_API_URL || ''
@@ -310,6 +311,17 @@ export const postTrstdLoginConfiguration = async (
   )
   return Array.isArray(response) ? response[0] : response
 }
+
+// Without the channels filter the middleware answers for every channel of the account
+export const getBookedFeatures = async (
+  infoOfSystem: IUserInfo,
+  token: string,
+): Promise<IBookedFeaturesResponseItem[]> =>
+  await get<IBookedFeaturesResponseItem[]>(
+    MIDDLEWARE_API_URL,
+    '/booked-features',
+    getOptions({ infoOfSystem, token }),
+  )
 
 export enum ActionTypes {
   DATA_EXPORTED = 'DATA_EXPORTED',

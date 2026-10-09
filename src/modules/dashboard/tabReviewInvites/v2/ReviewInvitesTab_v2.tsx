@@ -5,7 +5,6 @@ import {
   selectAllState,
   selectorAuth,
   selectorChannels,
-  selectorInfoOfSystem,
   selectorReviewInvites,
 } from '@/store/selector'
 import useStore from '@/store/useStore'
@@ -14,10 +13,11 @@ import SendReviewInvitesForPreviousOrders_2 from './sendReviewInvitesForPrevious
 import { TabProps } from '@/modules/type'
 import { putEtrustedConfiguration } from '@/api/api'
 import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
 
 const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
   const [isToggle, setIsToggle] = useState(true)
-  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const features = useFeatureAvailability()
   const { selectedShopChannels } = useStore(selectorChannels)
   const { changeNumberOfDays, onExport_v2, saveChangeUseTimeOfSendReviewInvites_v2 } = useStore()
   const { numberOfDays, isLoading } = useStore(selectorReviewInvites)
@@ -41,7 +41,7 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
         </p>
       </div>
 
-      {(infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) && (
+      {features.orderStatusInvites && (
         <SendReviewInvitesRightTime_2
           phrasesByKey={phrasesByKey}
           saveChanges={saveChanges}
@@ -49,7 +49,7 @@ const ReviewInvitesTab_v2: FC<TabProps> = ({ phrasesByKey }) => {
         />
       )}
 
-      {infoOfSystem.allowsSendReviewInvitesForPreviousOrders && (
+      {features.exportOrders && (
         <SendReviewInvitesForPreviousOrders_2
           phrasesByKey={phrasesByKey}
           selectedShopChannels={selectedShopChannels}

@@ -88,3 +88,32 @@ reviewChannel - getValueReviewChannel()
 locale - getLocale()
 
 infoSystem - getInformationOfSystem()
+
+bookedFeatures - getBookedFeaturesMock()
+
+## Booked features mock
+
+The middleware endpoint `GET /booked-features` decides per channel which features the dashboard shows. It is only called with `VITE_USE_BOOKED_FEATURES=1`; otherwise the dashboard shows what the shop system supports, as before.
+
+Setting `bookedFeatures` to a scenario switches the feature gating on and answers from `getBookedFeatures.ts` instead of the middleware. It works with `npm run dev` and `npm run dev:test`:
+
+```bash
+bookedFeatures=mixedChannels npm run dev:test
+```
+
+| Scenario | Result |
+| --- | --- |
+| `allFeatures` | Every feature on every channel |
+| `noFeatures` | Only the Overview tab |
+| `onlyTrustbadge` | Trustbadge tab without AI visibility |
+| `trustbadgeAndTrstdLogin` | Trustbadge and #trstd login tabs |
+| `withoutPluginFeatures` | #trstd login, Trustbadge, Widgets, product reviews - no AI visibility, order status invites or export |
+| `onlyExportOrders` | Trustbadge and the review invites tab with the export only |
+| `orderStatusWithoutProductReviews` | Order status invites without the product reviews |
+| `mixedChannels` | Trustbadge everywhere; 1st channel everything, 2nd channel Widgets, other channels nothing more |
+| `channelMissing` | 2nd channel is missing from the response and gets no features |
+| `unknownFeature` | Unknown feature keys are ignored |
+| `slow` | Every feature after 3 seconds, to check the loading state |
+| `error400`, `error401`, `error500` | Request fails; the dashboard falls back to what the shop system supports |
+
+The request is sent once after login, without the `channels` filter, so it answers for every channel of the account. The mock counts the mapped channels first, in the order of the channel select, then the other channels of the account. Use at least two channels for `mixedChannels` and `channelMissing`.

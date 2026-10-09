@@ -130,5 +130,6 @@ export const authStore = (set: SetState<AppStore>, get: GetState<AppStore>): IAu
     get().clearReviewInvitesState()
     get().clearTrustbadgeState()
     get().clearWidgetState()
+    get().clearBookedFeaturesState()
   },
 })

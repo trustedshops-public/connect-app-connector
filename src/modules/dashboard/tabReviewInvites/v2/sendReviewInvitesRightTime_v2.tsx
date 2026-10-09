@@ -10,9 +10,9 @@ import useStore from '@/store/useStore'
 import {
   selectAllState,
   selectorAuth,
-  selectorInfoOfSystem,
   selectorReviewInvites,
 } from '@/store/selector'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
 import { CHECKOUT_TYPE } from '@/store/reviewInvites/reviewInvitesSendActions'
 import { DASHBOARD_KEYS } from '@/locales/types'
 import { isEqual } from '@/utils'
@@ -42,7 +42,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
   const servicelabelRef = useRef<HTMLLabelElement>(null)
   const productlabelRef = useRef<HTMLLabelElement>(null)
   const [isButtonDisabled, setIsButtonDisabled] = useState(true)
-  const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const features = useFeatureAvailability()
   const allState = useStore(selectAllState)
   const { user } = useStore(selectorAuth)
 
@@ -134,7 +134,7 @@ const SendReviewInvitesRightTime: FC<Props> = ({
       </div>
 
       {/* Product reviews */}
-      {infoOfSystem.allowsSendReviewInvitesForProduct && (
+      {features.productReviews && (
         <div className="ts-mb-6">
           <label
             ref={productlabelRef}

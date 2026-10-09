@@ -21,6 +21,7 @@ import {
   selectorTrustbadgeState,
 } from '@/store/selector'
 import StructuredMarkupSection from './structuredMarkupSection'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
 import { ITrustbadgeChildren } from '@/baseLayers/types'
 import useStore from '@/store/useStore'
 import EditIntegrationCodeProps from './editIntegrationCode'
@@ -65,6 +66,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
   } = useStore(selectorTrustbadgeState)
   const { user } = useStore(selectorAuth)
   const { infoOfSystem } = useStore(selectorInfoOfSystem)
+  const features = useFeatureAvailability()
   const { isLoadingSave, selectedShopChannels } = useStore(selectorChannels)
   const { isLoadingStructuredMarkup, structuredMarkupEnabled } = useStore(
     selectorStructuredMarkup,
@@ -450,7 +452,7 @@ const TrustBadgeTab: FC<TabProps> = ({ phrasesByKey }) => {
         </div>
 
         {/* Structured data markup */}
-        {infoOfSystem.allowsSupportStructuredMarkup && (
+        {features.aiVisibility && (
           <StructuredMarkupSection
             phrasesByKey={phrasesByKey}
             isTrustbadgeDisabled={isDisabled}

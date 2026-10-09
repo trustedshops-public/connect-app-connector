@@ -15,6 +15,7 @@ import { PHRASES_DASHBOARD_KEYS } from '@/locales/keys'
 import useStore from '@/store/useStore'
 import {
   selectorAuth,
+  selectorBookedFeatures,
   selectorChannels,
   selectorInfoOfSystem,
   selectorNotificationStore,
@@ -31,6 +32,9 @@ import { handleEtrustedConfiguration } from '@/utils/configurationDataHandler'
 import OverviewTab from './tabOverview/index'
 import { GearIcon } from '@/components/layouts/icons/GearIcon'
 import { AppEmbedActivationBanner, AppEmbedActiveBanner } from './appEmbedBanner'
+import { useFeatureAvailability } from '@/store/bookedFeatures/useFeatureAvailability'
+import { getFeatureAvailability } from '@/store/bookedFeatures/featureAvailability'
+import { BookedFeature } from '@/store/bookedFeatures/types'
 
 const DashboardPageModule: FC<{
   setPhrasesByKey: (keys: DASHBOARD_KEYS) => void
@@ -78,6 +82,7 @@ const DashboardPageModule: FC<{
     allowsSupportTrstdLogin,
   } = infoOfSystem
 
+  // Shop system level - the tabs without booked features and the defaults saved while mapping
   const displayReviewTab =
     allowsEstimatedDeliveryDate ||
     allowsEventsByOrderStatus ||
@@ -87,6 +92,10 @@ const DashboardPageModule: FC<{
   const isVersionTwo =
     infoOfSystem.useVersionNumberOfConnector &&
     AVAILABLE_VERSIONS.includes(infoOfSystem.useVersionNumberOfConnector)
+
+  // Selected channel level: supported by the shop system and booked for the channel
+  const features = useFeatureAvailability()
+  const { isBookedFeaturesLoading } = useStore(selectorBookedFeatures)
 
   const TrstdLoginTab = (props: TabProps) => (
     <LazyLoading props={props} importComponent={() => import('./tabTrstdLogin/index')} />
@@ -145,6 +154,7 @@ const DashboardPageModule: FC<{
     clearTrstdLoginState,
     getStructuredMarkupConfiguration,
     clearStructuredMarkupState,
+    getBookedFeatures,
   } = useStore()
 
   const { toastList } = useStore(selectorNotificationStore)
@@ -152,6 +162,7 @@ const DashboardPageModule: FC<{
   useEffect(() => {
     setPhrasesByKey(PHRASES_DASHBOARD_KEYS)
     setIsChannelsLoading(true)
+    getBookedFeatures()
     dispatchAction({ action: EVENTS.GET_MAPPED_CHANNELS, payload: null })
   }, [])
 
@@ -162,22 +173,19 @@ const DashboardPageModule: FC<{
         clearWidgetData()
         return
       }
+      // Runs again once the booked features of the channel are known
+      if (isBookedFeaturesLoading) return
+
       getTrustbadge(selectedShopChannels)
       clearWidgetData()
       clearTrstdLoginState()
       clearStructuredMarkupState()
 
-      if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportTrstdLogin') &&
-        infoOfSystem.allowsSupportTrstdLogin
-      ) {
+      if (features.trstdLogin) {
         getTrstdLoginConfiguration(selectedShopChannels)
       }
 
-      if (
-        Object.hasOwn(infoOfSystem, 'allowsSupportStructuredMarkup') &&
-        infoOfSystem.allowsSupportStructuredMarkup
-      ) {
+      if (features.aiVisibility) {
         getStructuredMarkupConfiguration(selectedShopChannels)
       }
 
@@ -186,13 +194,10 @@ const DashboardPageModule: FC<{
         channelRef: selectedShopChannels.eTrustedChannelRef,
         accountRef: selectedShopChannels.eTrustedAccountRef,
       })
-      getWidgetsFromAPI()
-      displayReviewTab && setIsLoadingInvitesForProducts(true)
+      features.isBooked(BookedFeature.REVIEW_WIDGETS) && getWidgetsFromAPI()
+      features.reviewInvites && setIsLoadingInvitesForProducts(true)
 
-      if (
-        Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSupportWidgets') &&
-        infoOfSystem.allowsSupportWidgets
-      ) {
+      if (features.widgets) {
         dispatchAction({
           action: EVENTS.GET_WIDGET_PROVIDED,
           payload: {
@@ -219,12 +224,9 @@ const DashboardPageModule: FC<{
         })
       }
 
-      if (displayReviewTab && !isVersionTwo) {
+      if (features.reviewInvites && !isVersionTwo) {
         // call EventTypes for v1 
-        if (
-          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsSendReviewInvitesForProduct') &&
-          infoOfSystem.allowsSendReviewInvitesForProduct
-        ) {
+        if (features.productReviews) {
           dispatchAction({
             action: EVENTS.GET_PRODUCT_REVIEW_FOR_CHANNEL,
             payload: {
@@ -234,10 +236,7 @@ const DashboardPageModule: FC<{
             },
           })
         }
-        if (
-          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEstimatedDeliveryDate') &&
-          infoOfSystem.allowsEstimatedDeliveryDate
-        ) {
+        if (features.orderStatusInvites && infoOfSystem.allowsEstimatedDeliveryDate) {
           dispatchAction({
             action: EVENTS.GET_USE_ESTIMATED_DELIVERY_DATE_FOR_CHANNEL,
             payload: {
@@ -248,10 +247,7 @@ const DashboardPageModule: FC<{
           })
         }
 
-        if (
-          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus') &&
-          infoOfSystem.allowsEventsByOrderStatus
-        ) {
+        if (features.orderStatusInvites && infoOfSystem.allowsEventsByOrderStatus) {
           dispatchAction({
             action: EVENTS.GET_USE_EVENTS_BY_ORDER_STATUS_FOR_CHANNEL,
             payload: {
@@ -262,14 +258,20 @@ const DashboardPageModule: FC<{
           })
         }
 
-        if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
+        if (features.orderStatusInvites) {
           await getEventTypesFromApi()
         }
       }
 
-      if (displayReviewTab && isVersionTwo) {
+      if (features.reviewInvites && isVersionTwo) {
+        const isOrderStatusBooked = features.isBooked(
+          BookedFeature.SEND_REVIEW_INVITES_BASED_ON_ORDER_STATUS,
+        )
         // call EventTypes for v2
-        if (Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus')) {
+        if (
+          Object.prototype.hasOwnProperty.call(infoOfSystem, 'allowsEventsByOrderStatus') &&
+          isOrderStatusBooked
+        ) {
           dispatchAction({
             action: EVENTS.GET_AVAILABLE_ORDER_STATUSES,
             payload: {
@@ -279,14 +281,15 @@ const DashboardPageModule: FC<{
             },
           })
         }
-        dispatchAction({
-          action: EVENTS.GET_USED_ORDER_STATUSES,
-          payload: {
-            eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
-            salesChannelRef: selectedShopChannels.salesChannelRef,
-          },
-        })
-        if (infoOfSystem.allowsEstimatedDeliveryDate || infoOfSystem.allowsEventsByOrderStatus) {
+        isOrderStatusBooked &&
+          dispatchAction({
+            action: EVENTS.GET_USED_ORDER_STATUSES,
+            payload: {
+              eTrustedChannelRef: selectedShopChannels.eTrustedChannelRef,
+              salesChannelRef: selectedShopChannels.salesChannelRef,
+            },
+          })
+        if (features.orderStatusInvites) {
           await getEventTypesFromApi_v2()
         }
       }
@@ -294,11 +297,18 @@ const DashboardPageModule: FC<{
       if (pendingActivationModalRef.current) {
         pendingActivationModalRef.current = false
         setIsPostMappingLoading(false)
-        setShowTrustbadgeActivation(true)
+        // The modal goes live with the Trustbadge, so it is left out when no mapped channel has it
+        const store = useStore.getState()
+        const canActivateTrustbadge =
+          !features.isBookingActive ||
+          store.channelState.mappedChannels.some(
+            channel => getFeatureAvailability(store, channel.eTrustedChannelRef).trustbadge,
+          )
+        canActivateTrustbadge && setShowTrustbadgeActivation(true)
       }
     }
     fetchData()
-  }, [selectedShopChannels])
+  }, [selectedShopChannels, isBookedFeaturesLoading])
 
   useEffect(() => {
     if (mappedChannels.length) return
@@ -364,18 +374,19 @@ const DashboardPageModule: FC<{
         id: 1,
         name: phrasesByKey.application_routes_trstd_login,
         component: <TrstdLoginTab phrasesByKey={phrasesByKey} />,
-        isAvailable: allowsSupportTrstdLogin,
+        isAvailable: features.isBookingActive ? features.trstdLogin : allowsSupportTrstdLogin,
       },
       {
         id: 2,
         name: phrasesByKey.application_routes_trustbadge,
         component: <TrustBadgeTab phrasesByKey={phrasesByKey} />,
+        isAvailable: features.isBookingActive ? features.trustbadge : undefined,
       },
       {
         id: 3,
         name: phrasesByKey.application_routes_widgets,
         component: <WidgetTab phrasesByKey={phrasesByKey} />,
-        isAvailable: allowsSupportWidgets,
+        isAvailable: features.isBookingActive ? features.widgets : allowsSupportWidgets,
       },
       {
         id: 4,
@@ -385,12 +396,20 @@ const DashboardPageModule: FC<{
         ) : (
           <ReviewInvitesTab phrasesByKey={phrasesByKey} />
         ),
-        isAvailable: displayReviewTab,
+        isAvailable: features.isBookingActive ? features.reviewInvites : displayReviewTab,
       },
     ]
 
     setTabConfig(tabs)
-  }, [phrasesByKey, infoOfSystem])
+  }, [phrasesByKey, infoOfSystem, features])
+
+  const isOpenTabHidden =
+    features.isBookingActive && tabConfig?.find(item => item.id === openTab)?.isAvailable === false
+
+  // A channel without the booked feature of the open tab falls back to the overview
+  useEffect(() => {
+    if (isOpenTabHidden) setOpenTab(0)
+  }, [isOpenTabHidden])
 
   useEffect(() => {
     if (!errorNotification.errorText) return
@@ -412,7 +431,7 @@ const DashboardPageModule: FC<{
             className="ts-flex ts-flex-col ts-font-sans ts-w-full"
             style={{ backgroundColor: '#F9FAFB' }}
           >
-            {isChannelsLoading ? (
+            {isChannelsLoading || isBookedFeaturesLoading ? (
               <div className="ts-flex ts-flex-col ts-items-center ts-justify-center ts-h-96">
                 <Spinner />
               </div>
@@ -498,7 +517,7 @@ const DashboardPageModule: FC<{
                     <SettingsTab phrasesByKey={phrasesByKey} />
                   ) : (
                     <div className="ts-w-full">
-                      {tabConfig.find(item => item.id === openTab)?.component}
+                      {!isOpenTabHidden && tabConfig.find(item => item.id === openTab)?.component}
                     </div>
                   )}
 
@@ -541,7 +560,7 @@ const DashboardPageModule: FC<{
               <div className="ts-justify-center ts-items-center ts-flex ts-fixed ts-inset-0 ts-z-50">
                 <Spinner />
               </div>
-              <div className="ts-opacity-50 ts-fixed ts-inset-0 ts-z-40 ts-bg-black" />
+              <div className="ts-fixed ts-inset-0 ts-z-40 ts-bg-white/70 ts-backdrop-blur-3xl" />
             </Fragment>
           )}
           <TrustSignalsActivationModal

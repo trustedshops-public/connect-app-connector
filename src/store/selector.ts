@@ -6,6 +6,7 @@ import { INotificationState } from './notification/types'
 import { IReviewInvitesState } from './reviewInvites/types'
 import { ITrstdLoginState } from './trstdLogin/types'
 import { IStructuredMarkupState } from './structuredMarkup/types'
+import { IBookedFeaturesState } from './bookedFeatures/types'
 import { AppStore } from '@/store/useStore'
 
 export const selectState = <T>(store: { state: T }): T => store.state
@@ -34,6 +35,10 @@ export const selectorTrstdLogin = (store: {
 export const selectorStructuredMarkup = (store: {
   structuredMarkupState: IStructuredMarkupState
 }): IStructuredMarkupState => store.structuredMarkupState
+
+export const selectorBookedFeatures = (store: {
+  bookedFeaturesState: IBookedFeaturesState
+}): IBookedFeaturesState => store.bookedFeaturesState
 
 export const selectAllState = (store: AppStore) => {
   /* eslint-disable*/
