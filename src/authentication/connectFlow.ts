@@ -23,7 +23,7 @@ const CC_CONNECT_URL = process.env.VITE_CC_CONNECT_URL
 const CONNECT_API_URL = process.env.VITE_CONNECT_API_URL
 
 const POPUP_NAME = 'ts-connect'
-const POPUP_FEATURES = 'popup,width=640,height=820'
+const POPUP_FEATURES = 'popup,width=760,height=880'
 const POPUP_CLOSED_POLL_MS = 500
 const MESSAGE_TYPE = 'ts-connect'
 const PENDING_REDIRECT_KEY = 'ts-connect-pending'
