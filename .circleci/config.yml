@@ -138,7 +138,44 @@ workflows:
           requires:
             - deploy_to_qa
           context:
-            - connect-team        
+            - connect-team
+
+      # Feature Branches -> QA, on manual approval
+      #
+      # Separate job instances rather than widening the main filters above: a job may
+      # carry only one filter set, so reusing those instances would make the main deploy
+      # conditional too. Same bucket and distribution as main -- QA is one shared
+      # environment, so approving here replaces whatever main last deployed.
+      #
+      # trigger_automated_tests is deliberately NOT wired to this: its results are recorded
+      # against "QA" and would read as the QA baseline while measuring branch code.
+      - approve_deploy_to_qa:
+          type: approval
+          # The same build the main deploy uses, so a failed build cannot be approved.
+          requires:
+            - build_qa
+          filters:
+            branches:
+              ignore:
+                - main
+            tags:
+              ignore:
+                - /.*/
+      - cloudfront-s3-deploy/sync_and_invalidate:
+          name: deploy_to_qa_manual
+          <<: *deploy_defaults
+          bucket_name: ts-connect-qa-trustedshops-app
+          distribution_id: E2HC1Y83IARISC
+          aws_iam_web_identity_role_arn: $WEB_IDENTITY_ROLE_ARN_QA
+          requires:
+            - approve_deploy_to_qa
+          filters:
+            branches:
+              ignore:
+                - main
+            tags:
+              ignore:
+                - /.*/
       - approve_deploy_to_prod:
           type: approval
           filters:
