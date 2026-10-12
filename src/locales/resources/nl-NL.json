@@ -485,7 +485,22 @@
       "text": "[%s]Hulp nodig bij het aanmaken van de Client ID en Client Secret?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Welkom bij Trusted Shops Easy Integration"
+    "title": "Welkom bij Trusted Shops Easy Integration",
+    "connect": {
+      "text": "Koppel deze winkel in een paar klikken aan je Trusted Shops-account. Er opent een venster van het controlecentrum, waar je inlogt en de winkel goedkeurt.",
+      "button": "Koppelen met Trusted Shops",
+      "waiting": "Wachten op je goedkeuring in het controlecentrum…",
+      "waitingHint": "Zie je het venster niet? Het staat misschien achter dit venster.",
+      "cancel": "Annuleren",
+      "or": "of",
+      "manual": "API-inloggegevens handmatig invoeren",
+      "error": {
+        "popupBlocked": "Je browser heeft het venster van het controlecentrum geblokkeerd. Sta pop-ups toe voor deze pagina en probeer het opnieuw, of voer je API-inloggegevens handmatig in.",
+        "closed": "Het venster van het controlecentrum is gesloten voordat de winkel was gekoppeld. Probeer het opnieuw.",
+        "accessDenied": "De koppeling is geannuleerd in het controlecentrum.",
+        "failed": "De winkel kon niet worden gekoppeld. Probeer het opnieuw, of voer je API-inloggegevens handmatig in."
+      }
+    }
   },
   "channelSelect": {
     "info": "Let op: je kunt je keuze op elk gewenst moment in de instellingen bewerken",

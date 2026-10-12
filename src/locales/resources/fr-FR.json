@@ -485,7 +485,22 @@
       "text": "[%s]Besoin d’aide pour créer votre identifiant client et le secret client ?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Bienvenue chez Trusted Shops Easy Integration !"
+    "title": "Bienvenue chez Trusted Shops Easy Integration !",
+    "connect": {
+      "text": "Associez cette boutique à votre compte Trusted Shops en quelques clics. Une fenêtre du Centre de contrôle s'ouvre : connectez-vous et approuvez la boutique.",
+      "button": "Se connecter avec Trusted Shops",
+      "waiting": "En attente de votre approbation dans le Centre de contrôle…",
+      "waitingHint": "Vous ne voyez pas la fenêtre ? Elle est peut-être derrière celle-ci.",
+      "cancel": "Annuler",
+      "or": "ou",
+      "manual": "Saisir les identifiants API manuellement",
+      "error": {
+        "popupBlocked": "Votre navigateur a bloqué la fenêtre du Centre de contrôle. Autorisez les pop-ups pour cette page et réessayez, ou saisissez vos identifiants API manuellement.",
+        "closed": "La fenêtre du Centre de contrôle a été fermée avant l'association de la boutique. Réessayez.",
+        "accessDenied": "L'association a été annulée dans le Centre de contrôle.",
+        "failed": "La boutique n'a pas pu être associée. Réessayez, ou saisissez vos identifiants API manuellement."
+      }
+    }
   },
   "channelSelect": {
     "info": "Attention : vous pouvez modifier votre choix à tout moment dans les paramètres",

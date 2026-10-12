@@ -501,7 +501,22 @@
       "url": "mailto:members@trustedshops.com",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Welcome to Trusted Shops Easy Integration"
+    "title": "Welcome to Trusted Shops Easy Integration",
+    "connect": {
+      "text": "Connect this shop to your Trusted Shops account in a few clicks. A Control Centre window opens, where you sign in and approve the shop.",
+      "button": "Connect with Trusted Shops",
+      "waiting": "Waiting for your approval in the Control Centre…",
+      "waitingHint": "Can't see the window? It may be behind this one.",
+      "cancel": "Cancel",
+      "or": "or",
+      "manual": "Enter API credentials manually",
+      "error": {
+        "popupBlocked": "Your browser blocked the Control Centre window. Allow pop-ups for this page and try again, or enter your API credentials manually.",
+        "closed": "The Control Centre window was closed before the shop was connected. Try again.",
+        "accessDenied": "The connection was cancelled in the Control Centre.",
+        "failed": "The shop could not be connected. Try again, or enter your API credentials manually."
+      }
+    }
   },
   "channelSelect": {
     "info": "Reviews and trust signals will appear on the correct website.You can update this anytime.",

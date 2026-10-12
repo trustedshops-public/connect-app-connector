@@ -485,7 +485,22 @@
       "text": "[%s]Hai bisogno di aiuto per creare il Client ID e il Client Secret?",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Ti diamo il benvenuto a Easy Integration di Trusted Shops!"
+    "title": "Ti diamo il benvenuto a Easy Integration di Trusted Shops!",
+    "connect": {
+      "text": "Collega questo negozio al tuo account Trusted Shops in pochi clic. Si apre una finestra del Centro di Controllo, dove accedi e approvi il negozio.",
+      "button": "Collega con Trusted Shops",
+      "waiting": "In attesa della tua approvazione nel Centro di Controllo…",
+      "waitingHint": "Non vedi la finestra? Potrebbe essere dietro a questa.",
+      "cancel": "Annulla",
+      "or": "oppure",
+      "manual": "Inserisci le credenziali API manualmente",
+      "error": {
+        "popupBlocked": "Il browser ha bloccato la finestra del Centro di Controllo. Consenti i pop-up per questa pagina e riprova, oppure inserisci le credenziali API manualmente.",
+        "closed": "La finestra del Centro di Controllo è stata chiusa prima che il negozio fosse collegato. Riprova.",
+        "accessDenied": "Il collegamento è stato annullato nel Centro di Controllo.",
+        "failed": "Non è stato possibile collegare il negozio. Riprova, oppure inserisci le credenziali API manualmente."
+      }
+    }
   },
   "channelSelect": {
     "info": "Nota: puoi modificare la tua scelta in qualsiasi momento nelle impostazioni",

@@ -484,7 +484,22 @@
       "text": "[%s]Precisa de ajuda para criar a ID do Cliente e a Senha Secreta do Cliente?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Bem-vindo à Integração fácil da Trusted Shops"
+    "title": "Bem-vindo à Integração fácil da Trusted Shops",
+    "connect": {
+      "text": "Ligue esta loja à sua conta Trusted Shops em poucos cliques. Abre-se uma janela do Centro de Controlo, onde inicia sessão e aprova a loja.",
+      "button": "Ligar com Trusted Shops",
+      "waiting": "A aguardar a sua aprovação no Centro de Controlo…",
+      "waitingHint": "Não vê a janela? Pode estar atrás desta.",
+      "cancel": "Cancelar",
+      "or": "ou",
+      "manual": "Introduzir as credenciais de API manualmente",
+      "error": {
+        "popupBlocked": "O seu navegador bloqueou a janela do Centro de Controlo. Permita pop-ups para esta página e tente novamente, ou introduza as suas credenciais de API manualmente.",
+        "closed": "A janela do Centro de Controlo foi fechada antes de a loja ser ligada. Tente novamente.",
+        "accessDenied": "A ligação foi cancelada no Centro de Controlo.",
+        "failed": "Não foi possível ligar a loja. Tente novamente, ou introduza as suas credenciais de API manualmente."
+      }
+    }
   },
   "channelSelect": {
     "info": "Nota: pode editar a sua escolha a qualquer momento nas definições",

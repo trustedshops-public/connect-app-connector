@@ -14,6 +14,8 @@ interface ImportMetaEnv extends Readonly<Record<string, string>> {
   readonly VITE_CLIENT_ID: string
   readonly VITE_CLIENT_SECRET: string
   readonly VITE_MIDDLEWARE_API_URL: string
+  readonly VITE_CC_CONNECT_URL: string
+  readonly VITE_CONNECT_API_URL: string
   // more env variables...
 }
 

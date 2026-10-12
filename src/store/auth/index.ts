@@ -1,6 +1,12 @@
 import { GetState, SetState } from 'zustand'
 import authenticationService from '@/authentication'
 import { IAuthorizeResult } from '@/authentication/type'
+import {
+  cancelConnect,
+  connectFailureOf,
+  connectWithControlCenter as openControlCenterConnect,
+  takeRedirectResult,
+} from '@/authentication/connectFlow'
 import { dispatchAction, EVENTS } from '@/eventsLib'
 import { getSecondsNow } from '@/helpers'
 import { AppStore } from '../useStore'
@@ -13,6 +19,8 @@ const initialState: IAuthState = {
   isAuthenticated: false,
   isAuthError: false,
   isRelogin: false,
+  isConnecting: false,
+  connectError: null,
 }
 
 export const authStore = (set: SetState<AppStore>, get: GetState<AppStore>): IAuthStore => ({
@@ -40,6 +48,18 @@ export const authStore = (set: SetState<AppStore>, get: GetState<AppStore>): IAu
     dispatchAction({ action: EVENTS.GET_CREDENTIALS_PROVIDED, payload: null })
   },
   setUser: async () => {
+    // Back from a "Connect with Trusted Shops" redirect: log in with the new
+    // credentials instead of the stored ones.
+    const redirectResult = takeRedirectResult()
+    if (redirectResult) {
+      set(store => ({ auth: { ...store.auth, isAuthLoading: true, connectError: null } }))
+      try {
+        await get().signIn(await redirectResult)
+        return
+      } catch (error) {
+        set(store => ({ auth: { ...store.auth, connectError: connectFailureOf(error) } }))
+      }
+    }
     const user = get().auth.user
     if (user && user.access_token) {
       set(store => ({
@@ -84,6 +104,32 @@ export const authStore = (set: SetState<AppStore>, get: GetState<AppStore>): IAu
         isAuthLoading: false,
       },
     }))
+  },
+  connectWithControlCenter: async () => {
+    const { nameOfSystem, versionNumberOfSystem } = get().infoState.infoOfSystem
+    // Opens the Control Center popup synchronously, inside the click that
+    // called this action; the browser blocks popups opened after an await.
+    const connecting = openControlCenterConnect({ nameOfSystem, versionNumberOfSystem })
+    set(store => ({
+      auth: { ...store.auth, isConnecting: true, connectError: null, isAuthFailed: false },
+    }))
+    try {
+      const credentials = await connecting
+      set(store => ({ auth: { ...store.auth, isConnecting: false } }))
+      await get().signIn(credentials)
+    } catch (error) {
+      const reason = connectFailureOf(error)
+      set(store => ({
+        auth: {
+          ...store.auth,
+          isConnecting: false,
+          connectError: reason === 'cancelled' ? null : reason,
+        },
+      }))
+    }
+  },
+  cancelConnectWithControlCenter: () => {
+    cancelConnect()
   },
   refresh: async (request: IAuthRequest) => {
     const infoOfSystem = get().infoState.infoOfSystem
