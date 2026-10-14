@@ -68,7 +68,9 @@ const buildConnectUrl = (params: {
 }): string => {
   const url = new URL(CC_CONNECT_URL as string)
   url.searchParams.set('mode', params.mode)
-  url.searchParams.set('state', params.state)
+  // Not "state": the Control Center login (Keycloak) refuses to redirect back
+  // to a URL carrying OAuth's own "state" or "code" parameters.
+  url.searchParams.set('connect_state', params.state)
   url.searchParams.set('code_challenge', params.challenge)
   url.searchParams.set('code_challenge_method', 'S256')
   url.searchParams.set('system', params.system.nameOfSystem)
