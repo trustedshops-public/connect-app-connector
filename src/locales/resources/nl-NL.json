@@ -496,7 +496,7 @@
       "manual": "API-inloggegevens handmatig invoeren",
       "error": {
         "popupBlocked": "Je browser heeft het venster van het controlecentrum geblokkeerd. Sta pop-ups toe voor deze pagina en probeer het opnieuw, of voer je API-inloggegevens handmatig in.",
-        "closed": "Het venster van het controlecentrum is gesloten voordat de winkel was gekoppeld. Probeer het opnieuw.",
+        "closed": "Koppeling geannuleerd. De winkel is niet gekoppeld in het controlecentrum. Begin opnieuw wanneer je zover bent.",
         "accessDenied": "De koppeling is geannuleerd in het controlecentrum.",
         "failed": "De winkel kon niet worden gekoppeld. Probeer het opnieuw, of voer je API-inloggegevens handmatig in."
       }

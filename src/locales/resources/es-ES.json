@@ -496,7 +496,7 @@
       "manual": "Introducir las credenciales de API manualmente",
       "error": {
         "popupBlocked": "Tu navegador ha bloqueado la ventana del Centro de Control. Permite las ventanas emergentes para esta página e inténtalo de nuevo, o introduce tus credenciales de API manualmente.",
-        "closed": "La ventana del Centro de Control se cerró antes de conectar la tienda. Inténtalo de nuevo.",
+        "closed": "Conexión cancelada. La tienda no se conectó en el Centro de Control. Vuelve a empezar cuando quieras.",
         "accessDenied": "La conexión se canceló en el Centro de Control.",
         "failed": "No se ha podido conectar la tienda. Inténtalo de nuevo, o introduce tus credenciales de API manualmente."
       }

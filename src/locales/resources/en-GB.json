@@ -512,7 +512,7 @@
       "manual": "Enter API credentials manually",
       "error": {
         "popupBlocked": "Your browser blocked the Control Centre window. Allow pop-ups for this page and try again, or enter your API credentials manually.",
-        "closed": "The Control Centre window was closed before the shop was connected. Try again.",
+        "closed": "Connection cancelled. The shop was not connected in the Control Centre. Start again when you're ready.",
         "accessDenied": "The connection was cancelled in the Control Centre.",
         "failed": "The shop could not be connected. Try again, or enter your API credentials manually."
       }

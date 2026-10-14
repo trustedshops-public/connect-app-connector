@@ -496,7 +496,7 @@
       "manual": "Inserisci le credenziali API manualmente",
       "error": {
         "popupBlocked": "Il browser ha bloccato la finestra del Centro di Controllo. Consenti i pop-up per questa pagina e riprova, oppure inserisci le credenziali API manualmente.",
-        "closed": "La finestra del Centro di Controllo è stata chiusa prima che il negozio fosse collegato. Riprova.",
+        "closed": "Collegamento annullato. Il negozio non è stato collegato nel Centro di Controllo. Ricomincia quando sei pronto.",
         "accessDenied": "Il collegamento è stato annullato nel Centro di Controllo.",
         "failed": "Non è stato possibile collegare il negozio. Riprova, oppure inserisci le credenziali API manualmente."
       }

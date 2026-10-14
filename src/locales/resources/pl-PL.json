@@ -496,7 +496,7 @@
       "manual": "Wprowadź dane dostępowe API ręcznie",
       "error": {
         "popupBlocked": "Przeglądarka zablokowała okno Centrum Kontrolnego. Zezwól na wyskakujące okna dla tej strony i spróbuj ponownie lub wprowadź dane dostępowe API ręcznie.",
-        "closed": "Okno Centrum Kontrolnego zostało zamknięte przed połączeniem sklepu. Spróbuj ponownie.",
+        "closed": "Połączenie anulowane. Sklep nie został połączony w Centrum Kontrolnym. Zacznij ponownie, gdy będziesz gotowy.",
         "accessDenied": "Połączenie zostało anulowane w Centrum Kontrolnym.",
         "failed": "Nie udało się połączyć sklepu. Spróbuj ponownie lub wprowadź dane dostępowe API ręcznie."
       }

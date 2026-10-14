@@ -496,7 +496,7 @@
       "manual": "Saisir les identifiants API manuellement",
       "error": {
         "popupBlocked": "Votre navigateur a bloqué la fenêtre du Centre de contrôle. Autorisez les pop-ups pour cette page et réessayez, ou saisissez vos identifiants API manuellement.",
-        "closed": "La fenêtre du Centre de contrôle a été fermée avant l'association de la boutique. Réessayez.",
+        "closed": "Connexion annulée. La boutique n'a pas été associée dans le Centre de contrôle. Recommencez quand vous êtes prêt.",
         "accessDenied": "L'association a été annulée dans le Centre de contrôle.",
         "failed": "La boutique n'a pas pu être associée. Réessayez, ou saisissez vos identifiants API manuellement."
       }

@@ -498,7 +498,7 @@
       "manual": "API-Zugangsdaten manuell eingeben",
       "error": {
         "popupBlocked": "Dein Browser hat das Fenster des Kontrollzentrums blockiert. Erlaube Pop-ups für diese Seite und versuche es erneut, oder gib deine API-Zugangsdaten manuell ein.",
-        "closed": "Das Fenster des Kontrollzentrums wurde geschlossen, bevor der Shop verbunden war. Versuche es erneut.",
+        "closed": "Verbindung abgebrochen. Der Shop wurde im Kontrollzentrum nicht verbunden. Starte erneut, wenn du so weit bist.",
         "accessDenied": "Die Verbindung wurde im Kontrollzentrum abgebrochen.",
         "failed": "Der Shop konnte nicht verbunden werden. Versuche es erneut, oder gib deine API-Zugangsdaten manuell ein."
       }
