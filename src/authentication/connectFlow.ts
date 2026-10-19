@@ -5,7 +5,7 @@ import { createCodeChallenge, createRandomString } from './pkce'
 /**
  * "Connect with Trusted Shops": instead of copying a client ID and secret, the
  * merchant approves this shop on the Control Center's plugin connections page
- * (tswp-connect-plugin-connections). That page asks the connect backend to
+ * (tswp-connect-plugin-connections). That page asks connect-middleware to
  * provision credentials for this request's PKCE challenge. Meanwhile this page
  * polls the backend's status for the challenge, and once it is ready, redeems
  * the credentials with the verifier. The rest is the existing login: signIn()
@@ -20,12 +20,12 @@ import { createCodeChallenge, createRandomString } from './pkce'
  * result in the URL (see takeRedirectResult).
  *
  * The request and message names are the contract in that repo's
- * src/contracts/connect.ts, the backend calls its src/contracts/ssoClients.ts.
- * Keep both sides in sync.
+ * src/contracts/connect.ts. The backend calls are connect-middleware's
+ * /sso-clients/status and /redeem (its infrastructure/service/module/openapi.yaml).
  */
 
 const CC_CONNECT_URL = process.env.VITE_CC_CONNECT_URL
-const CONNECT_API_URL = process.env.VITE_CONNECT_API_URL
+const MIDDLEWARE_API_URL = process.env.VITE_MIDDLEWARE_API_URL
 
 const POPUP_NAME = 'ts-connect'
 const POPUP_FEATURES = 'popup,width=760,height=880'
@@ -33,6 +33,9 @@ const POPUP_CLOSED_POLL_MS = 500
 const STATUS_POLL_MS = 2000
 // The backend keeps a session for 5 minutes.
 const SESSION_TIMEOUT_MS = 5 * 60 * 1000
+// The redeem route answers 503 while it is throttled: retry shortly.
+const REDEEM_ATTEMPTS = 4
+const REDEEM_RETRY_MS = 1500
 const MESSAGES = { ready: 'ts-connect-ready', hello: 'ts-connect-hello' }
 const PENDING_REDIRECT_KEY = 'ts-connect-pending'
 const RESULT_PARAM = 'ts_connect'
@@ -56,12 +59,14 @@ interface SystemInfo {
   versionNumberOfSystem?: string
 }
 
+// redeemed: someone already picked the credentials up; for this page, that is
+// a failure, since it only redeems after it saw "ready".
 type SessionStatus = 'pending' | 'ready' | 'failed'
 
 // Off unless both URLs are configured, and PKCE needs Web Crypto, which
 // browsers only offer on https pages and on localhost.
 export const isConnectFlowAvailable = (): boolean =>
-  Boolean(CC_CONNECT_URL && CONNECT_API_URL && window.crypto?.subtle)
+  Boolean(CC_CONNECT_URL && MIDDLEWARE_API_URL && window.crypto?.subtle)
 
 const controlCenterOrigin = (): string => new URL(CC_CONNECT_URL as string).origin
 
@@ -85,8 +90,10 @@ const buildConnectUrl = (params: {
 
 const getStatus = async (challenge: string): Promise<SessionStatus> => {
   try {
-    const { data } = await axios.post(`${CONNECT_API_URL}/sso-clients/status`, { challenge })
-    return data?.status === 'ready' || data?.status === 'failed' ? data.status : 'pending'
+    const { data } = await axios.post(`${MIDDLEWARE_API_URL}/sso-clients/status`, { challenge })
+    if (data?.status === 'ready') return 'ready'
+    if (data?.status === 'failed' || data?.status === 'redeemed') return 'failed'
+    return 'pending'
   } catch {
     // A failed poll is not a failed session: try again on the next tick.
     return 'pending'
@@ -94,17 +101,21 @@ const getStatus = async (challenge: string): Promise<SessionStatus> => {
 }
 
 const redeem = async (challenge: string, verifier: string): Promise<IAuthRequest> => {
-  try {
-    const { data } = await axios.post(`${CONNECT_API_URL}/sso-clients/redeem`, {
-      challenge,
-      verifier,
-    })
-    if (typeof data?.clientId !== 'string' || typeof data?.clientSecret !== 'string') {
-      throw new ConnectError('failed')
+  for (let attempt = 1; ; attempt++) {
+    try {
+      const { data } = await axios.post(`${MIDDLEWARE_API_URL}/sso-clients/redeem`, {
+        challenge,
+        verifier,
+      })
+      if (typeof data?.clientId !== 'string' || typeof data?.clientSecret !== 'string') {
+        throw new ConnectError('failed')
+      }
+      return { clientId: data.clientId, clientSecret: data.clientSecret }
+    } catch (error) {
+      const throttled = axios.isAxiosError(error) && error.response?.status === 503
+      if (!throttled || attempt >= REDEEM_ATTEMPTS) throw new ConnectError('failed')
+      await new Promise(resolve => setTimeout(resolve, REDEEM_RETRY_MS))
     }
-    return { clientId: data.clientId, clientSecret: data.clientSecret }
-  } catch {
-    throw new ConnectError('failed')
   }
 }
 
