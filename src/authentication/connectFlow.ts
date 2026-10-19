@@ -70,6 +70,21 @@ export const isConnectFlowAvailable = (): boolean =>
 
 const controlCenterOrigin = (): string => new URL(CC_CONNECT_URL as string).origin
 
+/**
+ * The Control Center page that hands out credentials to copy into this plugin
+ * by hand (mode=manual), or null where the connect flow is switched off.
+ */
+export const buildManualCredentialsUrl = (system: SystemInfo): Nullable<string> => {
+  if (!CC_CONNECT_URL || !system.nameOfSystem) return null
+  const url = new URL(CC_CONNECT_URL)
+  url.searchParams.set('mode', 'manual')
+  url.searchParams.set('system', system.nameOfSystem)
+  if (system.versionNumberOfSystem) {
+    url.searchParams.set('system_version', system.versionNumberOfSystem)
+  }
+  return url.toString()
+}
+
 const buildConnectUrl = (params: {
   mode: 'popup' | 'redirect'
   challenge: string

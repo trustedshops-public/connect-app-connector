@@ -13,7 +13,11 @@ import LoginIllustration from '@/assets/login-section-illustration.svg'
 import { ExternalLinkIcon } from '@/components/layouts/icons/ExternalLinkIcon'
 import { LinkIcon } from '@/components/layouts/icons/LinkIcon'
 import StyledButton from '@/components/controls/styledButton'
-import { ConnectFailure, isConnectFlowAvailable } from '@/authentication/connectFlow'
+import {
+  buildManualCredentialsUrl,
+  ConnectFailure,
+  isConnectFlowAvailable,
+} from '@/authentication/connectFlow'
 
 type IFormLogin = Pick<IFormValues, 'clientId' | 'clientSecret'>
 
@@ -177,9 +181,17 @@ const LoginPageModule: FC<{
                           <TextWithLink
                             id="credentialsRequest"
                             text={phrasesByKey.authentication_credentials_help_button_text}
-                            url={phrasesByKey.authentication_credentials_help_button_url.concat(
-                              `?plugin=${nameOfSystem}`,
-                            )}
+                            url={
+                              // The plugin connections page creates them for this
+                              // shop system; without it, the API credentials page.
+                              buildManualCredentialsUrl({
+                                nameOfSystem,
+                                versionNumberOfSystem: infoOfSystem.versionNumberOfSystem,
+                              }) ??
+                              phrasesByKey.authentication_credentials_help_button_url.concat(
+                                `?plugin=${nameOfSystem}`,
+                              )
+                            }
                             textStyle="ts-text-sm ts-font-normal ts-mb-8"
                             linkStyle="ts-underline ts-cursor-pointer ts-text-[#024DF0]"
                           />
