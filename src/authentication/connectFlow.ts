@@ -31,6 +31,12 @@ const POPUP_NAME = 'ts-connect'
 const POPUP_FEATURES = 'popup,width=760,height=880'
 const POPUP_CLOSED_POLL_MS = 500
 const STATUS_POLL_MS = 2000
+// How long to keep checking after the popup closed. The Control Center
+// closes it after the backend answered "ready", so the first check usually
+// succeeds; this also covers a popup closed while the backend was still
+// provisioning (its request times out after 29 s). A popup closed without
+// approving never gets "ready" and ends as "closed" after this.
+const CLOSED_GRACE_MS = 30_000
 // The backend keeps a session for 5 minutes.
 const SESSION_TIMEOUT_MS = 5 * 60 * 1000
 // The redeem route answers 503 while it is throttled: retry shortly.
@@ -142,14 +148,14 @@ export const cancelConnect = (): void => {
 }
 
 /**
- * Answers the popup's handshake and polls the backend until the merchant's
- * approval is provisioned. Resolves when the session is ready.
+ * Answers the popup's handshake and, once the popup is closed, polls the
+ * backend until the merchant's approval is provisioned. No status calls while
+ * the popup is open. Resolves when the session is ready.
  */
 const waitForApproval = (popup: Window, challenge: string): Promise<void> =>
   new Promise((resolve, reject) => {
     const origin = controlCenterOrigin()
-    const deadline = Date.now() + SESSION_TIMEOUT_MS
-    let polling = false
+    let statusPoll: Nullable<ReturnType<typeof setTimeout>> = null
     let done = false
 
     // Only the window we opened, on the Control Center's origin, gets the
@@ -164,35 +170,32 @@ const waitForApproval = (popup: Window, challenge: string): Promise<void> =>
       if (done) return
       done = true
       window.removeEventListener('message', onMessage)
-      clearInterval(statusPoll)
       clearInterval(closedPoll)
+      if (statusPoll) clearTimeout(statusPoll)
       abortActiveConnect = null
       if (error) reject(error)
       else resolve()
     }
 
-    const check = async (): Promise<SessionStatus> => {
-      if (polling) return 'pending'
-      polling = true
-      const status = await getStatus(challenge)
-      polling = false
-      if (status === 'ready') finish()
-      else if (status === 'failed') finish(new ConnectError('failed'))
-      else if (Date.now() > deadline) finish(new ConnectError('failed'))
-      return status
+    // After the popup closed: check now, then every few seconds until the
+    // session is ready or failed, or the grace period is over.
+    const pollAfterClose = (): void => {
+      const deadline = Date.now() + CLOSED_GRACE_MS
+      const check = async (): Promise<void> => {
+        const status = await getStatus(challenge)
+        if (done) return
+        if (status === 'ready') return finish()
+        if (status === 'failed') return finish(new ConnectError('failed'))
+        if (Date.now() >= deadline) return finish(new ConnectError('closed'))
+        statusPoll = setTimeout(() => void check(), STATUS_POLL_MS)
+      }
+      void check()
     }
 
-    const statusPoll = setInterval(() => void check(), STATUS_POLL_MS)
-    // The popup closes itself once the shop is connected, which may be just
-    // before the next poll: look once more before calling it closed.
     const closedPoll = setInterval(() => {
       if (!popup.closed || done) return
       clearInterval(closedPoll)
-      clearInterval(statusPoll)
-      polling = false
-      void check().then(status => {
-        if (status === 'pending') finish(new ConnectError('closed'))
-      })
+      pollAfterClose()
     }, POPUP_CLOSED_POLL_MS)
 
     window.addEventListener('message', onMessage)
