@@ -84,12 +84,45 @@ const isAppHost = (hostname: string): boolean =>
 const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1']
 const MYSHOPIFY_PATTERN = /^[a-z0-9][a-z0-9-]*\.myshopify\.com$/
 
+// The admin page that embeds this page in an iframe, as its origin: across
+// sites the browser shares no more, and the approval shows no more.
+// ancestorOrigins where the browser has it (not Firefox), else the referrer
+// the iframe was loaded with.
+const embeddingOrigin = (): string | undefined => {
+  if (window.top === window.self) return undefined
+  const ancestors = window.location.ancestorOrigins
+  if (ancestors?.length) return ancestors.item(ancestors.length - 1) ?? undefined
+  try {
+    return document.referrer ? new URL(document.referrer).origin : undefined
+  } catch {
+    return undefined
+  }
+}
+
+// An origin that is the shop's, not a Trusted Shops app host or localhost.
+const shopOriginOf = (origin: string | undefined): string | undefined => {
+  if (!origin) return undefined
+  try {
+    const url = new URL(origin)
+    const web = url.protocol === 'https:' || url.protocol === 'http:'
+    if (!web || LOCAL_HOSTNAMES.includes(url.hostname) || isAppHost(url.hostname)) {
+      return undefined
+    }
+    return url.origin
+  } catch {
+    return undefined
+  }
+}
+
 /**
  * The shop's address for the Control Center's approval, or undefined when it
- * isn't known; the approval then names only the plugin. The base layer's, if
- * it sends one. For Shopify, the shop parameter Shopify gives every embedded
- * app. Otherwise this page's host, which is the shop admin's for plugins that
- * run inside it.
+ * isn't known; the approval then names only the plugin.
+ * - The base layer's, if it sends one.
+ * - Shopify: the shop parameter Shopify gives every embedded app, since its
+ *   admin (admin.shopify.com) isn't the shop.
+ * - Apps embedded in the shop admin (IdoSell, Shoper, …): the admin page's
+ *   origin, which is the shop's.
+ * - Plugins that run inside the shop admin itself: this page's origin.
  */
 export const shopUrlOf = (info: {
   nameOfSystem?: string
@@ -100,9 +133,7 @@ export const shopUrlOf = (info: {
     const shop = new URLSearchParams(window.location.search).get('shop')?.toLowerCase()
     return shop && MYSHOPIFY_PATTERN.test(shop) ? `https://${shop}` : undefined
   }
-  const { hostname, origin } = window.location
-  if (LOCAL_HOSTNAMES.includes(hostname) || isAppHost(hostname)) return undefined
-  return origin
+  return shopOriginOf(embeddingOrigin() ?? window.location.origin)
 }
 
 // redeemed: someone already picked the credentials up; for this page, that is
