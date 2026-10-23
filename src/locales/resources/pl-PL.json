@@ -460,18 +460,18 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Połącz swój sklep z #trstd"
+        "title": "Połącz swój sklep"
       },
       "help": {
         "button": {
           "text": "Znajdź swój Client ID i Client Secret w [%s]Centrum Kontrolnym Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Różnią się one od danych logowania do Trusted Shops",
+        "text": "Różnią się one od danych logowania do Trusted Shops.",
         "title": "Jesteś tu nowy?"
       }
     },
-    "error": "Błąd: upewnij się, że używasz prawidłowych danych uwierzytelniających Client Credentials.",
+    "error": "Skopiuj ponownie obie wartości z Centrum Kontrolnego. Client ID lub Client Secret się nie zgadza.",
     "integrationGuide": {
       "text": "Wyświetl przewodnik po integracji",
       "url": "https://help.etrusted.com/hc/pl/articles/4905016318237"
@@ -487,19 +487,53 @@
     },
     "title": "Witamy w Łatwa Integracja Trusted Shops",
     "connect": {
-      "text": "Połącz ten sklep ze swoim kontem Trusted Shops w kilku kliknięciach. Otworzy się okno Centrum Kontrolnego, w którym logujesz się i zatwierdzasz sklep.",
-      "button": "Połącz z Trusted Shops",
-      "waiting": "Oczekiwanie na zatwierdzenie w Centrum Kontrolnym…",
-      "waitingHint": "Nie widzisz okna? Może być za tym oknem.",
-      "cancel": "Anuluj",
-      "or": "lub",
-      "manual": "Wprowadź dane dostępowe API ręcznie",
-      "error": {
-        "popupBlocked": "Przeglądarka zablokowała okno Centrum Kontrolnego. Zezwól na wyskakujące okna dla tej strony i spróbuj ponownie lub wprowadź dane dostępowe API ręcznie.",
-        "closed": "Połączenie anulowane. Sklep nie został połączony w Centrum Kontrolnym. Zacznij ponownie, gdy będziesz gotowy.",
-        "accessDenied": "Połączenie zostało anulowane w Centrum Kontrolnym.",
-        "failed": "Nie udało się połączyć sklepu. Spróbuj ponownie lub wprowadź dane dostępowe API ręcznie."
+      "text": "Otworzy się nowe okno. W razie potrzeby zaloguj się do Centrum Kontrolnego Trusted Shops, a następnie zatwierdź połączenie.",
+      "button": "Połącz sklep",
+      "waiting": "Oczekiwanie na zatwierdzenie",
+      "waitingHint": "Zatwierdź połączenie w oknie Trusted Shops, które właśnie się otworzyło.",
+      "windowNotShowing": "Nie widzisz okna?",
+      "openWindow": "Otwórz okno",
+      "manual": "Wprowadź dane dostępowe ręcznie",
+      "retry": "Spróbuj ponownie",
+      "finishing": {
+        "title": "Prawie gotowe",
+        "text": "Twój sklep kończy łączenie."
+      },
+      "popupBlocked": {
+        "title": "Zezwól na wyskakujące okna dla tej strony",
+        "text": "Przeglądarka zablokowała okno Centrum Kontrolnego. Zezwól na wyskakujące okna na pasku adresu, a następnie spróbuj ponownie.",
+        "hint": "Nie możesz zezwolić na wyskakujące okna?"
+      },
+      "closed": {
+        "title": "Połącz sklep ponownie",
+        "text": "Okno Centrum Kontrolnego zostało zamknięte, zanim sklep został połączony. Spróbuj ponownie, gdy będziesz gotowy.",
+        "hint": "Nadal nie działa?"
+      },
+      "accessDenied": {
+        "title": "Połącz sklep ponownie",
+        "text": "Połączenie zostało anulowane w Centrum Kontrolnym. Spróbuj ponownie, gdy będziesz gotowy."
+      },
+      "failed": {
+        "title": "Sklep nie został połączony",
+        "text": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę."
+      },
+      "credentialsRejected": {
+        "title": "Połącz sklep ponownie",
+        "text": "Dane dostępowe używane przez Twój sklep zostały usunięte w Centrum Kontrolnym. Połącz sklep ponownie, aby przywrócić połączenie."
+      },
+      "disconnected": {
+        "title": "Sklep odłączony",
+        "text": "Twój sklep nie jest już połączony. Możesz go połączyć ponownie w dowolnym momencie."
       }
+    },
+    "manual": {
+      "title": "Wprowadź dane dostępowe ręcznie",
+      "text": "Pobierz dane dostępowe wtyczki w Centrum Kontrolnym. Następnie skopiuj Client ID i Client Secret do poniższych pól.",
+      "getCredentials": "Pobierz dane dostępowe",
+      "clientIdPlaceholder": "Wklej Client ID",
+      "secretPlaceholder": "Wklej Client Secret",
+      "back": "Wstecz",
+      "connecting": "Łączenie"
     }
   },
   "channelSelect": {

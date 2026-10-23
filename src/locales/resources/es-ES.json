@@ -460,18 +460,18 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Conecta tu tienda a #trstd"
+        "title": "Conecta tu tienda"
       },
       "help": {
         "button": {
           "text": "Consulta tu Client ID y tu Client Secret en el [%s]Centro de Control de Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Son diferentes a tus credenciales de inicio de sesión de Trusted Shops.",
+        "text": "Son distintas de tus datos de inicio de sesión de Trusted Shops.",
         "title": "¿Es la primera vez que estás aquí?"
       }
     },
-    "error": "Error: Asegúrate de que estés utilizando las credenciales de cliente correctas.",
+    "error": "Vuelve a copiar ambos valores del Centro de Control. El Client ID o el Client Secret no coinciden.",
     "integrationGuide": {
       "text": "Consultar la guía de integración",
       "url": "https://help.etrusted.com/hc/es/articles/4905016318237"
@@ -487,19 +487,53 @@
     },
     "title": "¡Te damos la bienvenida a Integración sencilla de Trusted Shops!",
     "connect": {
-      "text": "Conecta esta tienda a tu cuenta de Trusted Shops en pocos clics. Se abre una ventana del Centro de Control, donde inicias sesión y apruebas la tienda.",
-      "button": "Conectar con Trusted Shops",
-      "waiting": "Esperando tu aprobación en el Centro de Control…",
-      "waitingHint": "¿No ves la ventana? Puede que esté detrás de esta.",
-      "cancel": "Cancelar",
-      "or": "o",
-      "manual": "Introducir las credenciales de API manualmente",
-      "error": {
-        "popupBlocked": "Tu navegador ha bloqueado la ventana del Centro de Control. Permite las ventanas emergentes para esta página e inténtalo de nuevo, o introduce tus credenciales de API manualmente.",
-        "closed": "Conexión cancelada. La tienda no se conectó en el Centro de Control. Vuelve a empezar cuando quieras.",
-        "accessDenied": "La conexión se canceló en el Centro de Control.",
-        "failed": "No se ha podido conectar la tienda. Inténtalo de nuevo, o introduce tus credenciales de API manualmente."
+      "text": "Se abre una nueva ventana. Inicia sesión en tu Centro de Control de Trusted Shops si se te pide y aprueba la conexión.",
+      "button": "Conectar tienda",
+      "waiting": "Esperando aprobación",
+      "waitingHint": "Aprueba la conexión en la ventana de Trusted Shops que se acaba de abrir.",
+      "windowNotShowing": "¿No ves la ventana?",
+      "openWindow": "Abrir ventana",
+      "manual": "Introducir credenciales manualmente",
+      "retry": "Volver a intentarlo",
+      "finishing": {
+        "title": "Casi listo",
+        "text": "Tu tienda está terminando la conexión."
+      },
+      "popupBlocked": {
+        "title": "Permite las ventanas emergentes en esta página",
+        "text": "Tu navegador ha bloqueado la ventana del Centro de Control. Permite las ventanas emergentes en la barra de direcciones y vuelve a intentarlo.",
+        "hint": "¿No puedes permitir ventanas emergentes?"
+      },
+      "closed": {
+        "title": "Vuelve a conectar tu tienda",
+        "text": "La ventana del Centro de Control se cerró antes de conectar tu tienda. Vuelve a intentarlo cuando quieras.",
+        "hint": "¿Sigue sin funcionar?"
+      },
+      "accessDenied": {
+        "title": "Vuelve a conectar tu tienda",
+        "text": "La conexión se canceló en el Centro de Control. Vuelve a intentarlo cuando quieras."
+      },
+      "failed": {
+        "title": "Tienda no conectada",
+        "text": "Algo ha fallado por nuestra parte. Vuelve a intentarlo en un momento."
+      },
+      "credentialsRejected": {
+        "title": "Vuelve a conectar tu tienda",
+        "text": "Las credenciales que usaba tu tienda se eliminaron en el Centro de Control. Vuelve a conectarla para restablecer la conexión."
+      },
+      "disconnected": {
+        "title": "Tienda desconectada",
+        "text": "Tu tienda ya no está conectada. Puedes volver a conectarla en cualquier momento."
       }
+    },
+    "manual": {
+      "title": "Introducir credenciales manualmente",
+      "text": "Obtén las credenciales del plugin en el Centro de Control. Después copia el Client ID y el Client Secret en los campos de abajo.",
+      "getCredentials": "Obtener credenciales",
+      "clientIdPlaceholder": "Pega tu Client ID",
+      "secretPlaceholder": "Pega tu Client Secret",
+      "back": "Atrás",
+      "connecting": "Conectando"
     }
   },
   "channelSelect": {

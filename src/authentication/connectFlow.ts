@@ -141,10 +141,18 @@ const redeem = async (challenge: string, verifier: string): Promise<IAuthRequest
 }
 
 let abortActiveConnect: Nullable<() => void> = null
+let activePopup: Nullable<Window> = null
 
 // Closes the Control Center window and gives up on the pending connect.
 export const cancelConnect = (): void => {
   abortActiveConnect?.()
+}
+
+// "Window not showing?": brings the Control Center window of the pending
+// connect to the front. Opening by name reuses that window without reloading it.
+export const focusConnectWindow = (): void => {
+  if (!activePopup || activePopup.closed) return
+  ;(window.open('', POPUP_NAME, POPUP_FEATURES) ?? activePopup).focus()
 }
 
 /**
@@ -152,7 +160,11 @@ export const cancelConnect = (): void => {
  * backend until the merchant's approval is provisioned. No status calls while
  * the popup is open. Resolves when the session is ready.
  */
-const waitForApproval = (popup: Window, challenge: string): Promise<void> =>
+const waitForApproval = (
+  popup: Window,
+  challenge: string,
+  onPopupClosed?: () => void,
+): Promise<void> =>
   new Promise((resolve, reject) => {
     const origin = controlCenterOrigin()
     let statusPoll: Nullable<ReturnType<typeof setTimeout>> = null
@@ -173,6 +185,7 @@ const waitForApproval = (popup: Window, challenge: string): Promise<void> =>
       clearInterval(closedPoll)
       if (statusPoll) clearTimeout(statusPoll)
       abortActiveConnect = null
+      activePopup = null
       if (error) reject(error)
       else resolve()
     }
@@ -195,10 +208,12 @@ const waitForApproval = (popup: Window, challenge: string): Promise<void> =>
     const closedPoll = setInterval(() => {
       if (!popup.closed || done) return
       clearInterval(closedPoll)
+      onPopupClosed?.()
       pollAfterClose()
     }, POPUP_CLOSED_POLL_MS)
 
     window.addEventListener('message', onMessage)
+    activePopup = popup
     abortActiveConnect = () => {
       popup.close()
       finish(new ConnectError('cancelled'))
@@ -220,8 +235,12 @@ const startRedirectConnect = async (system: SystemInfo): Promise<never> => {
  * Opens the Control Center, waits for the merchant to approve this shop and
  * returns its client credentials. Call it straight from the click handler:
  * the popup has to open before the first await, or the browser blocks it.
+ * onPopupClosed runs once the window is gone and the result is being checked.
  */
-export const connectWithControlCenter = async (system: SystemInfo): Promise<IAuthRequest> => {
+export const connectWithControlCenter = async (
+  system: SystemInfo,
+  onPopupClosed?: () => void,
+): Promise<IAuthRequest> => {
   const popup = window.open('', POPUP_NAME, POPUP_FEATURES)
   if (!popup) {
     // Sending the tab away only works when the connector is the page itself.
@@ -241,7 +260,7 @@ export const connectWithControlCenter = async (system: SystemInfo): Promise<IAut
   }
   popup.focus()
 
-  await waitForApproval(popup, challenge)
+  await waitForApproval(popup, challenge, onPopupClosed)
   return redeem(challenge, verifier)
 }
 

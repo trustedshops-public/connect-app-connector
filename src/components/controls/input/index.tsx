@@ -68,6 +68,7 @@ type InputProps = {
   iconAfterLabel?: VNode
   id?: string
   placeholder?: string
+  labelClass?: string
 }
 
 const handleInputChange = (e: { target: { value: string } }) => {
@@ -88,6 +89,7 @@ export const InputH: FC<InputProps> = ({
   iconAfterLabel,
   id,
   placeholder,
+  labelClass,
 }) => (
   <label
     id={`input_Wrapper_${id}`}
@@ -97,7 +99,7 @@ export const InputH: FC<InputProps> = ({
     <div
       id={`input_label_${id}`}
       data-testid={`input_label_${id}`}
-      className="ts-flex ts-items-center ts-gap-1"
+      className={`ts-flex ts-items-center ts-gap-1 ${labelClass || ''}`}
     >
       {label}
       {iconAfterLabel && <div>{iconAfterLabel}</div>}

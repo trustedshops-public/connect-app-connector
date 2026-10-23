@@ -462,18 +462,18 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Verbinde deinen Shop mit #trstd"
+        "title": "Verbinde deinen Shop"
       },
       "help": {
         "button": {
           "text": "Deine Client ID & Client Secret findest du im [%s]Trusted Shops Kontrollzentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Diese unterscheiden sich von deinen Trusted Shops Login-Daten.",
+        "text": "Diese unterscheiden sich von deinem Trusted Shops Login.",
         "title": "Bist du neu hier?"
       }
     },
-    "error": "Fehler: Vergewissere dich, dass du die richtigen Client Credentials verwendest.",
+    "error": "Kopiere beide Werte erneut aus dem Kontrollzentrum. Die Client ID oder das Client Secret stimmt nicht.",
     "integrationGuide": {
       "text": "Integrationsanleitung ansehen",
       "url": "https://help.etrusted.com/hc/de/articles/23970910593170"
@@ -489,19 +489,53 @@
     },
     "title": "Willkommen bei Trusted Shops Easy Integration",
     "connect": {
-      "text": "Verbinde diesen Shop mit wenigen Klicks mit deinem Trusted Shops Konto. Ein Fenster des Kontrollzentrums öffnet sich, dort meldest du dich an und bestätigst den Shop.",
-      "button": "Mit Trusted Shops verbinden",
-      "waiting": "Warte auf deine Bestätigung im Kontrollzentrum…",
-      "waitingHint": "Du siehst das Fenster nicht? Es liegt vielleicht hinter diesem.",
-      "cancel": "Abbrechen",
-      "or": "oder",
-      "manual": "API-Zugangsdaten manuell eingeben",
-      "error": {
-        "popupBlocked": "Dein Browser hat das Fenster des Kontrollzentrums blockiert. Erlaube Pop-ups für diese Seite und versuche es erneut, oder gib deine API-Zugangsdaten manuell ein.",
-        "closed": "Verbindung abgebrochen. Der Shop wurde im Kontrollzentrum nicht verbunden. Starte erneut, wenn du so weit bist.",
-        "accessDenied": "Die Verbindung wurde im Kontrollzentrum abgebrochen.",
-        "failed": "Der Shop konnte nicht verbunden werden. Versuche es erneut, oder gib deine API-Zugangsdaten manuell ein."
+      "text": "Ein neues Fenster öffnet sich. Melde dich bei Bedarf in deinem Trusted Shops Kontrollzentrum an und bestätige dann die Verbindung.",
+      "button": "Shop verbinden",
+      "waiting": "Warten auf Bestätigung",
+      "waitingHint": "Bestätige die Verbindung in dem Trusted Shops Fenster, das sich gerade geöffnet hat.",
+      "windowNotShowing": "Fenster nicht zu sehen?",
+      "openWindow": "Fenster öffnen",
+      "manual": "Zugangsdaten manuell eingeben",
+      "retry": "Erneut versuchen",
+      "finishing": {
+        "title": "Fast geschafft",
+        "text": "Dein Shop schließt die Verbindung ab."
+      },
+      "popupBlocked": {
+        "title": "Pop-ups für diese Seite erlauben",
+        "text": "Dein Browser hat das Fenster des Kontrollzentrums blockiert. Erlaube Pop-ups in der Adressleiste und versuche es dann erneut.",
+        "hint": "Pop-ups nicht möglich?"
+      },
+      "closed": {
+        "title": "Verbinde deinen Shop erneut",
+        "text": "Das Fenster des Kontrollzentrums wurde geschlossen, bevor dein Shop verbunden war. Versuche es erneut, wenn du bereit bist.",
+        "hint": "Funktioniert es immer noch nicht?"
+      },
+      "accessDenied": {
+        "title": "Verbinde deinen Shop erneut",
+        "text": "Die Verbindung wurde im Kontrollzentrum abgebrochen. Versuche es erneut, wenn du bereit bist."
+      },
+      "failed": {
+        "title": "Shop nicht verbunden",
+        "text": "Bei uns ist etwas schiefgelaufen. Versuche es gleich noch einmal."
+      },
+      "credentialsRejected": {
+        "title": "Verbinde deinen Shop erneut",
+        "text": "Die Zugangsdaten deines Shops wurden im Kontrollzentrum gelöscht. Verbinde ihn erneut, um die Verbindung wiederherzustellen."
+      },
+      "disconnected": {
+        "title": "Shop getrennt",
+        "text": "Dein Shop ist nicht mehr verbunden. Du kannst ihn jederzeit wieder verbinden."
       }
+    },
+    "manual": {
+      "title": "Zugangsdaten manuell eingeben",
+      "text": "Hol dir deine Plugin-Zugangsdaten im Kontrollzentrum. Kopiere dann die Client ID und das Client Secret in die Felder unten.",
+      "getCredentials": "Zugangsdaten abrufen",
+      "clientIdPlaceholder": "Client ID einfügen",
+      "secretPlaceholder": "Client Secret einfügen",
+      "back": "Zurück",
+      "connecting": "Wird verbunden"
     }
   },
   "channelSelect": {

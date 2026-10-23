@@ -460,18 +460,18 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Connetti il tuo negozio a #trstd"
+        "title": "Collega il tuo negozio"
       },
       "help": {
         "button": {
           "text": "Trova il tuo Client ID e il tuo Client Secret nel [%s]Centro di Controllo Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Si tratta di credenziali diverse da quelle per il login su Trusted Shops.",
+        "text": "Sono diverse dai dati di accesso a Trusted Shops.",
         "title": "Hai appena iniziato?"
       }
     },
-    "error": "Errore: stai utilizzando le credenziali cliente corrette?",
+    "error": "Copia di nuovo entrambi i valori dal Centro di Controllo. Il Client ID o il Client Secret non corrisponde.",
     "integrationGuide": {
       "text": "Consulta la guida all’integrazione",
       "url": "https://help.etrusted.com/hc/it/articles/4905016318237"
@@ -487,19 +487,53 @@
     },
     "title": "Ti diamo il benvenuto a Easy Integration di Trusted Shops!",
     "connect": {
-      "text": "Collega questo negozio al tuo account Trusted Shops in pochi clic. Si apre una finestra del Centro di Controllo, dove accedi e approvi il negozio.",
-      "button": "Collega con Trusted Shops",
-      "waiting": "In attesa della tua approvazione nel Centro di Controllo…",
-      "waitingHint": "Non vedi la finestra? Potrebbe essere dietro a questa.",
-      "cancel": "Annulla",
-      "or": "oppure",
-      "manual": "Inserisci le credenziali API manualmente",
-      "error": {
-        "popupBlocked": "Il browser ha bloccato la finestra del Centro di Controllo. Consenti i pop-up per questa pagina e riprova, oppure inserisci le credenziali API manualmente.",
-        "closed": "Collegamento annullato. Il negozio non è stato collegato nel Centro di Controllo. Ricomincia quando sei pronto.",
-        "accessDenied": "Il collegamento è stato annullato nel Centro di Controllo.",
-        "failed": "Non è stato possibile collegare il negozio. Riprova, oppure inserisci le credenziali API manualmente."
+      "text": "Si apre una nuova finestra. Se richiesto, accedi al tuo Centro di Controllo Trusted Shops e approva la connessione.",
+      "button": "Collega negozio",
+      "waiting": "In attesa di approvazione",
+      "waitingHint": "Approva la connessione nella finestra di Trusted Shops appena aperta.",
+      "windowNotShowing": "Non vedi la finestra?",
+      "openWindow": "Apri finestra",
+      "manual": "Inserisci le credenziali manualmente",
+      "retry": "Riprova",
+      "finishing": {
+        "title": "Quasi fatto",
+        "text": "Il tuo negozio sta completando la connessione."
+      },
+      "popupBlocked": {
+        "title": "Consenti i pop-up per questa pagina",
+        "text": "Il tuo browser ha bloccato la finestra del Centro di Controllo. Consenti i pop-up nella barra degli indirizzi, poi riprova.",
+        "hint": "Non puoi consentire i pop-up?"
+      },
+      "closed": {
+        "title": "Collega di nuovo il tuo negozio",
+        "text": "La finestra del Centro di Controllo è stata chiusa prima che il negozio fosse collegato. Riprova quando sei pronto.",
+        "hint": "Ancora non funziona?"
+      },
+      "accessDenied": {
+        "title": "Collega di nuovo il tuo negozio",
+        "text": "La connessione è stata annullata nel Centro di Controllo. Riprova quando sei pronto."
+      },
+      "failed": {
+        "title": "Negozio non collegato",
+        "text": "Si è verificato un problema da parte nostra. Riprova tra un momento."
+      },
+      "credentialsRejected": {
+        "title": "Collega di nuovo il tuo negozio",
+        "text": "Le credenziali usate dal tuo negozio sono state eliminate nel Centro di Controllo. Collegalo di nuovo per ripristinare la connessione."
+      },
+      "disconnected": {
+        "title": "Negozio scollegato",
+        "text": "Il tuo negozio non è più collegato. Puoi collegarlo di nuovo in qualsiasi momento."
       }
+    },
+    "manual": {
+      "title": "Inserisci le credenziali manualmente",
+      "text": "Ottieni le credenziali del plugin nel Centro di Controllo. Poi copia il Client ID e il Client Secret nei campi qui sotto.",
+      "getCredentials": "Ottieni credenziali",
+      "clientIdPlaceholder": "Incolla il tuo Client ID",
+      "secretPlaceholder": "Incolla il tuo Client Secret",
+      "back": "Indietro",
+      "connecting": "Connessione in corso"
     }
   },
   "channelSelect": {

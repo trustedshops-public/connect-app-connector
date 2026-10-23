@@ -474,18 +474,18 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Connect your shop to #trstd"
+        "title": "Connect your shop"
       },
       "help": {
         "button": {
           "text": "Find your Client ID & Secret in [%s]Trusted Shops' Control Centre[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "These are different from your Trusted Shops login credentials",
+        "text": "These differ from your Trusted Shops login.",
         "title": "Are you new here?"
       }
     },
-    "error": "Error: make sure you are using the correct client credentials.",
+    "error": "Copy both values again from the Control Centre. The Client ID or Client Secret doesn't match.",
     "integrationGuide": {
       "text": "View integration guide",
       "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
@@ -503,19 +503,53 @@
     },
     "title": "Welcome to Trusted Shops Easy Integration",
     "connect": {
-      "text": "Connect this shop to your Trusted Shops account in a few clicks. A Control Centre window opens, where you sign in and approve the shop.",
-      "button": "Connect with Trusted Shops",
-      "waiting": "Waiting for your approval in the Control Centre…",
-      "waitingHint": "Can't see the window? It may be behind this one.",
-      "cancel": "Cancel",
-      "or": "or",
-      "manual": "Enter API credentials manually",
-      "error": {
-        "popupBlocked": "Your browser blocked the Control Centre window. Allow pop-ups for this page and try again, or enter your API credentials manually.",
-        "closed": "Connection cancelled. The shop was not connected in the Control Centre. Start again when you're ready.",
-        "accessDenied": "The connection was cancelled in the Control Centre.",
-        "failed": "The shop could not be connected. Try again, or enter your API credentials manually."
+      "text": "A new window opens. Log in to your Trusted Shops Control Centre if asked, then approve the connection.",
+      "button": "Connect shop",
+      "waiting": "Waiting for approval",
+      "waitingHint": "Approve the connection in the Trusted Shops window that just opened.",
+      "windowNotShowing": "Window not showing?",
+      "openWindow": "Open window",
+      "manual": "Enter credentials manually",
+      "retry": "Try again",
+      "finishing": {
+        "title": "Almost done",
+        "text": "Your shop is finishing the connection."
+      },
+      "popupBlocked": {
+        "title": "Allow pop-ups for this page",
+        "text": "Your browser blocked the Control Centre window. Allow pop-ups in the address bar, then try again.",
+        "hint": "Can't allow pop-ups?"
+      },
+      "closed": {
+        "title": "Connect your shop again",
+        "text": "The Control Centre window closed before your shop was connected. Try again when you're ready.",
+        "hint": "Still not working?"
+      },
+      "accessDenied": {
+        "title": "Connect your shop again",
+        "text": "The connection was cancelled in the Control Centre. Try again when you're ready."
+      },
+      "failed": {
+        "title": "Shop not connected",
+        "text": "Something went wrong on our side. Try again in a moment."
+      },
+      "credentialsRejected": {
+        "title": "Connect your shop again",
+        "text": "The credentials your shop used were deleted in the Control Centre. Connect again to restore the connection."
+      },
+      "disconnected": {
+        "title": "Shop disconnected",
+        "text": "Your shop is no longer connected. You can connect it again at any time."
       }
+    },
+    "manual": {
+      "title": "Enter credentials manually",
+      "text": "Get your plugin credentials in the Control Centre. Then copy the Client ID and Client Secret into the fields below.",
+      "getCredentials": "Get credentials",
+      "clientIdPlaceholder": "Paste your Client ID",
+      "secretPlaceholder": "Paste your Client Secret",
+      "back": "Back",
+      "connecting": "Connecting"
     }
   },
   "channelSelect": {

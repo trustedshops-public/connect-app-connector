@@ -110,7 +110,7 @@ const EventsContainer: FC<{ children: VNode }> = ({ children }) => {
       [EVENTS.SET_EXPORT_PREVIOUS_ORDER]: () => setIsLoadingInvitesForProducts(false),
 
       [EVENTS.SET_DISCONNECTED]: () => {
-        logout()
+        logout('disconnected')
         setIsDisconnectLoading(false)
       },
       [EVENTS.SET_INFORMATION_OF_SYSTEM]: (event: { payload: IUserInfo }) => {
