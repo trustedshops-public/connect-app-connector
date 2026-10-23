@@ -18,6 +18,8 @@ export interface IUserInfo {
   appEmbedDeepLink?: string
   /** Detected activation state of the app embed on the published theme; undefined when unknown (currently Shopify only). */
   appEmbedActivated?: boolean
+  /** The shop's address, shown to the merchant when they approve the connection. Optional; see shopUrlOf in connectFlow. */
+  shopUrl?: string
 }
 
 export interface InfoState {

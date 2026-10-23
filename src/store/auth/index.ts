@@ -5,6 +5,7 @@ import {
   cancelConnect,
   connectFailureOf,
   connectWithControlCenter as openControlCenterConnect,
+  shopUrlOf,
   takeRedirectResult,
 } from '@/authentication/connectFlow'
 import { dispatchAction, EVENTS } from '@/eventsLib'
@@ -122,11 +123,13 @@ export const authStore = (set: SetState<AppStore>, get: GetState<AppStore>): IAu
     }))
   },
   connectWithControlCenter: async () => {
-    const { nameOfSystem, versionNumberOfSystem } = get().infoState.infoOfSystem
+    const infoOfSystem = get().infoState.infoOfSystem
+    const { nameOfSystem, versionNumberOfSystem } = infoOfSystem
     // Opens the Control Center popup synchronously, inside the click that
     // called this action; the browser blocks popups opened after an await.
-    const connecting = openControlCenterConnect({ nameOfSystem, versionNumberOfSystem }, () =>
-      set(store => ({ auth: { ...store.auth, isConnectFinishing: true } })),
+    const connecting = openControlCenterConnect(
+      { nameOfSystem, versionNumberOfSystem, shopUrl: shopUrlOf(infoOfSystem) },
+      () => set(store => ({ auth: { ...store.auth, isConnectFinishing: true } })),
     )
     set(store => ({
       auth: {

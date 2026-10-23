@@ -14,10 +14,12 @@ import { createCodeChallenge, createRandomString } from './pkce'
  *
  * The Control Center opens in a popup, so the shop admin stays where it is.
  * The popup asks which shop opened it (ts-connect-ready), and this page
- * answers with the challenge (ts-connect-hello); the browser adds this page's
- * origin, which the popup shows the merchant. If the browser blocks the
- * popup, the whole tab goes to the Control Center and comes back with the
- * result in the URL (see takeRedirectResult).
+ * answers with the challenge (ts-connect-hello); if the merchant cancels, it
+ * says so (ts-connect-ended) and this page stops waiting. The request names the shop
+ * system and, when known, the shop's address (shop_url, see shopUrlOf), which
+ * the popup shows the merchant. If the browser blocks the popup, the whole
+ * tab goes to the Control Center and comes back with the result in the URL
+ * (see takeRedirectResult).
  *
  * The request and message names are the contract in that repo's
  * src/contracts/connect.ts. The backend calls are connect-middleware's
@@ -42,7 +44,7 @@ const SESSION_TIMEOUT_MS = 5 * 60 * 1000
 // The redeem route answers 503 while it is throttled: retry shortly.
 const REDEEM_ATTEMPTS = 4
 const REDEEM_RETRY_MS = 1500
-const MESSAGES = { ready: 'ts-connect-ready', hello: 'ts-connect-hello' }
+const MESSAGES = { ready: 'ts-connect-ready', hello: 'ts-connect-hello', ended: 'ts-connect-ended' }
 const PENDING_REDIRECT_KEY = 'ts-connect-pending'
 const RESULT_PARAM = 'ts_connect'
 
@@ -63,6 +65,44 @@ export const connectFailureOf = (error: unknown): ConnectFailure =>
 interface SystemInfo {
   nameOfSystem: string
   versionNumberOfSystem?: string
+  shopUrl?: string
+}
+
+// Hosts that serve a Trusted Shops app rather than the shop itself, such as
+// the Shopify app, so this page's own address isn't the shop there.
+const APP_HOST_DOMAINS = [
+  'trustedshops.com',
+  'trustedshops.de',
+  'etrusted.com',
+  'etrusted.site',
+  'etrusted.koeln',
+  'cloudfront.net',
+  'amazonaws.com',
+]
+const isAppHost = (hostname: string): boolean =>
+  APP_HOST_DOMAINS.some(domain => hostname === domain || hostname.endsWith(`.${domain}`))
+const LOCAL_HOSTNAMES = ['localhost', '127.0.0.1']
+const MYSHOPIFY_PATTERN = /^[a-z0-9][a-z0-9-]*\.myshopify\.com$/
+
+/**
+ * The shop's address for the Control Center's approval, or undefined when it
+ * isn't known; the approval then names only the plugin. The base layer's, if
+ * it sends one. For Shopify, the shop parameter Shopify gives every embedded
+ * app. Otherwise this page's host, which is the shop admin's for plugins that
+ * run inside it.
+ */
+export const shopUrlOf = (info: {
+  nameOfSystem?: string
+  shopUrl?: string
+}): string | undefined => {
+  if (info.shopUrl) return info.shopUrl
+  if (info.nameOfSystem?.toLowerCase() === 'shopify') {
+    const shop = new URLSearchParams(window.location.search).get('shop')?.toLowerCase()
+    return shop && MYSHOPIFY_PATTERN.test(shop) ? `https://${shop}` : undefined
+  }
+  const { hostname, origin } = window.location
+  if (LOCAL_HOSTNAMES.includes(hostname) || isAppHost(hostname)) return undefined
+  return origin
 }
 
 // redeemed: someone already picked the credentials up; for this page, that is
@@ -105,6 +145,7 @@ const buildConnectUrl = (params: {
   if (params.system.versionNumberOfSystem) {
     url.searchParams.set('system_version', params.system.versionNumberOfSystem)
   }
+  if (params.system.shopUrl) url.searchParams.set('shop_url', params.system.shopUrl)
   if (params.returnUrl) url.searchParams.set('return_url', params.returnUrl)
   return url.toString()
 }
@@ -171,11 +212,16 @@ const waitForApproval = (
     let done = false
 
     // Only the window we opened, on the Control Center's origin, gets the
-    // challenge, and only the Control Center's origin can read it.
+    // challenge, and only the Control Center's origin can read it. When the
+    // merchant cancels there, or closes it after a failure, the popup says so
+    // (ended), and the connect ends right away without a status check.
     const onMessage = (event: MessageEvent): void => {
       if (event.origin !== origin || event.source !== popup) return
-      if (event.data?.type !== MESSAGES.ready) return
-      popup.postMessage({ type: MESSAGES.hello, challenge }, origin)
+      if (event.data?.type === MESSAGES.ready) {
+        popup.postMessage({ type: MESSAGES.hello, challenge }, origin)
+      } else if (event.data?.type === MESSAGES.ended && event.data.challenge === challenge) {
+        finish(new ConnectError(event.data.result === 'failed' ? 'failed' : 'access_denied'))
+      }
     }
 
     const finish = (error?: ConnectError): void => {

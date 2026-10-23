@@ -57,6 +57,24 @@ const TitleBlock: FC<{ title: string; text?: string }> = ({ title, text }) => (
   </div>
 )
 
+// "Enter credentials manually", as the design's tertiary text button: brand
+// blue label, no fill, as high as the primary button.
+const ManualButton: FC<{ label: string; onManual: () => void; className?: string }> = ({
+  label,
+  onManual,
+  className = '',
+}) => (
+  <button
+    id="button_showManualForm"
+    type="button"
+    onClick={onManual}
+    className={`ts-font-sans ts-font-bold ts-cursor-pointer ts-flex ts-items-center ts-justify-center ts-rounded ts-whitespace-nowrap ${className}`}
+    style={{ height: '50px', padding: '11px 8px', fontSize: '18px', color: '#005AA0' }}
+  >
+    {label}
+  </button>
+)
+
 // "Can't allow pop-ups? Enter credentials manually": the manual path, offered
 // only once one-click connect didn't work.
 const ManualHint: FC<{ hint: string; label: string; onManual: () => void }> = ({
@@ -71,15 +89,7 @@ const ManualHint: FC<{ hint: string; label: string; onManual: () => void }> = ({
     >
       {hint}
     </p>
-    <button
-      id="button_showManualForm"
-      type="button"
-      onClick={onManual}
-      className="ts-text-sm ts-font-bold ts-cursor-pointer ts-underline"
-      style={{ color: '#024DF0' }}
-    >
-      {label}
-    </button>
+    <ManualButton label={label} onManual={onManual} />
   </div>
 )
 
@@ -190,15 +200,7 @@ export const WaitingCard: FC<{
       >
         {openWindowLabel}
       </StyledButton>
-      <button
-        id="button_showManualForm"
-        type="button"
-        onClick={onManual}
-        className="ts-flex-1 ts-w-full ts-text-sm ts-font-bold ts-cursor-pointer ts-underline"
-        style={{ color: '#024DF0' }}
-      >
-        {manualLabel}
-      </button>
+      <ManualButton label={manualLabel} onManual={onManual} className="ts-flex-1 ts-w-full" />
     </div>
   </PluginCard>
 )
