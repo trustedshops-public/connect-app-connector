@@ -41,7 +41,7 @@ commands:
 executors:
   node:
     docker:
-      - image: cimg/node:21.5-browsers
+      - image: cimg/node:26.13-browsers
 
 jobs:
   build_qa:
