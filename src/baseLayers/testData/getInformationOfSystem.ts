@@ -35,6 +35,18 @@ export const getInformationOfSystem = (
         // Mock: embed not yet activated, so the action-required banner is visible in dev:test.
         appEmbedActivated: false,
       }
+    case 'woocommerce':
+      return {
+        nameOfSystem: 'WooCommerce',
+        versionNumberOfSystem: 'mockBLSystemTest-0.0.1',
+        versionNumberOfPlugin: 'mockBLPlugin-0.0.1',
+        allowsEstimatedDeliveryDate: true,
+        allowsEventsByOrderStatus: true,
+        allowsSendReviewInvitesForPreviousOrders: true,
+        useVersionNumberOfConnector: '2.0',
+        allowsSupportTrstdLogin: true,
+        allowsSupportStructuredMarkup: true,
+      }
     case 'no_value':
       return {}
 

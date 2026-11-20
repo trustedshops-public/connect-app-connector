@@ -118,6 +118,8 @@ const PHRASES_TRSTD_LOGIN_KEYS: ITRSTD_LOGIN_KEYS = {
     'application.trstd_login.automatic_placement.desktop',
   application_trstd_login_action_required: 'application.trstd_login.action_required',
   application_trstd_login_action_required_shoper: 'application.trstd_login.action_required_shoper',
+  application_trstd_login_classic_theme_woocommerce:
+    'application.trstd_login.classic_theme_woocommerce',
   application_trstd_login_about_title: 'application.trstd_login.about.title',
   application_trstd_login_about_description: 'application.trstd_login.about.description',
   application_trstd_login_about_learnMore: 'application.trstd_login.about.learnMore',

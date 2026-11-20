@@ -276,6 +276,7 @@
         "mobile": "Mobile",
         "title": "Posizionamento automatico"
       },
+      "classic_theme_woocommerce": "Il posizionamento automatico funziona solo con i temi a blocchi. Se il tuo negozio usa un tema classico, aggiungi il #trstd login in Aspetto > Widget, nella sezione WooCommerce.",
       "custom_placement": {
         "description": "Necessario solo se il tuo tema non è supportato dal posizionamento automatico. Inserisci una classe o un ID CSS per posizionare manualmente il #trstd login: l’impostazione vale per tutti i tuoi temi. Se l’elemento non viene trovato, viene usato il posizionamento automatico.",
         "desktop": {
