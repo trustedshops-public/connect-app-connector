@@ -277,6 +277,7 @@
         "mobile": "Mobile",
         "title": "Automatische Platzierung"
       },
+      "classic_theme_woocommerce": "Die automatische Platzierung funktioniert nur mit Block-Themes. Wenn dein Shop ein klassisches Theme nutzt, füge den #trstd login unter Design > Widgets im Bereich WooCommerce hinzu.",
       "custom_placement": {
         "description": "Nur nötig, wenn dein Theme von der automatischen Platzierung nicht unterstützt wird. Gib eine CSS-Klasse oder -ID an, um den #trstd login manuell zu platzieren — die Einstellung gilt für alle deine Themes. Wird das Element nicht gefunden, greift die automatische Platzierung.",
         "desktop": {

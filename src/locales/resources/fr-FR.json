@@ -276,6 +276,7 @@
         "mobile": "Mobile",
         "title": "Placement automatique"
       },
+      "classic_theme_woocommerce": "Le placement automatique fonctionne uniquement avec les thèmes basés sur les blocs. Si votre boutique utilise un thème classique, ajoutez le #trstd login dans Apparence > Widgets, sous WooCommerce.",
       "custom_placement": {
         "description": "Nécessaire uniquement si votre thème n'est pas pris en charge par le placement automatique. Saisissez une classe ou un ID CSS pour placer le #trstd login manuellement — le réglage s'applique à tous vos thèmes. Si l'élément est introuvable, le placement automatique est utilisé.",
         "desktop": {
@@ -547,7 +548,7 @@
     "app_embed_banner": {
       "active": {
         "link_text": "À propos de l’intégration de l’application",
-        "link_url": "https://help.etrusted.com/hc/fr/articles/23970822885010-Utiliser-Trusted-Shops-avec-Shopify",
+        "link_url": "https://help.etrusted.com/hc/fr/articles/23970822885010-Utiliser-Trusted-Shops-avec-Shopify#activation-de-l%E2%80%99int%C3%A9gration-d%E2%80%99application-trusted-shops",
         "text": "L'intégration de l’application est activée pour votre boutique. Conservez ce réglage à l'identique sur tous les marchés, afin que les fonctionnalités continuent de fonctionner correctement.",
         "title": "Bon à savoir"
       },

@@ -276,6 +276,7 @@
         "mobile": "Mobiel",
         "title": "Automatische plaatsing"
       },
+      "classic_theme_woocommerce": "Automatische plaatsing werkt alleen met blokthema's. Gebruikt je winkel een klassiek thema, voeg de #trstd login dan toe via Weergave > Widgets onder WooCommerce.",
       "custom_placement": {
         "description": "Alleen nodig als je thema niet wordt ondersteund door automatische plaatsing. Voer een CSS-class of -ID in om de #trstd login handmatig te plaatsen — de instelling geldt voor al je thema’s. Als het element niet wordt gevonden, wordt automatische plaatsing gebruikt.",
         "desktop": {
@@ -547,7 +548,7 @@
     "app_embed_banner": {
       "active": {
         "link_text": "Over 'app embeds'",
-        "link_url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify",
+        "link_url": "https://help.etrusted.com/hc/nl/articles/23970822885010-Trusted-Shops-gebruiken-met-Shopify#activering-van-de-trusted-shopsappinsluiting",
         "text": "De app embed is ingeschakeld voor je shop. Houd deze instelling hetzelfde in alle markten, zodat de functies correct blijven werken.",
         "title": "Goed om te weten"
       },
