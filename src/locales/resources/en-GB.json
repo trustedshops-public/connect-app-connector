@@ -487,7 +487,7 @@
     },
     "error": "Copy both values again from the Control Centre. The Client ID or Client Secret doesn't match.",
     "integrationGuide": {
-      "text": "View integration guide",
+      "text": "How to connect your shop",
       "url": "https://help.etrusted.com/hc/en-gb/articles/4905016318237"
     },
     "salesLink": {
@@ -503,8 +503,8 @@
     },
     "title": "Welcome to Trusted Shops Easy Integration",
     "connect": {
-      "text": "A new window opens. Log in to your Trusted Shops Control Centre if asked, then approve the connection.",
-      "button": "Connect shop",
+      "text": "This will enable you to use all Trusted Shops features directly in your {{shopSystemName}} dashboard.",
+      "button": "Connect now",
       "waiting": "Waiting for approval",
       "waitingHint": "Approve the connection in the Trusted Shops window that just opened.",
       "windowNotShowing": "Window not showing?",
@@ -549,7 +549,8 @@
       "clientIdPlaceholder": "Paste your Client ID",
       "secretPlaceholder": "Paste your Client Secret",
       "back": "Back",
-      "connecting": "Connecting"
+      "connecting": "Connecting",
+      "emptyError": "Enter both the Client ID and the Client Secret."
     }
   },
   "channelSelect": {

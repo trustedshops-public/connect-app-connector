@@ -85,6 +85,11 @@ const LoginPageModule: FC<{
   const isManualBusy = isSubmitted && isAuthLoading
   const isManualRejected = isSubmitted && isAuthFailed && !isAuthLoading
   const hasEmptyField = emptyFields.clientId || emptyFields.clientSecret
+  // The connect card names the shop system, as the widgets tab does.
+  const systemName = infoOfSystem.nameOfSystem || ''
+  const shopSystemName = systemName
+    ? systemName.charAt(0).toUpperCase() + systemName.slice(1)
+    : 'Shop'
 
   // The token endpoint can't say which value is wrong; the secret is the one
   // usually mistyped, so it gets the red border.
@@ -163,7 +168,7 @@ const LoginPageModule: FC<{
   ) : (
     <ConnectCard
       title={phrasesByKey.authentication_credentials_connect_title}
-      text={phrasesByKey.authentication_connect_text}
+      text={phrasesByKey.authentication_connect_text.replace('{{shopSystemName}}', shopSystemName)}
       buttonLabel={phrasesByKey.authentication_connect_button}
       retryLabel={phrasesByKey.authentication_connect_retry}
       manualLabel={phrasesByKey.authentication_connect_manual}
@@ -213,7 +218,9 @@ const LoginPageModule: FC<{
 
       {(isManualRejected || hasEmptyField) && (
         <Callout id="credentialsError" tone="error" padding="14px 16px">
-          {phrasesByKey.authentication_error}
+          {hasEmptyField
+            ? phrasesByKey.authentication_manual_empty_error
+            : phrasesByKey.authentication_error}
         </Callout>
       )}
 

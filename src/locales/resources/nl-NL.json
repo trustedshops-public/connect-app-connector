@@ -473,7 +473,7 @@
     },
     "error": "Kopieer beide waarden opnieuw uit het controlecentrum. De Client ID of het Client Secret klopt niet.",
     "integrationGuide": {
-      "text": "Integratiehandleiding bekijken",
+      "text": "Zo koppel je je winkel",
       "url": "https://help.etrusted.com/hc/nl/articles/4905016318237"
     },
     "salesLink": {
@@ -487,8 +487,8 @@
     },
     "title": "Welkom bij Trusted Shops Easy Integration",
     "connect": {
-      "text": "Er opent een nieuw venster. Log indien gevraagd in bij je Trusted Shops-controlecentrum en keur daarna de koppeling goed.",
-      "button": "Winkel koppelen",
+      "text": "Zo kun je alle functies van Trusted Shops direct in je {{shopSystemName}}-dashboard gebruiken.",
+      "button": "Nu koppelen",
       "waiting": "Wachten op goedkeuring",
       "waitingHint": "Keur de koppeling goed in het Trusted Shops-venster dat net is geopend.",
       "windowNotShowing": "Zie je het venster niet?",
@@ -533,7 +533,8 @@
       "clientIdPlaceholder": "Plak je Client ID",
       "secretPlaceholder": "Plak je Client Secret",
       "back": "Terug",
-      "connecting": "Bezig met koppelen"
+      "connecting": "Bezig met koppelen",
+      "emptyError": "Vul zowel de Client ID als het Client Secret in."
     }
   },
   "channelSelect": {

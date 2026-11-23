@@ -407,6 +407,7 @@ export type AUTH_KEYS = {
   authentication_manual_secret_placeholder: string
   authentication_manual_back: string
   authentication_manual_connecting: string
+  authentication_manual_empty_error: string
 } & GLOBAL_KEYS &
   SHOPIFY_GLOBAL_KEYS
 

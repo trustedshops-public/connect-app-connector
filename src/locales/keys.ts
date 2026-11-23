@@ -101,6 +101,7 @@ export const PHRASES_AUTH_KEYS: AUTH_KEYS = {
   authentication_manual_secret_placeholder: 'authentication.manual.secretPlaceholder',
   authentication_manual_back: 'authentication.manual.back',
   authentication_manual_connecting: 'authentication.manual.connecting',
+  authentication_manual_empty_error: 'authentication.manual.emptyError',
   ...PHRASES_GLOBAL_KEYS,
   ...PHRASES_SHOPIFY_GLOBAL_KEYS,
 }

@@ -462,20 +462,20 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Verbinde deinen Shop"
+        "title": "Shop verbinden"
       },
       "help": {
         "button": {
           "text": "Deine Client ID & Client Secret findest du im [%s]Trusted Shops Kontrollzentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Diese unterscheiden sich von deinem Trusted Shops Login.",
+        "text": "Diese unterscheiden sich von deinen Trusted Shops Anmeldedaten.",
         "title": "Bist du neu hier?"
       }
     },
-    "error": "Kopiere beide Werte erneut aus dem Kontrollzentrum. Die Client ID oder das Client Secret stimmt nicht.",
+    "error": "Bitte kopiere beide Werte erneut aus dem Kontrollzentrum. Client ID oder Client Secret stimmt nicht überein.",
     "integrationGuide": {
-      "text": "Integrationsanleitung ansehen",
+      "text": "So verbindest du deinen Shop",
       "url": "https://help.etrusted.com/hc/de/articles/23970910593170"
     },
     "salesLink": {
@@ -489,11 +489,11 @@
     },
     "title": "Willkommen bei Trusted Shops Easy Integration",
     "connect": {
-      "text": "Ein neues Fenster öffnet sich. Melde dich bei Bedarf in deinem Trusted Shops Kontrollzentrum an und bestätige dann die Verbindung.",
-      "button": "Shop verbinden",
-      "waiting": "Warten auf Bestätigung",
-      "waitingHint": "Bestätige die Verbindung in dem Trusted Shops Fenster, das sich gerade geöffnet hat.",
-      "windowNotShowing": "Fenster nicht zu sehen?",
+      "text": "Verbinde deinen Shop, um alle Funktionen von Trusted Shops direkt in deinem {{shopSystemName}}-Dashboard zu nutzen.",
+      "button": "Jetzt verbinden",
+      "waiting": "Warten auf Freigabe",
+      "waitingHint": "Bitte gib die Verbindung im Trusted Shops Fenster frei, das sich gerade geöffnet hat.",
+      "windowNotShowing": "Fenster nicht sichtbar?",
       "openWindow": "Fenster öffnen",
       "manual": "Zugangsdaten manuell eingeben",
       "retry": "Erneut versuchen",
@@ -503,39 +503,40 @@
       },
       "popupBlocked": {
         "title": "Pop-ups für diese Seite erlauben",
-        "text": "Dein Browser hat das Fenster des Kontrollzentrums blockiert. Erlaube Pop-ups in der Adressleiste und versuche es dann erneut.",
-        "hint": "Pop-ups nicht möglich?"
+        "text": "Dein Browser hat das Fenster des Kontrollzentrums blockiert. Bitte erlaube Pop-ups in der Adressleiste und versuche es dann erneut.",
+        "hint": "Kannst du keine Pop-ups erlauben?"
       },
       "closed": {
-        "title": "Verbinde deinen Shop erneut",
-        "text": "Das Fenster des Kontrollzentrums wurde geschlossen, bevor dein Shop verbunden war. Versuche es erneut, wenn du bereit bist.",
-        "hint": "Funktioniert es immer noch nicht?"
+        "title": "Shop erneut verbinden",
+        "text": "Das Fenster des Kontrollzentrums hat sich geschlossen, bevor dein Shop verbunden war. Bitte versuche es erneut.",
+        "hint": "Funktioniert es weiterhin nicht?"
       },
       "accessDenied": {
-        "title": "Verbinde deinen Shop erneut",
-        "text": "Die Verbindung wurde im Kontrollzentrum abgebrochen. Versuche es erneut, wenn du bereit bist."
+        "title": "Shop erneut verbinden",
+        "text": "Die Verbindung wurde im Kontrollzentrum abgebrochen. Bitte versuche es erneut."
       },
       "failed": {
         "title": "Shop nicht verbunden",
-        "text": "Bei uns ist etwas schiefgelaufen. Versuche es gleich noch einmal."
+        "text": "Bei uns ist etwas schiefgelaufen. Bitte versuche es gleich noch einmal."
       },
       "credentialsRejected": {
-        "title": "Verbinde deinen Shop erneut",
-        "text": "Die Zugangsdaten deines Shops wurden im Kontrollzentrum gelöscht. Verbinde ihn erneut, um die Verbindung wiederherzustellen."
+        "title": "Shop erneut verbinden",
+        "text": "Die Zugangsdaten deines Shops wurden im Kontrollzentrum gelöscht. Bitte verbinde den Shop erneut, um die Verbindung wiederherzustellen."
       },
       "disconnected": {
         "title": "Shop getrennt",
-        "text": "Dein Shop ist nicht mehr verbunden. Du kannst ihn jederzeit wieder verbinden."
+        "text": "Dein Shop ist nicht mehr verbunden. Du kannst ihn jederzeit erneut verbinden."
       }
     },
     "manual": {
       "title": "Zugangsdaten manuell eingeben",
-      "text": "Hol dir deine Plugin-Zugangsdaten im Kontrollzentrum. Kopiere dann die Client ID und das Client Secret in die Felder unten.",
+      "text": "Rufe deine Plug-in-Zugangsdaten im Kontrollzentrum ab. Kopiere dann Client ID und Client Secret in die Felder unten.",
       "getCredentials": "Zugangsdaten abrufen",
       "clientIdPlaceholder": "Client ID einfügen",
       "secretPlaceholder": "Client Secret einfügen",
       "back": "Zurück",
-      "connecting": "Wird verbunden"
+      "connecting": "Wird verbunden",
+      "emptyError": "Bitte gib Client ID und Client Secret ein."
     }
   },
   "channelSelect": {

@@ -473,7 +473,7 @@
     },
     "error": "Copia di nuovo entrambi i valori dal Centro di Controllo. Il Client ID o il Client Secret non corrisponde.",
     "integrationGuide": {
-      "text": "Consulta la guida all’integrazione",
+      "text": "Come collegare il tuo negozio",
       "url": "https://help.etrusted.com/hc/it/articles/4905016318237"
     },
     "salesLink": {
@@ -487,8 +487,8 @@
     },
     "title": "Ti diamo il benvenuto a Easy Integration di Trusted Shops!",
     "connect": {
-      "text": "Si apre una nuova finestra. Se richiesto, accedi al tuo Centro di Controllo Trusted Shops e approva la connessione.",
-      "button": "Collega negozio",
+      "text": "Così potrai usare tutte le funzionalità di Trusted Shops direttamente nella dashboard di {{shopSystemName}}.",
+      "button": "Collega ora",
       "waiting": "In attesa di approvazione",
       "waitingHint": "Approva la connessione nella finestra di Trusted Shops appena aperta.",
       "windowNotShowing": "Non vedi la finestra?",
@@ -533,7 +533,8 @@
       "clientIdPlaceholder": "Incolla il tuo Client ID",
       "secretPlaceholder": "Incolla il tuo Client Secret",
       "back": "Indietro",
-      "connecting": "Connessione in corso"
+      "connecting": "Connessione in corso",
+      "emptyError": "Inserisci sia il Client ID sia il Client Secret."
     }
   },
   "channelSelect": {
