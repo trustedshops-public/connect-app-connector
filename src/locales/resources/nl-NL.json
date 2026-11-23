@@ -461,20 +461,20 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Verbind je webshop met #trstd"
+        "title": "Koppel je winkel"
       },
       "help": {
         "button": {
           "text": "Zoek je Client ID en Client Secret in het [%s]Trusted Shops-controlecentrum[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Deze gegevens zijn niet hetzelfde als je Trusted Shops-aanmeldingsgegevens.",
+        "text": "Deze zijn anders dan je Trusted Shops-login.",
         "title": "Ben je hier nieuw?"
       }
     },
-    "error": "Foutmelding: zorg ervoor dat je de juiste Client Credentials gebruikt.",
+    "error": "Kopieer beide waarden opnieuw uit het controlecentrum. De Client ID of het Client Secret klopt niet.",
     "integrationGuide": {
-      "text": "Integratiehandleiding bekijken",
+      "text": "Zo koppel je je winkel",
       "url": "https://help.etrusted.com/hc/nl/articles/4905016318237"
     },
     "salesLink": {
@@ -486,7 +486,57 @@
       "text": "[%s]Hulp nodig bij het aanmaken van de Client ID en Client Secret?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Welkom bij Trusted Shops Easy Integration"
+    "title": "Welkom bij Trusted Shops Easy Integration",
+    "connect": {
+      "text": "Zo kun je alle functies van Trusted Shops direct in je {{shopSystemName}}-dashboard gebruiken.",
+      "button": "Nu koppelen",
+      "waiting": "Wachten op goedkeuring",
+      "waitingHint": "Keur de koppeling goed in het Trusted Shops-venster dat net is geopend.",
+      "windowNotShowing": "Zie je het venster niet?",
+      "openWindow": "Venster openen",
+      "manual": "Inloggegevens handmatig invoeren",
+      "retry": "Opnieuw proberen",
+      "finishing": {
+        "title": "Bijna klaar",
+        "text": "Je winkel rondt de koppeling af."
+      },
+      "popupBlocked": {
+        "title": "Sta pop-ups toe voor deze pagina",
+        "text": "Je browser heeft het venster van het controlecentrum geblokkeerd. Sta pop-ups toe in de adresbalk en probeer het opnieuw.",
+        "hint": "Kun je geen pop-ups toestaan?"
+      },
+      "closed": {
+        "title": "Koppel je winkel opnieuw",
+        "text": "Het venster van het controlecentrum is gesloten voordat je winkel was gekoppeld. Probeer het opnieuw wanneer je klaar bent.",
+        "hint": "Werkt het nog steeds niet?"
+      },
+      "accessDenied": {
+        "title": "Koppel je winkel opnieuw",
+        "text": "De koppeling is geannuleerd in het controlecentrum. Probeer het opnieuw wanneer je klaar bent."
+      },
+      "failed": {
+        "title": "Winkel niet gekoppeld",
+        "text": "Er is bij ons iets misgegaan. Probeer het zo opnieuw."
+      },
+      "credentialsRejected": {
+        "title": "Koppel je winkel opnieuw",
+        "text": "De inloggegevens van je winkel zijn verwijderd in het controlecentrum. Koppel opnieuw om de verbinding te herstellen."
+      },
+      "disconnected": {
+        "title": "Winkel ontkoppeld",
+        "text": "Je winkel is niet meer gekoppeld. Je kunt hem op elk moment opnieuw koppelen."
+      }
+    },
+    "manual": {
+      "title": "Inloggegevens handmatig invoeren",
+      "text": "Haal je plugin-inloggegevens op in het controlecentrum. Kopieer daarna de Client ID en het Client Secret naar de velden hieronder.",
+      "getCredentials": "Inloggegevens ophalen",
+      "clientIdPlaceholder": "Plak je Client ID",
+      "secretPlaceholder": "Plak je Client Secret",
+      "back": "Terug",
+      "connecting": "Bezig met koppelen",
+      "emptyError": "Vul zowel de Client ID als het Client Secret in."
+    }
   },
   "channelSelect": {
     "info": "Let op: je kunt je keuze op elk gewenst moment in de instellingen bewerken",

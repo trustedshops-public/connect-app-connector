@@ -461,20 +461,20 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Connectez votre boutique à #trstd"
+        "title": "Connectez votre boutique"
       },
       "help": {
         "button": {
           "text": "Retrouvez votre Client ID et votre Client Secret dans le [%s]Centre de contrôle de Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Ce ne sont pas vos identifiants de connexion Trusted Shops",
+        "text": "Ils sont différents de vos identifiants de connexion Trusted Shops.",
         "title": "Êtes-vous nouveau ici ?"
       }
     },
-    "error": "Erreur : assurez-vous d’utiliser les bonnes Client Credentials.",
+    "error": "Copiez à nouveau les deux valeurs depuis le Centre de contrôle. Le Client ID ou le Client Secret ne correspond pas.",
     "integrationGuide": {
-      "text": "Voir le guide d’intégration",
+      "text": "Comment connecter votre boutique",
       "url": "https://help.etrusted.com/hc/fr/articles/4905016318237"
     },
     "salesLink": {
@@ -486,7 +486,57 @@
       "text": "[%s]Besoin d’aide pour créer votre identifiant client et le secret client ?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Bienvenue chez Trusted Shops Easy Integration !"
+    "title": "Bienvenue chez Trusted Shops Easy Integration !",
+    "connect": {
+      "text": "Vous pourrez ainsi utiliser toutes les fonctionnalités de Trusted Shops directement dans votre tableau de bord {{shopSystemName}}.",
+      "button": "Connecter maintenant",
+      "waiting": "En attente d'approbation",
+      "waitingHint": "Approuvez la connexion dans la fenêtre Trusted Shops qui vient de s'ouvrir.",
+      "windowNotShowing": "La fenêtre ne s'affiche pas ?",
+      "openWindow": "Ouvrir la fenêtre",
+      "manual": "Saisir les identifiants manuellement",
+      "retry": "Réessayer",
+      "finishing": {
+        "title": "Presque terminé",
+        "text": "Votre boutique finalise la connexion."
+      },
+      "popupBlocked": {
+        "title": "Autorisez les fenêtres pop-up pour cette page",
+        "text": "Votre navigateur a bloqué la fenêtre du Centre de contrôle. Autorisez les pop-up dans la barre d'adresse, puis réessayez.",
+        "hint": "Impossible d'autoriser les pop-up ?"
+      },
+      "closed": {
+        "title": "Connectez à nouveau votre boutique",
+        "text": "La fenêtre du Centre de contrôle a été fermée avant la connexion de votre boutique. Réessayez quand vous êtes prêt.",
+        "hint": "Toujours pas ?"
+      },
+      "accessDenied": {
+        "title": "Connectez à nouveau votre boutique",
+        "text": "La connexion a été annulée dans le Centre de contrôle. Réessayez quand vous êtes prêt."
+      },
+      "failed": {
+        "title": "Boutique non connectée",
+        "text": "Un problème est survenu de notre côté. Réessayez dans un instant."
+      },
+      "credentialsRejected": {
+        "title": "Connectez à nouveau votre boutique",
+        "text": "Les identifiants utilisés par votre boutique ont été supprimés dans le Centre de contrôle. Reconnectez-la pour rétablir la connexion."
+      },
+      "disconnected": {
+        "title": "Boutique déconnectée",
+        "text": "Votre boutique n'est plus connectée. Vous pouvez la reconnecter à tout moment."
+      }
+    },
+    "manual": {
+      "title": "Saisir les identifiants manuellement",
+      "text": "Récupérez les identifiants du plugin dans le Centre de contrôle. Copiez ensuite le Client ID et le Client Secret dans les champs ci-dessous.",
+      "getCredentials": "Obtenir les identifiants",
+      "clientIdPlaceholder": "Collez votre Client ID",
+      "secretPlaceholder": "Collez votre Client Secret",
+      "back": "Retour",
+      "connecting": "Connexion en cours",
+      "emptyError": "Saisissez le Client ID et le Client Secret."
+    }
   },
   "channelSelect": {
     "info": "Attention : vous pouvez modifier votre choix à tout moment dans les paramètres",

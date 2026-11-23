@@ -460,20 +460,20 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Associe a sua a loja a #trstd"
+        "title": "Ligue a sua loja"
       },
       "help": {
         "button": {
           "text": "Encontre o Client ID e Client Secret no [%s]Centro de Controlo da Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Estes são diferentes das suas credenciais de início de sessão Trusted Shops",
+        "text": "São diferentes dos seus dados de início de sessão da Trusted Shops.",
         "title": "É novo aqui?"
       }
     },
-    "error": "Erro: certifique-se de que utiliza as Client Credentials corretas.",
+    "error": "Copie novamente ambos os valores do Centro de Controlo. O Client ID ou o Client Secret não corresponde.",
     "integrationGuide": {
-      "text": "Ver guia de integração",
+      "text": "Como ligar a sua loja",
       "url": "https://help.etrusted.com/hc/pt/articles/4905016318237"
     },
     "salesLink": {
@@ -485,7 +485,57 @@
       "text": "[%s]Precisa de ajuda para criar a ID do Cliente e a Senha Secreta do Cliente?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Bem-vindo à Integração fácil da Trusted Shops"
+    "title": "Bem-vindo à Integração fácil da Trusted Shops",
+    "connect": {
+      "text": "Assim, poderá utilizar todas as funcionalidades da Trusted Shops diretamente no painel de {{shopSystemName}}.",
+      "button": "Ligar agora",
+      "waiting": "A aguardar aprovação",
+      "waitingHint": "Aprove a ligação na janela da Trusted Shops que acabou de abrir.",
+      "windowNotShowing": "Não vê a janela?",
+      "openWindow": "Abrir janela",
+      "manual": "Introduzir credenciais manualmente",
+      "retry": "Tentar novamente",
+      "finishing": {
+        "title": "Quase concluído",
+        "text": "A sua loja está a concluir a ligação."
+      },
+      "popupBlocked": {
+        "title": "Permita pop-ups nesta página",
+        "text": "O seu navegador bloqueou a janela do Centro de Controlo. Permita pop-ups na barra de endereço e tente novamente.",
+        "hint": "Não pode permitir pop-ups?"
+      },
+      "closed": {
+        "title": "Ligue novamente a sua loja",
+        "text": "A janela do Centro de Controlo fechou antes de a sua loja ficar ligada. Tente novamente quando estiver pronto.",
+        "hint": "Continua sem funcionar?"
+      },
+      "accessDenied": {
+        "title": "Ligue novamente a sua loja",
+        "text": "A ligação foi cancelada no Centro de Controlo. Tente novamente quando estiver pronto."
+      },
+      "failed": {
+        "title": "Loja não ligada",
+        "text": "Ocorreu um erro do nosso lado. Tente novamente dentro de momentos."
+      },
+      "credentialsRejected": {
+        "title": "Ligue novamente a sua loja",
+        "text": "As credenciais que a sua loja usava foram eliminadas no Centro de Controlo. Ligue-a novamente para restabelecer a ligação."
+      },
+      "disconnected": {
+        "title": "Loja desligada",
+        "text": "A sua loja já não está ligada. Pode voltar a ligá-la a qualquer momento."
+      }
+    },
+    "manual": {
+      "title": "Introduzir credenciais manualmente",
+      "text": "Obtenha as credenciais do plugin no Centro de Controlo. Depois copie o Client ID e o Client Secret para os campos abaixo.",
+      "getCredentials": "Obter credenciais",
+      "clientIdPlaceholder": "Cole o seu Client ID",
+      "secretPlaceholder": "Cole o seu Client Secret",
+      "back": "Voltar",
+      "connecting": "A ligar",
+      "emptyError": "Introduza o Client ID e o Client Secret."
+    }
   },
   "channelSelect": {
     "info": "Nota: pode editar a sua escolha a qualquer momento nas definições",

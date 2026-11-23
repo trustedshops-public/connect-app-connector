@@ -376,6 +376,38 @@ export type AUTH_KEYS = {
   authentication_supporthelp_url_1: string
   authentication_integration_guide_text: string
   authentication_integration_guide_url: string
+  authentication_connect_text: string
+  authentication_connect_button: string
+  authentication_connect_waiting: string
+  authentication_connect_waiting_hint: string
+  authentication_connect_window_not_showing: string
+  authentication_connect_open_window: string
+  authentication_connect_manual: string
+  authentication_connect_retry: string
+  authentication_connect_finishing_title: string
+  authentication_connect_finishing_text: string
+  authentication_connect_popup_blocked_title: string
+  authentication_connect_popup_blocked_text: string
+  authentication_connect_popup_blocked_hint: string
+  authentication_connect_closed_title: string
+  authentication_connect_closed_text: string
+  authentication_connect_closed_hint: string
+  authentication_connect_access_denied_title: string
+  authentication_connect_access_denied_text: string
+  authentication_connect_failed_title: string
+  authentication_connect_failed_text: string
+  authentication_connect_credentials_rejected_title: string
+  authentication_connect_credentials_rejected_text: string
+  authentication_connect_disconnected_title: string
+  authentication_connect_disconnected_text: string
+  authentication_manual_title: string
+  authentication_manual_text: string
+  authentication_manual_get_credentials: string
+  authentication_manual_client_placeholder: string
+  authentication_manual_secret_placeholder: string
+  authentication_manual_back: string
+  authentication_manual_connecting: string
+  authentication_manual_empty_error: string
 } & GLOBAL_KEYS &
   SHOPIFY_GLOBAL_KEYS
 

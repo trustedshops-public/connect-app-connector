@@ -9,6 +9,9 @@ const NAME_OF_APP = process.env.VITE_NAME_OF_APP
 
 class AuthenticationService {
   static api: AxiosInstance
+  // HTTP status of the last failed login, so a rejected client can be told
+  // apart from a network failure.
+  lastFailureStatus: Nullable<number> = null
 
   constructor(apiFetch: AxiosInstance) {
     AuthenticationService.api = apiFetch
@@ -16,6 +19,7 @@ class AuthenticationService {
 
   async login(credentials: IAuthRequest, infoOfSystem?: IUserInfo) {
     const { clientId, clientSecret } = credentials
+    this.lastFailureStatus = null
     const data = new URLSearchParams()
     data.append('grant_type', 'client_credentials')
     data.append('client_id', clientId.replace(/\s+/g, ''))
@@ -35,6 +39,7 @@ class AuthenticationService {
       })
       return result.data
     } catch (error) {
+      this.lastFailureStatus = axios.isAxiosError(error) ? error.response?.status ?? null : null
       console.info('error', error)
     }
   }

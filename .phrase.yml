@@ -1,0 +1,13 @@
+phrase:
+  project_id: "303b1df5124fcc6ef756f2368366a0df"
+  push:
+    sources:
+      - file: ./src/locales/resources/<locale_name>.json
+        params:
+          file_format: i18next
+          update_translations: true
+  pull:
+    targets:
+      - file: ./src/locales/resources/<locale_name>.json
+        params:
+          file_format: i18next

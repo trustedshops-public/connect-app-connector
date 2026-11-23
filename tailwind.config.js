@@ -14,6 +14,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Roboto', 'sans-serif'],
+        // The connect screens' type, as in the shop admins that bring it; Roboto elsewhere.
+        inter: ['Inter', 'Roboto', 'sans-serif'],
         code: ['Monaco', 'monospace', 'sans-serif'],
       },
       fontSize: {

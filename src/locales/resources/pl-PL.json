@@ -461,20 +461,20 @@
     "client": "Client ID",
     "credentials": {
       "connect": {
-        "title": "Połącz swój sklep z #trstd"
+        "title": "Połącz swój sklep"
       },
       "help": {
         "button": {
           "text": "Znajdź swój Client ID i Client Secret w [%s]Centrum Kontrolnym Trusted Shops[%s]",
           "url": "https://app.etrusted.[STAGE]/settings/sso-clients"
         },
-        "text": "Różnią się one od danych logowania do Trusted Shops",
+        "text": "Różnią się one od danych logowania do Trusted Shops.",
         "title": "Jesteś tu nowy?"
       }
     },
-    "error": "Błąd: upewnij się, że używasz prawidłowych danych uwierzytelniających Client Credentials.",
+    "error": "Skopiuj ponownie obie wartości z Centrum Kontrolnego. Client ID lub Client Secret się nie zgadza.",
     "integrationGuide": {
-      "text": "Wyświetl przewodnik po integracji",
+      "text": "Jak połączyć sklep",
       "url": "https://help.etrusted.com/hc/pl/articles/4905016318237"
     },
     "salesLink": {
@@ -486,7 +486,57 @@
       "text": "[%s]Potrzebujesz pomocy przy tworzeniu ID klienta i Client Secret?[%s]",
       "url_1": "mailto:members@trustedshops.com"
     },
-    "title": "Witamy w Łatwa Integracja Trusted Shops"
+    "title": "Witamy w Łatwa Integracja Trusted Shops",
+    "connect": {
+      "text": "Dzięki temu skorzystasz ze wszystkich funkcji Trusted Shops bezpośrednio w panelu {{shopSystemName}}.",
+      "button": "Połącz teraz",
+      "waiting": "Oczekiwanie na zatwierdzenie",
+      "waitingHint": "Zatwierdź połączenie w oknie Trusted Shops, które właśnie się otworzyło.",
+      "windowNotShowing": "Nie widzisz okna?",
+      "openWindow": "Otwórz okno",
+      "manual": "Wprowadź dane dostępowe ręcznie",
+      "retry": "Spróbuj ponownie",
+      "finishing": {
+        "title": "Prawie gotowe",
+        "text": "Twój sklep kończy łączenie."
+      },
+      "popupBlocked": {
+        "title": "Zezwól na wyskakujące okna dla tej strony",
+        "text": "Przeglądarka zablokowała okno Centrum Kontrolnego. Zezwól na wyskakujące okna na pasku adresu, a następnie spróbuj ponownie.",
+        "hint": "Nie możesz zezwolić na wyskakujące okna?"
+      },
+      "closed": {
+        "title": "Połącz sklep ponownie",
+        "text": "Okno Centrum Kontrolnego zostało zamknięte, zanim sklep został połączony. Spróbuj ponownie, gdy będziesz gotowy.",
+        "hint": "Nadal nie działa?"
+      },
+      "accessDenied": {
+        "title": "Połącz sklep ponownie",
+        "text": "Połączenie zostało anulowane w Centrum Kontrolnym. Spróbuj ponownie, gdy będziesz gotowy."
+      },
+      "failed": {
+        "title": "Sklep nie został połączony",
+        "text": "Coś poszło nie tak po naszej stronie. Spróbuj ponownie za chwilę."
+      },
+      "credentialsRejected": {
+        "title": "Połącz sklep ponownie",
+        "text": "Dane dostępowe używane przez Twój sklep zostały usunięte w Centrum Kontrolnym. Połącz sklep ponownie, aby przywrócić połączenie."
+      },
+      "disconnected": {
+        "title": "Sklep odłączony",
+        "text": "Twój sklep nie jest już połączony. Możesz go połączyć ponownie w dowolnym momencie."
+      }
+    },
+    "manual": {
+      "title": "Wprowadź dane dostępowe ręcznie",
+      "text": "Pobierz dane dostępowe wtyczki w Centrum Kontrolnym. Następnie skopiuj Client ID i Client Secret do poniższych pól.",
+      "getCredentials": "Pobierz dane dostępowe",
+      "clientIdPlaceholder": "Wklej Client ID",
+      "secretPlaceholder": "Wklej Client Secret",
+      "back": "Wstecz",
+      "connecting": "Łączenie",
+      "emptyError": "Wpisz Client ID i Client Secret."
+    }
   },
   "channelSelect": {
     "info": "Uwaga: wybór można w każdej chwili zmienić w ustawieniach",
