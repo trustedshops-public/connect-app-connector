@@ -276,7 +276,6 @@
         "mobile": "Mobile",
         "title": "Automatyczne rozmieszczenie"
       },
-      "classic_theme_woocommerce": "Automatyczne umieszczanie działa tylko z motywami blokowymi. Jeśli twój sklep korzysta z motywu klasycznego, dodaj #trstd login w Wygląd > Widżety w sekcji WooCommerce.",
       "custom_placement": {
         "description": "Potrzebne tylko wtedy, gdy Twój motyw nie jest obsługiwany przez automatyczne umiejscowienie. Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login — ustawienie dotyczy wszystkich Twoich motywów. Jeśli element nie zostanie znaleziony, użyte zostanie umiejscowienie automatyczne.",
         "desktop": {
