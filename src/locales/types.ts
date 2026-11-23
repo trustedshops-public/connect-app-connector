@@ -453,6 +453,7 @@ export type ITRSTD_LOGIN_KEYS = {
   application_trstd_login_automatic_placement_desktop: string
   application_trstd_login_action_required: string
   application_trstd_login_action_required_shoper: string
+  application_trstd_login_classic_theme_woocommerce: string
   application_trstd_login_about_title: string
   application_trstd_login_about_description: string
   application_trstd_login_about_learnMore: string

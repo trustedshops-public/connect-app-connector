@@ -276,6 +276,7 @@
         "mobile": "Mobile",
         "title": "Automatyczne rozmieszczenie"
       },
+      "classic_theme_woocommerce": "Automatyczne umieszczanie działa tylko z motywami blokowymi. Jeśli twój sklep korzysta z motywu klasycznego, dodaj #trstd login w Wygląd > Widżety w sekcji WooCommerce.",
       "custom_placement": {
         "description": "Potrzebne tylko wtedy, gdy Twój motyw nie jest obsługiwany przez automatyczne umiejscowienie. Podaj klasę lub identyfikator CSS, aby ręcznie umieścić #trstd login — ustawienie dotyczy wszystkich Twoich motywów. Jeśli element nie zostanie znaleziony, użyte zostanie umiejscowienie automatyczne.",
         "desktop": {
@@ -596,13 +597,13 @@
   "shopify": {
     "app_embed_banner": {
       "active": {
-        "link_text": "O app embeds",
-        "link_url": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify",
-        "text": "App embed jest włączony w Twoim sklepie. Zachowaj to samo ustawienie na wszystkich rynkach, aby funkcje działały poprawnie.",
+        "link_text": "Informacje o osadzeniu aplikacji",
+        "link_url": "https://help.etrusted.com/hc/pl/articles/23970822885010-Korzystanie-z-Trusted-Shops-z-Shopify#aktywacja-osadzenia-aplikacji-trusted-shops",
+        "text": "Osadzenie aplikacji jest włączone w Twoim sklepie. Zachowaj to samo ustawienie na wszystkich rynkach, aby funkcje nadal działały prawidłowo.",
         "title": "Warto wiedzieć"
       },
       "button": "Włącz",
-      "text": "Włącz wbudowanie aplikacji w edytorze motywu, a następnie wybierz <strong>Zapisz</strong>, aby wszystkie funkcje Trusted Shops działały prawidłowo.",
+      "text": "Włącz osadzenie aplikacji w edytorze motywu, a następnie wybierz &lt;strong&gt;Zapisz&lt;/strong&gt;, aby wszystkie funkcje Trusted Shops nadal działały prawidłowo.",
       "title": "Wymagane działanie"
     },
     "global": {

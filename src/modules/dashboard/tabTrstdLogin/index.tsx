@@ -33,6 +33,9 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
   // Shopify gets the global app-embed activation banner (with deep link) on dashboard
   // level instead; the tab-local hint remains for shop systems without a deep link.
   const showActionRequired = isEnabled && shopSystemName.toLowerCase() === 'shoper'
+  // WooCommerce places the #trstd login automatically on block themes only; classic
+  // themes need the widget the plugin registers under Appearance > Widgets.
+  const showClassicThemeHint = isEnabled && shopSystemName.toLowerCase() === 'woocommerce'
   const showCustomPlacement =
     isEnabled && (infoOfSystem?.allowsSupportTrstdLoginCustomization ?? false)
 
@@ -175,6 +178,20 @@ const TrstdLoginTab: FC<TabProps> = ({ phrasesByKey }) => {
                   ).replace('{{shopSystemName}}', capitalizedShopName),
                 }}
               />
+            </div>
+          )}
+
+          {showClassicThemeHint && (
+            <div
+              id="trstdLogin_classic_theme_hint"
+              data-testid="trstdLogin_classic_theme_hint"
+              className="ts-flex ts-items-center ts-gap-3 ts-rounded-lg ts-p-4 ts-mt-5"
+              style={{ backgroundColor: '#EFF6FF', border: '1px solid #DBEAFE' }}
+            >
+              <InfoCircleOutlinedIcon size={16} customClass="ts-flex-shrink-0 ts-text-blue-500" />
+              <p className="ts-text-sm ts-font-normal ts-text-default">
+                {phrasesByKey.application_trstd_login_classic_theme_woocommerce}
+              </p>
             </div>
           )}
 

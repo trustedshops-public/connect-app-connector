@@ -1,3 +1,10 @@
+## [1.26.0](https://github.com/trustedshops-public/connect-app-connector/compare/1.25.1...1.26.0) (2026-11-23)
+
+
+### Features
+
+* tell WooCommerce merchants how to add the [#trstd](https://github.com/trustedshops-public/connect-app-connector/issues/trstd) login on classic themes ([df618b2](https://github.com/trustedshops-public/connect-app-connector/commit/df618b2159705d4c8c7ea9a2a3eac747f2fef209))
+
 ## [1.25.1](https://github.com/trustedshops-public/connect-app-connector/compare/1.25.0...1.25.1) (2026-09-29)
 
 
